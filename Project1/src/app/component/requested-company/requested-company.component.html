@@ -1,0 +1,22 @@
+<h2 class="title">Requested Company Details</h2>
+<br>
+<div class="container">
+<table class="table">
+    <thead>
+  <tr>
+    <th> Company Name    </th>
+    <th> Location    </th>
+    <th> Email    </th>
+    <th> Contact No    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let company of companys">
+      <td>{{company.name}} </td>
+      <td>{{company.location}}</td>
+      <td>{{company.email}}</td>
+      <td>{{company.contactNo}}</td>
+  </tr>
+</tbody>
+</table>
+</div>

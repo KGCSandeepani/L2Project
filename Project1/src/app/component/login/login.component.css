@@ -1,0 +1,75 @@
+/* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+    width: 40%;
+    margin-left: 30%;
+    margin-right:30%;
+    margin-top: 50px;
+    text-align:center;
+    background-color:#838286;
+}
+
+/* Set style for title */
+.title {
+    text-align:center; 
+    padding: 12px 20px;   
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* Set a style for all buttons */
+#login {
+    background-color: rgb(52, 51, 70);
+    color: white;
+    padding: 14px 20px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 20%;
+}
+#signup {
+    background-color: rgb(240, 240, 243);
+    color: rgb(19, 16, 177);
+    padding: 14px 20px;
+    margin: 15px 10px;
+    border: 1px solid #5479f0;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 20%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px; 
+    background-color:#bdbcc2;  
+}
+
+/* The "Forgot password" text */
+.span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span on extra small screens */
+@media screen and (max-width: 300px) {
+    .span.psw {
+        display: block;
+        float: none;
+    }
+    
+}

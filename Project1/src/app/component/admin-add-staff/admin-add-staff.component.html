@@ -1,0 +1,26 @@
+<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+  
+
+    <div class="container">
+        
+      <label for="name"><b>Name with initials : &nbsp;&nbsp;</b></label>
+      <input type="text" placeholder="Enter Name" name="name" required ngModel><br>
+      
+      <label for="uname"><b>Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp; </b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required ngModel><br>
+
+      <label for="psw"><b>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required ngModel><br>
+
+      <label for="email"><b>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required ngModel><br>
+
+      <label for="contactno"><b>Contact No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   : &nbsp;&nbsp;</b></label>
+      <input type="text" placeholder="Enter Contact No" name="contactno" required ngModel><br>
+      
+        <button id="add" type="submit" >Add</button>
+        <button id="clear" type="button">Clear</button><br>
+    
+    </div>
+    
+    </form>

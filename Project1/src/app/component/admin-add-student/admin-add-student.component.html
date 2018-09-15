@@ -1,0 +1,18 @@
+<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+  
+
+<div class="container" >
+    
+  <label for="uname"><b id="username">Username : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+  <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username" ><br>
+
+
+  <label for="psw"><b>Password : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+  <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
+  
+    <button id="add" type="submit" >Add</button>
+    <button id="clear" type="button" (click)="username='';password=''">Clear</button><br>
+
+</div>
+
+</form>

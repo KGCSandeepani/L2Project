@@ -1,0 +1,18 @@
+<h2 class="title">Student Details</h2>
+<br>
+<div class="container">
+<table class="table">
+    <thead>
+  <tr>
+    <th> Student name     </th>
+    <th> Password    </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let student of students">
+      <td>{{student.name}} </td>
+      <td>{{student.password}}</td>
+  </tr>
+</tbody>
+</table>
+</div>
