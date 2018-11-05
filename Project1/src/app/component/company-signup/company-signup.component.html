@@ -1,0 +1,30 @@
+<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+  
+
+  <div class="container" >
+      
+    <div class="row">
+      <div class="column1">
+        <label for="cname"><b id="copanyname">Company Name : </b></label><br>
+        <label for="cpname"><b id="cpname">Contact Person Name : </b></label><br>
+        <label for="location"><b id="location">Location : </b></label><br>
+        <label for="contactno"><b id="contactno">Contact No : </b></label><br>
+        <label for="email"><b id="email">Email : </b></label><br>
+        <label for="psw"><b>Password :</b></label><br>
+      </div>
+      <div class="column2">
+        <input type="text" placeholder="Enter Company Name" name="cname" [(ngModel)]="copanyname" ><br>
+        <input type="text" placeholder="Enter Contact Person Name" name="cpname" [(ngModel)]="cpname" ><br>
+        <input type="text" placeholder="Enter Location" name="location" [(ngModel)]="location" ><br>
+        <input type="text" placeholder="Enter Contact No" name="contactno" [(ngModel)]="contactno" ><br>   
+        <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="email" ><br>       
+        <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
+      </div>
+    </div>
+  
+      <button id="add" type="submit" >Add</button>
+      <button id="clear" type="button" (click)="copanyname='';cpname='';location='';contactno='';email='';password=''">Clear</button><br>
+  
+  </div>
+  
+  </form>

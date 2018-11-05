@@ -13,7 +13,7 @@
     <input type="password" #psw placeholder="Enter Password" name="psw" required><br>
     
       <button id="login" type="submit" (click)="adminLogin(uname.value,psw.value)">Login</button>
-      <button id="signup" type="button">Sign up</button><br>
+      <button id="signup" type="button" (click)="signup()">Sign up</button><br>
     
     <label style="float: left">
       <input type="checkbox" checked="checked" name="remember" > Remember me

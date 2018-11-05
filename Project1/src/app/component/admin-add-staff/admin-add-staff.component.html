@@ -2,21 +2,24 @@
   
 
     <div class="container">
-        
-      <label for="name"><b>Name with initials : &nbsp;&nbsp;</b></label>
-      <input type="text" placeholder="Enter Name" name="name" required ngModel><br>
+      <div class="row">
+        <div class="column1"> 
+          <label for="name"><b>Name with initials : </b></label><br>
+          <label for="uname"><b>Username : </b></label><br>
+          <label for="psw"><b>Password : </b></label><br>
+          <label for="email"><b>Email : </b></label><br>
+          <label for="contactno"><b>Contact No : </b></label><br>
+        </div>
+      <div class="column2">
+          <input type="text" placeholder="Enter Name" name="name" required ngModel><br>     
+          <input type="text" placeholder="Enter Username" name="uname" required ngModel><br>      
+          <input type="password" placeholder="Enter Password" name="psw" required ngModel><br>     
+          <input type="text" placeholder="Enter Email" name="email" required ngModel><br>
+          <input type="text" placeholder="Enter Contact No" name="contactno" required ngModel><br>
+      </div>
+    </div>
       
-      <label for="uname"><b>Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp; </b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required ngModel><br>
-
-      <label for="psw"><b>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required ngModel><br>
-
-      <label for="email"><b>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required ngModel><br>
-
-      <label for="contactno"><b>Contact No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   : &nbsp;&nbsp;</b></label>
-      <input type="text" placeholder="Enter Contact No" name="contactno" required ngModel><br>
+      
       
         <button id="add" type="submit" >Add</button>
         <button id="clear" type="button">Clear</button><br>

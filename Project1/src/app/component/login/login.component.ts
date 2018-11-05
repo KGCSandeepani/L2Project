@@ -20,6 +20,13 @@ export class LoginComponent implements OnInit {
     if (uname=='admin' && psw=='admin'){
       this.router.navigate(['/adminHomePage']);
     }
+    if (uname=='company' && psw=='company'){
+      this.router.navigate(['/companyProfile']);
+    }
+  }
+
+  signup(){
+    this.router.navigate(['/companySignup']);
   }
 
 }

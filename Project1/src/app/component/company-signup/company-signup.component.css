@@ -3,7 +3,7 @@ form {
     border: none;
     width: 98%;
     background-color: rgb(255, 255, 255);
-    padding: 10px 20px; 
+    padding: 150px 20px; 
 }
 
 /* Full-width inputs */
@@ -20,7 +20,7 @@ input[type=text], input[type=password] {
 /* Create two equal columns that floats next to each other */
 .column1 {
     float: left;
-    width: 20%;   
+    width: 30%;   
 }
 
 .column2 {
@@ -28,15 +28,15 @@ input[type=text], input[type=password] {
     width: 70%;    
 }
 
-label{
-    padding: 24px 10px;
-}
-
 /* Clear floats after the columns */
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+label{
+    padding: 24px 10px;
 }
 
 /* Set a style for all buttons */
@@ -69,8 +69,15 @@ button:hover {
 }
 
 /* Add padding to containers */
-.container {
-    padding: 16px; 
-     
+
+input[type=text], input[type=password] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
+
 

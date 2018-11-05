@@ -16,6 +16,10 @@ import { AdminAddStaffComponent } from './component/admin-add-staff/admin-add-st
 import { AdminViewSupervisorComponent } from './component/admin-view-supervisor/admin-view-supervisor.component';
 import { RequestedCompanyComponent } from './component/requested-company/requested-company.component';
 import { AdminViewCompanyComponent } from './component/admin-view-company/admin-view-company.component';
+import { CompanyProfileComponent } from './component/company-profile/company-profile.component';
+import { CompanySignupComponent } from './component/company-signup/company-signup.component';
+import { AdminAddStaffServiceService } from './component/Services/admin-add-staff-service.service';
+import { CompanySignupService } from './component/Services/company-signup.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,9 @@ import { AdminViewCompanyComponent } from './component/admin-view-company/admin-
     AdminAddStaffComponent,
     AdminViewSupervisorComponent,
     RequestedCompanyComponent,
-    AdminViewCompanyComponent
+    AdminViewCompanyComponent,
+    CompanyProfileComponent,
+    CompanySignupComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,9 @@ import { AdminViewCompanyComponent } from './component/admin-view-company/admin-
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
-              AdminDeleteStudentServiceService],
+              AdminDeleteStudentServiceService,
+              AdminAddStaffServiceService,
+              CompanySignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

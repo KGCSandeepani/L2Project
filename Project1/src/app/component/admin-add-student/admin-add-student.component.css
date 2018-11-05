@@ -17,6 +17,27 @@ input[type=text], input[type=password] {
     border-radius: 8px;
 }
 
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 20%;   
+}
+
+.column2 {
+    float: left;
+    width: 70%;    
+}
+
+label{
+    padding: 24px 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 /* Set a style for all buttons */
 #add {
     background-color: rgb(52, 51, 70);

@@ -10,6 +10,8 @@ import { AdminViewStudentComponent } from './component/admin-view-student/admin-
 import { AdminViewSupervisorComponent } from './component/admin-view-supervisor/admin-view-supervisor.component';
 import { RequestedCompanyComponent } from './component/requested-company/requested-company.component';
 import { AdminViewCompanyComponent } from './component/admin-view-company/admin-view-company.component';
+import { CompanyProfileComponent } from './component/company-profile/company-profile.component';
+import { CompanySignupComponent } from './component/company-signup/company-signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,7 +31,9 @@ const routes: Routes = [
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent }
     ]
-  }
+  },
+  { path: 'companyProfile', component: CompanyProfileComponent },
+  { path: 'companySignup', component: CompanySignupComponent },
   
 ];
  
