@@ -12,6 +12,8 @@ import { RequestedCompanyComponent } from './component/requested-company/request
 import { AdminViewCompanyComponent } from './component/admin-view-company/admin-view-company.component';
 import { CompanyProfileComponent } from './component/company-profile/company-profile.component';
 import { CompanySignupComponent } from './component/company-signup/company-signup.component';
+import { CompanyProfileStudentlistComponent } from './component/company-profile-studentlist/company-profile-studentlist.component';
+import { CompanyProfileSelectedstudentComponent } from './component/company-profile-selectedstudent/company-profile-selectedstudent.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -32,7 +34,14 @@ const routes: Routes = [
       { path: 'adminViewCompany', component: AdminViewCompanyComponent }
     ]
   },
-  { path: 'companyProfile', component: CompanyProfileComponent },
+  { 
+    path: 'companyProfile', 
+    component: CompanyProfileComponent,
+    children :[
+      { path: 'studentlist', component: CompanyProfileStudentlistComponent },
+      { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
+    ]
+  },
   { path: 'companySignup', component: CompanySignupComponent },
   
 ];

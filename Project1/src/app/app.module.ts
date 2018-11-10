@@ -20,6 +20,8 @@ import { CompanyProfileComponent } from './component/company-profile/company-pro
 import { CompanySignupComponent } from './component/company-signup/company-signup.component';
 import { AdminAddStaffServiceService } from './component/Services/admin-add-staff-service.service';
 import { CompanySignupService } from './component/Services/company-signup.service';
+import { CompanyProfileStudentlistComponent } from './component/company-profile-studentlist/company-profile-studentlist.component';
+import { CompanyProfileSelectedstudentComponent } from './component/company-profile-selectedstudent/company-profile-selectedstudent.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { CompanySignupService } from './component/Services/company-signup.servic
     RequestedCompanyComponent,
     AdminViewCompanyComponent,
     CompanyProfileComponent,
-    CompanySignupComponent
+    CompanySignupComponent,
+    CompanyProfileStudentlistComponent,
+    CompanyProfileSelectedstudentComponent
   ],
   imports: [
     BrowserModule,
