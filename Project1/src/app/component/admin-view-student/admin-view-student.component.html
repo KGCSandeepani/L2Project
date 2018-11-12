@@ -12,6 +12,9 @@
   <tr *ngFor="let student of students">
       <td>{{student.name}} </td>
       <td>{{student.password}}</td>
+      <td>
+        <button (click)="onDelete(student.name)">Delete Record</button>
+     </td> 
   </tr>
 </tbody>
 </table>

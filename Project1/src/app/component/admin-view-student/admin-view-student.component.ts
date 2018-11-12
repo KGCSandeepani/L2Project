@@ -22,17 +22,9 @@ export class AdminViewStudentComponent implements OnInit {
     console.log(this.students);
   }
 
-  deleteStudent(name){
-    //this.deleteService.deleteStudentData(name);
-  }
-  /*
-  onSubmit(formdata:NgForm){
-  this.readService.getData()
-   .subscribe((data : student[] )=> {
-       this.students = data;
-       localStorage.clear();
-       localStorage.setItem('participant',JSON.stringify(data));
-   });
-    
-  } */ 
+  onDelete(name) {
+    this.deleteService.deleteStudentData(name).subscribe(result=>{
+      console.log(result);
+      this.ngOnInit();
+    },error => console.log('There was an error: ', error))}
 }
