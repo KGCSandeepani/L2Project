@@ -22,9 +22,5 @@ export class AdminViewStudentComponent implements OnInit {
     console.log(this.students);
   }
 
-  onDelete(name) {
-    this.deleteService.deleteStudentData(name).subscribe(result=>{
-      console.log(result);
-      this.ngOnInit();
-    },error => console.log('There was an error: ', error))}
+  
 }
