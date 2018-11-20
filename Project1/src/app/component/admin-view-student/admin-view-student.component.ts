@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { student } from '../Model/Student';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminDeleteStudentServiceService } from '../Services/admin-delete-student-service.service';
-
+//import { AdminUpdateStudentServiceService } from '../Services/admin-update-student-service.service';
 
 @Component({
   selector: 'app-admin-view-student',
@@ -12,6 +12,7 @@ import { AdminDeleteStudentServiceService } from '../Services/admin-delete-stude
   styleUrls: ['./admin-view-student.component.css']
 })
 export class AdminViewStudentComponent implements OnInit {
+  [x: string]: any;
 
   students: student[];
   constructor(private deleteService: AdminDeleteStudentServiceService,private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
@@ -27,4 +28,5 @@ export class AdminViewStudentComponent implements OnInit {
       console.log(result);
       this.ngOnInit();
     },error => console.log('There was an error: ', error))}
+
 }

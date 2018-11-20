@@ -78,7 +78,7 @@ functions:
 
 resources:
   Resources:
-    TodosDynamoDbTable:
+    TodosDynamoDbTable1:
       Type: 'AWS::DynamoDB::Table'
       DeletionPolicy: Retain
       Properties:
@@ -94,3 +94,20 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
+ 
+    TodosDynamoDbTable2:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: name
+            AttributeType: S
+          KeySchema:
+          -
+            AttributeName: name
+            KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "supervisor"
