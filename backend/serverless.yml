@@ -42,6 +42,14 @@ functions:
           method: post
           cors: true
 
+  create2:
+    handler: todosStaff/create.create
+    events:
+      - http:
+          path: todosStaff
+          method: post
+          cors: true
+
   list:
     handler: todos/list.list
     events:
