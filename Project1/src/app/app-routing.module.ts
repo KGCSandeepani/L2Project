@@ -14,6 +14,11 @@ import { CompanyProfileComponent } from './component/company-profile/company-pro
 import { CompanySignupComponent } from './component/company-signup/company-signup.component';
 import { CompanyProfileStudentlistComponent } from './component/company-profile-studentlist/company-profile-studentlist.component';
 import { CompanyProfileSelectedstudentComponent } from './component/company-profile-selectedstudent/company-profile-selectedstudent.component';
+import { CompanyProfileHomeComponent } from './component/company-profile-home/company-profile-home.component';
+import { StudentComponent } from './component/student/student.component';
+import { StudentAddDetailComponent } from './component/student-add-detail/student-add-detail.component';
+import { StudentEditDetailComponent } from './component/student-edit-detail/student-edit-detail.component';
+import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -38,12 +43,21 @@ const routes: Routes = [
     path: 'companyProfile', 
     component: CompanyProfileComponent,
     children :[
+      { path: 'home', component: CompanyProfileHomeComponent },
       { path: 'studentlist', component: CompanyProfileStudentlistComponent },
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
     ]
   },
   { path: 'companySignup', component: CompanySignupComponent },
-  
+  { 
+    path: 'student', 
+    component: StudentComponent,
+    children :[
+      { path: 'studentAdd', component: StudentAddDetailComponent },
+      { path: 'studentEdit', component: StudentEditDetailComponent },
+      { path: 'studentView', component: StudentViewDetailComponent },
+    ]
+  },
 ];
  
 @NgModule({

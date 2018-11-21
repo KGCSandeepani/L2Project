@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { student } from '../Model/Student';
+import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 
 
 @Component({
@@ -10,10 +12,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  
-  constructor(private route : ActivatedRoute,private router : Router) { }
+  students: student[];
+  constructor(private route : ActivatedRoute,private readService: ReadUnamePswServiceService,private router : Router) { }
 
-  ngOnInit() {    
+  ngOnInit() { 
+    this.readService.getData()
+    .subscribe(data => this.students = data);
+    console.log(this.students);   
   }
 
   adminLogin(uname,psw){
@@ -21,7 +26,13 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/adminHomePage']);
     }
     if (uname=='company' && psw=='company'){
-      this.router.navigate(['/companyProfile']);
+      this.router.navigate(['/companyProfile/home']);
+    }
+    for (let index = 0; index < this.students.length; index++) {
+      const student = this.students[index];
+      if (uname==student.name && psw==student.password){
+        this.router.navigate(['/student']);
+      }
     }
   }
 

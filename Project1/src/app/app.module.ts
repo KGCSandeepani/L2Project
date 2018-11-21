@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminAddStudentServiceService } from './component/Services/admin-add-student-service.service';
 import { ReadUnamePswServiceService } from './component/Services/read-uname-psw-service.service';
 import { AdminDeleteStudentServiceService } from './component/Services/admin-delete-student-service.service';
+import { AdminUpdateStudentService } from './component/Services/admin-update-student.service';
 import { AddUserComponent } from './component/add-user/add-user.component';
 import { AdminAddStaffComponent } from './component/admin-add-staff/admin-add-staff.component';
 import { AdminViewSupervisorComponent } from './component/admin-view-supervisor/admin-view-supervisor.component';
@@ -22,6 +23,11 @@ import { AdminAddStaffServiceService } from './component/Services/admin-add-staf
 import { CompanySignupService } from './component/Services/company-signup.service';
 import { CompanyProfileStudentlistComponent } from './component/company-profile-studentlist/company-profile-studentlist.component';
 import { CompanyProfileSelectedstudentComponent } from './component/company-profile-selectedstudent/company-profile-selectedstudent.component';
+import { CompanyProfileHomeComponent } from './component/company-profile-home/company-profile-home.component';
+import { StudentComponent } from './component/student/student.component';
+import { StudentAddDetailComponent } from './component/student-add-detail/student-add-detail.component';
+import { StudentEditDetailComponent } from './component/student-edit-detail/student-edit-detail.component';
+import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,12 @@ import { CompanyProfileSelectedstudentComponent } from './component/company-prof
     CompanyProfileComponent,
     CompanySignupComponent,
     CompanyProfileStudentlistComponent,
-    CompanyProfileSelectedstudentComponent
+    CompanyProfileSelectedstudentComponent,
+    CompanyProfileHomeComponent,
+    StudentComponent,
+    StudentAddDetailComponent,
+    StudentEditDetailComponent,
+    StudentViewDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +61,7 @@ import { CompanyProfileSelectedstudentComponent } from './component/company-prof
               ReadUnamePswServiceService,
               AdminDeleteStudentServiceService,
               AdminAddStaffServiceService,
+              AdminUpdateStudentService,
               CompanySignupService],
   bootstrap: [AppComponent]
 })
