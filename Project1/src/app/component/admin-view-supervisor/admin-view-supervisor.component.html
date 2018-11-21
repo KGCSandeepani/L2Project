@@ -16,6 +16,9 @@
       <td>{{supervisor.uname}}</td>
       <td>{{supervisor.email}}</td>
       <td>{{supervisor.contactNo}}</td>
+      <td>
+        <button class="btn" (click)="onDelete(supervisor.name)"><i class="fa fa-trash"></i>Delete Record</button>
+     </td>
   </tr>
 </tbody>
 </table>

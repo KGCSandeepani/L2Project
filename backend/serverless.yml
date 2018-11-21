@@ -90,6 +90,14 @@ functions:
           method: put
           cors: true
 
+  updateStaff:
+    handler: todosStaff/update.update
+    events:
+      - http:
+          path: todosStaff/{name}
+          method: put
+          cors: true        
+
   delete:
     handler: todos/delete.delete
     events:
@@ -97,6 +105,14 @@ functions:
           path: todos/{name}
           method: delete
           cors: true
+
+  deleteStaff:
+    handler: todosStaff/delete.delete
+    events:
+      - http:
+          path: todosStaff/{name}
+          method: delete
+          cors: true        
   
 
 resources:
