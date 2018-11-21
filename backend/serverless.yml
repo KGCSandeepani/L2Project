@@ -58,6 +58,14 @@ functions:
           method: get
           cors: true
 
+  listStaff:
+    handler: todosStaff/list.list
+    events:
+      - http:
+          path: todosStaff
+          method: get
+          cors: true         
+
   get:
     handler: todos/get.get
     events:
@@ -66,7 +74,14 @@ functions:
           method: get
           cors: true
 
-  
+  getStaff:
+    handler: todosStaff/get.get
+    events:
+      - http:
+          path: todosStaff/{name}
+          method: get
+          cors: true  
+
   update:
     handler: todos/update.update
     events:

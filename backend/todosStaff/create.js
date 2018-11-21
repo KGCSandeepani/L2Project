@@ -21,10 +21,11 @@ module.exports.create = (event, context, callback) => {
     Item: {
       id: uuid.v1(),
       name: data.text,
+      uname: data.text1,
       password: data.psw,
-      //checked: false,
-      //createdAt: timestamp,
-      //updatedAt: timestamp,
+      email: data.text2,
+      contactNo: data.text3,
+      password: data.psw,
     },
   };
 
