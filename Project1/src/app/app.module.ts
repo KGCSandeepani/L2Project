@@ -28,6 +28,7 @@ import { StudentComponent } from './component/student/student.component';
 import { StudentAddDetailComponent } from './component/student-add-detail/student-add-detail.component';
 import { StudentEditDetailComponent } from './component/student-edit-detail/student-edit-detail.component';
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
+import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { StudentViewDetailComponent } from './component/student-view-detail/stud
     StudentComponent,
     StudentAddDetailComponent,
     StudentEditDetailComponent,
-    StudentViewDetailComponent
+    StudentViewDetailComponent,
+    StudentAddSuccessComponent
   ],
   imports: [
     BrowserModule,

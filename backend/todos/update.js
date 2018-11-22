@@ -20,9 +20,10 @@ module.exports.update = (event, context, callback) => {
   const params = {
     TableName: process.env.DYNAMODB_TABLE,
     Key: {
-      id: event.pathParameters.id,
+      name: event.pathParameters.name,
     },
     ExpressionAttributeNames: {
+      //'#todo_name':'name',
       '#todo_username': 'username',
       '#todo_email': 'email',
       '#todo_phoneNo': 'phoneNo',
@@ -41,25 +42,26 @@ module.exports.update = (event, context, callback) => {
       '#todo_interest3': 'interest3',
     },
     ExpressionAttributeValues: {
-      ':username': data.text,
-      ':email': data.text1,
-      ':phoneNo': data.text2,
-      ':l1s1': data.text3,
-      ':l1s2': data.text4,
-      ':l2s1': data.text5,
-      ':l2s2': data.text6,
-      ':cgpa': data.text7,
-      ':organization1': data.text8,
-      ':organization2': data.text9,
-      ':organization3': data.text10,
-      ':organization4': data.text11,
-      ':organization5': data.text12,
-      ':interest1': data.text13,
-      ':interest2': data.text14,
-      ':interest3': data.text15
+      //':name':data.name,
+      ':username': data.username,
+      ':email': data.email,
+      ':phoneNo': data.phoneNo,
+      ':l1s1': data.l1s1,
+      ':l1s2': data.l1s2,
+      ':l2s1': data.l2s1,
+      ':l2s2': data.l2s2,
+      ':cgpa': data.cgpa,
+      ':organization1': data.organization1,
+      ':organization2': data.organization2,
+      ':organization3': data.organization3,
+      ':organization4': data.organization4,
+      ':organization5': data.organization5,
+      ':interest1': data.interest1,
+      ':interest2': data.interest2,
+      ':interest3': data.interest3
 
     },
-    UpdateExpression: 'SET #todo_text = :text, checked = :checked, updatedAt = :updatedAt',
+    UpdateExpression: 'SET #todo_username = :username, #todo_email = :email, #todo_phoneNo = :phoneNo, #todo_l1s1 = :l1s1, #todo_l1s2 = :l1s2, #todo_l2s1 = :l2s1, #todo_l2s2 = :l2s2, #todo_cgpa = :cgpa, #todo_organization1 = :organization1, #todo_organization2 = :organization2, #todo_organization3 = :organization3, #todo_organization4 = :organization4, #todo_organization5 = :organization5, #todo_interest1 = :interest1, #todo_interest2 = :interest2, #todo_interest3 = :interest3 ',
     ReturnValues: 'ALL_NEW',
   };
 

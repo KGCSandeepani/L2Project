@@ -12,13 +12,14 @@ export class AdminUpdateStudentService {
   constructor(private http:HttpClient) { }
   name:String;
   /*sends get request and returns its response data */ 
-  updateStudentData(formdata:NgForm){
+  updateStudentData(formdata:NgForm,name:String){
     this.name=name;
     
     return this
               .http
-              .put('//localhost:3000/todos/'+formdata.value.name,
+              .put('//localhost:3000/todos/'+this.name,
             {
+              "name":formdata.value.name,
               "username" : formdata.value.uname,
                 "email" : formdata.value.email,
                 "phoneNo" : formdata.value.phoneNo,

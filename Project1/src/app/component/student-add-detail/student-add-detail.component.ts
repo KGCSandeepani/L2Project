@@ -12,18 +12,20 @@ import { AdminUpdateStudentService } from '../Services/admin-update-student.serv
 export class StudentAddDetailComponent implements OnInit {
 
   student : student;
-  constructor(private updateService:AdminUpdateStudentService) { }
+  constructor(private updateService:AdminUpdateStudentService,private route : ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(formdata:NgForm){
      console.log(formdata.value.name);
-    this.updateService.updateStudentData(formdata)
-    
-    .subscribe((data : student )=> {
-        this.student = data;
-        formdata.reset();    
+    this.updateService.updateStudentData(formdata,formdata.value.name)
+    .subscribe(res=>{
+      this.router.navigate(['student/studentAddSuccess']);
     });
+    //.subscribe((data : student )=> {
+    //    this.student = data;
+    //    formdata.reset();    
+    //});
 }
 }
