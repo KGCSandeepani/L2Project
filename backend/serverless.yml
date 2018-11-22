@@ -50,6 +50,14 @@ functions:
           method: post
           cors: true
 
+  createTemp:
+    handler: todosTempCompany/create.create
+    events:
+      - http:
+          path: todosTempCompany
+          method: post
+          cors: true
+
   list:
     handler: todos/list.list
     events:
@@ -64,7 +72,15 @@ functions:
       - http:
           path: todosStaff
           method: get
-          cors: true         
+          cors: true
+
+  listTemp:
+    handler: todosTempCompany/list.list
+    events:
+      - http:
+          path: todosTempCompany
+          method: get
+          cors: true                 
 
   get:
     handler: todos/get.get
@@ -81,6 +97,14 @@ functions:
           path: todosStaff/{name}
           method: get
           cors: true  
+  
+  getTemp:
+    handler: todosTempCompany/get.get
+    events:
+      - http:
+          path: todosTempCompany/{name}
+          method: get
+          cors: true        
 
   update:
     handler: todos/update.update
@@ -150,3 +174,20 @@ resources:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
           TableName: "supervisor"
+
+    TodosDynamoDbTable3:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: name
+            AttributeType: S
+          KeySchema:
+          -
+            AttributeName: name
+            KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "TempCompany"      
