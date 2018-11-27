@@ -30,6 +30,9 @@ import { StudentEditDetailComponent } from './component/student-edit-detail/stud
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
 import { TitleComponent } from './component/title/title.component';
+import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
+import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
+import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { TitleComponent } from './component/title/title.component';
     StudentEditDetailComponent,
     StudentViewDetailComponent,
     StudentAddSuccessComponent,
-    TitleComponent
+    TitleComponent,
+    ChatASComponent,
+    FeedASComponent,
+    MessageASComponent
   ],
   imports: [
     BrowserModule,
