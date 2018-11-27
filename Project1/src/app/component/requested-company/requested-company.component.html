@@ -8,14 +8,22 @@
     <th> Location    </th>
     <th> Email    </th>
     <th> Contact No    </th>
+    <th> </th>
+    <th> </th>
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let company of company">
-      <td>{{company.name}} </td>
-      <td>{{company.location}}</td>
-      <td>{{company.email}}</td>
-      <td>{{company.contactNo}}</td>
+  <tr *ngFor = "let compan of company">
+      <td>{{compan.name}} </td>
+      <td>{{compan.location}}</td>
+      <td>{{compan.email}}</td>
+      <td>{{compan.contactNo}}</td>
+      <td>
+        <button class="btn btn-success" (click)="onAccept(compan.name,compan.location,compan.email,compan.contactNo,compan.password)"><i class="fa fa-trash"></i>Accept</button>
+     </td>
+     <td>
+      <button class="btn btn-labeled btn-danger" (click)="onReject(compan.name)"><i class="fa fa-trash"></i>Reject</button>
+   </td> 
   </tr>
 </tbody>
 </table>

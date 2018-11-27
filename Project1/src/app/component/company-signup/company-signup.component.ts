@@ -3,6 +3,10 @@ import { NgForm } from '@angular/forms';
 import { company } from '../Model/Company';
 //import { CompanySignupService } from '../Services/company-signup.service';
 import { CompanyAddDataService } from '../Services/company-add-data.service';
+import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
+import { AdminAcceptTempCompanyService } from 'src/app/component/Services/admin-accept-temp-company.service';
+import { RequestedCompanyComponent } from 'src/app/component/requested-company/requested-company.component';
+
 
 @Component({
   selector: 'app-company-signup',
@@ -12,7 +16,7 @@ import { CompanyAddDataService } from '../Services/company-add-data.service';
 export class CompanySignupComponent implements OnInit {
 
   company:company[];
-  constructor(private companyadddataservice: CompanyAddDataService) { }
+  constructor(private readService: AdminAcceptTempCompanyService,private companyadddataservice: CompanyAddDataService) { }
 
   ngOnInit() {
   }
@@ -25,7 +29,8 @@ export class CompanySignupComponent implements OnInit {
         formdata.reset();    
     });
   }
+
+
+
 }
-
-
 

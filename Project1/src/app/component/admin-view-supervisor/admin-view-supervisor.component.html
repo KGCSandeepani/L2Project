@@ -8,6 +8,7 @@
     <th> Username    </th>
     <th> Email    </th>
     <th> Contact No    </th>
+    <th>  </th>
   </tr>
 </thead>
 <tbody>
@@ -17,7 +18,7 @@
       <td>{{supervisor.email}}</td>
       <td>{{supervisor.contactNo}}</td>
       <td>
-        <button class="btn" (click)="onDelete(supervisor.name)"><i class="fa fa-trash"></i>Delete Record</button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(supervisor.name)"><i class="fa fa-trash"></i>Delete Record</button>
      </td>
   </tr>
 </tbody>

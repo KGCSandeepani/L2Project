@@ -30,6 +30,7 @@ import { StudentEditDetailComponent } from './component/student-edit-detail/stud
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,    

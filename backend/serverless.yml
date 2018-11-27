@@ -58,6 +58,14 @@ functions:
           method: post
           cors: true
 
+  createCompany:
+    handler: todosCompany/create.create
+    events:
+      - http:
+          path: todosCompany
+          method: post
+          cors: true        
+
   list:
     handler: todos/list.list
     events:
@@ -80,7 +88,15 @@ functions:
       - http:
           path: todosTempCompany
           method: get
-          cors: true                 
+          cors: true   
+
+  listCompany:
+    handler: todosCompany/list.list
+    events:
+      - http:
+          path: todosCompany
+          method: get
+          cors: true                         
 
   get:
     handler: todos/get.get
@@ -105,6 +121,14 @@ functions:
           path: todosTempCompany/{name}
           method: get
           cors: true        
+
+  getCompany:
+    handler: todosCompany/get.get
+    events:
+      - http:
+          path: todosCompany/{name}
+          method: get
+          cors: true  
 
   update:
     handler: todos/update.update
@@ -137,7 +161,14 @@ functions:
           path: todosStaff/{name}
           method: delete
           cors: true        
-  
+
+  deleteTemp:
+    handler: todosTempCompany/delete.delete
+    events:
+      - http:
+          path: todosTempCompany/{name}
+          method: delete
+          cors: true  
 
 resources:
   Resources:
@@ -190,4 +221,21 @@ resources:
           ProvisionedThroughput:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
-          TableName: "TempCompany"      
+          TableName: "TempCompany"    
+
+    TodosDynamoDbTable4:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: name
+            AttributeType: S
+          KeySchema:
+          -
+            AttributeName: name
+            KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "Company"
