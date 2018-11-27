@@ -13,20 +13,20 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 export class FeedASComponent implements OnInit , OnChanges{
   feeds:AngularFireList<any>
   ChatMessage : any[];
-  //items: Observable<any[]>;
+  
+  items: Observable<any[]>;
   //chatMessage: ChatMessage;
   //chatMessages: Angula rFireList<ChatMessage>; 
   constructor(private chat : ChatServiceASService,private db: AngularFireDatabase ) { 
     //this.feed = db.list('/chat-a-s.component');
-    //this.items = db.list('messages').valueChanges();
+    this.items = db.list('messages').valueChanges();
   }
 
   ngOnInit() {
     console.log("intializing feed oninit...");
-    this.chat.getMessages().subscribe((snaps) => {
-      this.ChatMessage = snaps;
-  });
+    //this.chat.getMessages();
     //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
+    this.items = this.db.list('messages').valueChanges();
     console.log("after feed oninit...");
   }
 
@@ -36,7 +36,7 @@ export class FeedASComponent implements OnInit , OnChanges{
   ngOnChanges() {
     console.log("intializing feed onchanges...");
     //this.feeds=this.chat.getMessages();
-    this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
+    this.items = this.db.list('messages').valueChanges();
     console.log("after feed onchanges...");
   }
 
