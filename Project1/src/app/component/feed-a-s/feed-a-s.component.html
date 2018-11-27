@@ -1,14 +1,6 @@
-<p>
-  feed-a-s works!
-</p>
-<p>
-  feed-a-s works!
-</p>
 <div class="feeds">
-  <div  *ngFor="let messages of feeds|async" class="message">
-    <p>message here</p>
-    {{messages.userName}}
-    <!--<app-message-a-s [chatMessage]="message"></app-message-a-s>-->
+  <div  *ngFor="let messages of items|async" class="message">
+    <app-message-a-s [chatMessage]="messages"></app-message-a-s>
   </div>
 </div>
 

@@ -14,17 +14,17 @@ export class MessageASComponent implements OnInit {
   userName: string;
   messageContent: string;
   timeStamp: Date = new Date();
-  isOwnMessage: boolean;
+  isOwnMessage: true;
   ownEmail: string;
 
   constructor() { }
 
   ngOnInit(chatMessage = this.chatMessage) {
-    //this.messageContent = chatMessage.message;
-    this.messageContent = "custom msg";
-    this.timeStamp = chatMessage.timeSent;
-    this.userEmail = chatMessage.email;
     this.userName = chatMessage.userName;
+    this.messageContent = chatMessage.message;
+    //this.timeStamp = chatMessage.timeSent;
+    //this.userEmail = chatMessage.email;
+    
   }
 
 }
