@@ -20,6 +20,10 @@ import { StudentAddDetailComponent } from './component/student-add-detail/studen
 import { StudentEditDetailComponent } from './component/student-edit-detail/student-edit-detail.component';
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
+import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
+
+import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
+import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -37,7 +41,10 @@ const routes: Routes = [
       { path: 'adminViewStudent', component: AdminViewStudentComponent },
       { path: 'adminViewSupervisor', component: AdminViewSupervisorComponent },
       { path: 'requestedCompany', component: RequestedCompanyComponent },
-      { path: 'adminViewCompany', component: AdminViewCompanyComponent }
+      { path: 'adminViewCompany', component: AdminViewCompanyComponent },
+      { path: 'chat-a-s', component: ChatASComponent },
+      { path: 'feed-a-s', component: FeedASComponent },
+      { path: 'message-a-s', component: MessageASComponent }
     ]
   },
   { 

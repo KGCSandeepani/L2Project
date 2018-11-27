@@ -34,7 +34,14 @@ import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
 import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
+import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
+
+import { environment} from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,    
@@ -66,14 +73,19 @@ import { MessageASComponent } from './component/message-a-s/message-a-s.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
               AdminDeleteStudentServiceService,
               AdminAddStaffServiceService,
               AdminUpdateStudentService,
-              CompanySignupService],
+              CompanySignupService,AuthChatASService, 
+              ChatServiceASService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
