@@ -29,6 +29,7 @@ import { StudentAddDetailComponent } from './component/student-add-detail/studen
 import { StudentEditDetailComponent } from './component/student-edit-detail/student-edit-detail.component';
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
+import { TitleComponent } from './component/title/title.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { StudentAddSuccessComponent } from './component/student-add-success/stud
     StudentAddDetailComponent,
     StudentEditDetailComponent,
     StudentViewDetailComponent,
-    StudentAddSuccessComponent
+    StudentAddSuccessComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
