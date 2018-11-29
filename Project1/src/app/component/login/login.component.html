@@ -1,4 +1,4 @@
-<br><br><br><br>
+<!--<br><br><br><br>
 <form>
     <div class="title" >
         <h2>Login Form</h2>
@@ -22,12 +22,57 @@
     
 
   </div>
-  <!-- (ngSubmit)=" onSubmit(formone)" #formone="ngForm"
+   (ngSubmit)=" onSubmit(formone)" #formone="ngForm"
+    routerLink="/adminHomePage" router-activate="active" 
+  (click)="adminLogin(uname.value,psw.value)"
+
+  <div class="psw" style="text-align:right">Forgot <a href="#">password?</a></div>
+  
+      
+  
+</form>
+
+/////////////
+-->
+
+<div class="wrapper">
+	<div class="container">
+		<h1>Welcome</h1>
+		
+		<form class="form">
+      
+      <input type="text" #uname placeholder="Enter Username" name="uname" required ngModel><br>
+
+     
+      <input type="password" #psw placeholder="Enter Password" name="psw" required><br>
+    
+      
+      
+      <button id="login-button" type="submit" (click)="adminLogin(uname.value,psw.value)">Login</button>
+      <button id="signup" type="button" (click)="signup()">Sign up</button><br>
+    
+      <label style="float: left">
+        <input type="checkbox" checked="checked" name="remember" > Remember me
+      </label>
+      <!-- (ngSubmit)=" onSubmit(formone)" #formone="ngForm"
     routerLink="/adminHomePage" router-activate="active" 
   (click)="adminLogin(uname.value,psw.value)"
 
   <div class="psw" style="text-align:right">Forgot <a href="#">password?</a></div>-->
   
-      
-  
-</form>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
