@@ -21,7 +21,7 @@ import { StudentEditDetailComponent } from './component/student-edit-detail/stud
 import { StudentViewDetailComponent } from './component/student-view-detail/student-view-detail.component';
 import { StudentAddSuccessComponent } from './component/student-add-success/student-add-success.component';
 import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
-
+import { ChatRoomComponent } from './component/chat-room/chat-room.component';
 import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 
@@ -44,7 +44,8 @@ const routes: Routes = [
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
       { path: 'chat-a-s', component: ChatASComponent },
       { path: 'feed-a-s', component: FeedASComponent },
-      { path: 'message-a-s', component: MessageASComponent }
+      { path: 'message-a-s', component: MessageASComponent },
+      { path: 'chat-room', component:  ChatRoomComponent }
     ]
   },
   { 

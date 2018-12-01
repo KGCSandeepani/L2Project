@@ -42,6 +42,8 @@ import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
 import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
 
 import { environment} from '../environments/environment';
+import { ChatRoomComponent } from './component/chat-room/chat-room.component';
+import { UserListComponent } from './component/user-list/user-list.component';
 @NgModule({
   declarations: [
     AppComponent,    
@@ -67,7 +69,9 @@ import { environment} from '../environments/environment';
     TitleComponent,
     ChatASComponent,
     FeedASComponent,
-    MessageASComponent
+    MessageASComponent,
+    ChatRoomComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
