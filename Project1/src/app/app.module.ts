@@ -43,7 +43,8 @@ import { ChatServiceASService} from './component/Services/chat-service-a-s.servi
 
 import { environment} from '../environments/environment';
 
-
+import { ChatRoomComponent } from './component/chat-room/chat-room.component';
+import { UserListComponent } from './component/user-list/user-list.component';
 
 import { DataPassService } from './component/Services/data-pass.service';
 
