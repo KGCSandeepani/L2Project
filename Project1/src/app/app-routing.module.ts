@@ -42,9 +42,6 @@ const routes: Routes = [
       { path: 'adminViewSupervisor', component: AdminViewSupervisorComponent },
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
-      { path: 'chat-a-s', component: ChatASComponent },
-      { path: 'feed-a-s', component: FeedASComponent },
-      { path: 'message-a-s', component: MessageASComponent },
       { path: 'chat-room', component:  ChatRoomComponent }
     ]
   },

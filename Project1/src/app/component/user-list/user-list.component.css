@@ -1,0 +1,16 @@
+body {
+    margin: 25px;
+}
+p{
+    
+        
+        height: auto;
+        width: 70%;
+        min-width: auto;
+        border-radius: 5px;
+        align-items:stretch;
+        background-color: #eee;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);
+        margin: 35px;
+    
+}
