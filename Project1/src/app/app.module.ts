@@ -42,6 +42,8 @@ import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
 import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
 
 import { environment} from '../environments/environment';
+import { DataPassService } from './component/Services/data-pass.service';
+
 @NgModule({
   declarations: [
     AppComponent,    
@@ -85,7 +87,8 @@ import { environment} from '../environments/environment';
               AdminAddStaffServiceService,
               AdminUpdateStudentService,
               CompanySignupService,AuthChatASService, 
-              ChatServiceASService],
+              ChatServiceASService,
+              DataPassService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

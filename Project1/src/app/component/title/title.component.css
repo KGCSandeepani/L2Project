@@ -1,5 +1,5 @@
 .navbar-header {
-    background-color: #555;
+    background-color: #2a0481;
     color: white;
     float: left;
     border: none;
@@ -9,4 +9,7 @@
     font-size: 17px;
     width: 100%;
     position: fixed;
+}
+.btn{
+    padding: 2px 5px;
 }
