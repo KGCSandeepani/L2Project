@@ -5,6 +5,7 @@ import { AuthChatASService } from '../Services/auth-chat-a-s.service';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import {ChatMessage} from '../Model/Chat-message.model';
+import { DataPassService } from '../Services/data-pass.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +15,22 @@ export class ChatServiceASService {
   chatMessage: ChatMessage;
   chatMessages: AngularFireList<ChatMessage>;
   //chatMessages: AngularFireList<string>;
-  userName: Observable<string>;
+  
 
-  constructor(private db: AngularFireDatabase,
+  userName: string ;
+  message : string;
+
+
+  constructor(private data : DataPassService, private db: AngularFireDatabase,
     private afAuth: AngularFireAuth) {
       this.afAuth.authState.subscribe(auth => {
         if (auth !== undefined && auth !== null) {
           this.user = auth;
         }
-        //this.getUser().set(a => {
-         // this.userName = a.displayName;
-        //});
-
-      
+        
       });
+      this.data.currentMessage.subscribe(message => this.message = message);
+      this.userName = this.data.getMessage();
      }
      sendMessage(msg: string) {
       const timestamp = this.getTimeStamp();
@@ -41,7 +44,7 @@ export class ChatServiceASService {
       this.chatMessages.push({
         message: msg,
         timeSent: new Date,
-        userName: 'sampleuser',
+        userName: this.userName,
         receiver: 'samplemail' });
     }
     getMessages(): AngularFireList<ChatMessage> {
