@@ -8,13 +8,23 @@
   </style>
   </head>
   <body>
-    <p>
-      user-name1!
-    </p>
-    <p>
-      user-name2!
-    </p>
-    <p>
-      user-name3!
-    </p>
+    
+    
+      <br>
+      <div class="container">
+      <table class="table">
+        
+      <tbody>
+          <div class="messageContainer">
+        <tr *ngFor="let student of students">
+          
+          <td>{{student.name}}</td>
+            
+        </tr>
+      </div>
+      </tbody>
+      </table>
+      </div>
+
+    
   </body>

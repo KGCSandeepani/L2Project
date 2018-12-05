@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { student } from '../Model/Student';
+import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
+
+
 
 @Component({
   selector: 'app-user-list',
@@ -6,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  [x: string]: any;
 
-  constructor() { }
+  students: student[];
+  constructor(private readService: ReadUnamePswServiceService) { }
 
   ngOnInit() {
+    this.readService.getData()
+    .subscribe(data => this.students = data);
+    console.log(this.students);
   }
-
+  
 }

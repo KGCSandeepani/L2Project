@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { student } from '../Model/Student';
 import { AdminAddStudentServiceService } from '../Services/admin-add-student-service.service';
+import { AuthChatASService } from '../Services/auth-chat-a-s.service';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -9,9 +10,13 @@ import { AdminAddStudentServiceService } from '../Services/admin-add-student-ser
   styleUrls: ['./admin-add-student.component.css']
 })
 export class AdminAddStudentComponent implements OnInit {
+  email: string;
+  password: string;
+  displayName: string;
+  errorMsg: string;
 
   student:student[];
-  constructor(private studentService : AdminAddStudentServiceService) { }
+  constructor(private studentService : AdminAddStudentServiceService,private authService: AuthChatASService) { }
 
   ngOnInit() {
   }
@@ -23,5 +28,12 @@ export class AdminAddStudentComponent implements OnInit {
         this.student = data;
         formdata.reset();    
     });
-}
+  }
+  /*signUp() {
+    const email = this.email;
+    const password = this.password;
+    const displayName = this.displayName;
+    this.authService.signUp(email, password, displayName)
+    .catch(error => this.errorMsg = error.message);
+  }*/
 }
