@@ -42,7 +42,7 @@ export class ChatServiceASService {
         message: msg,
         timeSent: new Date,
         userName: 'sampleuser',
-        email: 'samplemail' });
+        receiver: 'samplemail' });
     }
     getMessages(): AngularFireList<ChatMessage> {
       console.log("inside get msg");

@@ -10,7 +10,7 @@ import{ AuthChatASService} from '../Services/auth-chat-a-s.service';
 })
 export class MessageASComponent implements OnInit {
   @Input() chatMessage: ChatMessage;
-  userEmail: string;
+  receiver: string;
   userName: string;
   messageContent: string;
   timeStamp: Date = new Date();
@@ -23,7 +23,7 @@ export class MessageASComponent implements OnInit {
     this.userName = chatMessage.userName;
     this.messageContent = chatMessage.message;
     //this.timeStamp = chatMessage.timeSent;
-    //this.userEmail = chatMessage.email;
+    this.receiver = chatMessage.receiver;
     
   }
 
