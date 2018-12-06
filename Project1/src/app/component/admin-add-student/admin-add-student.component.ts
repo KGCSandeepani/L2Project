@@ -29,11 +29,5 @@ export class AdminAddStudentComponent implements OnInit {
         formdata.reset();    
     });
   }
-  /*signUp() {
-    const email = this.email;
-    const password = this.password;
-    const displayName = this.displayName;
-    this.authService.signUp(email, password, displayName)
-    .catch(error => this.errorMsg = error.message);
-  }*/
+  
 }

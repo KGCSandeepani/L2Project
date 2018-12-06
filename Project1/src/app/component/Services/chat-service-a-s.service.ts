@@ -16,7 +16,7 @@ export class ChatServiceASService {
   chatMessages: AngularFireList<ChatMessage>;
   //chatMessages: AngularFireList<string>;
   
-
+  receiverName :string;
   userName: string ;
   message : string;
 
@@ -45,7 +45,7 @@ export class ChatServiceASService {
         message: msg,
         timeSent: new Date,
         userName: this.userName,
-        receiver: 'samplemail' });
+        receiver: this.receiverName });
     }
     getMessages(): AngularFireList<ChatMessage> {
       console.log("inside get msg");
@@ -61,5 +61,10 @@ export class ChatServiceASService {
                    now.getUTCSeconds();
   
       return (date + ' ' + time);
+    }
+    sendReceiverName(rName:string){
+      this.receiverName=rName;
+      console.log("inside send receiver chat serviec");
+
     }
 }
