@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataPassService } from '../Services/data-pass.service';
 
 @Component({
   selector: 'app-company-profile-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanyProfileHomeComponent implements OnInit {
 
-  constructor() { }
+  KEY = 'logger';
+  value: string ;
+
+  constructor(private data : DataPassService) { }
 
   ngOnInit() {
+    this.value = this.data.getMessage();
   }
 
 }

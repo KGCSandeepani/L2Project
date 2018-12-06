@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { student } from '../Model/Student';
+import { company } from '../Model/Company';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
+import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { DataPassService } from '../Services/data-pass.service';
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 
@@ -14,12 +16,16 @@ import { DataPassService } from '../Services/data-pass.service';
 export class LoginComponent implements OnInit {
 
   students: student[];
-  constructor(private data: DataPassService,private route : ActivatedRoute,private readService: ReadUnamePswServiceService,private router : Router) { }
+  companies : company[];
+  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
-    this.readService.getData()
+    this.readstuentService.getData()
     .subscribe(data => this.students = data);
+
+    this.readcompanyService.getData()
+    .subscribe(data => this.companies = data);
   }
 
   adminLogin(uname,psw){
@@ -28,11 +34,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/adminHomePage']);
       location.reload();
     }
-    if (uname=='company' && psw=='company'){
-      this.newMessage("company");
-      this.router.navigate(['/companyProfile/home']);
-      location.reload();
-    }
+    
     for (let index = 0; index < this.students.length; index++) {
       const student = this.students[index];
       if (uname==student.name && psw==student.password){
@@ -41,6 +43,16 @@ export class LoginComponent implements OnInit {
         location.reload();
       }
     }
+
+    for (let index = 0; index < this.companies.length; index++) {
+      const company = this.companies[index];
+      if (uname==company.name && psw==company.password){
+        this.newMessage(company.name+"");
+        this.router.navigate(['/companyProfile/home']);
+        location.reload();
+      }
+    }
+    
   }
 
   signup(){

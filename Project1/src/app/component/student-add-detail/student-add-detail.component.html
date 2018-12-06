@@ -52,8 +52,9 @@
             <input type="text" placeholder="Preferred Area of Interest 2" name="interest2" [(ngModel)]="interest2" ><br>
             <input type="text" placeholder="Preferred Area of Interest 3" name="interest3" [(ngModel)]="interest3" ><br>
 
+            <input type="file" name="cv" hidden name="files[]" multiple="" (change)="fileChangeEvent($event)" accept=".pdf">
             <!--
-              <input type="file" name="cv" accept=".pdf">
+              <input type="file" name="cv" [(ngModel)]="cv" accept=".pdf">
             -->
         </div>
       </div>

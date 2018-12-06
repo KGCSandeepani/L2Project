@@ -17,6 +17,7 @@ export interface student  {
     organization5 : String;
     interest1 : String;
     interest2 : String;
-    interest3 : String;    
+    interest3 : String; 
+    cv : File;   
     position: DoubleRange[]
 }

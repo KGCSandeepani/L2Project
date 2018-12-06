@@ -1,6 +1,6 @@
 export interface company  {
     id : String,
-    companyName : String,
+    name : String,
     contactPersonName : String,
     location : String,
     contactNo : Int16Array,
