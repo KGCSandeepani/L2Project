@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { student } from '../Model/Student';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { ChatServiceASService} from '../Services/chat-service-a-s.service';
-
+import { MessageASComponent } from '../message-a-s/message-a-s.component';
 
 @Component({
   selector: 'app-user-list',

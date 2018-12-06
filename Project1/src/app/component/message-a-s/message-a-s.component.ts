@@ -26,5 +26,6 @@ export class MessageASComponent implements OnInit {
     this.receiver = chatMessage.receiver;
     
   }
+  
 
 }

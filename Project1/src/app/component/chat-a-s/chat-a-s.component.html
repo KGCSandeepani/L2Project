@@ -4,7 +4,7 @@
 <div #scroller class= "feedWrapper" >
   <app-feed-a-s></app-feed-a-s>
 </div>
-<input  class="chatInput" [(ngModel)]="message" (keydown)="handleSubmit($event)" />
+<input  class="form-control" [(ngModel)]="message" (keydown)="handleSubmit($event)" />
 
 <button class="chatButton" (click)=send()>Send</button>
 
