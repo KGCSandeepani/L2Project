@@ -26,7 +26,7 @@ export class FeedASComponent implements OnInit , OnChanges{
     console.log("intializing feed oninit...");
     //this.chat.getMessages();
     //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
-    this.items = this.db.list('messages').valueChanges();
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo("154123B")).valueChanges();
     console.log("after feed oninit...");
   }
 
@@ -36,13 +36,10 @@ export class FeedASComponent implements OnInit , OnChanges{
   ngOnChanges() {
     console.log("intializing feed onchanges...");
     //this.feeds=this.chat.getMessages();
-    this.items = this.db.list('messages').valueChanges();
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo("154123B")).valueChanges();
     console.log("after feed onchanges...");
   }
 
-  //getMessagesFeed(): AngularFireList<ChatMessage> {
-    //console.log("inside get msgfeed");
-    //return this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
-  //}
+  
 
 }
