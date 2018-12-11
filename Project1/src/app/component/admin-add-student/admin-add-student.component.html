@@ -32,7 +32,7 @@
     <label for="psw2"><b>Password : </b></label>
     <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2"><br>
     
-    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Data</button>
+    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Students</button>
 </div>
 
 <br>
@@ -43,6 +43,11 @@
         <p>Open Excel File</p>
       <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
     </div>
-    
+    <br>
+    <label for="psw2"><b>Password : </b></label>
+    <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3"><br>
+
+    <button type="button" id="addAll" (click)="uploadData($event,password3)">Add All Students</button>
+
 </div>
 <br>

@@ -9,6 +9,7 @@ import * as Excel from '@grapecity/spread-excelio';
 import '@grapecity/spread-sheets-charts';
 import {saveAs} from 'file-saver';
 import { from } from 'rxjs';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -68,7 +69,7 @@ export class AdminAddStudentComponent implements OnInit {
               console.log(self.spread.getActiveSheet().getValue(index,0));
               console.log(psw2);
             } else {
-              break;
+              continue;
             }
             
           }
@@ -80,19 +81,38 @@ export class AdminAddStudentComponent implements OnInit {
     if (self.spread && file) {
       self.excelIO.open(file, (json) => {
         self.spread.fromJSON(json, {});
-        setTimeout(() => {
-          this.a=self.spread.getSheet(1).getRowCount();
-          for (let index = 0; index < this.a; index++) {
-            console.log(self.spread.getSheet(1).getValue(index,0));
-            
-          }
-          console.log(this.a);
+        setTimeout(() => {          
           alert('load successfully');
         }, 0);
       }, (error) => {
         alert('load fail');
       });
     }
+  }
+
+  uploadData(args,psw3){
+    if (psw3==null) {
+      alert('Enter passward');
+      return;
+    }
+    const self=this;
+    
+    this.a=self.spread.getSheet(1).getRowCount();
+    for (let index = 0; index < this.a; index++) {
+      if (self.spread.getSheet(1).getValue(index,0)!=null) {
+        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),psw3)
+        .subscribe((data : student[] )=> {
+        this.student = data;
+        });
+        
+        console.log(self.spread.getSheet(1).getValue(index,0));
+        console.log(psw3);
+      } else {
+        continue;
+      }      
+    }
+    
+    console.log(this.a);
   }
 
 }
