@@ -1,9 +1,15 @@
 /* Bordered form */
 form {
-    border: none;
+    
     width: 98%;
     background-color: rgb(255, 255, 255);
     padding: 10px 20px; 
+    text-align: center;
+}
+.container {
+    border: 1px solid rgb(68, 0, 255);
+    border-radius: 5px;
+    padding: 2vw ;
 }
 
 /* Full-width inputs */
@@ -18,14 +24,16 @@ input[type=text], input[type=password] {
 }
 
 /* Create two equal columns that floats next to each other */
-.column1 {
-    float: left;
-    width: 20%;   
+.column1 {    
+    padding-left: 20%;
+    width: 40%; 
+    
 }
 
-.column2 {
-    float: left;
-    width: 70%;    
+.column2 { 
+    text-align: left;
+    width: 60%;
+     
 }
 
 label{
@@ -39,7 +47,7 @@ label{
     clear: both;
 }
 /* Set a style for all buttons */
-#add {
+#add, #addAll {
     background-color: rgb(52, 51, 70);
     color: white;
     padding: 10px 20px;
@@ -48,7 +56,7 @@ label{
     border-radius: 8px;
     cursor: pointer;
     width: 20%;
-    margin-left: 325px;
+    
 }
 
 #clear {
@@ -68,15 +76,4 @@ button:hover {
 }
 
 /* Add padding to containers */
-
-input[type=text], input[type=password] {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 15px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 8px;
-}
-
 

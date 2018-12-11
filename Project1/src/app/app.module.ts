@@ -47,7 +47,7 @@ import { ChatRoomComponent } from './component/chat-room/chat-room.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 
 import { DataPassService } from './component/Services/data-pass.service';
-
+import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
 
 @NgModule({
   declarations: [
@@ -87,6 +87,7 @@ import { DataPassService } from './component/Services/data-pass.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    SpreadSheetsModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

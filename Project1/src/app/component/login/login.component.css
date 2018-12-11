@@ -41,6 +41,21 @@ body :-ms-input-placeholder {
   font-weight: 300;
 }
 .wrapper {
+  background: white; 
+  background: -webkit-linear-gradient(top left, white 0%, white 100%);
+  background: -moz-linear-gradient(top left, white 0%, white 100%);
+  background: -o-linear-gradient(top left, white 0%, white 100%);
+  background: linear-gradient(to bottom right, white 0%, white 100%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 92%;
+  margin-top: -280px;
+  overflow: hidden;
+}
+/*
+.wrapper {
   background: #3456f0; 
   background: -webkit-linear-gradient(top left, #3456f0 0%, #53e3a6 100%);
   background: -moz-linear-gradient(top left, #3456f0 0%, #53e3a6 100%);
@@ -50,11 +65,11 @@ body :-ms-input-placeholder {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 82%;
-  margin-top: -215px;
+  height: 92%;
+  margin-top: -280px;
   overflow: hidden;
 }
-/*
+
 .wrapper {
   background: #50a3a2; 
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
@@ -76,7 +91,7 @@ body :-ms-input-placeholder {
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 80px 0;
+  padding: 120px 0;
   height: 400px;
   text-align: center;
 }
@@ -94,7 +109,7 @@ form {
 form input {
   appearance: none;
   outline: 0;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(48, 19, 211, 0.849);
   background-color: rgba(255, 255, 255, 0.2);
   width: 250px;
   border-radius: 3px;
@@ -118,8 +133,8 @@ form input:focus {
 form button {
   appearance: none;
   outline: 0;
-  background-color: white;
-  border: 0;
+  background-color: #c8e1fa;
+  border: 1;
   padding: 10px 15px; 
   color: #200957;
   border-radius: 3px;
@@ -134,7 +149,8 @@ form button {
   margin-right: 10px;
 }
 form button:hover {
-  background-color: #f5f7f9;
+  background-color: #572afb;
+  color: white;
 }
 .bg-bubbles {
   position: absolute;
@@ -150,7 +166,7 @@ form button:hover {
   display: block;
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #4244e9a1;
   bottom: -160px;
   -webkit-animation: square 25s infinite;
   animation: square 25s infinite;
@@ -166,6 +182,7 @@ form button:hover {
   height: 80px;
   animation-delay: 2s;
   animation-duration: 17s;
+  background-color: rgba(193, 90, 219, 0.781);
 }
 .bg-bubbles li:nth-child(3) {
   left: 25%;
@@ -176,7 +193,7 @@ form button:hover {
   width: 60px;
   height: 60px;
   animation-duration: 22s;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(193, 90, 219, 0.781);
 }
 .bg-bubbles li:nth-child(5) {
   left: 70%;
@@ -186,13 +203,14 @@ form button:hover {
   width: 120px;
   height: 120px;
   animation-delay: 3s;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(97, 72, 211, 0.829);
 }
 .bg-bubbles li:nth-child(7) {
   left: 32%;
   width: 160px;
   height: 160px;
   animation-delay: 7s;
+  background-color: rgba(161, 90, 219, 0.781);
 }
 .bg-bubbles li:nth-child(8) {
   left: 55%;
@@ -200,6 +218,7 @@ form button:hover {
   height: 20px;
   animation-delay: 15s;
   animation-duration: 40s;
+  background-color: rgba(90, 131, 219, 0.781);
 }
 .bg-bubbles li:nth-child(9) {
   left: 25%;
@@ -207,13 +226,14 @@ form button:hover {
   height: 10px;
   animation-delay: 2s;
   animation-duration: 40s;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(99, 94, 172, 0.863);
 }
 .bg-bubbles li:nth-child(10) {
   left: 90%;
   width: 160px;
   height: 160px;
   animation-delay: 11s;
+  background-color: rgba(40, 12, 141, 0.781);
 }
 @-webkit-keyframes square {
   0% {

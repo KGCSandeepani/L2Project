@@ -1,7 +1,7 @@
 <form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
-  
 
 <div class="container" >
+<h3>Enter student details : </h3><br>
   <div class="row">
     <div class="column1">
         <label for="uname"><b id="username">Username : </b></label><br>
@@ -19,3 +19,30 @@
 </div>
 
 </form>
+
+<br>
+
+
+<div class="container">
+    <h3>Enter all student usernames : </h3><br>
+    <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
+    </gc-spread-sheets>
+
+    <br>
+    <label for="psw2"><b>Password : </b></label>
+    <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2"><br>
+    
+    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Data</button>
+</div>
+
+<br>
+
+<div class="container">
+    <h3>Upload all student usernames : </h3><br>
+    <div class='loadExcelInput'>
+        <p>Open Excel File</p>
+      <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
+    </div>
+    
+</div>
+<br>

@@ -1,4 +1,39 @@
 body {
+    padding-top: 72px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+    position: fixed;
+  }
+  
+  li {
+    float: left;
+  }
+
+  li a.active {
+    background-color: rgb(172, 166, 166);
+    color: black;
+  }
+ 
+  li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #7e7b7b;
+    color: black;
+  }
+/*
+body {
     margin: 0;
 }
 
@@ -29,3 +64,4 @@ li a:hover:not(.active) {
     background-color: #555;
     color: white;
 }
+*/

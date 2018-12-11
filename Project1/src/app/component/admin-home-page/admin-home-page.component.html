@@ -1,7 +1,35 @@
 
 <body>
-<div class ="col-sm-8" > 
-  <br><br><br><br><br><br>
+<div  > 
+  
+  <ul>
+    <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
+    <li><a routerLink="./requestedCompany" routerLinkActive="active">Requested Company</a></li> 
+    <li class="dropdown">
+      
+        <li><a routerLink="./adminViewStudent" routerLinkActive="active">Student Details</a></li>
+        <li><a routerLink="./adminViewSupervisor" routerLinkActive="active">Supervisor Details</a></li>
+        <li><a routerLink="./adminViewCompany" routerLinkActive="active">Company Details</a></li>           
+      
+    <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
+    <li><a >Analysis</a></li>
+    <li><a >Setting</a></li>
+  </ul>
+  <!--
+<li class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown">
+       Dropdown <span class="caret"></span>
+      </button>       
+      <ul class="dropdown-menu">
+        <li><a routerLink="./adminViewStudent" routerLinkActive="active">Student Details</a></li>
+        <li><a routerLink="./adminViewSupervisor" routerLinkActive="active">Supervisor Details</a></li>
+        <li><a routerLink="./adminViewCompany" routerLinkActive="active">Company Details</a></li>           
+      </ul>
+    </li>
+
+
+
+
 <ul>
   <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
   <li><a routerLink="./adminViewStudent" routerLinkActive="active">Student Details</a></li>
@@ -11,10 +39,11 @@
   <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
   <li><a >Analysis</a></li>
   <li><a >Setting</a></li>
-</ul>
+</ul>-->
+
 </div>
 <div class ="col-sm-19" >
-<div style="margin-left:25%;padding:1px 16px;">
+<div style="padding:1px 16px;">
   <router-outlet></router-outlet>
 </div>
 </div>

@@ -29,7 +29,7 @@ export class TitleComponent implements OnInit {
     sessionStorage.clear();
     this.displayButton=false;
     this.router.navigate(['/login']);
-    //location.reload();
+    location.reload();
   }
 
 }
