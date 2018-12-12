@@ -48,6 +48,8 @@ import { UserListComponent } from './component/user-list/user-list.component';
 
 import { DataPassService } from './component/Services/data-pass.service';
 import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
+import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
     FeedASComponent,
     MessageASComponent,
     ChatRoomComponent,
-    UserListComponent
+    UserListComponent,
+    AdminAnalysisComponent,
   ],
   imports: [
     BrowserModule,

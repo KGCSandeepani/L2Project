@@ -33,21 +33,24 @@ export class RequestedCompanyComponent implements OnInit {
   location:String;
   email:String;
   contactNo:String;
+  cpname:String;
   psw:String;
   newName:String;
   newLocation:String;
   newEmail:String;
   newContactNo:String;
+  newContactPersonName:String;
   newPsw:String;
 
-  onAccept(name,location,email,contactNo,psw){  
+  onAccept(name,location,email,contactNo,cpanme,psw){  
     this.newName=name;
     this.newLocation=location;
     this.newEmail=email;
     this.newContactNo=contactNo;
+    this.newContactPersonName=cpanme;
     this.newPsw=psw;
    
-    this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newPsw)
+    this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newContactPersonName,this.newPsw)
    .subscribe((data : company )=> {
     this.company2 = data;
   })

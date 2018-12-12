@@ -5,15 +5,14 @@
     <thead>
   <tr>
     <th> Student ID     </th>
-    <th> Student Name   </th>
+    <th></th>
   </tr>
 </thead>
 <tbody>
   <tr *ngFor="let student of students">
-    <td>{{student.id}} </td>
     <td>{{student.name}}</td>
       <td>
-        <button class="btn" (click)="onDelete(student.name)"><i class="fa fa-trash"></i>Delete Record</button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(student.name)"><i class="fa fa-trash"></i>Delete Record</button>
      </td>
   </tr>
 </tbody>

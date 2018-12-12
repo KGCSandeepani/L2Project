@@ -24,6 +24,7 @@ import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
 import { ChatRoomComponent } from './component/chat-room/chat-room.component';
 import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
+import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: 'adminViewSupervisor', component: AdminViewSupervisorComponent },
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
+      { path: 'adminAnalysis', component: AdminAnalysisComponent },
       { path: 'chat-room', component:  ChatRoomComponent }
     ]
   },
