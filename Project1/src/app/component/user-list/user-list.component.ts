@@ -4,6 +4,7 @@ import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.s
 import { ChatServiceASService} from '../Services/chat-service-a-s.service';
 import { MessageASComponent } from '../message-a-s/message-a-s.component';
 
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -14,11 +15,14 @@ export class UserListComponent implements OnInit {
 
   students: student[];
   constructor(private readService: ReadUnamePswServiceService, private chatService:ChatServiceASService) { }
-
+  userN :string;
+  editUser:string;
   ngOnInit() {
     this.readService.getData()
     .subscribe(data => this.students = data);
     console.log(this.students);
+
+    this.chatService.cast.subscribe(userN=> this.userN=userN);
   }
   sendReceiverName(student:any){
     
@@ -26,5 +30,7 @@ export class UserListComponent implements OnInit {
     this.chatService.sendReceiverName(student.name);
     
   }
-  
+   editTheUser(student:any){
+     this.chatService.editUser(this.editUser);
+   }
 }

@@ -5,13 +5,16 @@
     
       
       <div class="container">
+        <input type="text"[(ngModel)]="editUser"> <button (click)="editTheUser()">Change</button>
       <table class="table">
         
       <tbody>
           <div class="messageContainer">
+              {{userN}}
+
         <tr *ngFor="let student of students">
           
-          <td (click)="sendReceiverName(student)" [ngClass] = "'active'" > {{student.name}}</td>
+          <td (click)="sendReceiverName(student)" [ngClass] = "'active'" [(ngModel)]="editUser"> {{student.name}}</td>
             
         </tr>
       </div>

@@ -13,7 +13,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 export class FeedASComponent implements OnInit , OnChanges{
   feeds:AngularFireList<any>
   ChatMessage : any[];
-  
+  userN :string;
   items: Observable<any[]>;
   //chatMessage: ChatMessage;
   //chatMessages: Angula rFireList<ChatMessage>; 
@@ -26,6 +26,7 @@ export class FeedASComponent implements OnInit , OnChanges{
     console.log("intializing feed oninit...");
     //this.chat.getMessages();
     //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
+    this.chat.cast.subscribe(userN=> this.userN=userN);
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo("154123B")).valueChanges();
     console.log("after feed oninit...");
   }

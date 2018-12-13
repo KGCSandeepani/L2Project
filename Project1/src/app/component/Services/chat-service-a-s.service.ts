@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import {ChatMessage} from '../Model/Chat-message.model';
 import { DataPassService } from '../Services/data-pass.service';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +19,8 @@ export class ChatServiceASService {
   receiverName :string;
   userName: string ;
   message : string;
-
+  private userN =new BehaviorSubject<string>('john');
+  cast =this.userN.asObservable();
 
   constructor(private data : DataPassService, private db: AngularFireDatabase,
     private afAuth: AngularFireAuth) {
@@ -67,5 +68,9 @@ export class ChatServiceASService {
       this.receiverName=rName;
       console.log("inside send receiver chat serviec");
 
+    }
+
+    editUser (newUser){
+      this.userN.next(newUser);
     }
 }
