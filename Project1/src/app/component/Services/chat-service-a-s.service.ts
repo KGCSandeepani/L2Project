@@ -63,12 +63,7 @@ export class ChatServiceASService {
   
       return (date + ' ' + time);
     }
-    sendReceiverName(rName:string){
-      //get receiver's name from user list
-      this.receiverName=rName;
-      console.log("inside send receiver chat serviec");
-
-    }
+    
 
     editUser (newUser){
       this.userN.next(newUser);

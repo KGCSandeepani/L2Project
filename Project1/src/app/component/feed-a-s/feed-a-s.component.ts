@@ -27,7 +27,7 @@ export class FeedASComponent implements OnInit , OnChanges{
     //this.chat.getMessages();
     //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
     this.chat.cast.subscribe(userN=> this.userN=userN);
-    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo("154123B")).valueChanges();
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
     console.log("after feed oninit...");
   }
 
@@ -37,7 +37,7 @@ export class FeedASComponent implements OnInit , OnChanges{
   ngOnChanges() {
     console.log("intializing feed onchanges...");
     //this.feeds=this.chat.getMessages();
-    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo("154123B")).valueChanges();
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
     console.log("after feed onchanges...");
   }
 

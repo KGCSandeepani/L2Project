@@ -24,13 +24,9 @@ export class UserListComponent implements OnInit {
 
     this.chatService.cast.subscribe(userN=> this.userN=userN);
   }
-  sendReceiverName(student:any){
-    
-    console.log("value", student.name);
-    this.chatService.sendReceiverName(student.name);
-    
-  }
+  
    editTheUser(student:any){
-     this.chatService.editUser(this.editUser);
+    console.log("value", student.name);
+     this.chatService.editUser(student.name);
    }
 }
