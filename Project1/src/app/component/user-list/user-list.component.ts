@@ -22,11 +22,12 @@ export class UserListComponent implements OnInit {
     .subscribe(data => this.students = data);
     console.log(this.students);
 
+    //just to view clicked user
     this.chatService.cast.subscribe(userN=> this.userN=userN);
   }
   
    editTheUser(student:any){
-    console.log("value", student.name);
+    
      this.chatService.editUser(student.name);
    }
 }

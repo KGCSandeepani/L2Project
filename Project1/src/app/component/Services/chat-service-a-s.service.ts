@@ -19,37 +19,31 @@ export class ChatServiceASService {
   receiverName :string;
   userName: string ;
   message : string;
-  private userN =new BehaviorSubject<string>('john');
+  private userN =new BehaviorSubject<string>('164124V');
   cast =this.userN.asObservable();
+  userR:string;
 
-  constructor(private data : DataPassService, private db: AngularFireDatabase,
-    private afAuth: AngularFireAuth) {
-      this.afAuth.authState.subscribe(auth => {
-        if (auth !== undefined && auth !== null) {
-          this.user = auth;
-        }
-        
-      });
+  constructor(private data : DataPassService, private db: AngularFireDatabase) {
+      
       this.data.currentMessage.subscribe(message => this.message = message);
       this.userName = this.data.getMessage();
+      this.cast.subscribe(userN=> this.userR=userN);
      }
      sendMessage(msg: string) {
       const timestamp = this.getTimeStamp();
       console.log(msg);
       console.log("inside send msg");
-      
-  
-      
       //const email = this.user.email;
+    
       this.chatMessages = this.getMessages();
       this.chatMessages.push({
         message: msg,
         timeSent: new Date,
         userName: this.userName,
-        receiver: this.receiverName });
+        receiver:this.userR });
     }
     getMessages(): AngularFireList<ChatMessage> {
-      console.log("inside get msg");
+      
       return this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
     }
      getTimeStamp() {
@@ -66,6 +60,8 @@ export class ChatServiceASService {
     
 
     editUser (newUser){
+      
       this.userN.next(newUser);
+      
     }
 }

@@ -1,9 +1,10 @@
+<body>
 <div class="feeds">
-    
+    {{userN}}
   <div  *ngFor="let messages of items|async" class="message">
-      {{userN}}
+     
     <app-message-a-s [chatMessage]="messages"></app-message-a-s>
   </div>
 </div>
-
+</body>
 

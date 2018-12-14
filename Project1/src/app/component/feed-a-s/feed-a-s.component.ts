@@ -15,8 +15,7 @@ export class FeedASComponent implements OnInit , OnChanges{
   ChatMessage : any[];
   userN :string;
   items: Observable<any[]>;
-  //chatMessage: ChatMessage;
-  //chatMessages: Angula rFireList<ChatMessage>; 
+  
   constructor(private chat : ChatServiceASService,private db: AngularFireDatabase ) { 
     //this.feed = db.list('/chat-a-s.component');
     this.items = db.list('messages').valueChanges();
@@ -27,18 +26,16 @@ export class FeedASComponent implements OnInit , OnChanges{
     //this.chat.getMessages();
     //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
     this.chat.cast.subscribe(userN=> this.userN=userN);
+    console.log("after feed oninit..."+this.userN);
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    console.log("after feed oninit...");
+    
   }
 
-  
- 
-
   ngOnChanges() {
-    console.log("intializing feed onchanges...");
-    //this.feeds=this.chat.getMessages();
-    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    console.log("after feed onchanges...");
+    
+    console.log("after feed onchanges..."+this.userN);
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo('164124V')).valueChanges();
+    
   }
 
   
