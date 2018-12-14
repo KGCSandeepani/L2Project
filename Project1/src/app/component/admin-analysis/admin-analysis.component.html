@@ -1,3 +1,11 @@
-<p>
-  admin-analysis works!
-</p>
+<br><br>
+<h2 class="text-center">Students' preferences</h2>
+<div class="container">
+    <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div> 

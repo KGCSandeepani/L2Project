@@ -49,7 +49,7 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { DataPassService } from './component/Services/data-pass.service';
 import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
-
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @NgModule({
   declarations: [
@@ -90,7 +90,8 @@ import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysi
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
-    SpreadSheetsModule
+    SpreadSheetsModule,
+    ChartsModule,
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
