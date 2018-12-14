@@ -25,6 +25,7 @@ import { ChatRoomComponent } from './component/chat-room/chat-room.component';
 import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
+import { UserListComponent } from './component/user-list/user-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -44,7 +45,7 @@ const routes: Routes = [
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
-      { path: 'chat-room', component:  ChatRoomComponent }
+      { path: 'chat-room', component:  ChatRoomComponent}
     ]
   },
   { 

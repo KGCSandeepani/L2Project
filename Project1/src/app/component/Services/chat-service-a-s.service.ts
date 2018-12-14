@@ -19,7 +19,7 @@ export class ChatServiceASService {
   receiverName :string;
   userName: string ;
   message : string;
-  private userN =new BehaviorSubject<string>('164124V');
+  private userN =new BehaviorSubject<string>('');
   cast =this.userN.asObservable();
   userR:string;
 
@@ -63,5 +63,10 @@ export class ChatServiceASService {
       
       this.userN.next(newUser);
       
+    }
+
+    getMessages2() {
+      
+      return this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userR)).valueChanges();
     }
 }
