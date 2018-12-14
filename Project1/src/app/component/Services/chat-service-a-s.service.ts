@@ -19,9 +19,10 @@ export class ChatServiceASService {
   receiverName :string;
   userName: string ;
   message : string;
-  private userN =new BehaviorSubject<string>('');
-  cast =this.userN.asObservable();
   userR:string;
+  private userN =new BehaviorSubject<string>(this.userR);
+  cast =this.userN.asObservable();
+ 
 
   constructor(private data : DataPassService, private db: AngularFireDatabase) {
       
