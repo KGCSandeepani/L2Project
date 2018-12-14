@@ -31,15 +31,20 @@ ul {
   li a:hover {
     background-color: #7e7b7b;
     color: black;
+    padding: 14px 16px;
   }
  
   .dropdown {
     display: block;
     visibility: visible;
+   
   }
-
+  .dropdown-menu{
+    min-width: 200px;
+  }
   .dropdown-menu a:hover {
     background-color: #666464 ;
+    min-width: 200px;
   }
 /*   
   .dropdown-content {
