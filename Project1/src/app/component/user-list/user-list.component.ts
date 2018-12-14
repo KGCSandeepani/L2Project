@@ -3,7 +3,8 @@ import { student } from '../Model/Student';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { ChatServiceASService} from '../Services/chat-service-a-s.service';
 import { MessageASComponent } from '../message-a-s/message-a-s.component';
-
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +15,7 @@ export class UserListComponent implements OnInit {
   [x: string]: any;
 
   students: student[];
-  constructor(private readService: ReadUnamePswServiceService, private chatService:ChatServiceASService) { }
+  constructor(private readService: ReadUnamePswServiceService, private chatService:ChatServiceASService,private router: Router) { }
   userN :string;
   editUser:string;
   ngOnInit() {
@@ -29,5 +30,6 @@ export class UserListComponent implements OnInit {
    editTheUser(student:any){
     
      this.chatService.editUser(student.name);
+     this.router.navigate(['./component/feed-a-s/feed-a-s.component']);
    }
 }

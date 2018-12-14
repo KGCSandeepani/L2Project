@@ -1,6 +1,6 @@
 
 
-<body>
+<!--<body>
 <div #scroller class= "feedWrapper" >
   <app-feed-a-s></app-feed-a-s>
 </div>
@@ -8,4 +8,16 @@
 
 <button class="chatButton" (click)=send()>Send</button>
 
+</body>
+/////////////-->
+<body>
+    <div #scroller class= "feedWrapper" >
+      <app-feed-a-s></app-feed-a-s>
+    </div>
+<div class="type_msg">
+    <div class="input_msg_write">
+      <input [(ngModel)]="message" class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
+      <button class="msg_send_btn" (click)=send() type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+    </div>
+  </div>
 </body>

@@ -45,7 +45,11 @@ const routes: Routes = [
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
-      { path: 'chat-room', component:  ChatRoomComponent}
+      { path: 'chat-room', component:  ChatRoomComponent},
+      {path : 'userList', component:UserListComponent,
+      children :[
+       {path:'feed', component :FeedASComponent} 
+      ]}
     ]
   },
   { 

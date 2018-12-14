@@ -1,47 +1,49 @@
-
-
-  <body style="background-color: #3f3e3f">
-    ////////
-    <div class="container">
+<body style="background-color: #3f3e3f">
+ 
+  <div class="container">
+    
     <div class="headind_srch">
       <div class="recent_heading">
         <h4>Recent</h4>
       </div>
       <div class="srch_bar">
         <div class="stylish-input-group">
-          <input type="text" class="search-bar"  placeholder="Search" >
+          <input type="text" class="search-bar" placeholder="Search">
           <span class="input-group-addon">
-          <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+            <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
           </span> </div>
       </div>
     </div>
-    
+
     <div class="inbox_chat">
       <div class="chat_list active_chat">
         <div class="chat_people">
-          <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-          <div class="chat_ib">
+          
+          
             <table class="table">
-        
+
               <tbody>
-                  <div class="messageContainer">
-                     <!-- {{userN}}-->
-        
-                <tr *ngFor="let student of students">
-                  
-                  <td (click)="editTheUser(student)" [ngClass] = "'active'" > {{student.name}}</td>
-                    
-                </tr>
-              </div>
+                <div class="messageContainer">
+                  <!-- {{userN}}-->
+
+                  <tr *ngFor="let student of students">
+                      <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                      <div class="chat_ib">
+                    <td (click)="editTheUser(student)" [ngClass]="'active'"> {{student.name}}</td>
+                  </div>
+                  </tr>
+                </div>
               </tbody>
-              </table>
-          </div>
+            </table>
+          
         </div>
       </div>
     </div>
+
+
   </div>
-    //////////////////////////////////////////  
-      <div class="container">
+</body>
+<!-- <div class="container">
        
       <table class="table">
         
@@ -64,3 +66,4 @@
     /////////////
 
   </body>
+  -->

@@ -20,7 +20,7 @@ export class ChatServiceASService {
   userName: string ;
   message : string;
   userR:string;
-  private userN =new BehaviorSubject<string>(this.userR);
+  private userN =new BehaviorSubject<string>('164124V');
   cast =this.userN.asObservable();
  
 

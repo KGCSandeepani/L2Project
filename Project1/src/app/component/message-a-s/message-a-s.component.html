@@ -1,18 +1,44 @@
-<div class="messageContainer" [ngClass]="{'isOwnMessageContainer':isOwnMessage}">
-    <div class="messageData"  [ngClass]="{'isOwnMessageData':isOwnMessage}">
-        <span class="sender" [ngClass]="{'isOwnSender':isOwnMessage}">
-            {{ userName }}
-        </span>
-        
-        <span class="timestamp"  [ngClass] = "{'isOwnTimestamp':isOwnMessage}">
-            {{ timeStamp | date:'medium' }}
-        </span>
-    </div>
-    <div class="messageContent" [ngClass]="{'isOwnMessageContent':isOwnMessage}">
-        {{ messageContent }}
-    </div>
-    <span class="receiver" [ngClass]="{'isOwnSender':isOwnMessage}">
-        {{ receiver }}
-    </span>
-</div>
 
+
+
+<div class="mesgs">
+        <div class="msg_history">
+          <div class="incoming_msg">
+            <div class="received_msg">
+              <div class="received_withd_msg">
+                    
+                    <div class="messageContainer" [ngClass]="{'isOwnMessageContainer':isOwnMessage}">
+                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                            <div class="messageData"  [ngClass]="{'isOwnMessageData':isOwnMessage}">
+                                <span class="sender" [ngClass]="{'isOwnSender':isOwnMessage}">
+                                    {{ userName }}
+                                </span>
+                                
+                                
+                            </div>
+                            <div class="messageContent" [ngClass]="{'isOwnMessageContent':isOwnMessage}">
+                                {{ messageContent }}
+                            </div>
+                            <span class="receiver" [ngClass]="{'isOwnSender':isOwnMessage}">
+                                {{ receiver }}
+                            </span>
+                        </div>  
+                        <span class="timestamp"  [ngClass] = "{'isOwnTimestamp':isOwnMessage}">
+                                {{ timeStamp | date:'medium' }}
+                        </span>
+                  
+              </div>
+            </div>
+          </div>
+          <!--<div class="outgoing_msg">
+            <div class="sent_msg">
+              <p>Test which is a new approach to have all
+                solutions</p>
+              <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+          </div>
+          -->
+          
+          
+        </div>
+        
+      </div>
