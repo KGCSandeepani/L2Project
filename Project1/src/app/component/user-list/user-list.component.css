@@ -27,6 +27,10 @@ td :active {
     background-color: rgb(59, 48, 177);
     color: white;
 }*/
+body{
+  margin-top: 7%
+  
+}
 .container{max-width:1170px; margin:auto;}
 img{ max-width:100%;}
 .inbox_people {

@@ -1,13 +1,11 @@
 
 body {
     background-color: #b5b7bd;
-    margin-left: 315px;
+    margin-left: 10%;
     }
-    .feedWrapper{
-        padding-top: 0px;
-    }
+    
 
-    .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
+.type_msg {border-top: 1px solid #c4c4c4;position: relative;}
 .msg_send_btn {
   background: #05728f none repeat scroll 0 0;
   border: medium none;
@@ -18,6 +16,6 @@ body {
   height: 33px;
   position: absolute;
   right: 0;
-  top: 11px;
+ 
   width: 33px;
 }
