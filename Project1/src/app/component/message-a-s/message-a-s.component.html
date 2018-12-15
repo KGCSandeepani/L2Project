@@ -10,11 +10,7 @@
                     <div class="messageContainer" [ngClass]="{'isOwnMessageContainer':isOwnMessage}">
                             <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                             <div class="messageData"  [ngClass]="{'isOwnMessageData':isOwnMessage}">
-                                <span class="sender" [ngClass]="{'isOwnSender':isOwnMessage}">
-                                    {{ userName }}
-                                </span>
-                                
-                                
+   
                             </div>
                             <div class="messageContent" [ngClass]="{'isOwnMessageContent':isOwnMessage}">
                                 {{ messageContent }}
@@ -22,6 +18,9 @@
                             
                         </div>  
                         <div class="date">
+                                <span class="sender" [ngClass]="{'isOwnSender':isOwnMessage}">
+                                        {{ userName }}
+                                    </span>
                         <span class="timestamp"  [ngClass] = "{'isOwnTimestamp':isOwnMessage}">
                                 {{ timeStamp | date:'medium' }}
                         </span>

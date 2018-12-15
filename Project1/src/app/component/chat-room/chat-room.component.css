@@ -3,7 +3,8 @@
 }
 /*.userList{
     position: fixed;
-}
-.messageArea{
-    margin-left: 50%;
 }*/
+.messageArea{
+    
+    max-height:200px;
+}
