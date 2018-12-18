@@ -16,8 +16,14 @@ ul {
   }
 
   li a.active {
-    background-color: rgb(172, 166, 166);
+    background-color: #aca6a6;
     color: black;
+  }
+
+  li a.active2 {
+    background-color: #aca6a6;
+    color: black;
+    min-width: 200px;
   }
  
   li a {
@@ -46,6 +52,7 @@ ul {
     background-color: #666464 ;
     min-width: 200px;
   }
+  
 /*   
   .dropdown-content {
     display: none;

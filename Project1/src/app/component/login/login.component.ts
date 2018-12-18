@@ -7,6 +7,7 @@ import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.s
 import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { DataPassService } from '../Services/data-pass.service';
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   students: student[];
   companies : company[];
-  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router) { }
+  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
@@ -33,6 +34,8 @@ export class LoginComponent implements OnInit {
       this.newMessage("Admin");
       this.router.navigate(['/adminHomePage']);
       location.reload();
+    }else{
+      this.sendNotification();
     }
     
     for (let index = 0; index < this.students.length; index++) {
@@ -63,6 +66,10 @@ export class LoginComponent implements OnInit {
 
   newMessage(logger:string) {
     this.data.changeMessage(logger);
+  }
+
+  sendNotification() {
+  	this.ngxNotificationService.sendMessage('Wrong username or password', 'dark', 'bottom-right');
   }
 
 }

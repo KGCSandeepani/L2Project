@@ -50,10 +50,13 @@ import { DataPassService } from './component/Services/data-pass.service';
 import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { NgxNotificationComponent } from 'ngx-notification';
+
 
 @NgModule({
   declarations: [
-    AppComponent,    
+    AppComponent, 
+    NgxNotificationComponent,   
     LoginComponent,
     AdminHomePageComponent,
     AdminAddStudentComponent,
