@@ -19,20 +19,26 @@ export class ChatServiceASService {
   receiverName :string;
   userName: string ;
   message : string;
-  userR:string;
-  private userN =new BehaviorSubject<string>('164124V');
+  userR:string='';
+  //u:string=this.userR;
+
+  
+  private userN =new BehaviorSubject<string>(this.userR);
   cast =this.userN.asObservable();
- 
+   
 
   constructor(private data : DataPassService, private db: AngularFireDatabase) {
       
       this.data.currentMessage.subscribe(message => this.message = message);
       this.userName = this.data.getMessage();
       this.cast.subscribe(userN=> this.userR=userN);
+      console.log(this.userR);
      }
      sendMessage(msg: string) {
       const timestamp = this.getTimeStamp();
       console.log(msg);
+      //console.log(this.u);
+      console.log(this.userR);
       console.log("inside send msg");
       //const email = this.user.email;
     
@@ -61,13 +67,25 @@ export class ChatServiceASService {
     
 
     editUser (newUser){
-      
+      let bSubject = new BehaviorSubject("a");
+      bSubject.next(newUser);
+      bSubject.subscribe((value) => {
+        console.log("Subscription got", value); // Subscription got b, 
+                                                // ^ This would not happen 
+                                                // for a generic observable 
+                                                // or generic subject by default
+      });
+
       this.userN.next(newUser);
+      
       
     }
 
     getMessages2() {
       
       return this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userR)).valueChanges();
+    }
+    onChanges(){
+      this.getMessages2;
     }
 }

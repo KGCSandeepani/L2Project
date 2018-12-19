@@ -30,6 +30,7 @@ export class UserListComponent implements OnInit {
    editTheUser(student:any){
     
      this.chatService.editUser(student.name);
-     this.router.navigate(['./component/feed-a-s/feed-a-s.component']);
+     //this.router.navigate(['./feed/feed-a-s.component']);
+     //this.router.navigate(['./feed']);
    }
 }
