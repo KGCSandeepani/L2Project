@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {ChatMessage} from '../Model/Chat-message.model';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
+import { stringify } from '@angular/core/src/util';
 @Component({
   selector: 'app-feed-a-s',
   templateUrl: './feed-a-s.component.html',
@@ -16,11 +17,13 @@ export class FeedASComponent implements OnInit , OnChanges {
   differ: any;
   userN :string;
   items: Observable<any[]>;
- 
+ value:string='';
   constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private differs: KeyValueDiffers ) { 
     //this.feed = db.list('/chat-a-s.component');
     //this.items = db.list('messages').valueChanges();
     this.chat.cast.subscribe(userN=> this.userN=userN);
+   
+    
     //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
     this.differ = this.differs.find({}).create(); 
     //this.viewMessage();
@@ -28,12 +31,13 @@ export class FeedASComponent implements OnInit , OnChanges {
   }
 
   ngOnInit() {
-    //console.log("intializing feed oninit...");
-    //this.chat.getMessages();
-    //this.feeds=this.db.list('messages',ref => ref.orderByKey().limitToLast(25));
-    //this.chat.cast.subscribe(userN=> this.userN=userN);
-    //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
     
+    this.chat.cast.subscribe(userN=> this.userN=userN);
+    //console.log("intializing feed oninit...");
+    
+    //console.log("before feed oninit..."+this.userN);
+    //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
+    this.viewMessage();
     //this.items=this.chat.getMessages2();
     
     
@@ -41,25 +45,31 @@ export class FeedASComponent implements OnInit , OnChanges {
 
   ngOnChanges() {
     
-    //console.log("after feed onchanges..."+this.userN);
-    //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    //this.items=this.chat.getMessages2();
+    this.chat.cast.subscribe((userN) => {
+      this.userN=userN;
+      console.log("Subscription got", this.userN); // Subscription got b, 
+                                              // ^ This would not happen 
+                                              // for a generic observable 
+                                              // or generic subject by default
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
+  
+    });;
     
   }
-  /*viewMessage(){
-    console.log("view msg"+this.userN);
-    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo('164124V')).valueChanges();
-  }*/
-
-  /*ngDoCheck() {
-    const change = this.differ.diff(this);
-    if (change) {
-      change.forEachChangedItem(item => {
-        console.log('item changed', item);
-        this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    
-      });
+  viewMessage(){
+   
+    this.chat.cast.subscribe((userN) => {
+      this.userN=userN;
+      console.log("Subscription got", this.userN); // Subscription got b, 
+                                              // ^ This would not happen 
+                                              // for a generic observable 
+                                              // or generic subject by default
+    this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
+  
+    });
+    console.log("view msg"+this.value);
     }
-  }*/
+
+  
 
 }

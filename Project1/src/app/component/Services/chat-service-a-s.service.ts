@@ -69,12 +69,7 @@ export class ChatServiceASService {
     editUser (newUser){
       let bSubject = new BehaviorSubject("a");
       bSubject.next(newUser);
-      bSubject.subscribe((value) => {
-        console.log("Subscription got", value); // Subscription got b, 
-                                                // ^ This would not happen 
-                                                // for a generic observable 
-                                                // or generic subject by default
-      });
+      
 
       this.userN.next(newUser);
       
