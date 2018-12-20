@@ -1,0 +1,41 @@
+.main{
+    padding-top: 6vw;
+}
+
+.container {
+    border: 1px solid rgb(68, 0, 255);
+    border-radius: 5px;
+    padding: 2vw ;
+    text-align: center;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 15px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+label{
+    padding: 24px 10px;
+}
+
+#add, #addAll {
+    background-color: rgb(52, 51, 70);
+    color: white;
+    padding: 10px 20px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 20%;
+    
+}
+
+button:hover {
+    opacity: 0.6;
+}

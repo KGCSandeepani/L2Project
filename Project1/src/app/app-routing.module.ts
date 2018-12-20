@@ -26,6 +26,7 @@ import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 import { UserListComponent } from './component/user-list/user-list.component';
+import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -45,11 +46,13 @@ const routes: Routes = [
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
+      { path: 'adminSetting', component: AdminSettingComponent },
       { path: 'chat-room', component:  ChatRoomComponent},
-      {path : 'userList', component:UserListComponent,
-      children :[
-       {path:'feed', component :FeedASComponent} 
-      ]}
+      {path : 'userList', 
+        component:UserListComponent,
+        children :[
+          {path:'feed', component :FeedASComponent} 
+        ]}
     ]
   },
   { 

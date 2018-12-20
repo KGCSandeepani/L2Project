@@ -10,6 +10,7 @@ import '@grapecity/spread-sheets-charts';
 import {saveAs} from 'file-saver';
 import { from } from 'rxjs';
 import { error } from '@angular/compiler/src/util';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -33,7 +34,7 @@ export class AdminAddStudentComponent implements OnInit {
   private excelIO;
   private a;
 
-  constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,private authService: AuthChatASService) { 
+  constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,private authService: AuthChatASService,private ngxNotificationService: NgxNotificationService) { 
     this.excelIO = new Excel.IO();
   }
 
@@ -41,7 +42,10 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   onSubmit(formdata:NgForm){
-    // console.log(formdata.value.s_text);
+    if (formdata.value.Username==null || formdata.value.password) {
+      this.sendNotification3();
+      return;
+    }
     this.studentService.getStudentData(formdata)
     .subscribe((data : student[] )=> {
         this.student = data;
@@ -58,6 +62,10 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   getData(args,psw2){
+    if (psw2==null) {
+      this.sendNotification1();
+      return;
+    }
     const self=this;
     this.a=self.spread.getActiveSheet().getRowCount();
           for (let index = 1; index < this.a; index++) {
@@ -67,7 +75,7 @@ export class AdminAddStudentComponent implements OnInit {
               this.student = data;
               });
               console.log(self.spread.getActiveSheet().getValue(index,0));
-              console.log(psw2);
+              
             } else {
               continue;
             }
@@ -82,7 +90,7 @@ export class AdminAddStudentComponent implements OnInit {
       self.excelIO.open(file, (json) => {
         self.spread.fromJSON(json, {});
         setTimeout(() => {          
-          alert('load successfully');
+          this.sendNotification2();
         }, 0);
       }, (error) => {
         alert('load fail');
@@ -92,7 +100,7 @@ export class AdminAddStudentComponent implements OnInit {
 
   uploadData(args,psw3){
     if (psw3==null) {
-      alert('Enter passward');
+      this.sendNotification1();
       return;
     }
     const self=this;
@@ -113,6 +121,18 @@ export class AdminAddStudentComponent implements OnInit {
     }
     
     console.log(this.a);
+  }
+
+  sendNotification1() {
+  	this.ngxNotificationService.sendMessage('Please enter password', 'dark', 'bottom-right');
+  }
+
+  sendNotification2() {
+  	this.ngxNotificationService.sendMessage('Load sucessfully', 'dark', 'bottom-right');
+  }
+
+  sendNotification3() {
+  	this.ngxNotificationService.sendMessage('Please enter Username or Password', 'dark', 'bottom-right');
   }
 
 }

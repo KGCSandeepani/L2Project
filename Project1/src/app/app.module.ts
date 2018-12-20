@@ -51,6 +51,7 @@ import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgxNotificationComponent } from 'ngx-notification';
+import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { NgxNotificationComponent } from 'ngx-notification';
     ChatRoomComponent,
     UserListComponent,
     AdminAnalysisComponent,
+    AdminSettingComponent,
   ],
   imports: [
     BrowserModule,
