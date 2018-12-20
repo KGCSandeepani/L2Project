@@ -18,4 +18,10 @@ body{
 
 p{
     background-color: blueviolet;
+    position: fixed;
+    
+}
+.heading{
+    max-width: 300px;
+    max-height: 80%
 }
