@@ -1,6 +1,9 @@
 <body>
 <div class="feeds">
-  {{userN}}
+  <div class="heading">
+      <!--<img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">-->
+    <p>{{userN}}</p>
+  </div>
   
   <div  *ngFor="let messages of items|async" class="message">
      

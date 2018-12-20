@@ -1,13 +1,13 @@
 
 body {
-    background-color: #9da5bb;
+    background-color: #b4b4b4;
     margin-right: 20%;
     max-height: 200px;
     }
     
 
 .type_msg {border-top: 1px solid #c4c4c4;position: fixed; bottom: 10px;
-    width: 60%;
+    width: 100%;
     padding: 12px ;
     margin: 8px 0;
      }
@@ -18,11 +18,11 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 17px;
-  height: 33px;
+  height: 40px;
   margin-right: 20%;
   right: 0;
  
-  width: 33px;
+  width: 40px;
 }
 .write_msg {
     width: 50%;
