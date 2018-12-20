@@ -1,4 +1,4 @@
-.feed{
+/*.feed{
     display: flex;
     flex-direction: column;
     max-height: 200px;
@@ -13,5 +13,6 @@ body{
     margin-top: 10%;
     
     max-width: 100%;
-    /*margin-left: 200px;*/
-}
+    /*margin-left: 200px;
+}*/
+

@@ -1,10 +1,31 @@
-.row{
+/*.row{
     padding-top: 2%;
 }
-/*.userList{
+.userList{
     position: fixed;
-}*/
-.messageArea{
-    
-    max-height:200px;
 }
+.messageArea{
+    margin-right: 20%;
+    max-height:200px;
+}*/
+.split {
+    height: 100%;
+    margin-top: 10%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    width: 30%;
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    width: 70%;
+  }

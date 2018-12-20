@@ -52,7 +52,7 @@ import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysi
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgxNotificationComponent } from 'ngx-notification';
 import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
-
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -97,6 +97,7 @@ import { AdminSettingComponent } from './component/admin-setting/admin-setting.c
     AngularFireModule.initializeApp(environment.firebase),
     SpreadSheetsModule,
     ChartsModule,
+    ScrollToModule.forRoot()
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

@@ -5,6 +5,8 @@ import {ChatMessage} from '../Model/Chat-message.model';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
 import { stringify } from '@angular/core/src/util';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+
 @Component({
   selector: 'app-feed-a-s',
   templateUrl: './feed-a-s.component.html',
@@ -18,7 +20,7 @@ export class FeedASComponent implements OnInit , OnChanges {
   userN :string;
   items: Observable<any[]>;
   value:string='';
-  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase ) { 
+  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private _scrollToService: ScrollToService ) { 
     
        
   }
@@ -48,6 +50,14 @@ export class FeedASComponent implements OnInit , OnChanges {
   
     });
     
+    }
+    public triggerScrollTo() {
+    
+      const config: ScrollToConfigOptions = {
+        target: 'destination'
+      };
+   
+      this._scrollToService.scrollTo(config);
     }
 
   

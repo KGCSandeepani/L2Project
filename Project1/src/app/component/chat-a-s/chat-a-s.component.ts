@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 
 import { ChatServiceASService} from '../Services/chat-service-a-s.service'
 
@@ -10,7 +11,7 @@ import { ChatServiceASService} from '../Services/chat-service-a-s.service'
 export class ChatASComponent implements OnInit {
   
   message : string;
-  constructor(private chat: ChatServiceASService) { }
+  constructor(private chat: ChatServiceASService,private _scrollToService: ScrollToService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,14 @@ export class ChatASComponent implements OnInit {
     if(event.keyCode == 13){
       this.send();
     }
+  }
+  public triggerScrollTo() {
+    
+    const config: ScrollToConfigOptions = {
+      target: 'destination'
+    };
+ 
+    this._scrollToService.scrollTo(config);
   }
 
 }
