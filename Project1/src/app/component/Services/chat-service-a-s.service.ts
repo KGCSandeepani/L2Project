@@ -17,12 +17,10 @@ export class ChatServiceASService {
   //chatMessages: AngularFireList<string>;
   
   receiverName :string;
-  userName: string ;
+  senderName: string ;
   message : string;
   userR:string='';
-  //u:string=this.userR;
-
-  
+ 
   private userN =new BehaviorSubject<string>(this.userR);
   cast =this.userN.asObservable();
    
@@ -30,23 +28,19 @@ export class ChatServiceASService {
   constructor(private data : DataPassService, private db: AngularFireDatabase) {
       
       this.data.currentMessage.subscribe(message => this.message = message);
-      this.userName = this.data.getMessage();
+      this.senderName = this.data.getMessage();
       this.cast.subscribe(userN=> this.userR=userN);
-      console.log(this.userR);
+      
      }
      sendMessage(msg: string) {
       const timestamp = this.getTimeStamp();
-      console.log(msg);
-      //console.log(this.u);
-      console.log(this.userR);
-      console.log("inside send msg");
-      //const email = this.user.email;
+      
     
       this.chatMessages = this.getMessages();
       this.chatMessages.push({
         message: msg,
         timeSent: new Date,
-        userName: this.userName,
+        userName: this.senderName,
         receiver:this.userR });
     }
     getMessages(): AngularFireList<ChatMessage> {
@@ -67,20 +61,11 @@ export class ChatServiceASService {
     
 
     editUser (newUser){
-      let bSubject = new BehaviorSubject("a");
-      bSubject.next(newUser);
-      
-
+     
       this.userN.next(newUser);
       
       
     }
 
-    getMessages2() {
-      
-      return this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userR)).valueChanges();
-    }
-    onChanges(){
-      this.getMessages2;
-    }
+    
 }

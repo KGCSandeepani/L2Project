@@ -17,40 +17,23 @@ export class FeedASComponent implements OnInit , OnChanges {
   differ: any;
   userN :string;
   items: Observable<any[]>;
- value:string='';
-  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private differs: KeyValueDiffers ) { 
-    //this.feed = db.list('/chat-a-s.component');
-    //this.items = db.list('messages').valueChanges();
-    this.chat.cast.subscribe(userN=> this.userN=userN);
-   
+  value:string='';
+  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase ) { 
     
-    //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    this.differ = this.differs.find({}).create(); 
-    //this.viewMessage();
-    
+       
   }
 
   ngOnInit() {
     
-    this.chat.cast.subscribe(userN=> this.userN=userN);
-    //console.log("intializing feed oninit...");
-    
-    //console.log("before feed oninit..."+this.userN);
-    //this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
     this.viewMessage();
-    //this.items=this.chat.getMessages2();
-    
-    
+
   }
 
   ngOnChanges() {
     
     this.chat.cast.subscribe((userN) => {
       this.userN=userN;
-      console.log("Subscription got", this.userN); // Subscription got b, 
-                                              // ^ This would not happen 
-                                              // for a generic observable 
-                                              // or generic subject by default
+      
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
   
     });;
@@ -60,14 +43,11 @@ export class FeedASComponent implements OnInit , OnChanges {
    
     this.chat.cast.subscribe((userN) => {
       this.userN=userN;
-      console.log("Subscription got", this.userN); // Subscription got b, 
-                                              // ^ This would not happen 
-                                              // for a generic observable 
-                                              // or generic subject by default
+      
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
   
     });
-    console.log("view msg"+this.value);
+    
     }
 
   
