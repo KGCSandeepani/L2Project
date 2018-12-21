@@ -23,6 +23,9 @@ export class AdminAddStudentComponent implements OnInit {
   displayName: string;
   errorMsg: string;
 
+  password2:any;
+  password3:string;
+
   student:student[];
 
   spreadBackColor = 'aliceblue';
@@ -42,14 +45,15 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   onSubmit(formdata:NgForm){
-    if (formdata.value.Username==null || formdata.value.password) {
+    if (formdata.value.uname==null || formdata.value.psw==null) {
       this.sendNotification3();
       return;
     }
     this.studentService.getStudentData(formdata)
     .subscribe((data : student[] )=> {
         this.student = data;
-        formdata.reset();    
+        formdata.reset();  
+        this.sendNotification4();  
     });
   }
   
@@ -81,7 +85,8 @@ export class AdminAddStudentComponent implements OnInit {
             }
             
           }
-          
+          this.password2='';
+          this.sendNotification4();
   }
 
   onFileChange(args) {
@@ -119,8 +124,8 @@ export class AdminAddStudentComponent implements OnInit {
         continue;
       }      
     }
-    
-    console.log(this.a);
+    this.password3='';
+    this.sendNotification4();
   }
 
   sendNotification1() {
@@ -133,6 +138,10 @@ export class AdminAddStudentComponent implements OnInit {
 
   sendNotification3() {
   	this.ngxNotificationService.sendMessage('Please enter Username or Password', 'dark', 'bottom-right');
+  }
+
+  sendNotification4() {
+  	this.ngxNotificationService.sendMessage('Added sucessfully', 'dark', 'bottom-right');
   }
 
 }
