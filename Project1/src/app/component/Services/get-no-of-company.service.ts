@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { student } from '../Model/Student';
+import { NoOfCompany } from '../Model/NoOfCompany';
 import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReadUnamePswServiceService {
+export class GetNoOfCompanyService {
 
   constructor(private http : HttpClient) { }
 
   /*sends get request and returns its response data */ 
-  getData():Observable<student[]>{
+  getData():Observable<NoOfCompany>{
     return this
               .http
-              .get<student[]>('//localhost:3000/todos/');
+              .get<NoOfCompany>('//localhost:3000/todosNoOfCompany/amount');
   
   }
 }

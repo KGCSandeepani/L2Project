@@ -12,6 +12,7 @@ import { AdminAddStudentServiceService } from './component/Services/admin-add-st
 import { ReadUnamePswServiceService } from './component/Services/read-uname-psw-service.service';
 import { AdminDeleteStudentServiceService } from './component/Services/admin-delete-student-service.service';
 import { AdminUpdateStudentService } from './component/Services/admin-update-student.service';
+import { AdminChangeNoOfCompanyService } from './component/Services/admin-change-no-of-company.service';
 import { AddUserComponent } from './component/add-user/add-user.component';
 import { AdminAddStaffComponent } from './component/admin-add-staff/admin-add-staff.component';
 import { AdminViewSupervisorComponent } from './component/admin-view-supervisor/admin-view-supervisor.component';
@@ -106,7 +107,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
               AdminUpdateStudentService,
               CompanySignupService,AuthChatASService, 
               ChatServiceASService,
-              DataPassService],
+              DataPassService,
+              AdminChangeNoOfCompanyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
