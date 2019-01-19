@@ -4,15 +4,17 @@
 <table class="table">
     <thead>
   <tr>
+    <th></th>
     <th> Student ID     </th>
     <th></th>
   </tr>
 </thead>
 <tbody>
   <tr *ngFor="let student of students">
+    <td><input type="checkbox"> </td>
     <td>{{student.name}}</td>
       <td>
-        <button class="btn btn-danger btn-sm" (click)="onDelete(student.name)"><i class="fa fa-trash"></i>Delete Record</button>
+        <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
      </td>
   </tr>
 </tbody>

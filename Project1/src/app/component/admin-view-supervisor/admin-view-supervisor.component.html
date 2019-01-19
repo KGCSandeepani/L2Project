@@ -4,6 +4,7 @@
 <table class="table">
     <thead>
   <tr>
+    <th>  </th>
     <th> Name with initials </th>
     <th> Username    </th>
     <th> Email    </th>
@@ -13,12 +14,13 @@
 </thead>
 <tbody>
   <tr *ngFor="let supervisor of staff">
+      <td><input type="checkbox"> </td>
       <td>{{supervisor.name}} </td>
       <td>{{supervisor.uname}}</td>
       <td>{{supervisor.email}}</td>
       <td>{{supervisor.contactNo}}</td>
-      <td>
-        <button class="btn btn-danger btn-sm" (click)="onDelete(supervisor.name)"><i class="fa fa-trash"></i>Delete Record</button>
+     <td>
+        <button mat-button (click)="onDelete(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
      </td>
   </tr>
 </tbody>

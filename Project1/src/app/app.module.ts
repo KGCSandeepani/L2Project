@@ -51,9 +51,19 @@ import { DataPassService } from './component/Services/data-pass.service';
 import { SpreadSheetsModule } from "@grapecity/spread-sheets-angular";
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 import { NgxNotificationComponent } from 'ngx-notification';
 import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {
+  MatToolbarModule,
+  MatButtonModule,
+  MatIconModule
+} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -98,7 +108,9 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     AngularFireModule.initializeApp(environment.firebase),
     SpreadSheetsModule,
     ChartsModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    BrowserAnimationsModule,
+    MatToolbarModule, MatButtonModule, MatIconModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
