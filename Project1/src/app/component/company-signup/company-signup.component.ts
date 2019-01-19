@@ -6,6 +6,8 @@ import { CompanyAddDataService } from '../Services/company-add-data.service';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 import { AdminAcceptTempCompanyService } from 'src/app/component/Services/admin-accept-temp-company.service';
 import { RequestedCompanyComponent } from 'src/app/component/requested-company/requested-company.component';
+import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
+import { GetNoOfCompanyService } from 'src/app/component/Services/get-no-of-company.service';
 
 
 @Component({
@@ -15,8 +17,9 @@ import { RequestedCompanyComponent } from 'src/app/component/requested-company/r
 })
 export class CompanySignupComponent implements OnInit {
 
-  company:company[];
-  constructor(private readService: AdminAcceptTempCompanyService,private companyadddataservice: CompanyAddDataService) { }
+  company:company[]; 
+  count:number=0;
+  constructor(private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService) { }
 
   ngOnInit() {
   }
@@ -31,6 +34,12 @@ export class CompanySignupComponent implements OnInit {
   }
 
 
+  incrementCount() {
+    this.count++;
+    console.log(this.count+"badge count in compny sign up");
+    this.setCount.getDetails(this.count);
+  
+  }
 
 }
 

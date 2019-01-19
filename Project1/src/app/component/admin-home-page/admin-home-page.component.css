@@ -52,6 +52,21 @@ ul {
     background-color: #666464 ;
     min-width: 200px;
   }
+
+  .badge {
+    position: fixed;
+    top:8%;
+    left: 22%;    
+    font-size: 12px;
+    line-height: 13px;
+    border-radius: 45%;
+    width: 45px;
+    height: 25px;
+    background-color: #ff0000; 
+    border:0px solid #ff0000;
+    color: #ffffff;
+   
+  }
   
 /*   
   .dropdown-content {

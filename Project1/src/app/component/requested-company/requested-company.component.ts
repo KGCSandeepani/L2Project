@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AdminAcceptTempCompanyService } from 'src/app/component/Services/admin-accept-temp-company.service';
 import { AdminRejectTempCompanyService } from 'src/app/component/Services/admin-reject-temp-company.service';
+import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
 //import { CompanySignupComponent } from 'src/app/component/company-signup.component';
 
 @Component({
@@ -19,12 +20,16 @@ export class RequestedCompanyComponent implements OnInit {
   company: company[];
   company2: company;
 
-  constructor(private deleteService: AdminRejectTempCompanyService,private readService: CompanySignupService,private accept: AdminAcceptTempCompanyService,private route : ActivatedRoute,private router : Router) { }
+  constructor(private deleteService: AdminRejectTempCompanyService,private readService: CompanySignupService,private accept: AdminAcceptTempCompanyService,
+  setCount:CountNumberReqCompanyService,private route: ActivatedRoute,private router : Router) { 
+    
+  }
 
   ngOnInit() {
     this.readService.getData()
     .subscribe(data => this.company = data);
     console.log(this.company);
+
     
   }
 
@@ -69,6 +74,9 @@ export class RequestedCompanyComponent implements OnInit {
       console.log(result);
       this.ngOnInit();
     },error => console.log('There was an error: ', error))
+  }
+  sendNotification2() {
+  	this.ngxNotificationService.sendMessage('Load sucessfully', 'dark', 'bottom-right');
   }
 
 }
