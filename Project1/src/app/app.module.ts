@@ -55,13 +55,15 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgxNotificationComponent } from 'ngx-notification';
 import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { CompanySignupSuccessComponent } from './component/company-signup-success/company-signup-success.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   MatToolbarModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatSelectModule
 } from '@angular/material';
 
 
@@ -96,6 +98,7 @@ import {
     UserListComponent,
     AdminAnalysisComponent,
     AdminSettingComponent,
+    CompanySignupSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,7 @@ import {
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

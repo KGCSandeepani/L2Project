@@ -9,6 +9,7 @@ import { RequestedCompanyComponent } from 'src/app/component/requested-company/r
 import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
 import { GetNoOfCompanyService } from 'src/app/component/Services/get-no-of-company.service';
 
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-company-signup',
@@ -19,7 +20,9 @@ export class CompanySignupComponent implements OnInit {
 
   company:company[]; 
   count:number=0;
-  constructor(private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService) { }
+  constructor(private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService,private router :Router) { }
+  //company:company[];
+  //constructor(private readService: AdminAcceptTempCompanyService,private companyadddataservice: CompanyAddDataService, private router :Router) { }
 
   ngOnInit() {
   }
@@ -29,7 +32,8 @@ export class CompanySignupComponent implements OnInit {
     this. companyadddataservice.getCompanyData(formdata)
     .subscribe((data : company[] )=> {
         this.company = data;
-        formdata.reset();    
+        formdata.reset(); 
+        this.router.navigate(['companySignupSuccess']);   
     });
   }
 

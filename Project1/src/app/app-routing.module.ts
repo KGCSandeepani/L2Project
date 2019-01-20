@@ -27,6 +27,7 @@ import { MessageASComponent } from './component/message-a-s/message-a-s.componen
 import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysis.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
+import { CompanySignupSuccessComponent } from './component/company-signup-success/company-signup-success.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -70,6 +71,7 @@ const routes: Routes = [
     ]
   },
   { path: 'companySignup', component: CompanySignupComponent },
+  { path: 'companySignupSuccess', component: CompanySignupSuccessComponent },
   { 
     path: 'student', 
     component: StudentComponent,

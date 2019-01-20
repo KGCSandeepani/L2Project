@@ -6,6 +6,7 @@ import { company } from '../Model/Company';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { DataPassService } from '../Services/data-pass.service';
+import { LoggingStudentService } from '../Services/logging-student.service';
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { NgxNotificationService } from 'ngx-notification';
 
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
 
   students: student[];
   companies : company[];
-  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService) { }
+
+  logstudent :student;
+
+  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
@@ -45,8 +49,18 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/student']);
         location.reload();
       }
-    }
-
+    } 
+/*
+    this.logStudent.getData(uname)
+    .subscribe(data => {
+      this.logstudent=data;
+      if (uname==this.logstudent.name && psw==this.logstudent.password){
+        this.newMessage(this.logstudent.name+"");
+        this.router.navigate(['/student']);
+        location.reload();
+      }
+    });
+*/
     for (let index = 0; index < this.companies.length; index++) {
       const company = this.companies[index];
       if (uname==company.name && psw==company.password){
@@ -59,9 +73,10 @@ export class LoginComponent implements OnInit {
   }
 
   signup(){
-    this.newMessage("Company");
-    this.router.navigate(['/companySignup']);
+    //this.newMessage("Company");
     location.reload();
+    this.router.navigate(['/companySignup']);
+    
   }
 
   newMessage(logger:string) {

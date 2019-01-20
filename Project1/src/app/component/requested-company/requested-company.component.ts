@@ -46,6 +46,7 @@ export class RequestedCompanyComponent implements OnInit {
   newContactNo:String;
   newContactPersonName:String;
   newPsw:String;
+  doInternship = 'yes';
 
   onAccept(name,location,email,contactNo,cpanme,psw){  
     this.newName=name;
@@ -55,7 +56,7 @@ export class RequestedCompanyComponent implements OnInit {
     this.newContactPersonName=cpanme;
     this.newPsw=psw;
    
-    this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newContactPersonName,this.newPsw)
+    this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newContactPersonName,this.newPsw,this.doInternship)
    .subscribe((data : company )=> {
     this.company2 = data;
   })

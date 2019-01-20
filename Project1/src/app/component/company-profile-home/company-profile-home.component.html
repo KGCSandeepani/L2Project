@@ -1,3 +1,13 @@
 <h1>
   Welcome {{value}} !!!
 </h1>
+<div class="main">
+  <div class="container">
+    
+    <label for="company"><b>Do {{value}} give internship in this year? </b></label> &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="internship" value="yes" (change)="onChange($event)" checked > Yes &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="internship" value="no" (change)="onChange($event)"> No <br>
+
+  </div>
+
+</div>

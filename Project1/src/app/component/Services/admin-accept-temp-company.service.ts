@@ -17,7 +17,8 @@ export class AdminAcceptTempCompanyService {
   psw:String;
   s:String;
 
-  getCompanyData(companyName,location,email,contactNo,contactPersonName,psw){
+
+  getCompanyData(companyName,location,email,contactNo,contactPersonName,psw,doInternship){
     return this
         .http
         .post('//localhost:3000/todosCompany',
@@ -27,7 +28,8 @@ export class AdminAcceptTempCompanyService {
           "text2" : email,
           "text3" : contactNo,
           "text4" : contactPersonName,
-          "psw":psw            
+          "psw":psw,
+          "doInternship":doInternship,          
     }
   );
   
