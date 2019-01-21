@@ -7,7 +7,7 @@
         <div class="column1">
           
             <label for="registrationNo"><b id="registrationNo">Registration No : </b></label><br>
-            <label for="name"><b id="name">Name : </b></label><br>
+            <label for="name"><b id="name1">Name : </b></label><br>
             <label for="emailAddress"><b id="emailAddress">Email Address : </b></label><br>
             <label for="phoneNo"><b id="phoneNo">Phone No : </b></label><br>
           
@@ -67,10 +67,10 @@
               <br>
             </div>
 -->
-            <div *ngFor="let item of array" (change)="getCompany(item,$event.target.value)">       
+            <div *ngFor="let item of array" >       
               <mat-form-field>
-                <mat-select placeholder="Preferred Organization">
-                  <mat-option *ngFor="let com of company" [value]="com.name" >
+                <mat-select placeholder="Preferred Organization" >
+                  <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(name,item,com.name)">
                     {{com.name}}
                   </mat-option>
                 </mat-select>

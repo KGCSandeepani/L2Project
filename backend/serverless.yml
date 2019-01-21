@@ -72,6 +72,14 @@ functions:
       - http:
           path: todosNoOfCompany
           method: post
+          cors: true 
+
+  createStuSelectedCompany:
+    handler: StuSelectedCompany/create.create
+    events:
+      - http:
+          path: StuSelectedCompany
+          method: post
           cors: true       
 
   list:
@@ -112,6 +120,14 @@ functions:
       - http:
           path: todosNoOfCompany
           method: get
+          cors: true
+
+  listStuSelectedCompany:
+    handler: StuSelectedCompany/list.list
+    events:
+      - http:
+          path: StuSelectedCompany
+          method: get
           cors: true  
 
   get:
@@ -151,6 +167,14 @@ functions:
     events:
       - http:
           path: todosNoOfCompany/{id}
+          method: get
+          cors: true
+
+  getStuSelectedCompany:
+    handler: StuSelectedCompany/get.get
+    events:
+      - http:
+          path: StuSelectedCompany/{name}
           method: get
           cors: true
 
@@ -280,3 +304,26 @@ resources:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
           TableName: "NoOfCompany"
+
+    TodosDynamoDbTable6:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: name
+            AttributeType: S
+          -
+            AttributeName: num
+            AttributeType: N
+          KeySchema:
+          -
+            AttributeName: name
+            KeyType: HASH
+          -
+            AttributeName: num
+            KeyType: RANGE
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "StuSelectedCompany"

@@ -21,9 +21,7 @@ export class CompanySignupComponent implements OnInit {
   company:company[]; 
   count:number=0;
   constructor(private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService,private router :Router) { }
-  //company:company[];
-  //constructor(private readService: AdminAcceptTempCompanyService,private companyadddataservice: CompanyAddDataService, private router :Router) { }
-
+  
   ngOnInit() {
   }
 

@@ -3,10 +3,12 @@ import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { student } from '../Model/Student';
 import { NoOfCompany } from '../Model/NoOfCompany';
+import { StuSelectedCompany } from '../Model/StuSelectedCompany';
 import { company } from 'src/app/component/Model/Company';
 import { AdminUpdateStudentService } from '../Services/admin-update-student.service';
 import { GetNoOfCompanyService } from '../Services/get-no-of-company.service';
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
+import { StudentSelectedCompanyService } from 'src/app/component/Services/student-selected-company.service';
 import { isUndefined, isNull } from 'util';
 
 @Component({
@@ -21,9 +23,10 @@ export class StudentAddDetailComponent implements OnInit {
   num : number ;
   array : Array<number> =[];
   company: Array<company>=[];
+  selectedCompany: StuSelectedCompany;
   //company1: company[];
 
-  constructor(private updateService : AdminUpdateStudentService,private readCompanyService: AdminViewCompanyService, private getNoOfCompany : GetNoOfCompanyService, private route : ActivatedRoute,private router:Router) { }
+  constructor(private stuCompany : StudentSelectedCompanyService,private updateService : AdminUpdateStudentService,private readCompanyService: AdminViewCompanyService, private getNoOfCompany : GetNoOfCompanyService, private route : ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
     this.getNoOfCompany.getData()
@@ -53,8 +56,11 @@ export class StudentAddDetailComponent implements OnInit {
     //}
   }
 
-  getCompany(item: number,companyname){
-    console.log(item+" : "+ companyname);
+  getCompany(name:String, item: number,companyname: String){
+    console.log(name+" : "+item+" : "+ companyname);
+    this.stuCompany.getStuSelectedCompany(name,item,companyname)
+    .subscribe((data : StuSelectedCompany)=>this.selectedCompany = data);
+    
   }
 
 

@@ -10,11 +10,11 @@ export interface student  {
     l2s1 : number;
     l2s2 : number;
     cgpa : number;
-    organization1 : String;
-    organization2 : String;
-    organization3 : String;
-    organization4 : String;
-    organization5 : String;
+    //organization1 : String;
+    //organization2 : String;
+    //organization3 : String;
+    //organization4 : String;
+    //organization5 : String;
     interest1 : String;
     interest2 : String;
     interest3 : String; 
