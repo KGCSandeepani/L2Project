@@ -71,16 +71,41 @@
               <mat-form-field>
                 <mat-select placeholder="Preferred Organization" >
                   <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(name,item,com.name)">
-                    {{com.name}}
+                    <a *ngIf="com.doInternship">{{com.name}}</a>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
-
+<!--
             <input type="text" placeholder="Preferred Area of Interest 1" name="interest1" [(ngModel)]="interest1" ><br>
             <input type="text" placeholder="Preferred Area of Interest 2" name="interest2" [(ngModel)]="interest2" ><br>
             <input type="text" placeholder="Preferred Area of Interest 3" name="interest3" [(ngModel)]="interest3" ><br>
+-->
 
+            <mat-form-field>
+              <mat-select placeholder="Preferred Area of Interest" >
+                <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest1(i)">
+                  {{i}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-select placeholder="Preferred Area of Interest" >
+                <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest2(i)">
+                  {{i}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-select placeholder="Preferred Area of Interest" >
+                <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest3(i)">
+                  {{i}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
             <input type="file" name="cv" hidden name="files[]" multiple="" (change)="fileChangeEvent($event)" accept=".pdf">
             <!--
               <input type="file" name="cv" [(ngModel)]="cv" accept=".pdf">

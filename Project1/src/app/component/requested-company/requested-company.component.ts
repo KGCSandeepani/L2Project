@@ -46,7 +46,7 @@ export class RequestedCompanyComponent implements OnInit {
   newContactNo:String;
   newContactPersonName:String;
   newPsw:String;
-  doInternship = 'yes';
+  doInternship:boolean = true;
 
   onAccept(name,location,email,contactNo,cpanme,psw){  
     this.newName=name;

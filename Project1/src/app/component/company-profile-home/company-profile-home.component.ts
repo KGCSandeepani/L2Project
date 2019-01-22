@@ -11,7 +11,7 @@ export class CompanyProfileHomeComponent implements OnInit {
   KEY = 'logger';
   value: string ;
 
-  doInternship = 'yes';
+  
 
   constructor(private data : DataPassService) { }
 
@@ -19,16 +19,6 @@ export class CompanyProfileHomeComponent implements OnInit {
     this.value = this.data.getMessage();
   }
 
-  onChange(event : any){
-    this.doInternship = event.target.value;
-    
-    if(this.doInternship=='yes'){
-      console.log(this.doInternship);
-      
-    }
-    if(this.doInternship=='no'){
-      console.log(this.doInternship);
-    }
-  }
+  
 
 }

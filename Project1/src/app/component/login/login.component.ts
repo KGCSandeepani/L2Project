@@ -9,6 +9,7 @@ import { DataPassService } from '../Services/data-pass.service';
 import { LoggingStudentService } from '../Services/logging-student.service';
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { NgxNotificationService } from 'ngx-notification';
+import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 
 @Component({
   selector: 'app-login',
@@ -19,10 +20,10 @@ export class LoginComponent implements OnInit {
 
   students: student[];
   companies : company[];
-
+  tempCompany : company[];
   logstudent :student;
 
-  constructor(private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
+  constructor(private readTempCompanyService: CompanySignupService,private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
@@ -31,6 +32,9 @@ export class LoginComponent implements OnInit {
 
     this.readcompanyService.getData()
     .subscribe(data => this.companies = data);
+
+    this.readTempCompanyService.getData()
+    .subscribe(data => this.tempCompany = data);
   }
 
   adminLogin(uname,psw){
@@ -42,6 +46,13 @@ export class LoginComponent implements OnInit {
       this.sendNotification();
     }
     
+    for (let index = 0; index < this.tempCompany.length; index++) {
+      const temp = this.tempCompany[index];
+      if (uname==temp.name && psw==temp.password){
+        this.router.navigate(['/companySignupSuccess']);
+      }
+    } 
+
     for (let index = 0; index < this.students.length; index++) {
       const student = this.students[index];
       if (uname==student.name && psw==student.password){
@@ -74,7 +85,7 @@ export class LoginComponent implements OnInit {
 
   signup(){
     //this.newMessage("Company");
-    location.reload();
+    //location.reload();
     this.router.navigate(['/companySignup']);
     
   }

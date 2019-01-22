@@ -24,7 +24,10 @@ export class StudentAddDetailComponent implements OnInit {
   array : Array<number> =[];
   company: Array<company>=[];
   selectedCompany: StuSelectedCompany;
-  //company1: company[];
+  interestField : String[] =['Programming','Web Technologies','Mobile Technologies','Network Technologies','Business Analysis','Quality Assuarance','UI/UX Design']
+  interest1 : String;
+  interest2 : String;
+  interest3 : String;
 
   constructor(private stuCompany : StudentSelectedCompanyService,private updateService : AdminUpdateStudentService,private readCompanyService: AdminViewCompanyService, private getNoOfCompany : GetNoOfCompanyService, private route : ActivatedRoute,private router:Router) { }
 
@@ -62,11 +65,19 @@ export class StudentAddDetailComponent implements OnInit {
     .subscribe((data : StuSelectedCompany)=>this.selectedCompany = data);
     
   }
-
+  getInterest1(i : String){
+    this.interest1=i;
+  }
+  getInterest2(i : String){
+    this.interest2=i;
+  }
+  getInterest3(i : String){
+    this.interest3=i;
+  }
 
   onSubmit(formdata:NgForm){
      console.log(formdata.value.name);
-    this.updateService.updateStudentData(formdata,formdata.value.name)
+    this.updateService.updateStudentData(formdata,this.interest1,this.interest2,this.interest3,formdata.value.name)
     .subscribe(res=>{
       this.router.navigate(['student/studentAddSuccess']);
     });

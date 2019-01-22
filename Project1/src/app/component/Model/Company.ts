@@ -6,6 +6,6 @@ export interface company  {
     contactNo : Int16Array,
     email : String,
     password : String;
-    doInternship : String;
+    doInternship : boolean;
     position: DoubleRange[]
 }

@@ -12,7 +12,7 @@ export class AdminUpdateStudentService {
   constructor(private http:HttpClient) { }
   name:String;
   /*sends get request and returns its response data */ 
-  updateStudentData(formdata:NgForm,name:String){
+  updateStudentData(formdata:NgForm,i1:String, i2 : String, i3 : String, name:String){
     this.name=name;
     
     return this
@@ -33,9 +33,9 @@ export class AdminUpdateStudentService {
                 //"organization3" : formdata.value.organization3,
                 //"organization4" : formdata.value.organization4,
                 //"organization5" : formdata.value.organization5,
-                "interest1" : formdata.value.interest1,
-                "interest2" : formdata.value.interest2,
-                "interest3" : formdata.value.interest3 
+                "interest1" : i1, //formdata.value.interest1,
+                "interest2" : i2, //formdata.value.interest2,
+                "interest3" : i3  //formdata.value.interest3 
             })
               //.update('//localhost:3000/todos/'+this.name);
     }

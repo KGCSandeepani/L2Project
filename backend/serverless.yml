@@ -192,7 +192,15 @@ functions:
       - http:
           path: todosStaff/{name}
           method: put
-          cors: true        
+          cors: true
+          
+  updateCompany:
+    handler: todosCompany/update.update
+    events:
+      - http:
+          path: todosCompany/{name}
+          method: put
+          cors: true
 
   delete:
     handler: todos/delete.delete
