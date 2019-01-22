@@ -12,7 +12,7 @@
 <tbody>
   <tr *ngFor="let student of students">
     <td><input type="checkbox"> </td>
-    <td>{{student.name}}</td>
+    <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" click="getDataCom(student.name)">{{student.name}}</a></td>
       <td>
         <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
      </td>

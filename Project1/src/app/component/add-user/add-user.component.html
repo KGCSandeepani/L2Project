@@ -1,10 +1,16 @@
 <br>
 <div class="type">
-  <!--  <h1>this is just for checking</h1>-->
+  <!--  <h1>this is just for checking</h1>
 Type of Users : <br><br>
 <input type="radio" name="user" value="student" (change)="onUserChange($event)" checked > Student &nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" name="user" value="staff" (change)="onUserChange($event)">      Staff Member/ Supervisor<br><br>
 </div>
-<!--<h1>Testing</h1>-->
+Testing</h1>-->
 
-<router-outlet></router-outlet>
+
+<mat-tab-group>
+    <mat-tab label="Student" ><app-admin-add-student></app-admin-add-student></mat-tab>
+    <mat-tab label="Staff Member/ Supervisor" ><app-admin-add-staff></app-admin-add-staff></mat-tab>
+  </mat-tab-group>    
+</div>
+

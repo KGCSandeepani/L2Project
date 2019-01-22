@@ -1,0 +1,55 @@
+
+<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+  
+  <h4>Information Sheet</h4>
+
+    <div class="container" >
+      <div class="row">
+        <div class="column1">
+          
+            <label for="registrationNo"><b id="registrationNo">Registration No : </b></label><br>
+            <label for="name"><b id="name">Name : </b></label><br>
+            <label for="emailAddress"><b id="emailAddress">Email Address : </b></label><br>
+            <label for="phoneNo"><b id="phoneNo">Phone No : </b></label><br>
+          
+            <label for="l1s1"><b id="l1s1">L1S1 GPA : </b></label><br>
+            <label for="l1s2"><b id="l1s2">L1S2 GPA : </b></label><br>
+            <label for="l2s1"><b id="l2s1">L2S1 GPA : </b></label><br>
+            <label for="l2s2"><b id="l2s2">L2S2 GPA : </b></label><br>
+            <label for="avggpa"><b id="avggpa">Average GPA : </b></label><br>
+
+            <div *ngFor="let item of array">
+              <label for="organization"><b id="organization">Preferred Organization {{item}} : </b></label><br>
+            </div>
+          
+            <label for="interest1"><b id="interest1">Preferred Area of Interest 1 : </b></label><br>
+            <label for="interest2"><b id="interest2">Preferred Area of Interest 2 : </b></label><br>
+            <label for="interest3"><b id="interest3">Preferred Area of Interest 3 : </b></label><br>
+          
+        </div>
+        <div class="column2">
+          <label for="registrationNo"><b id="registrationNo">{{student.name}}</b></label><br>
+          <label for="name"><b id="name">{{student.username}}</b></label><br>
+          <label for="emailAddress"><b id="emailAddress">{{student.email}}</b></label><br>
+          <label for="phoneNo"><b id="phoneNo">{{student.phoneNo}}</b></label><br>
+        
+          <label for="l1s1"><b id="l1s1">{{student.l1s1}}</b></label><br>
+          <label for="l1s2"><b id="l1s2">{{student.l1s2}}</b></label><br>
+          <label for="l2s1"><b id="l2s1">{{student.l2s1}}</b></label><br>
+          <label for="l2s2"><b id="l2s2">{{student.l2s2}}</b></label><br>
+          <label for="avggpa"><b id="avggpa">{{student.cgpa}}</b></label><br>
+
+          
+        
+          <label for="interest1"><b id="interest1">{{student.interest1}}</b></label><br>
+          <label for="interest2"><b id="interest2">{{student.interest2}}</b></label><br>
+          <label for="interest3"><b id="interest3">{{student.interest3}}</b></label><br>
+        </div>
+      </div>
+     
+        
+    
+    </div>
+    
+    </form>
+  

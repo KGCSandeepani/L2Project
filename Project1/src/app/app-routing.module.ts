@@ -28,6 +28,9 @@ import { AdminAnalysisComponent } from './component/admin-analysis/admin-analysi
 import { UserListComponent } from './component/user-list/user-list.component';
 import { AdminSettingComponent } from './component/admin-setting/admin-setting.component';
 import { CompanySignupSuccessComponent } from './component/company-signup-success/company-signup-success.component';
+import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
+import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
+import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -43,6 +46,7 @@ const routes: Routes = [
           { path: 'adminAddStaff', component: AdminAddStaffComponent }
         ] },
       { path: 'adminViewStudent', component: AdminViewStudentComponent },
+      { path: 'adminViewFullStudent', component: AdminViewFullStudentComponent },
       { path: 'adminViewSupervisor', component: AdminViewSupervisorComponent },
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
@@ -68,6 +72,7 @@ const routes: Routes = [
       { path: 'home', component: CompanyProfileHomeComponent },
       { path: 'studentlist', component: CompanyProfileStudentlistComponent },
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
+      { path: 'companyAnalysis', component: CompanyAnalysisComponent },
     ]
   },
   { path: 'companySignup', component: CompanySignupComponent },
@@ -80,6 +85,7 @@ const routes: Routes = [
       { path: 'studentAddSuccess', component: StudentAddSuccessComponent },
       { path: 'studentEdit', component: StudentEditDetailComponent },
       { path: 'studentView', component: StudentViewDetailComponent },
+      { path: 'studentReport', component: StuAnalysisComponent },
     ]
   },
 ];

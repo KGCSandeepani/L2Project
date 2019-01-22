@@ -58,14 +58,19 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { CompanySignupSuccessComponent } from './component/company-signup-success/company-signup-success.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+//import {TabModule} from 'angular-tabs-component';
 import {
   MatToolbarModule,
   MatButtonModule,
   MatIconModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTabsModule
+  
 } from '@angular/material';
-
+import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
+import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
+import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
+//import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
   declarations: [
@@ -99,6 +104,10 @@ import {
     AdminAnalysisComponent,
     AdminSettingComponent,
     CompanySignupSuccessComponent,
+    AdminViewFullStudentComponent,
+    StuAnalysisComponent,
+    CompanyAnalysisComponent,
+  //  MatTabsModule,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +122,7 @@ import {
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

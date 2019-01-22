@@ -13,7 +13,7 @@ import { AdminDeleteStudentServiceService } from '../Services/admin-delete-stude
 })
 export class AdminViewStudentComponent implements OnInit {
   [x: string]: any;
-
+  id:string;
   students: student[];
   constructor(private deleteService: AdminDeleteStudentServiceService,private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
 
@@ -28,5 +28,17 @@ export class AdminViewStudentComponent implements OnInit {
       console.log(result);
       this.ngOnInit();
     },error => console.log('There was an error: ', error))}
+
+    getData(id:string){
+      this.id=id;
+      this.readService.getId(this.id);
+      return id;
+    }
+
+    /*getDataCom(id:string){
+      this.id=id;
+      this.readService.getId(this.id);
+      return id;
+    }*/
 
 }
