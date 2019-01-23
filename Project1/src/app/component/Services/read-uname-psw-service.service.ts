@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { student } from '../Model/Student';
 import { Observable } from 'rxjs';
+import { StuSelectedCompany } from 'src/app/component/Model/StuSelectedCompany';
 
 
 @Injectable({
@@ -31,28 +32,21 @@ export class ReadUnamePswServiceService {
   }
 
   reteriveData(){
-   // id:String
     this.name = sessionStorage.getItem("name");
     console.log(this.name+"id in setItem");
     return this
             .http
-            //.get('//localhost:3000/todos/'+this.name);
             .get('//localhost:3000/todos/'+this.name);
 
   }
- /*   reteriveData(){
-      // id:String
-       this.id = sessionStorage.getItem("id");
-       console.log(this.id+"id in setItem");
-       return this.http.get('//localhost:3000/todos/'+this.id);
-}*/
 
- /* reteriveComData(){
+
+  reteriveComData():Observable<StuSelectedCompany[]>{
+    console.log(this.name+"id in reteriveComData");
     this.name = sessionStorage.getItem("name");
     return this
               .http
-              //.get('//localhost:3000/todos/'+this.name);
-              .get('//localhost:3000/todos/'+this.name);
-    }*/
+              .get<StuSelectedCompany[]>('//localhost:3000/StuSelectedCompany/');
+    }
 
 }

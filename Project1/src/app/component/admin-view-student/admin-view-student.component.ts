@@ -31,14 +31,16 @@ export class AdminViewStudentComponent implements OnInit {
 
     getData(id:string){
       this.id=id;
+      console.log(this.id+'getData function 1')
       this.readService.getId(this.id);
       return id;
     }
 
-    /*getDataCom(id:string){
+    getDataCom(id:string){
       this.id=id;
+      console.log(this.id+'getDataCom function 1')
       this.readService.getId(this.id);
       return id;
-    }*/
+    }
 
 }

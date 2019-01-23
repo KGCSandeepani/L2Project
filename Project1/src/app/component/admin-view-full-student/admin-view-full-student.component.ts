@@ -3,6 +3,7 @@ import { ReadUnamePswServiceService } from 'src/app/component/Services/read-unam
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { student } from 'src/app/component/Model/Student';
+import { StuSelectedCompany } from 'src/app/component/Model/StuSelectedCompany';
 
 @Component({
   selector: 'app-admin-view-full-student',
@@ -11,7 +12,9 @@ import { student } from 'src/app/component/Model/Student';
 })
 export class AdminViewFullStudentComponent implements OnInit {
   //students: student[];
+  StuSelectedCompany:StuSelectedCompany[];
   student:student;
+  name:string;
  /* id:any;
   name:any;
   password : any;
@@ -34,14 +37,12 @@ export class AdminViewFullStudentComponent implements OnInit {
   ngOnInit() {
 
     this.retrieveData();
+    this.retrieveCom();
+    this.name = this.readService.setId();
+    console.log(this.name);
    
   }
 
- /* retrieveData(){
-    this.readService.reteriveData()
-    .subscribe(data => this.students = data);
-    console.log(this.student);
-  }*/
   
   retrieveData(){
   
@@ -52,4 +53,15 @@ export class AdminViewFullStudentComponent implements OnInit {
    
   });
 }
+
+  retrieveCom(){
+    console.log('in the com');
+    this.readService.reteriveComData()
+    .subscribe((data : StuSelectedCompany[] )=> {
+      this.StuSelectedCompany = data;
+      console.log(this.StuSelectedCompany);
+   
+  });
+  }
+  
 }
