@@ -18,10 +18,16 @@
     <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
     <li><a routerLink="./adminAnalysis" routerLinkActive="active">Analysis</a></li>
     <li><a routerLink="./adminSetting" routerLinkActive="active">Setting</a></li>
-    <li>User</li>
-    <li><ng-template #logoutButton>
-      <button class="btn" >Logout</button>
-    </ng-template></li>
+    <div class="topnav-right">
+        <li><span style="color: white;">
+            <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
+        </span></li>
+    <li >
+        <button mat-raised-button style="background-color:white" (click)="logout()">
+            <mat-icon color= "black">settings_power</mat-icon> Logout</button>
+        
+      </li>
+    </div>
   </ul>
 
 </div>

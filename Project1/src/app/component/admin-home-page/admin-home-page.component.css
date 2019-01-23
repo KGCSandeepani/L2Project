@@ -9,8 +9,12 @@ ul {
     background-color: #333;
     width: 100%;
     position: fixed;
+    
   }
-  
+  .topnav-right {
+    float: right;
+  }
+
   li {
     float: left;
   }

@@ -32,12 +32,12 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   onChange(event : any){
     this.doInternship = event.target.value;
     if(this.doInternship=="true"){
-      console.log(this.value+" : "+this.doInternship);
+      //console.log(this.value+" : "+this.doInternship);
       this.updateInternship.updateCompanyInternshipData(this.value,true)
       .subscribe(res=>{
       });
     }else{
-      console.log(this.value+" : "+this.doInternship);
+      //console.log(this.value+" : "+this.doInternship);
       this.updateInternship.updateCompanyInternshipData(this.value,false)
       .subscribe(res=>{
       });

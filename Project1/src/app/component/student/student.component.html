@@ -11,6 +11,16 @@
       <li><a >Feedback</a></li>
       <li><a >Message</a></li>
       <li><a >Setting</a></li>
+      <div class="topnav-right">
+        <li><span style="color: white;">
+            <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
+        </span></li>
+    <li >
+        <button mat-raised-button style="background-color:white" (click)="logout()">
+            <mat-icon color= "black">settings_power</mat-icon> Logout</button>
+        
+      </li>
+    </div>
     </ul>
     </div>
     <div class ="col-sm-19" >

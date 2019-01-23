@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
       this.router.navigate(['/adminHomePage']);
-      location.reload();
+      //location.reload();
     }else{
       this.sendNotification();
     }
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       if (uname==student.name && psw==student.password){
         this.newMessage(student.name+"");
         this.router.navigate(['/student']);
-        location.reload();
+        //location.reload();
       }
     } 
 /*
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
       if (uname==company.name && psw==company.password){
         this.newMessage(company.name+"");
         this.router.navigate(['/companyProfile/home']);
-        location.reload();
+        //location.reload();
       }
     }
     

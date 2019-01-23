@@ -1,7 +1,7 @@
 import { Component, OnInit,OnChanges } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
-
+import { DataPassService } from '../Services/data-pass.service';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -10,15 +10,31 @@ import { CountNumberReqCompanyService } from 'src/app/component/Services/count-n
 })
 export class AdminHomePageComponent implements OnInit {
 
-  constructor(private getCount:CountNumberReqCompanyService,private route : ActivatedRoute,private router : Router) { }
+  constructor(private data : DataPassService,private getCount:CountNumberReqCompanyService,private route : ActivatedRoute,private router : Router) { }
 
   value:string='';
   count:number=0;
 
+  loger: string ;
+  //displayButton : boolean = false;
+
+  message : string;
   ngOnInit() {
 
    this.getValue(); 
+   //this.data.currentMessage.subscribe(message => this.message = message);
+   this.loger = this.data.getMessage();
+   /*if(this.data.getMessage()!=null)
+     this.displayButton=true;
+   else
+     this.displayButton=false;*/
+  }
 
+  logout(){
+    sessionStorage.clear();
+    //this.displayButton=false;
+    this.router.navigate(['/login']);
+    //location.reload();
   }
 
   getValue(){

@@ -1,6 +1,4 @@
-body {
-    padding-top: 72px;
-}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -10,7 +8,11 @@ ul {
     width: 100%;
     position: fixed;
   }
-  
+
+  .topnav-right {
+    float: right;
+  }
+
   li {
     float: left;
   }

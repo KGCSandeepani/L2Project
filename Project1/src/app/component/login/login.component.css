@@ -175,6 +175,11 @@ form button:hover {
 }
 .bg-bubbles li:nth-child(1) {
   left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 5s;
+  animation-duration: 10s;
+  background-color: rgba(100, 60, 241, 0.781);
 }
 .bg-bubbles li:nth-child(2) {
   left: 20%;
@@ -186,46 +191,58 @@ form button:hover {
 }
 .bg-bubbles li:nth-child(3) {
   left: 25%;
-  animation-delay: 4s;
+  width: 20px;
+  height: 20px;
+  animation-delay: 10;
+  animation-duration: 20s;
+  background-color: rgba(90, 131, 219, 0.781);
 }
 .bg-bubbles li:nth-child(4) {
   left: 40%;
   width: 60px;
   height: 60px;
+  animation-delay: 4;
   animation-duration: 22s;
   background-color: rgba(193, 90, 219, 0.781);
 }
 .bg-bubbles li:nth-child(5) {
-  left: 70%;
+  left: 75%;
+  width: 25px;
+  height: 20px;
+  animation-delay: 5s;
+  animation-duration: 14s;
+  background-color: rgba(90, 131, 219, 0.781);
 }
 .bg-bubbles li:nth-child(6) {
   left: 80%;
   width: 120px;
   height: 120px;
   animation-delay: 3s;
+  animation-duration: 10s;
   background-color: rgba(97, 72, 211, 0.829);
 }
 .bg-bubbles li:nth-child(7) {
   left: 32%;
   width: 160px;
   height: 160px;
-  animation-delay: 7s;
+  animation-delay: 2s;
+  animation-duration: 10s;
   background-color: rgba(161, 90, 219, 0.781);
 }
 .bg-bubbles li:nth-child(8) {
   left: 55%;
   width: 20px;
   height: 20px;
-  animation-delay: 15s;
-  animation-duration: 40s;
+  animation-delay: 9s;
+  animation-duration: 12s;
   background-color: rgba(90, 131, 219, 0.781);
 }
 .bg-bubbles li:nth-child(9) {
-  left: 25%;
+  left: 28%;
   width: 10px;
   height: 10px;
   animation-delay: 2s;
-  animation-duration: 40s;
+  animation-duration: 10;
   background-color: rgba(99, 94, 172, 0.863);
 }
 .bg-bubbles li:nth-child(10) {
@@ -233,7 +250,16 @@ form button:hover {
   width: 160px;
   height: 160px;
   animation-delay: 11s;
+  animation-duration: 12;
   background-color: rgba(40, 12, 141, 0.781);
+}
+.bg-bubbles li:nth-child(11) {
+  left: 60%;
+  width: 140px;
+  height: 140px;
+  animation-delay: 6s;
+  animation-duration: 10;
+  background-color: rgba(110, 80, 219, 0.781);
 }
 @-webkit-keyframes square {
   0% {
