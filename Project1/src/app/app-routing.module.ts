@@ -31,6 +31,7 @@ import { CompanySignupSuccessComponent } from './component/company-signup-succes
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
 import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
+import { CompanyViewStuFullComponent } from './component/company-view-stu-full/company-view-stu-full.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -71,6 +72,7 @@ const routes: Routes = [
     children :[
       { path: 'home', component: CompanyProfileHomeComponent },
       { path: 'studentlist', component: CompanyProfileStudentlistComponent },
+      { path: 'studentDetails', component: CompanyViewStuFullComponent },
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
       { path: 'companyAnalysis', component: CompanyAnalysisComponent },
     ]

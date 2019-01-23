@@ -21,7 +21,10 @@
    
       
       <td *ngIf="student.organization==value">{{student.name}}</td>
-      <td *ngIf="student.organization==value"><mat-icon color= "primary">attachment</mat-icon></td>
+      <td *ngIf="student.organization==value">
+          <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
+        <mat-icon color= "primary">attachment</mat-icon>
+          </button></td>
     
       
   </tr>

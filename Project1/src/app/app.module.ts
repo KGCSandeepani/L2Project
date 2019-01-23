@@ -71,6 +71,7 @@ import {
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
 import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
+import { CompanyViewStuFullComponent } from './component/company-view-stu-full/company-view-stu-full.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
@@ -108,6 +109,7 @@ import { CompanyAnalysisComponent } from './component/company-analysis/company-a
     AdminViewFullStudentComponent,
     StuAnalysisComponent,
     CompanyAnalysisComponent,
+    CompanyViewStuFullComponent,
   //  MatTabsModule,
   ],
   imports: [

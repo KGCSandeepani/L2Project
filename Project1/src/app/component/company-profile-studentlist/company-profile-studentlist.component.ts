@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataPassService } from '../Services/data-pass.service';
 import { StuSelectedCompany } from '../Model/StuSelectedCompany';
 import { CompanyGetStudentlistService } from '../Services/company-get-studentlist.service';
+import { ReadUnamePswServiceService } from 'src/app/component/Services/read-uname-psw-service.service';
 
 @Component({
   selector: 'app-company-profile-studentlist',
@@ -14,11 +15,12 @@ export class CompanyProfileStudentlistComponent implements OnInit {
 
   KEY = 'logger';
   value: string ;
+  id:string;
 
   doInternship = "true";
   stuList : StuSelectedCompany[];
 
-  constructor(private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService) { }
+  constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService) { }
 
   ngOnInit() {
     this.value = this.data.getMessage();
@@ -41,6 +43,13 @@ export class CompanyProfileStudentlistComponent implements OnInit {
       });
     }
     
+  }
+
+  getData(id:string){
+    this.id=id;
+    console.log(this.id+'getData function 1')
+    this.readService.getId(this.id);
+    return id;
   }
 
 }
