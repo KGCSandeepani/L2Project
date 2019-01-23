@@ -226,6 +226,14 @@ functions:
           method: delete
           cors: true  
 
+  queryStuSelectedCompany:
+    handler: StuSelectedCompany/query.query
+    events:
+      - http:
+          path: StuSelectedCompany/{organization}
+          method: query
+          cors: true
+
 resources:
   Resources:
     TodosDynamoDbTable1:

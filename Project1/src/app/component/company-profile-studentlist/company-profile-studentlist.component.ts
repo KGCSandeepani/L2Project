@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyUpdateInternshipService } from '../Services/company-update-internship.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataPassService } from '../Services/data-pass.service';
+import { StuSelectedCompany } from '../Model/StuSelectedCompany';
+import { CompanyGetStudentlistService } from '../Services/company-get-studentlist.service';
 
 @Component({
   selector: 'app-company-profile-studentlist',
@@ -14,11 +16,15 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   value: string ;
 
   doInternship = "true";
+  stuList : StuSelectedCompany[];
 
-  constructor(private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService) { }
+  constructor(private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService) { }
 
   ngOnInit() {
     this.value = this.data.getMessage();
+
+    this.readStudentList.getStudentList(this.value)
+    .subscribe(data => this.stuList = data);
   }
 
   onChange(event : any){

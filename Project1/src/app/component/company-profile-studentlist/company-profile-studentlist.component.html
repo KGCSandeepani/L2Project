@@ -7,5 +7,24 @@
     <input type="radio" name="internship" value="false" (change)="onChange($event)"> No <br>
 
   </div>
-
+  <br>
+  <table class="table" style="width:60%;text-align:center;">
+    <thead>
+  <tr>
+    
+    <th> Student Registration No </th>
+    <th>  </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let student of stuList" >
+   
+      
+      <td *ngIf="student.organization==value">{{student.name}}</td>
+      <td *ngIf="student.organization==value"><mat-icon color= "primary">attachment</mat-icon></td>
+    
+      
+  </tr>
+</tbody>
+</table>
 </div>
