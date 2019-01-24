@@ -186,6 +186,14 @@ functions:
           method: put
           cors: true
 
+  updateStudentPsw:
+    handler: todosStudent/update.update
+    events:
+      - http:
+          path: todosStudent/{name}
+          method: put
+          cors: true
+
   updateStaff:
     handler: todosStaff/update.update
     events:

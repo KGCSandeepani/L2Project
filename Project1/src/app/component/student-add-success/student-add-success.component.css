@@ -1,3 +1,16 @@
 h2{
     margin-top: 50px;
 }
+p{
+    padding: 72px 10px;
+}
+.mat-icon {
+    font-size: 100px;
+    margin-left: 45%;
+  }
+  h1{
+      text-align: center;
+  }
+  h2{
+    text-align: center;
+}

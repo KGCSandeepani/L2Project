@@ -53,6 +53,7 @@ body :-ms-input-placeholder {
   height: 92%;
   margin-top: -280px;
   overflow: hidden;
+ 
 }
 /*
 .wrapper {
@@ -276,4 +277,41 @@ form button:hover {
   100% {
     transform: translateY(-700px) rotate(600deg);
   }
+}
+
+.mat {
+  background: rgb(235, 235, 238);
+  padding-left: 50px;
+  color: rgb(27, 4, 4);
+  justify-content: space-between;
+  max-width: 400px;
+  max-height: 500px;
+  background-size: cover;
+  float:4000px;
+  display: flex;
+  float:right;
+  z-index: 10;
+  position: relative;
+  opacity: 2;
+
+}
+.example-card {
+  max-width: 1000px;
+  max-height: 2000px;
+  padding-left: 50px;
+  vertical-align:right;
+  z-index: 10;
+  opacity: 10;
+  
+}
+example-header-image {
+  background-size: cover;
+}
+p{
+  padding: 72px 10px;
+}
+
+mat2{
+  flex: 1 1 auto;
+ 
 }

@@ -1,0 +1,47 @@
+p{
+    padding-top: 72px;
+}
+span{
+    margin: 0 0;
+}
+/* Bordered form */
+form {
+    border: none;
+    width: 98%;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px; 
+    margin-top: 50px;
+}
+
+h3{
+    text-align: center
+}
+
+/* Full-width inputs */
+
+
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 23%;   
+}
+
+.column2 {
+    float: left;
+    width: 70%;    
+}
+
+label{
+    padding: 8px 10px;
+    
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+

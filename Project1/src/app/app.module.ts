@@ -65,13 +65,14 @@ import {
   MatIconModule,
   MatSelectModule,
   MatTabsModule,
-  
+  MatCardModule,
   MatGridListModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
 import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
 import { CompanyViewStuFullComponent } from './component/company-view-stu-full/company-view-stu-full.component';
+import { StudentSettingComponent } from './component/student-setting/student-setting.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
@@ -110,6 +111,7 @@ import { CompanyViewStuFullComponent } from './component/company-view-stu-full/c
     StuAnalysisComponent,
     CompanyAnalysisComponent,
     CompanyViewStuFullComponent,
+    StudentSettingComponent,
   //  MatTabsModule,
   ],
   imports: [
@@ -125,7 +127,7 @@ import { CompanyViewStuFullComponent } from './component/company-view-stu-full/c
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

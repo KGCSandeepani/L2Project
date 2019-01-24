@@ -1,3 +1,13 @@
-h3{
+p{
     padding: 72px 10px;
+}
+.mat-icon {
+    font-size: 90px;
+    margin-left: 45%;
+  }
+  h1{
+      text-align: center;
+  }
+  h2{
+    text-align: center;
 }
