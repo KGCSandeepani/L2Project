@@ -88,6 +88,7 @@ const routes: Routes = [
       { path: 'studentEdit', component: StudentEditDetailComponent },
       { path: 'studentView', component: StudentViewDetailComponent },
       { path: 'studentReport', component: StuAnalysisComponent },
+      { path: 'chat-room', component: ChatRoomComponent },
     ]
   },
 ];
