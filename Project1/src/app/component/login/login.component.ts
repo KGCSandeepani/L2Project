@@ -10,6 +10,8 @@ import { LoggingStudentService } from '../Services/logging-student.service';
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { NgxNotificationService } from 'ngx-notification';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
+import { GetOneCompanyService } from 'src/app/component/Services/get-one-company.service';
+import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-temp-company.service';
 
 @Component({
   selector: 'app-login',
@@ -22,37 +24,49 @@ export class LoginComponent implements OnInit {
   companies : company[];
   tempCompany : company[];
   logstudent :student;
+  logCompany : company;
+  logTempCompany : company;
 
-  constructor(private readTempCompanyService: CompanySignupService,private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
+  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private readTempCompanyService: CompanySignupService,private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
-    this.readstuentService.getData()
-    .subscribe(data => this.students = data);
+  //  this.readstuentService.getData()
+  //  .subscribe(data => this.students = data);
 
-    this.readcompanyService.getData()
-    .subscribe(data => this.companies = data);
+  //  this.readcompanyService.getData()
+  //  .subscribe(data => this.companies = data);
 
-    this.readTempCompanyService.getData()
-    .subscribe(data => this.tempCompany = data);
+  //  this.readTempCompanyService.getData()
+  //  .subscribe(data => this.tempCompany = data);
   }
 
   adminLogin(uname,psw){
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
-      this.router.navigate(['/adminHomePage']);
-      //location.reload();
-    }else{
-      this.sendNotification();
+      this.router.navigate(['/adminHomePage']);      
     }
-    
+/*    
     for (let index = 0; index < this.tempCompany.length; index++) {
       const temp = this.tempCompany[index];
       if (uname==temp.name && psw==temp.password){
         this.router.navigate(['/companySignupSuccess']);
       }
-    } 
+    } */
 
+    this.getTempCompany.getData(uname)
+    .subscribe(
+      data => {
+        this.logTempCompany=data;
+        if(this.logTempCompany!=null){
+          if (uname==this.logTempCompany.name && psw==this.logTempCompany.password){
+            this.router.navigate(['/companySignupSuccess']);
+          }
+        }
+      }
+    )
+
+/*
     for (let index = 0; index < this.students.length; index++) {
       const student = this.students[index];
       if (uname==student.name && psw==student.password){
@@ -60,18 +74,20 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/student']);
         //location.reload();
       }
-    } 
-/*
+    } */
+
+
     this.logStudent.getData(uname)
     .subscribe(data => {
       this.logstudent=data;
-      if (uname==this.logstudent.name && psw==this.logstudent.password){
-        this.newMessage(this.logstudent.name+"");
-        this.router.navigate(['/student']);
-        location.reload();
-      }
+      if(this.logstudent!=null){
+        if (uname==this.logstudent.name && psw==this.logstudent.password){
+          this.newMessage(this.logstudent.name+"");
+          this.router.navigate(['/student']);
+        }
+      }     
     });
-*/
+/*
     for (let index = 0; index < this.companies.length; index++) {
       const company = this.companies[index];
       if (uname==company.name && psw==company.password){
@@ -79,13 +95,26 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/companyProfile/home']);
         //location.reload();
       }
-    }
+    }*/
+
+    this.getCompany.getData(uname)
+    .subscribe(
+      data => {
+        this.logCompany = data;
+        if(this.logCompany!=null){
+          if (uname==this.logCompany.name && psw==this.logCompany.password){
+            this.newMessage(this.logCompany.name+"");
+            this.router.navigate(['/companyProfile/home']);
+          }
+        }else{
+          this.sendNotification();
+        }
+      }
+    )
     
   }
 
   signup(){
-    //this.newMessage("Company");
-    //location.reload();
     this.router.navigate(['/companySignup']);
     
   }

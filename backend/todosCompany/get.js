@@ -6,7 +6,7 @@ module.exports.get = (event, context, callback) => {
   const params = {
     TableName:"Company",
     Key: {
-      id: event.pathParameters.id,
+      name: event.pathParameters.name,
     },
   };
 
