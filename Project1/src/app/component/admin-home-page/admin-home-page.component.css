@@ -6,6 +6,9 @@
   position: fixed;
   z-index: 10;
 }
+.ims{
+  float: left;
+}
 .topnav-right-user{
   float: right;
   margin-top:5px;
