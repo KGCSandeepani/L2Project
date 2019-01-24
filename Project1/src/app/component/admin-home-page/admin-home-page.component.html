@@ -1,6 +1,21 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {
+    font-family: "Lato", sans-serif
+  }
+
+  .mySlides {
+    display: none
+  }
+</style>
 
 <body>
-<div  > 
+
+<!-- <div  > 
   
   <ul>
     <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
@@ -39,5 +54,84 @@
 
 <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
 
-</body>
+</body> -->
 
+  <!-- <mat-grid-list class="container" cols="4" rowHeight="53px">
+    <mat-grid-tile class="menu" colspan="4" rowspan="1"> -->
+      <div>
+
+
+        <!-- Navbar -->
+        <div class="w3-top">
+          <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
+              onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-small">IMS @ FIT</a>
+            <a routerLink="./adminHomePage" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a> 
+            <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large">ADD</a>
+            <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()"
+              class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTED COMPANY</a>
+            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MSG</a>
+            <a routerLink="./adminAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
+            <a routerLink="./adminSetting" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SETTINGS</a>
+            <div class="w3-dropdown-hover w3-hide-small">
+              <button class="w3-padding-large w3-button" title="More">VIEW <i class="fa fa-caret-down"></i></button>
+              <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                <a routerLink="./adminViewStudent" routerLinkActive="active2" class="w3-bar-item w3-button">Students</a>
+                <a routerLink="./adminViewSupervisor" routerLinkActive="active2" class="w3-bar-item w3-button">Supervisors</a>
+                <a routerLink="./adminViewCompany" routerLinkActive="active2" class="w3-bar-item w3-button">Company</a>
+              </div>
+            </div>
+            <!-- <div class="topnav-right"> -->
+              
+              <button class="topnav-right-button" mat-raised-button style="background-color:white" (click)="logout()">
+                  <mat-icon color= "black">settings_power</mat-icon> Logout</button>
+              
+                  <span class="topnav-right-user" style="color: white;">
+                    <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
+                </span>
+            
+          <!-- </div> -->
+            <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+          </div>
+        </div>
+
+
+        <!-- <ul>
+        <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
+        <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
+        <li><a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()">Requested
+            Company </a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">View
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="./adminViewStudent" routerLinkActive="active2">Student Details</a></li>
+            <li><a routerLink="./adminViewSupervisor" routerLinkActive="active2">Supervisor Details</a></li>
+            <li><a routerLink="./adminViewCompany" routerLinkActive="active2">Company Details</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
+        <li><a routerLink="./adminAnalysis" routerLinkActive="active">Analysis</a></li>
+        <li><a routerLink="./adminSetting" routerLinkActive="active">Setting</a></li>
+        
+        
+      </ul> -->
+
+      </div>
+    <!-- </mat-grid-tile>
+
+    <mat-grid-tile class="rest" colspan="1" rowspan="11"> -->
+
+      <div class="rest" >
+        <router-outlet></router-outlet>
+      </div>
+
+
+      <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
+
+    <!-- </mat-grid-tile>
+
+
+  </mat-grid-list> -->
+</body>

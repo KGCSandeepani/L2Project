@@ -58,4 +58,5 @@ export class AdminHomePageComponent implements OnInit {
     this.count = 0;
     console.log(this.count);
   }
+  
 }

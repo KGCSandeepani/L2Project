@@ -1,7 +1,30 @@
 /* body {
     padding-top: 72px;
 } */
-ul {
+
+.w3-top{
+  position: fixed;
+  z-index: 10;
+}
+.topnav-right-user{
+  float: right;
+  margin-top:5px;
+  margin-left: 5px;
+}
+.topnav-right-button{
+  margin-top:5px;
+  float: right; 
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.rest{
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+ /* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -51,6 +74,8 @@ ul {
   }
   .dropdown-menu{
     min-width: 200px;
+    position: relative;
+    z-index: 10;
   }
   .dropdown-menu a:hover {
     background-color: #666464 ;
@@ -70,8 +95,8 @@ ul {
     border:0px solid #ff0000;
     color: #6b3333;
    
-  }
-  
+  }  */
+  /*/////////////////////////////////////////*/
 /*   
   .dropdown-content {
     display: none;
@@ -125,3 +150,4 @@ li a:hover:not(.active) {
     background-color: #555;
     color: white;
 }*/
+
