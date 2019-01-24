@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataPassService } from '../Services/data-pass.service';
 import { Router } from '@angular/router';
+import { ReadUnamePswServiceService } from 'src/app/component/Services/read-uname-psw-service.service';
 
 @Component({
   selector: 'app-student',
@@ -17,6 +18,7 @@ name:string;
 
   ngOnInit() {
     this.loger = this.data.getMessage();
+    console.log(this.loger+"in the student");
   }
 
   logout(){

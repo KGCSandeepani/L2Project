@@ -65,7 +65,7 @@ import {
   MatIconModule,
   MatSelectModule,
   MatTabsModule,
-  
+  MatCardModule,
   MatGridListModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
@@ -125,7 +125,7 @@ import { CompanyViewStuFullComponent } from './component/company-view-stu-full/c
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
