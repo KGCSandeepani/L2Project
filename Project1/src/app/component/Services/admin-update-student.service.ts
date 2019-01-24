@@ -18,9 +18,9 @@ export class AdminUpdateStudentService {
     return this
               .http
               .put('//localhost:3000/todos/'+this.name,
-            {
-              "name":formdata.value.name,
-              "username" : formdata.value.uname,
+              {
+                "name":this.name,
+                "username" : formdata.value.uname,
                 "email" : formdata.value.email,
                 "phoneNo" : formdata.value.phoneNo,
                 "l1s1" : formdata.value.l1s1,
@@ -36,7 +36,7 @@ export class AdminUpdateStudentService {
                 "interest1" : i1, //formdata.value.interest1,
                 "interest2" : i2, //formdata.value.interest2,
                 "interest3" : i3  //formdata.value.interest3 
-            })
+              })
               //.update('//localhost:3000/todos/'+this.name);
     }
 }

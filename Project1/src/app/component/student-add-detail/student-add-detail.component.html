@@ -7,7 +7,7 @@
         <div class="column1">
           
             <label for="registrationNo"><b id="registrationNo">Registration No : </b></label><br>
-            <label for="name"><b id="name1">Name : </b></label><br>
+            <label for="name1"><b id="name1">Name : </b></label><br>
             <label for="emailAddress"><b id="emailAddress">Email Address : </b></label><br>
             <label for="phoneNo"><b id="phoneNo">Phone No : </b></label><br>
           
@@ -34,8 +34,8 @@
             <label for="cv"><b id="cv">Uploaded CV : </b></label><br>
         </div>
         <div class="column2">
-          
-            <input type="text" placeholder="Enter Registration No" name="name" [(ngModel)]="name" ><br>
+            <label for="name"><b id="name">{{loger}} </b></label><br>
+         <!-- <input type="text" placeholder="Enter Registration No" name="name" [(ngModel)]="name" value="loger"><br>  -->  
             <input type="text" placeholder="Enter Name" name="uname" [(ngModel)]="uname" ><br>
             <input type="text" placeholder="Enter Email Address" name="email" [(ngModel)]="email" ><br>
             <input type="text" placeholder="Enter phone No" name="phoneNo" [(ngModel)]="phoneNo" ><br>
@@ -70,7 +70,7 @@
             <div *ngFor="let item of array" >       
               <mat-form-field>
                 <mat-select placeholder="Preferred Organization" >
-                  <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(name,item,com.name)">
+                  <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(item,com.name)">
                     <a *ngIf="com.doInternship">{{com.name}}</a>
                   </mat-option>
                 </mat-select>

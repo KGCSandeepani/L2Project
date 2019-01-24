@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   logCompany : company;
   logTempCompany : company;
 
-  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private readTempCompanyService: CompanySignupService,private data: DataPassService,private route : ActivatedRoute,private readcompanyService : AdminViewCompanyService,private readstuentService: ReadUnamePswServiceService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
+  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    

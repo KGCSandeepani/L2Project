@@ -10,6 +10,8 @@ import { GetNoOfCompanyService } from '../Services/get-no-of-company.service';
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { StudentSelectedCompanyService } from 'src/app/component/Services/student-selected-company.service';
 import { isUndefined, isNull } from 'util';
+import { DataPassService } from '../Services/data-pass.service';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-student-add-detail',
@@ -29,39 +31,34 @@ export class StudentAddDetailComponent implements OnInit {
   interest2 : String;
   interest3 : String;
 
-  constructor(private stuCompany : StudentSelectedCompanyService,private updateService : AdminUpdateStudentService,private readCompanyService: AdminViewCompanyService, private getNoOfCompany : GetNoOfCompanyService, private route : ActivatedRoute,private router:Router) { }
+  loger: string ;
+  message : string;
+
+  constructor(private ngxNotificationService: NgxNotificationService, private data : DataPassService, private stuCompany : StudentSelectedCompanyService,private updateService : AdminUpdateStudentService,private readCompanyService: AdminViewCompanyService, private getNoOfCompany : GetNoOfCompanyService, private route : ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
+
+    this.loger = this.data.getMessage();
+
     this.getNoOfCompany.getData()
-    .subscribe(data => {this.noOfCompany = data;
+      .subscribe(data => {this.noOfCompany = data;
       this.num=this.noOfCompany.amount;
-    //console.log(this.noOfCompany.amount+" : "+this.num);  
+     
     
-    for (let index = 0; index < this.num; index++) {
-      this.array[index]=index+1;  
-      //console.log(index+" : "+this.array[index]);    
-    }
-    //console.log("nnn "+this.array.length);  
+      for (let index = 0; index < this.num; index++) {
+        this.array[index]=index+1;         
+      }
+     
     });
 
     this.readCompanyService.getData()
-      .subscribe(data => {this.company = data
-        //,console.log("aaasssddd "+this.company.length); 
-       });
-      
-    //let i = 0;
-    //console.log(this.company.length);   
-    //for (let index = 0; index < this.company.length; index++) {
-     //if (this.company[index].doInternship=='yes') {
-      //this.company1[i] = this.company[index];
-      //i++;
-     //}  
-    //}
+    .subscribe(data => {this.company = data });
+          
   }
 
-  getCompany(name:String, item: number,companyname: String){
-    console.log(name+" : "+item+" : "+ companyname);
-    this.stuCompany.getStuSelectedCompany(name,item,companyname)
+  getCompany(item: number,companyname: String){
+    console.log(this.loger+" : "+item+" : "+ companyname);
+    this.stuCompany.getStuSelectedCompany(this.loger,item,companyname)
     .subscribe((data : StuSelectedCompany)=>this.selectedCompany = data);
     
   }
@@ -76,20 +73,23 @@ export class StudentAddDetailComponent implements OnInit {
   }
 
   onSubmit(formdata:NgForm){
-     console.log(formdata.value.name);
-    this.updateService.updateStudentData(formdata,this.interest1,this.interest2,this.interest3,formdata.value.name)
-    .subscribe(res=>{
-      this.router.navigate(['student/studentAddSuccess']);
-    });
-    //.subscribe((data : student )=> {
-    //    this.student = data;
-    //    formdata.reset();    
-    //});
+    if(formdata.value.uname==null || formdata.value.email==null || formdata.value.phoneNo==null || 
+      formdata.value.l1s1==null || formdata.value.l1s2==null || formdata.value.l2s1==null || formdata.value.l2s2==null || 
+      formdata.value.cgpa==null || this.interest1==null || this.interest2==null || this.interest3== null){
+        this.sendNotification();
+      }else{
+        this.updateService.updateStudentData(formdata,this.interest1,this.interest2,this.interest3,this.loger)
+        .subscribe(res=>{
+        this.router.navigate(['student/studentAddSuccess']);
+        });
+      }
+    
   }
 
-  //arrayOne(n: number): any[] {
-  //  console.log("sss "+n+" "+this.num);
-  //  return Array(this.num);
-  //}
+  sendNotification() {
+    this.ngxNotificationService.sendMessage('Please fill all the information before submit', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
+  }
 
 }
