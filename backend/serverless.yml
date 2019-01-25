@@ -210,6 +210,14 @@ functions:
           method: put
           cors: true
 
+  updateCompany2:
+    handler: todosCompany2/update.update
+    events:
+      - http:
+          path: todosCompany2/{name}
+          method: put
+          cors: true
+
   delete:
     handler: todos/delete.delete
     events:

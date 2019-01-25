@@ -33,6 +33,7 @@ import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.comp
 import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
 import { CompanyViewStuFullComponent } from './component/company-view-stu-full/company-view-stu-full.component';
 import { StudentSettingComponent } from './component/student-setting/student-setting.component';
+import { CompanySettingComponent } from './component/company-setting/company-setting.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -76,6 +77,7 @@ const routes: Routes = [
       { path: 'studentDetails', component: CompanyViewStuFullComponent },
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
       { path: 'companyAnalysis', component: CompanyAnalysisComponent },
+      { path: 'companySetting', component: CompanySettingComponent },
     ]
   },
   { path: 'companySignup', component: CompanySignupComponent },

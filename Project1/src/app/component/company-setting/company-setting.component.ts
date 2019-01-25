@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentChangePasswordService } from '../Services/student-change-password.service';
 import { DataPassService } from '../Services/data-pass.service';
 import { Router } from '@angular/router';
 import { NgxNotificationService } from 'ngx-notification';
+import { CompanyUpdatePasswordService } from '../Services/company-update-password.service';
 
 @Component({
-  selector: 'app-student-setting',
-  templateUrl: './student-setting.component.html',
-  styleUrls: ['./student-setting.component.css']
+  selector: 'app-company-setting',
+  templateUrl: './company-setting.component.html',
+  styleUrls: ['./company-setting.component.css']
 })
-export class StudentSettingComponent implements OnInit {
+export class CompanySettingComponent implements OnInit {
 
   loger: string ;
   message : string;
 
-  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, private changePasswordService :StudentChangePasswordService) { }
+  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, private changePasswordService :CompanyUpdatePasswordService) { }
 
   ngOnInit() {
     this.loger = this.data.getMessage();
@@ -22,7 +22,7 @@ export class StudentSettingComponent implements OnInit {
 
   changePassword(password :String,password1 : String){
     if (password==password1 && password.length==8) {
-      this.changePasswordService.updateStudentData(this.loger,password)
+      this.changePasswordService.updateCompanyData(this.loger,password)
       .subscribe(data =>{
         this.sendNotification();
       });
