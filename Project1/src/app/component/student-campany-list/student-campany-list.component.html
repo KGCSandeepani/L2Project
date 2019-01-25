@@ -1,0 +1,20 @@
+<h2 class="title">Company Details</h2>
+<br>
+<div class="container">
+<table class="table">
+    <thead>
+  <tr>
+    <th> </th>
+    <th> Company Name    </th>
+    <th> Do Internship </th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let company of company">
+      <td><mat-icon color= "primary">business_center</mat-icon></td>
+      <td>{{company.name}} </td>
+      <td>{{company.doInternship}}</td>   
+  </tr>
+</tbody>
+</table>
+</div>
