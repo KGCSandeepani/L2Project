@@ -22,6 +22,8 @@ module.exports.create = (event, context, callback) => {
       id: uuid.v1(),
       name: data.text,
       password: data.psw,
+      batch: data.batch,
+      availability:true,
       username:null,     
       email: null,
       phoneNo: null,

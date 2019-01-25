@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   //  this.readTempCompanyService.getData()
   //  .subscribe(data => this.tempCompany = data);
 
-    this.adminService.getSupervisorData('admin','admin','admin','admin@getMaxListeners.com','0110000000')
+    this.adminService.getSupervisorData('admin','admin','admin','admin@gmail.com','0110000000')
     .subscribe((data : staff )=> {
         this.admin = data; 
     });
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   adminLogin(uname,psw){
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
-      this.router.navigate(['/adminHomePage']);      
+      this.router.navigate(['/adminHomePage/adminDashboard']);      
     }
 /*    
     for (let index = 0; index < this.tempCompany.length; index++) {

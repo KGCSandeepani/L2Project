@@ -1,3 +1,4 @@
+<!--
 <h2 class="title">Supervisor Details</h2>
 <br>
 <div class="container">
@@ -25,4 +26,44 @@
   </tr>
 </tbody>
 </table>
+</div>
+
+-->
+
+<div>
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title ">Supervisor Details</h4>
+          <p class="card-category"> Here is a subtitle for this table</p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                
+                <th>  </th>
+                <th> Name with initials </th>
+                <th> Username    </th>
+                <th> Email    </th>
+                <th> Contact No    </th>
+                <th>  </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let supervisor of staff">
+                  <td><input type="checkbox"> </td>
+                  <td>{{supervisor.name}} </td>
+                  <td>{{supervisor.uname}}</td>
+                  <td>{{supervisor.email}}</td>
+                  <td>{{supervisor.contactNo}}</td>
+                 <td>
+                    <button mat-button (click)="onDelete(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
+                 </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

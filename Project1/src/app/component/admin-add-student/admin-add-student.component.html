@@ -6,15 +6,17 @@
     <div class="column1">
         <label for="uname"><b id="username">Username : </b></label><br>
         <label for="psw"><b>Password : </b></label><br>
+        <label for="batch"><b>Batch : </b></label><br>
     </div>
     <div class="column2">
         <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username" ><br>
         <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
+        <input type="text" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br>
     </div>
   </div>
  
     <button id="add" type="submit" >Add</button>
-    <button id="clear" type="button" (click)="username='';password='';">Clear</button><br>
+    <button id="clear" type="button" (click)="username='';password='';batch='';">Clear</button><br>
 
 </div>
 
@@ -31,8 +33,11 @@
     <br>
     <label for="psw2"><b>Password : </b></label>
     <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2"><br>
+
+    <label for="batch2"><b>Batch : </b></label>
+    <input type="text" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br>
     
-    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Students</button>
+    <button type="button" id="addAll" (click)="getData($event,password2,batch2)">Add All Students</button>
 </div>
 
 <br>
@@ -44,10 +49,13 @@
       <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
     </div>
     <br>
-    <label for="psw2"><b>Password : </b></label>
+    <label for="psw3"><b>Password : </b></label>
     <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3"><br>
 
-    <button type="button" id="addAll" (click)="uploadData($event,password3)">Add All Students</button>
+    <label for="batch3"><b>Batch : </b></label>
+    <input type="text" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br>
+
+    <button type="button" id="addAll" (click)="uploadData($event,password3,batch3)">Add All Students</button>
 
 </div>
 

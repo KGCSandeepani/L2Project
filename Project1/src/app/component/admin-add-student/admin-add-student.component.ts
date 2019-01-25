@@ -25,7 +25,8 @@ export class AdminAddStudentComponent implements OnInit {
 
   password2:any;
   password3:string;
-
+  batch2:string;
+  batch3:string;
   student:student[];
 
   spreadBackColor = 'aliceblue';
@@ -45,7 +46,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   onSubmit(formdata:NgForm){
-    if (formdata.value.uname==null || formdata.value.psw==null) {
+    if (formdata.value.uname==null || formdata.value.psw==null || formdata.value.batch==null ) {
       this.sendNotification3();
       return;
     }
@@ -65,8 +66,8 @@ export class AdminAddStudentComponent implements OnInit {
     sheet.getCell(0, 0).text('Username').foreColor('blue');   
   }
 
-  getData(args,psw2){
-    if (psw2==null) {
+  getData(args,psw2,batch2){
+    if (psw2==null || batch2==null ) {
       this.sendNotification1();
       return;
     }
@@ -74,7 +75,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.a=self.spread.getActiveSheet().getRowCount();
           for (let index = 1; index < this.a; index++) {
             if (self.spread.getActiveSheet().getValue(index,0)!=null) {
-              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),psw2)
+              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),psw2,batch2)
               .subscribe((data : student[] )=> {
               this.student = data;
               });
@@ -86,6 +87,7 @@ export class AdminAddStudentComponent implements OnInit {
             
           }
           this.password2='';
+          this.batch2='';
           this.sendNotification4();
   }
 
@@ -103,7 +105,7 @@ export class AdminAddStudentComponent implements OnInit {
     }
   }
 
-  uploadData(args,psw3){
+  uploadData(args,psw3,batch3){
     if (psw3==null) {
       this.sendNotification1();
       return;
@@ -113,7 +115,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.a=self.spread.getSheet(1).getRowCount();
     for (let index = 0; index < this.a; index++) {
       if (self.spread.getSheet(1).getValue(index,0)!=null) {
-        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),psw3)
+        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),psw3,batch3)
         .subscribe((data : student[] )=> {
         this.student = data;
         });
@@ -125,6 +127,7 @@ export class AdminAddStudentComponent implements OnInit {
       }      
     }
     this.password3='';
+    this.batch3='';
     this.sendNotification4();
   }
 
