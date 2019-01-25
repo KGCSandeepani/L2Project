@@ -32,6 +32,7 @@ import { AdminViewFullStudentComponent } from './component/admin-view-full-stude
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
 import { CompanyAnalysisComponent } from './component/company-analysis/company-analysis.component';
 import { CompanyViewStuFullComponent } from './component/company-view-stu-full/company-view-stu-full.component';
+import { StudentSettingComponent } from './component/student-setting/student-setting.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -88,6 +89,7 @@ const routes: Routes = [
       { path: 'studentEdit', component: StudentEditDetailComponent },
       { path: 'studentView', component: StudentViewDetailComponent },
       { path: 'studentReport', component: StuAnalysisComponent },
+      { path: 'studentSetting', component: StudentSettingComponent },
     ]
   },
 ];

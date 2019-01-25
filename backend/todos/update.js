@@ -58,16 +58,14 @@ module.exports.update = (event, context, callback) => {
       //':organization5': data.organization5,
       ':interest1': data.interest1,
       ':interest2': data.interest2,
-      ':interest3': data.interest3
-
+      ':interest3': data.interest3,
     },
     UpdateExpression: 'SET #todo_username = :username, #todo_email = :email, #todo_phoneNo = :phoneNo, #todo_l1s1 = :l1s1, #todo_l1s2 = :l1s2, #todo_l2s1 = :l2s1, #todo_l2s2 = :l2s2, #todo_cgpa = :cgpa,  #todo_interest1 = :interest1, #todo_interest2 = :interest2, #todo_interest3 = :interest3 ',
     //#todo_organization1 = :organization1, #todo_organization2 = :organization2, #todo_organization3 = :organization3, #todo_organization4 = :organization4, #todo_organization5 = :organization5,
     ReturnValues: 'ALL_NEW',
   };
 
-  // update the todo in the database
-  dynamodb.update(params, (error, result) => {
+  dynamodb.update(params , (error, result) => {
     // handle potential errors
     if (error) {
       console.error(error);

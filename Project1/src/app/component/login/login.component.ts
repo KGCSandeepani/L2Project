@@ -12,6 +12,8 @@ import { NgxNotificationService } from 'ngx-notification';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 import { GetOneCompanyService } from 'src/app/component/Services/get-one-company.service';
 import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-temp-company.service';
+import { staff } from 'src/app/component/Model/Staff';
+import { AddAdminService } from 'src/app/component/Services/add-admin.service';
 
 @Component({
   selector: 'app-login',
@@ -26,8 +28,9 @@ export class LoginComponent implements OnInit {
   logstudent :student;
   logCompany : company;
   logTempCompany : company;
+  admin :staff;
 
-  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService) { }
+  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
@@ -39,6 +42,11 @@ export class LoginComponent implements OnInit {
 
   //  this.readTempCompanyService.getData()
   //  .subscribe(data => this.tempCompany = data);
+
+    this.adminService.getSupervisorData('admin','admin','admin','admin@getMaxListeners.com','0110000000')
+    .subscribe((data : staff )=> {
+        this.admin = data; 
+    });
   }
 
   adminLogin(uname,psw){
