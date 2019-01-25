@@ -292,7 +292,7 @@ form button:hover {
   float:right;
   z-index: 10;
   position: relative;
-  opacity: 2;
+  opacity: 0.8;
 
 }
 .example-card {
@@ -301,7 +301,7 @@ form button:hover {
   padding-left: 50px;
   vertical-align:right;
   z-index: 10;
-  opacity: 10;
+  opacity: 0.8;
   
 }
 example-header-image {
