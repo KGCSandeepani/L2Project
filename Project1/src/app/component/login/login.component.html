@@ -90,7 +90,7 @@
 </mat-card>-->
 
 
-
+<!-- 
 <div style ="text-align:center;padding-top: 1vw" class="navbar-header" >
   <h1 style="font-size:2vw;" ><b>Internship Management System @ Faculty of Information Technology [UOM] </b></h1>    
 </div>
@@ -117,7 +117,7 @@
               <mat-card-subtitle><h3>About Us..</h3></mat-card-subtitle>
             </mat-card-header>
       
-            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+           <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
            
            
            <mat-card-content>
@@ -177,7 +177,86 @@
       <li></li>
       <li></li>
       </ul>
-  </div>
-  
+  </div> -->
 
- 
+<div class="wrapper">
+  <div class="container">
+    <mat-grid-list cols="4" rowHeight="100px">
+
+      <mat-grid-tile colspan="4" rowspan="1">
+          <div style ="text-align:center;padding-top: 1vw" class="navbar-header" >
+              <h1 style="font-size:2vw;" ><b>Internship Management System @ Faculty of Information Technology [UOM] </b></h1>    
+            </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" rowspan="3">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title><h2> WELCOME TO IMS </h2></mat-card-title>
+                <mat-card-subtitle><h3>About Us..</h3></mat-card-subtitle>
+              </mat-card-header>
+        
+             <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+             
+             
+             <mat-card-content>
+                <p>
+                  Internship Management System (IMS)  facilitates industrial training information management and communication.  
+                  This is created to emphasize the aspect of collecting information from students, industrial training coordinators and lecturers. 
+                  The information was captured and stored in a centralized database to enable access by multiple users through the internet.  
+                  The system can provide well organized, quickly accessible and quickly updatable capabilities.
+                </p>
+              </mat-card-content>
+              <mat-card-actions>  
+              </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+            <mat-card class="mat2">
+                <form class="form1">
+                    <mat-card-header></mat-card-header>
+                      <mat-card-content></mat-card-content>
+                      <mat-card-actions>
+                        <button id="signup" type="button" (click)="signup()">Sign up</button><br>
+                      </mat-card-actions>  
+                   </form>
+            </mat-card>
+      
+          </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="3">
+          <mat-card class="mat">
+              <form class="form">
+                <mat-card-header>
+                  <mat-card-title><h3 >Login Form</h3></mat-card-title>
+                </mat-card-header>
+                  <mat-card-content>
+                    <input type="text" #uname placeholder="Enter Username" name="uname" required ngModel><br>
+                    <input type="password" #psw placeholder="Enter Password" name="psw" required><br>
+                  </mat-card-content>
+                  <mat-card-actions >
+                    <button id="login-button" type="submit" (click)="adminLogin(uname.value,psw.value)">Login</button>
+                    <lib-ngx-notification></lib-ngx-notification>
+                  </mat-card-actions>  
+               </form>
+            </mat-card> 
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
