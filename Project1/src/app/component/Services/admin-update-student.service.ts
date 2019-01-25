@@ -35,7 +35,8 @@ export class AdminUpdateStudentService {
                 //"organization5" : formdata.value.organization5,
                 "interest1" : i1, //formdata.value.interest1,
                 "interest2" : i2, //formdata.value.interest2,
-                "interest3" : i3  //formdata.value.interest3 
+                "interest3" : i3,  //formdata.value.interest3
+                "uploadPdfUrl": formdata.value.uploadPdfUrl 
               })
               //.update('//localhost:3000/todos/'+this.name);
     }

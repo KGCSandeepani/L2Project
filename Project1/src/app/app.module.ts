@@ -39,6 +39,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
+
 import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
 import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
 
@@ -131,6 +134,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
     SpreadSheetsModule,
     ChartsModule,
     ScrollToModule.forRoot(),

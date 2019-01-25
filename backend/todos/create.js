@@ -40,7 +40,7 @@ module.exports.create = (event, context, callback) => {
       interest1: null,
       interest2: null,
       interest3: null,
-      cv:null,
+      uploadPdfUrl:null,
       //checked: false,
       //createdAt: timestamp,
       //updatedAt: timestamp,
