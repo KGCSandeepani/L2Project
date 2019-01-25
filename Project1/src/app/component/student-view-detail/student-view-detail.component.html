@@ -21,7 +21,9 @@
               <label for="interest1"><b >Preferred Area of Interest 1 : </b></label><br>
               <label for="interest2"><b >Preferred Area of Interest 2 : </b></label><br>
               <label for="interest3"><b >Preferred Area of Interest 3 : </b></label><br>
-              <label for="organization"><b >Preferred Organization : </b></label><br>  
+              <label for="organization"><b >Preferred Organization : </b></label><br> 
+              <label for="uploadPdfUrl"><b id="uploadPdfUrl">Uploaded CV : </b></label><br>
+               
           </div>
   
           <div class="column2">
@@ -44,7 +46,13 @@
                   <span *ngIf="StuSelectedCompany.name==name">{{StuSelectedCompany.organization}}<br> </span>            
                 </b>
               </span>
-            </label>
+            </label><br>
+            <a href="{{student.uploadPdfUrl}}" target="test1">View CV</a><br><br><br>
+                
+          </div>
+          <div class="column3">
+            <iframe name="test1" id="test1" scrolling="no" height="600px" frameborder="4" width="900px" noscaling="true" allowtransparency="true" marginwidth="0" marginheight="0">
+            </iframe>  
           </div>
         </div>
        

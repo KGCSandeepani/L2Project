@@ -106,10 +106,12 @@
               </mat-select>
             </mat-form-field>
             <br>
-            <input type="file" name="cv" hidden name="files[]" multiple="" (change)="fileChangeEvent($event)" accept=".pdf">
+            <!-- <input type="file" name="cv" hidden name="files[]" multiple="" (change)="fileChangeEvent($event)" accept=".pdf"> -->
             <!--
               <input type="file" name="cv" [(ngModel)]="cv" accept=".pdf">
             -->
+            <input type="file" (change)="upload($event)" accept=".pdf" />
+
         </div>
       </div>
      
