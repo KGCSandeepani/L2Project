@@ -290,7 +290,7 @@ form button:hover {
   background-size: cover;
   display: flex;
   position: relative;
-  opacity: 0.8;
+  opacity: 2;
   float:right; 
 
 }
