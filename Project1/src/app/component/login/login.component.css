@@ -386,7 +386,7 @@ body :-ms-input-placeholder {
 form {
   padding: 20px 0;
   position: relative;
-  z-index: 2;
+  z-index: 100;
 }
 form input {
   appearance: none;
@@ -533,7 +533,7 @@ form button:hover {
   background-size: cover;
   display: flex;
   position: relative;
-  opacity: 0.8;
+  opacity: 1;
   float:right; 
 
 }
@@ -543,7 +543,7 @@ form button:hover {
   padding-left: 50px;
   vertical-align:right;
   z-index: 10;
-  opacity: 0.8;
+  opacity: 1;
   
 }
 example-header-image {
@@ -553,7 +553,7 @@ p{
   padding: 72px 10px;
 }
 
-mat2{
+.mat2{
   flex: 1 1 auto;
   background: rgb(255, 255, 255);
   padding-left: 50px;
