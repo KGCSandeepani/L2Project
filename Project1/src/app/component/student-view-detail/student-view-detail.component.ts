@@ -20,12 +20,15 @@ export class StudentViewDetailComponent implements OnInit {
   constructor(private data : DataPassService,private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
-    this.name = this.readService.setId();
     this.loger = this.data.getMessage();
     console.log(this.loger+"in the student view");
     this.readService.getId(this.loger);
     this.readData();
     this.retrieveCom();
+    this.name = this.readService.setId();
+    
+   
+    
   }
   
   readData(){
