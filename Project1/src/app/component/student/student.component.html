@@ -1,34 +1,35 @@
 <body>
-    <div> 
-      
-    <ul>
-      <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
-      <li><a routerLink="./studentAdd" routerLinkActive="active">Add</a></li>
-      <li><a routerLink="./studentEdit" routerLinkActive="active">Edit</a></li>
-      <li><a routerLink="./studentView" routerLinkActive="active" >View</a></li>      
-      <li><a routerLink="./studentCompanyList" routerLinkActive="active" >Organization List</a></li> 
-      <li><a >Add Confirmation</a></li>
-      <li><a routerLink="./studentReport" routerLinkActive="active">Reports</a></li>      
-      <li><a >Feedback</a></li>
-      <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
-      
-      <li><a >Message</a></li>
-      <li><a routerLink="./studentSetting" routerLinkActive="active">Setting</a></li>
-      <div class="topnav-right">
-        <li><span style="color: white;">
-            <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
-        </span></li>
-    <li >
-        <button mat-raised-button style="background-color:white" (click)="logout()">
-            <mat-icon color= "black">settings_power</mat-icon> Logout</button>
-        
-      </li>
+    <div class="menu" style="position: fixed; z-index: 10;">
+
+        <ul>
+            <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
+            <li><a routerLink="./studentAdd" routerLinkActive="active">Add</a></li>
+            <li><a routerLink="./studentEdit" routerLinkActive="active">Edit</a></li>
+            <li><a routerLink="./studentView" routerLinkActive="active">View</a></li>
+            <li><a routerLink="./studentCompanyList" routerLinkActive="active">Organization List</a></li>
+            <li><a>Add Confirmation</a></li>
+            <li><a routerLink="./studentReport" routerLinkActive="active">Reports</a></li>
+            <li><a routerLink="./feedback" routerLinkActive="active">Feedback</a></li>
+            <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
+
+            <!-- <li><a >Message</a></li> -->
+            <li><a routerLink="./studentSetting" routerLinkActive="active">Setting</a></li>
+            <!-- <div class="topnav-right-"> -->
+            <li class="user"><span style="color: white;">
+                    <mat-icon class="icon" color="white">account_circle</mat-icon> {{ loger }}
+                </span></li>
+            <li class="button">
+                <button mat-raised-button style="background-color:white" (click)="logout()">
+                    <mat-icon color="black">settings_power</mat-icon> Logout
+                </button>
+
+            </li>
+            <!-- </div> -->
+        </ul>
     </div>
-    </ul>
+    <div class="col-sm-19">
+        <div style="padding:1px 16px; position: relative;overflow-y: hidden;">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    <div class ="col-sm-19" >
-    <div style="padding:1px 16px;">
-      <router-outlet></router-outlet>
-    </div>
-    </div>
-    </body>
+</body>

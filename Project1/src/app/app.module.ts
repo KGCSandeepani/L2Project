@@ -75,6 +75,8 @@ import { CompanyViewStuFullComponent } from './component/company-view-stu-full/c
 import { StudentSettingComponent } from './component/student-setting/student-setting.component';
 import { CompanySettingComponent } from './component/company-setting/company-setting.component';
 import { StudentCampanyListComponent } from './component/student-campany-list/student-campany-list.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { FeedbackComponent } from './component/feedback/feedback.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
@@ -116,6 +118,8 @@ import { StudentCampanyListComponent } from './component/student-campany-list/st
     StudentSettingComponent,
     CompanySettingComponent,
     StudentCampanyListComponent,
+    DashboardComponent,
+    FeedbackComponent,
   //  MatTabsModule,
   ],
   imports: [

@@ -1,4 +1,19 @@
 
+.user{
+  margin-left: 10px;
+  margin-right: 10px;
+  float: right;
+    /* margin-top: 5px; */
+}
+.icon{
+  position: relative;
+  margin-top: 10px;
+}
+.button{
+  margin-left: 10px;
+  float: right;
+    margin-top: 7px;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -11,6 +26,7 @@ ul {
 
   .topnav-right {
     float: right;
+    margin-top: 5px;
   }
 
   li {

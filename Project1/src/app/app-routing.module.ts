@@ -35,6 +35,8 @@ import { CompanyViewStuFullComponent } from './component/company-view-stu-full/c
 import { StudentSettingComponent } from './component/student-setting/student-setting.component';
 import { CompanySettingComponent } from './component/company-setting/company-setting.component';
 import { StudentCampanyListComponent } from './component/student-campany-list/student-campany-list.component';
+import { FeedbackComponent } from './component/feedback/feedback.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -55,7 +57,7 @@ const routes: Routes = [
       { path: 'requestedCompany', component: RequestedCompanyComponent },
       { path: 'adminViewCompany', component: AdminViewCompanyComponent },
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
-
+      { path: 'adminDashboard', component: DashboardComponent },
       { path: 'adminSetting', component: AdminSettingComponent },
       { path: 'chat-room', component:  ChatRoomComponent},
      
@@ -95,6 +97,7 @@ const routes: Routes = [
       { path: 'studentReport', component: StuAnalysisComponent },
       { path: 'chat-room', component: ChatRoomComponent },
       { path: 'studentSetting', component: StudentSettingComponent },
+      { path: 'feedback', component: FeedbackComponent },
     ]
   },
 ];

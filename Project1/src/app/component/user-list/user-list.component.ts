@@ -15,6 +15,8 @@ export class UserListComponent implements OnInit {
   [x: string]: any;
 
   students: student[];
+  // supervisors:supervisor[];
+
   constructor(private readService: ReadUnamePswServiceService, private chatService:ChatServiceASService,private router: Router) { }
   userN :string;
   editUser:string;
