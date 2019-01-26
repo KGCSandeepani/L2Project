@@ -41,6 +41,8 @@ export class StudentAddDetailComponent implements OnInit {
 
   loger: string ;
   message : string;
+  disableButton =true;
+  probar=false;
 
   constructor(private ngxNotificationService: NgxNotificationService,
               private afStorage: AngularFireStorage ,
@@ -60,7 +62,9 @@ export class StudentAddDetailComponent implements OnInit {
       .subscribe(data => {this.noOfCompany = data;
       this.num=this.noOfCompany.amount;
      
-    
+      if(this.num==null){
+        this.num=1;
+      }
       for (let index = 0; index < this.num; index++) {
         this.array[index]=index+1;         
       }
@@ -112,15 +116,30 @@ export class StudentAddDetailComponent implements OnInit {
     //top-left, top-right, bottom-left, bottom-right and center
   }
   upload(event) {
+    this.sendNotification1();
+    this.probar=true;
     const filePath = `/student/CVs/`+ this.loger;
     this.afStorage.upload(filePath, event.target.files[0]).then( ()=> {
       const ref = this.afStorage.ref(filePath);
       const downloadUrl = ref.getDownloadURL().subscribe( url => {
           this.urlForSave = url;
-          console.log(this.urlForSave);
+          console.log("Uploaded "+this.urlForSave);
           // this.uploadProgress= this.task.percentageChanges();
+          this.probar=false;
+          this.disableButton=false;
+          this.sendNotification2();
       })
     }); 
+  }
+
+  sendNotification1() {
+    this.ngxNotificationService.sendMessage('Wait until upload file', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
+  }
+  
+  sendNotification2() {
+    this.ngxNotificationService.sendMessage('File uploaded', 'dark', 'bottom-right');
   }
 
 }
