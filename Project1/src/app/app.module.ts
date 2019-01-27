@@ -81,6 +81,7 @@ import { CompanySettingComponent } from './component/company-setting/company-set
 import { StudentCampanyListComponent } from './component/student-campany-list/student-campany-list.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
+import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
@@ -124,6 +125,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     StudentCampanyListComponent,
     DashboardComponent,
     FeedbackComponent,
+    StudentConfirmInternshipComponent,
   //  MatTabsModule,
   ],
   imports: [

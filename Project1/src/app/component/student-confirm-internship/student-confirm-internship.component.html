@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="container">
+    <h2>Confirm Internship </h2><br>
+
+    <label for="internship"><b>Internship selected company &nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;</b></label>
+
+    <mat-form-field>
+      <mat-select placeholder="Selected Organization" >
+        <mat-option *ngFor="let com of companyList" [value]="com.name"  (click)="getCompany(com.organization)">
+          <a> {{com.organization}} </a>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+    <button type="button" id="add" (click)="confirm()" > Confirm </button>
+
+  </div>
+  <lib-ngx-notification></lib-ngx-notification>
+</div>

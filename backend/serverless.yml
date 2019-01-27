@@ -194,6 +194,14 @@ functions:
           method: put
           cors: true
 
+  updateStudentSelectedCompany:
+    handler: todosStudent1/update.update
+    events:
+      - http:
+          path: todosStudent1/{name}
+          method: put
+          cors: true
+
   updateStaff:
     handler: todosStaff/update.update
     events:

@@ -17,14 +17,15 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let student of stuList" >
+  <tr *ngFor="let student of stuList1" >
    
       
-      <td *ngIf="student.organization==value">{{student.name}}</td>
-      <td *ngIf="student.organization==value">
-          <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
+      <td >{{student.name}}</td>
+      <td >
+        <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
         <mat-icon color= "primary">attachment</mat-icon>
-          </button></td>
+        </button>
+      </td>
     
       
         
