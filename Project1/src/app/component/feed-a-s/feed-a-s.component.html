@@ -1,11 +1,11 @@
-<body>
+
 <div class="feeds">
-  <div class="heading">
+  <div  class="heading" >
       <!--<img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">-->
     <p>{{userN}}</p>
   </div>
   
-  <div  *ngFor="let messages of items|async" class="message">
+  <div #scrollBottom  *ngFor="let messages of items|async" class="message">
      
     <app-message-a-s [chatMessage]="messages"></app-message-a-s>
     
@@ -14,7 +14,7 @@
 </div>
 
 
-</body>
+<!-- <div id="destination"></div> -->
 
 
 

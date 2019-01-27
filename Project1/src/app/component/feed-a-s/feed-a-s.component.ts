@@ -6,7 +6,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
 import { stringify } from '@angular/core/src/util';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
-
+import { AfterViewChecked, ElementRef, ViewChild} from '@angular/core'
 @Component({
   selector: 'app-feed-a-s',
   templateUrl: './feed-a-s.component.html',
@@ -20,15 +20,18 @@ export class FeedASComponent implements OnInit , OnChanges {
   userN :string;
   items: Observable<any[]>;
   value:string='';
+  @ViewChild('scrollBottom') private scrollBottom: ElementRef;
+  
   constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private _scrollToService: ScrollToService ) { 
     
        
   }
 
-  ngOnInit() {
+  ngOnInit()  {
     
     this.viewMessage();
-
+    this.scrollToBottom();
+    window.scrollTo(0,document.body.scrollHeight);
   }
 
   ngOnChanges() {
@@ -37,9 +40,9 @@ export class FeedASComponent implements OnInit , OnChanges {
       this.userN=userN;
       
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-  
+    this.scrollToBottom();
     });;
-    
+    window.scrollTo(0,document.body.scrollHeight);
   }
   viewMessage(){
    
@@ -50,16 +53,24 @@ export class FeedASComponent implements OnInit , OnChanges {
   
     });
     
+    this.scrollToBottom();
+    window.scrollTo(0,document.body.scrollHeight);
     }
-    public triggerScrollTo() {
+    // public triggerScrollTo() {
     
-      const config: ScrollToConfigOptions = {
-        target: 'destination'
-      };
+    //   const config: ScrollToConfigOptions = {
+    //     target: 'destination'
+    //   };
    
-      this._scrollToService.scrollTo(config);
-    }
-
+    //   this._scrollToService.scrollTo(config);
+    // }
+   
+    scrollToBottom(): void {
+      try {
+          this.scrollBottom.nativeElement.scrollTop = this.scrollBottom.nativeElement.scrollHeight;
+      } catch(err) { }
+  }
+    
   
 
 }

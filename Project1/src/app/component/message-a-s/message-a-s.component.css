@@ -56,33 +56,60 @@
 
 
 
-.messageContent{
+/* .messageContent{
     height: auto;
     flex: 9;
     background-color: #fff;
-    
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-}
-.messageData{
+    
+} */
+/* .messageData{
     flex: 1;
     padding: 10px;
     font-size: 0.7em;
-}
+} */
 .messageContainer{
-    display: flex;
-    height: auto;
-    width: auto;
-    min-width: 600px;
-    border-radius: 5px;
-    align-items:stretch;
-    /*background-color: #eee;*/
-    /*box-shadow: 0 3px 6px rgba(0,0,0,0.26), 0 3px 6px rgba(0,0,0,0.23);*/
-    margin: 5px;
+    /* display: flex; */
+    /* height: auto;
+    width: auto; */
+    /* min-width: 600px; */
+    /* border-radius: 5px;
+    margin: 10px; */
+    /* align-items:stretch; */
+    
+    /* margin: 5px; */
+    
+    
+    float: right;
+    color: #fff;
+    display:inline-block;
+  clear: both;
+  padding: 5px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  
 }
-.incoming_msg_img {
+.msg{
+    background: #0084ff;
+    float: right;
+    color: #fff;
+    display:inline-block;
+  clear: both;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+/* .incoming_msg_img {
     display: inline-block;
-    /*width: 6%;*/
+   
   }
   .received_msg {
     display: inline-block;
@@ -96,23 +123,24 @@
     color: #646464;
     font-size: 14px;
     margin: 0;
-    /*padding: 5px 10px 5px 12px;*/
+    padding: 10px 5px ;
     width: 100%;
-  }
+  } */
   .date {
     color: #747474;
     display: block;
     font-size: 12px;
-    margin-bottom: 20px ;
+    float: right;
+    /* margin-bottom: 20px ; */
   }
-  .received_withd_msg { width: 100%;}
+  /* .received_withd_msg { width: auto;}
   .mesgs {
     float: left;
-    /*padding: 30px 15px 0 25px;*/
-    width: 60%;
-  }
+    padding: 10px 5px ;
+    width: auto;
+  } */
   
-   .sent_msg p {
+   /* .sent_msg p {
     background: #05728f none repeat scroll 0 0;
     border-radius: 3px;
     font-size: 14px;
@@ -124,5 +152,5 @@
   .incoming_msg_img {
     float: left;
     width: 10%;
-  }
+  } */
   

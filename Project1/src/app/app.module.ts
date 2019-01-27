@@ -41,7 +41,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
-
+import { AfterViewChecked, ElementRef, ViewChild} from '@angular/core'
 import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
 import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
 

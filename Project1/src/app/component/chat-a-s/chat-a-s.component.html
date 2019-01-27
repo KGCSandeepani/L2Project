@@ -1,27 +1,30 @@
-<div style="background :rgb(146, 146, 146); width:1000px; height:70px;">
+<div style="background :rgb(231, 231, 231); width:1000px; height:70px;">
   <div class="name">
-    <img style=" margin-top:5px; margin-left:5px; width:60px; height:60px;" src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+    <a href="#destination">Back to top</a>
+    <img style=" margin-top:5px; margin-left:5px; width:60px; height:60px;" src="https://ptetutorials.com/images/user-profile.png"
+      alt="sunil">
     {{userN}}
-
+    <a name="destination"></a>
   </div>
 </div>
-<div class="test" style="background :rgb(199, 199, 199); width:1000px; height:430px; overflow-y:scroll;">
+<div class="test" style="background :rgb(236, 235, 235); width:1000px; height:430px; overflow-y:scroll;">
 
-<div class="feedWrapper">
-  <app-feed-a-s></app-feed-a-s>
-  <router-outlet></router-outlet>
+
+  <div class="feedWrapper">
+    <app-feed-a-s></app-feed-a-s>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-</div>
-<div style="background :rgb(165, 165, 165); width:1000px; height:70px;">
+<div style="background :rgb(214, 214, 214); width:1000px; height:70px;">
   <div class="type_msg">
     <div class="input_msg_write">
       <input [(ngModel)]="message" class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
-      <button class="msg_send_btn" (click)=send() type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+      <button class="msg_send_btn" (click)=send(); type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </div>
   </div>
 </div>
 
- <!-- <mat-grid-list class="container" style="width:100%" cols="1" rowHeight="50px" style="background :rgb(29, 206, 109)">
+<!-- <mat-grid-list class="container" style="width:100%" cols="1" rowHeight="50px" style="background :rgb(29, 206, 109)">
   <mat-grid-tile class="name" colspan="1" rowspan="1" style="background :rgb(214, 114, 47)">
 
 

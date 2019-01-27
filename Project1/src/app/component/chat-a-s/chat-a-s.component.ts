@@ -20,7 +20,8 @@ export class ChatASComponent implements OnInit {
     console.log("inside send");
     console.log(this.message);
     this.chat.sendMessage(this.message);
-    
+    this.message="";
+    this.triggerScrollTo();
    
   }
 
@@ -36,7 +37,7 @@ export class ChatASComponent implements OnInit {
       target: 'destination'
     };
  
-    this._scrollToService.scrollTo(config);
+    // this._scrollToService.scrollTo(config);
   }
 
 }
