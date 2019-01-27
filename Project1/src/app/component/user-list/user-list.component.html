@@ -1,4 +1,4 @@
-<body style="background-color: #3f3e3f">
+<body style="background-color: #cac7ca">
  
   <div class="container">
     
@@ -33,6 +33,21 @@
                   
                   </div>
                   </tr>
+                  <tr *ngFor="let supervisor of supervisors">
+                    <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                    <div class="chat_ib">
+                  <td (click)="editTheUser(supervisor)" [ngClass]="'active'"> {{supervisor.name}}</td>
+                
+                </div>
+                </tr>
+                <tr *ngFor="let company of company">
+                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                  <div class="chat_ib">
+                <td (click)="editTheUser(company)" [ngClass]="'active'"> {{company.name}}</td>
+              
+              </div>
+              </tr>
+
                 </div>
               </tbody>
             </table>

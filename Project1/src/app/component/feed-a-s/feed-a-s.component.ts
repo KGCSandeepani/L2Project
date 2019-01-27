@@ -40,9 +40,9 @@ export class FeedASComponent implements OnInit , OnChanges {
       this.userN=userN;
       
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
-    this.scrollToBottom();
+   
     });;
-    window.scrollTo(0,document.body.scrollHeight);
+    // window.scrollTo(0,document.body.scrollHeight);
   }
   viewMessage(){
    
