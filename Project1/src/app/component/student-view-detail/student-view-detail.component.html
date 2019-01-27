@@ -47,7 +47,7 @@
                 </b>
               </span>
             </label><br>
-            <a href="{{student.uploadPdfUrl}}" target="test1">View CV</a><br><br><br>
+            <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null" >View CV</a><br><br><br>
                 
           </div>
           <div class="column3">

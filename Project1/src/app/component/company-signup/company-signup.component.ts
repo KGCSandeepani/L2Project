@@ -22,6 +22,7 @@ export class CompanySignupComponent implements OnInit {
   acceptedCompanies:company[];
   company:company[]; 
   count:number=0;
+  psw;
   constructor(private ngxNotificationService: NgxNotificationService, private readcompanyService : AdminViewCompanyService,private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService,private router :Router) { }
   
   ngOnInit() {
@@ -39,7 +40,13 @@ export class CompanySignupComponent implements OnInit {
         return;
       }
     }
-   
+    /*
+   if(formdata.value.psw.length<8){
+    this.psw='';
+    this.sendNotification1();
+    return;
+   }*/
+
     this. companyadddataservice.getCompanyData(formdata)
     .subscribe((data : company[] )=> {
         this.company = data;
@@ -59,6 +66,12 @@ export class CompanySignupComponent implements OnInit {
 
   sendNotification() {
     this.ngxNotificationService.sendMessage('Please enter different username or password', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
+  }
+
+  sendNotification1() {
+    this.ngxNotificationService.sendMessage('Please enter more than or equal eight characters', 'dark', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }

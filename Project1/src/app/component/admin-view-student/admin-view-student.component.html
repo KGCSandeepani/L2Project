@@ -37,16 +37,20 @@
               <thead class=" text-primary">
                 
                 <th></th>
-                <th> Student ID     </th>
+                <th> Student ID </th>
+                <th> Selected or Not </th>
+                <th> Selected Company </th>
                 <th></th>
               </thead>
               <tbody>
                 <tr *ngFor="let student of students">
                   <td><input type="checkbox"> </td>
                   <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
-                    <td>
-                      <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
-                   </td>
+                  <td *ngIf="student.availability; else elseBlock"> Not Selected </td>
+                  <td *ngIf="!student.availability; else elseBlock2"> {{student.selectedCompany}} </td>
+                  <td>
+                    <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -55,3 +59,11 @@
       </div>
     </div>
 </div>
+
+<ng-template #elseBlock>
+ <td> Selected </td>
+</ng-template>
+
+<ng-template #elseBlock2>
+  <td> - </td>
+ </ng-template>

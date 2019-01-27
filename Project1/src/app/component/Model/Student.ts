@@ -2,6 +2,7 @@ export interface student  {
     id : String,
     name : String,
     password : String;
+    availability :boolean;
     username : String;
     email : String;
     phoneNo : number;
@@ -19,5 +20,6 @@ export interface student  {
     interest2 : String;
     interest3 : String; 
     cv : File;   
+    selectedCompany : String;
     position: DoubleRange[]
 }

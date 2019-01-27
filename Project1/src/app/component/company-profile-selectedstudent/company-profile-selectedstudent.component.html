@@ -1,3 +1,22 @@
-<p>
-  company-profile-selectedstudent works!
-</p>
+<div class="main">
+  
+  <br>
+  <table class="table" style="width:60%;text-align:center;">
+    <thead>
+      <tr>        
+        <th> Student Registration No </th>
+        <th>  </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let student of stuList1" >        
+      <td >{{student.name}}</td>
+      <td >
+        <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
+        <mat-icon color= "primary">attachment</mat-icon>
+        </button>
+      </td>       
+    </tr>
+</tbody>
+</table>
+</div>

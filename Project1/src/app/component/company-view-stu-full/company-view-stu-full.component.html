@@ -37,7 +37,7 @@
             <label for="interest1"><b >{{student.interest1}}</b></label><br>
             <label for="interest2"><b >{{student.interest2}}</b></label><br>
             <label for="interest3"><b >{{student.interest3}}</b></label><br>
-            <a href="{{student.uploadPdfUrl}}" target="test1">View CV</a><br><br><br>
+            <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null">View CV</a><br><br><br>
             
           </div>
           <div class="column3">

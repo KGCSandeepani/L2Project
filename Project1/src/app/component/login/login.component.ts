@@ -50,6 +50,12 @@ export class LoginComponent implements OnInit {
   }
 
   adminLogin(uname,psw){
+
+    if(uname=='' || psw==''){
+      this.sendNotification1();
+      
+    }
+
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
       this.router.navigate(['/adminHomePage/adminDashboard']);      
@@ -135,6 +141,10 @@ export class LoginComponent implements OnInit {
     this.ngxNotificationService.sendMessage('Wrong username or password', 'dark', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
+  }
+
+  sendNotification1() {
+    this.ngxNotificationService.sendMessage('Please enter username and password', 'dark', 'bottom-right');
   }
 
 }

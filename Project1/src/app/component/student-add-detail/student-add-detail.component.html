@@ -111,11 +111,11 @@
               <input type="file" name="cv" [(ngModel)]="cv" accept=".pdf">
             -->
             <input type="file" (change)="upload($event)" accept=".pdf" />
-
+            <mat-progress-bar mode="indeterminate" *ngIf="probar"></mat-progress-bar>
         </div>
       </div>
      
-        <button id="add" type="submit" >Submit</button>
+        <button id="add" type="submit" ng-disabled="disableButton==true" >Submit</button>
         
     
     </div>

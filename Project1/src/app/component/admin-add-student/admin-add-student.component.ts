@@ -132,7 +132,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   sendNotification1() {
-  	this.ngxNotificationService.sendMessage('Please enter password', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please enter password and batch', 'dark', 'bottom-right');
   }
 
   sendNotification2() {
@@ -140,7 +140,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   sendNotification3() {
-  	this.ngxNotificationService.sendMessage('Please enter Username or Password', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please enter Username, Password and batch', 'dark', 'bottom-right');
   }
 
   sendNotification4() {

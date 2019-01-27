@@ -69,7 +69,8 @@ import {
   MatSelectModule,
   MatTabsModule,
   MatCardModule,
-  MatGridListModule
+  MatGridListModule,
+  MatProgressBarModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
@@ -80,6 +81,7 @@ import { CompanySettingComponent } from './component/company-setting/company-set
 import { StudentCampanyListComponent } from './component/student-campany-list/student-campany-list.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
+import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 
 @NgModule({
@@ -123,6 +125,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     StudentCampanyListComponent,
     DashboardComponent,
     FeedbackComponent,
+    StudentConfirmInternshipComponent,
   //  MatTabsModule,
   ],
   imports: [
@@ -139,7 +142,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

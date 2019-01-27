@@ -37,6 +37,7 @@ import { CompanySettingComponent } from './component/company-setting/company-set
 import { StudentCampanyListComponent } from './component/student-campany-list/student-campany-list.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -94,6 +95,7 @@ const routes: Routes = [
       { path: 'studentEdit', component: StudentEditDetailComponent },
       { path: 'studentView', component: StudentViewDetailComponent },
       { path: 'studentCompanyList', component: StudentCampanyListComponent },
+      { path: 'studentConfirm', component: StudentConfirmInternshipComponent },
       { path: 'studentReport', component: StuAnalysisComponent },
       { path: 'chat-room', component: ChatRoomComponent },
       { path: 'studentSetting', component: StudentSettingComponent },

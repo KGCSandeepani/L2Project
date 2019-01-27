@@ -10,7 +10,7 @@ export class CompanyGetStudentlistService {
 
   constructor(private http : HttpClient) { }
 
-  getStudentList(organization : String):Observable<StuSelectedCompany[]>{
+  getStudentList():Observable<StuSelectedCompany[]>{
     return this
               .http
               .get<StuSelectedCompany[]>('//localhost:3000/StuSelectedCompany/');
