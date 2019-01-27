@@ -39,9 +39,11 @@ export class ChatServiceASService {
       this.chatMessages = this.getMessages();
       this.chatMessages.push({
         message: msg,
-        timeSent: new Date,
+        timeSent: new Date(),
         userName: this.senderName,
-        receiver:this.userR });
+        receiver:this.userR,
+        senderReceiver:this.senderName+"_" +this.userR
+      });
     }
     getMessages(): AngularFireList<ChatMessage> {
       

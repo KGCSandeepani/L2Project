@@ -21,7 +21,8 @@ export class ChatASComponent implements OnInit {
     console.log(this.message);
     this.chat.sendMessage(this.message);
     this.message="";
-    this.triggerScrollTo();
+
+    // this.triggerScrollTo();
    
   }
 
