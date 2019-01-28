@@ -40,6 +40,7 @@
     "jquery": "^3.3.1",
     "ng2-charts": "^1.6.0",
     "ngx-notification": "^1.0.5",
+    "nodemailer": "^5.1.1",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"

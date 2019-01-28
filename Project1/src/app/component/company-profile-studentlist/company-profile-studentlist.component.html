@@ -1,37 +1,38 @@
+<br><br>
+ <div class="main">
+  <div class="container">    
+     <label for="company"><b>Does {{value}} give internship in this year? </b></label> &nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="radio" name="internship" value="true" (change)="onChange($event)" checked > Yes &nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="radio" name="internship" value="false" (change)="onChange($event)"> No <br>
+   </div>
 
-<div class="main">
-  <div class="container">
-    
-    <label for="company"><b>Do {{value}} give internship in this year? </b></label> &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="internship" value="true" (change)="onChange($event)" checked > Yes &nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="internship" value="false" (change)="onChange($event)"> No <br>
+  <mat-form-field>
+    <input matInput (keyup)=" applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
 
-  </div>
-  <br>
-  <table class="table" style="width:60%;text-align:center;">
-    <thead>
-  <tr>
-    
-    <th> Student Registration No </th>
-    <th>  </th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let student of stuList1" >
-   
-      
-      <td >{{student.name}}</td>
-      <td >
-        <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
-        <mat-icon color= "primary">attachment</mat-icon>
-        </button>
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Reg No. </th>
+      <td mat-cell *matCellDef="let element"> 
+        <a routerLink="../studentDetails" routerLinkActive="active" (click)="getData(element.name)" >
+        {{element.name}}</a> 
       </td>
-    
-      
-        
+    </ng-container>
+
+    <ng-container matColumnDef="cgpa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> CGPA </th>
+       <td mat-cell *matCellDef="let element">{{element.cgpa}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
  
-      
-  </tr>
-</tbody>
-</table>
-</div>
+  </table> 
+
+ </div>
+
+ 
+  
+  
+ 
