@@ -6,8 +6,8 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import { DoCheck, KeyValueDiffers, KeyValueDiffer } from '@angular/core';
 import { stringify } from '@angular/core/src/util';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
-import * as _ from 'lodash';
 
+import { DataPassService } from '../Services/data-pass.service';
 @Component({
   selector: 'app-feed-a-s',
   templateUrl: './feed-a-s.component.html',
@@ -21,9 +21,9 @@ export class FeedASComponent implements OnInit , OnChanges {
   userN :string;
   items: Observable<any[]>;
   value:string='';
+  loger: string ;
   
-  
-  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private _scrollToService: ScrollToService ) { 
+  constructor(private chat : ChatServiceASService,private db: AngularFireDatabase,private data : DataPassService,private _scrollToService: ScrollToService ) { 
     
        
   }
@@ -35,10 +35,11 @@ export class FeedASComponent implements OnInit , OnChanges {
   }
 
   ngOnChanges() {
-    
+    this.loger = this.data.getMessage();
     this.chat.cast.subscribe((userN) => {
       this.userN=userN;
       
+    // this.items = this.db.list('messages',db => db.orderByChild("senderReceiver").equalTo(this.loger +"_"+this.userN)).valueChanges();
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
    
     });;
@@ -48,7 +49,9 @@ export class FeedASComponent implements OnInit , OnChanges {
    
     this.chat.cast.subscribe((userN) => {
       this.userN=userN;
-      
+      this.loger = this.data.getMessage();
+     console.log(this.userN); 
+     console.log(this.loger); 
     this.items = this.db.list('messages',db => db.orderByChild("receiver").equalTo(this.userN)).valueChanges();
   
     });
