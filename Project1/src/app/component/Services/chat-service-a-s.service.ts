@@ -15,7 +15,7 @@ export class ChatServiceASService {
   chatMessage: ChatMessage;
   chatMessages: AngularFireList<ChatMessage>;
   //chatMessages: AngularFireList<string>;
-  
+  loggedUserType:string;
   receiverName :string;
   senderName: string ;
   message : string;
@@ -64,9 +64,13 @@ export class ChatServiceASService {
 
     editUser (newUser){
      
-      this.userN.next(newUser);
-      
-      
+      this.userN.next(newUser); 
+    }
+
+    loggedUser (newUser){
+     //to get which type of user logged in
+      this.loggedUserType=newUser; 
+      console.log(this.loggedUserType+"is logged user");
     }
 
     
