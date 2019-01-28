@@ -1,0 +1,11 @@
+<p></p>
+<h2 class="text-center">students vs. preferences</h2>
+<div class="container">
+    <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        </div> 

@@ -12,7 +12,7 @@ export class AddAdminService {
   getSupervisorData(name:String, uname:String, psw:String , email:String , contactno:String){
     return this
               .http
-              .post('//localhost:3000/todosStaff',
+              .post('//localhost:3000/todosAdmin',
               {
                 "text" : name,
                 "text1" : uname,

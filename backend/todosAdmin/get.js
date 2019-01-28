@@ -4,9 +4,9 @@ const dynamodb = require('./dynamodb');
 
 module.exports.get = (event, context, callback) => {
   const params = {
-    TableName: "supervisor",
+    TableName: "admin",
     Key: {
-      name: event.pathParameters.name,
+      id: event.pathParameters.id,
     },
   };
 

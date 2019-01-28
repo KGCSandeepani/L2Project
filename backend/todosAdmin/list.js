@@ -2,16 +2,13 @@
 
 const dynamodb = require('./dynamodb');
 
-module.exports.get = (event, context, callback) => {
+module.exports.list = (event, context, callback) => {
   const params = {
-    TableName: "supervisor",
-    Key: {
-      name: event.pathParameters.name,
-    },
+    TableName: "admin",
   };
 
-  // fetch todo from the database
-  dynamodb.get(params, (error, result) => {
+  // fetch all todos from the database
+  dynamodb.scan(params, (error, result) => {
     // handle potential errors
     if (error) {
       console.error(error);
@@ -26,7 +23,7 @@ module.exports.get = (event, context, callback) => {
     // create a response
     const response = {
       statusCode: 200,
-      body: JSON.stringify(result.Item),
+      body: JSON.stringify(result.Items),
     };
     callback(null, response);
   });

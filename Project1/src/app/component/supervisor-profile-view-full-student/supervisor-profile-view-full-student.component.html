@@ -1,0 +1,59 @@
+
+<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+  
+  <h3>Information Sheet</h3>
+
+    <div class="container" >
+      <div class="row">
+        <div class="column1">
+          
+            <label for="registrationNo"><b >Registration No : </b></label><br>
+            <label for="name"><b >Name : </b></label><br>
+            <label for="emailAddress"><b >Email Address : </b></label><br>
+            <label for="phoneNo"><b >Phone No : </b></label><br>
+          
+            <label for="l1s1"><b >L1S1 GPA : </b></label><br>
+            <label for="l1s2"><b >L1S2 GPA : </b></label><br>
+            <label for="l2s1"><b >L2S1 GPA : </b></label><br>
+            <label for="l2s2"><b >L2S2 GPA : </b></label><br>
+            <label for="avggpa"><b >Average GPA : </b></label><br>
+            <label for="interest1"><b >Preferred Area of Interest 1 : </b></label><br>
+            <label for="interest2"><b >Preferred Area of Interest 2 : </b></label><br>
+            <label for="interest3"><b >Preferred Area of Interest 3 : </b></label><br>
+            <label for="organization"><b >Preferred Organization : </b></label><br> 
+            <label for="uploadPdfUrl"><b id="uploadPdfUrl">Uploaded CV : </b></label><br>
+        </div>
+
+        <div class="column2">
+          <label for="registrationNo"><b >{{student.name}}</b></label><br>
+          <label for="name"><b >{{student.username}}</b></label><br>
+          <label for="emailAddress"><b >{{student.email}}</b></label><br>
+          <label for="phoneNo"><b >{{student.phoneNo}}</b></label><br>
+        
+          <label for="l1s1"><b >{{student.l1s1}}</b></label><br>
+          <label for="l1s2"><b >{{student.l1s2}}</b></label><br>
+          <label for="l2s1"><b >{{student.l2s1}}</b></label><br>
+          <label for="l2s2"><b >{{student.l2s2}}</b></label><br>
+          <label for="avggpa"><b >{{student.cgpa}}</b></label><br>
+          <label for="interest1"><b >{{student.interest1}}</b></label><br>
+          <label for="interest2"><b >{{student.interest2}}</b></label><br>
+          <label for="interest3"><b >{{student.interest3}}</b></label><br>
+          
+          <label for="organization">
+            <span *ngFor="let StuSelectedCompany of StuSelectedCompany">
+              <b>
+                <span *ngIf="StuSelectedCompany.name==name">{{StuSelectedCompany.organization}} </span>    <br>        
+              </b>
+            </span>
+          </label><br>
+          <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null">View CV</a><br><br><br>
+        </div>
+        <div class="column3">
+          <iframe name="test1" id="test1" scrolling="no" height="600px" frameborder="4" width="900px" noscaling="true" allowtransparency="true" marginwidth="0" marginheight="0">
+          </iframe>  
+        </div>  
+      </div>
+     
+
+   
+  

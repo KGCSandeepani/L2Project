@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { student } from '../Model/Student';
-import { company } from '../Model/Company';
+
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { DataPassService } from '../Services/data-pass.service';
-import { LoggingStudentService } from '../Services/logging-student.service';
+
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { NgxNotificationService } from 'ngx-notification';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 import { GetOneCompanyService } from 'src/app/component/Services/get-one-company.service';
 import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-temp-company.service';
-import { staff } from 'src/app/component/Model/Staff';
+import { LoggingStudentService } from '../Services/logging-student.service';
 import { AddAdminService } from 'src/app/component/Services/add-admin.service';
+
+import { LoggingSupervisorServiceService} from '../Services/logging-supervisor-service.service';
+import { staff } from 'src/app/component/Model/Staff';
+import { admin } from '../Model/admin';
+import { student } from '../Model/Student';
+import { company } from '../Model/Company';
+
+
 
 @Component({
   selector: 'app-login',
@@ -23,14 +30,23 @@ import { AddAdminService } from 'src/app/component/Services/add-admin.service';
 export class LoginComponent implements OnInit {
 
   students: student[];
+  staff : staff[];
   companies : company[];
   tempCompany : company[];
   logstudent :student;
   logCompany : company;
   logTempCompany : company;
-  admin :staff;
+  logstaff : staff;
+  admin :admin;
 
-  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
+  constructor(private getTempCompany : GetOneTempCompanyService, 
+    private getCompany : GetOneCompanyService, 
+    private data: DataPassService,
+    private router : Router,
+    private ngxNotificationService: NgxNotificationService, 
+    private logStaff: LoggingSupervisorServiceService,
+    private logStudent : LoggingStudentService, 
+    private adminService : AddAdminService) { }
 
   ngOnInit() { 
     sessionStorage.clear();    
@@ -44,7 +60,7 @@ export class LoginComponent implements OnInit {
   //  .subscribe(data => this.tempCompany = data);
 
     this.adminService.getSupervisorData('admin','admin','admin','admin@gmail.com','0110000000')
-    .subscribe((data : staff )=> {
+    .subscribe((data : admin )=> {
         this.admin = data; 
     });
   }
@@ -59,6 +75,10 @@ export class LoginComponent implements OnInit {
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
       this.router.navigate(['/adminHomePage/adminDashboard']);      
+    }
+    if (uname=='q' && psw=='q'){
+      this.newMessage("staff");
+      this.router.navigate(['/supervisorHomePage/supervisorDashboard']);      
     }
 /*    
     for (let index = 0; index < this.tempCompany.length; index++) {
@@ -98,9 +118,25 @@ export class LoginComponent implements OnInit {
         if (uname==this.logstudent.name && psw==this.logstudent.password){
           this.newMessage(this.logstudent.name+"");
           this.router.navigate(['/student']);
-        }
-      }     
-    });
+          }
+        }     
+      }
+    )
+
+    this.logStaff.getData(uname)
+    .subscribe(data => {
+      console.log('here');
+      this.logstaff=data;
+      console.log(this.logStaff);
+      if(this.logstaff!=null){
+        if (uname==this.logstaff.name && psw==this.logstaff.password){
+          this.newMessage(this.logstaff.name+"");
+          // this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+          this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+          }
+        }     
+      }
+    )
 /*
     for (let index = 0; index < this.companies.length; index++) {
       const company = this.companies[index];

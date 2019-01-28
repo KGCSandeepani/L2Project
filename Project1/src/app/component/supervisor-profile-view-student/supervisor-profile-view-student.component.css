@@ -1,0 +1,13 @@
+.deleteStudent {
+    float: right;
+    cursor: pointer;
+    color: rgb(49, 29, 167);
+}
+
+.title {
+    margin-left: 20px;
+}
+
+.card {
+    margin-top: 60px;
+}
