@@ -91,6 +91,18 @@ import { StudentConfirmInternshipComponent } from './component/student-confirm-i
 	
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { SupervisorProfileHomeComponent } from './component/supervisor-profile-home/supervisor-profile-home.component';
+import { SupervisorProfileViewCompanyComponent } from './component/supervisor-profile-view-company/supervisor-profile-view-company.component';
+import { SupervisorProfileViewFullStudentComponent } from './component/supervisor-profile-view-full-student/supervisor-profile-view-full-student.component';
+import { SupervisorProfileViewStudentComponent } from './component/supervisor-profile-view-student/supervisor-profile-view-student.component';
+import { SupervisorProfileAnalysisComponent } from './component/supervisor-profile-analysis/supervisor-profile-analysis.component';
+import { SupervisorProfileSettingsComponent } from './component/supervisor-profile-settings/supervisor-profile-settings.component';
+import { SupervisorChangePasswordServiceService } from './component/Services/supervisor-change-password-service.service';
+import { SupervisorViewCompanyServiceService } from './component/Services/supervisor-view-company-service.service';
+import { LoggingSupervisorServiceService } from './component/Services/logging-supervisor-service.service';
+import { SupervisorProfileComponent } from './component/supervisor-profile/supervisor-profile.component';
+import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -134,6 +146,15 @@ import { StudentConfirmInternshipComponent } from './component/student-confirm-i
     DashboardComponent,
     FeedbackComponent,
     StudentConfirmInternshipComponent,
+
+    SupervisorProfileComponent,
+    SupervisorProfileHomeComponent,
+    SupervisorProfileViewCompanyComponent,
+    SupervisorProfileViewFullStudentComponent,
+    SupervisorProfileViewStudentComponent,
+    SupervisorProfileAnalysisComponent,
+    SupervisorProfileSettingsComponent,
+    SupervisiorDashboardComponent,
     
   //  MatTabsModule,
   ],
@@ -162,6 +183,11 @@ import { StudentConfirmInternshipComponent } from './component/student-confirm-i
               CompanySignupService,AuthChatASService, 
               ChatServiceASService,
               DataPassService,
+
+              SupervisorChangePasswordServiceService,
+              SupervisorViewCompanyServiceService,
+              LoggingSupervisorServiceService,
+              
               AdminChangeNoOfCompanyService],
   bootstrap: [AppComponent]
 })

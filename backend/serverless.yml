@@ -49,6 +49,15 @@ functions:
           path: todosStaff
           method: post
           cors: true
+  
+  create3:
+    handler: todosAdmin/create.create
+    events:
+      - http:
+          path: todosAdmin
+          method: post
+          cors: true
+
 
   createTemp:
     handler: todosTempCompany/create.create
@@ -95,6 +104,14 @@ functions:
     events:
       - http:
           path: todosStaff
+          method: get
+          cors: true
+  
+  listAdmin:
+    handler: todosAdmin/list.list
+    events:
+      - http:
+          path: todosAdmin
           method: get
           cors: true
 
@@ -144,7 +161,15 @@ functions:
       - http:
           path: todosStaff/{name}
           method: get
-          cors: true  
+          cors: true
+          
+  getAdmin:
+    handler: todosAdmin/get.get
+    events:
+      - http:
+          path: todosAdmin/{name}
+          method: get
+          cors: true
   
   getTemp:
     handler: todosTempCompany/get.get
@@ -210,6 +235,22 @@ functions:
           method: put
           cors: true
           
+  updateStaff2:
+    handler: todosStaff2/update.update
+    events:
+      - http:
+          path: todosStaff2/{name}
+          method: put
+          cors: true
+
+  updateAdmin:
+    handler: todosAdmin/update.update
+    events:
+      - http:
+          path: todosAdmin/{name}
+          method: put
+          cors: true
+
   updateCompany:
     handler: todosCompany/update.update
     events:
@@ -240,7 +281,15 @@ functions:
       - http:
           path: todosStaff/{name}
           method: delete
-          cors: true        
+          cors: true  
+  
+  deleteAdmin:
+    handler: todosAdmin/delete.delete
+    events:
+      - http:
+          path: todosAdmin/{name}
+          method: delete
+          cors: true  
 
   deleteTemp:
     handler: todosTempCompany/delete.delete
@@ -367,3 +416,20 @@ resources:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
           TableName: "StuSelectedCompany"
+    
+    TodosDynamoDbTable7:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: name
+            AttributeType: S
+          KeySchema:
+          -
+            AttributeName: name
+            KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "admin"

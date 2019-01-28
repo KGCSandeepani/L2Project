@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { student } from '../Model/Student';
-import { company } from '../Model/Company';
+
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { DataPassService } from '../Services/data-pass.service';
-import { LoggingStudentService } from '../Services/logging-student.service';
+
 //import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import { NgxNotificationService } from 'ngx-notification';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 import { GetOneCompanyService } from 'src/app/component/Services/get-one-company.service';
 import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-temp-company.service';
-import { staff } from 'src/app/component/Model/Staff';
+import { LoggingStudentService } from '../Services/logging-student.service';
 import { AddAdminService } from 'src/app/component/Services/add-admin.service';
 import { ChatServiceASService} from '../Services/chat-service-a-s.service';
+
+
+import { LoggingSupervisorServiceService} from '../Services/logging-supervisor-service.service';
+import { staff } from 'src/app/component/Model/Staff';
+import { admin } from '../Model/admin';
+import { student } from '../Model/Student';
+import { company } from '../Model/Company';
+
 
 
 @Component({
@@ -25,14 +32,17 @@ import { ChatServiceASService} from '../Services/chat-service-a-s.service';
 export class LoginComponent implements OnInit {
 
   students: student[];
+  staff : staff[];
   companies : company[];
   tempCompany : company[];
   logstudent :student;
   logCompany : company;
   logTempCompany : company;
-  admin :staff;
+  logstaff : staff;
   
-  constructor(private chatService:ChatServiceASService, private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
+  admin :admin;
+  
+  constructor(private chatService:ChatServiceASService, private logStaff: LoggingSupervisorServiceService,private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
 
   ngOnInit() { 
     sessionStorage.clear();   
@@ -51,6 +61,10 @@ export class LoginComponent implements OnInit {
     // .subscribe((data : staff )=> {
     //     this.admin = data; 
     // });
+    this.adminService.getSupervisorData('admin','admin','admin','admin@gmail.com','0110000000')
+    .subscribe((data : admin )=> {
+        this.admin = data; 
+    });
   }
 
   adminLogin(uname,psw){
@@ -65,6 +79,10 @@ export class LoginComponent implements OnInit {
       this.getUserType("Admin");
       this.router.navigate(['/adminHomePage/adminDashboard']);  
          
+    }
+    if (uname=='q' && psw=='q'){
+      this.newMessage("staff");
+      this.router.navigate(['/supervisorHomePage/supervisorDashboard']);      
     }
 /*    
     for (let index = 0; index < this.tempCompany.length; index++) {
@@ -110,6 +128,21 @@ export class LoginComponent implements OnInit {
         }
       }     
     });
+    
+    this.logStaff.getData(uname)
+    .subscribe(data => {
+      console.log('here');
+      this.logstaff=data;
+      console.log(this.logStaff);
+      if(this.logstaff!=null){
+        if (uname==this.logstaff.name && psw==this.logstaff.password){
+          this.newMessage(this.logstaff.name+"");
+          // this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+          this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+          }
+        }     
+      }
+    )
 /*
     for (let index = 0; index < this.companies.length; index++) {
       const company = this.companies[index];

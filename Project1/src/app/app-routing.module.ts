@@ -39,6 +39,16 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 
+import { SupervisorProfileHomeComponent } from './component/supervisor-profile-home/supervisor-profile-home.component';
+import { SupervisorProfileViewStudentComponent } from './component/supervisor-profile-view-student/supervisor-profile-view-student.component';
+import { SupervisorProfileViewFullStudentComponent } from './component/supervisor-profile-view-full-student/supervisor-profile-view-full-student.component';
+import { SupervisorProfileViewCompanyComponent } from './component/supervisor-profile-view-company/supervisor-profile-view-company.component';
+import { SupervisorProfileAnalysisComponent } from './component/supervisor-profile-analysis/supervisor-profile-analysis.component';
+import { SupervisorProfileSettingsComponent } from './component/supervisor-profile-settings/supervisor-profile-settings.component';
+import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
+
+
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -72,6 +82,27 @@ const routes: Routes = [
 
     ]
   },
+
+  { 
+    path:'supervisorHomePage',
+    component: SupervisorProfileHomeComponent,
+    children:[
+      { path: 'adminDashboard', component: DashboardComponent },
+      { path: 'supervisorDashboard', component:SupervisiorDashboardComponent},
+      { path: 'supervisorViewStudent', component:SupervisorProfileViewStudentComponent},
+      { path: 'supervisorViewFullStudent', component:SupervisorProfileViewFullStudentComponent},
+      { path: 'supervisorViewCompany', component:SupervisorProfileViewCompanyComponent},
+      { path: 'supervisorAnalysis',component:SupervisorProfileAnalysisComponent},
+      { path: 'supervisorSettings',component:SupervisorProfileSettingsComponent},
+      { path: 'chat-room', component:  ChatRoomComponent},
+      { path: 'chat-room', component:  ChatRoomComponent,
+        children :[
+          {path:'feed',component:FeedASComponent}
+        ]},
+    ]
+
+  },
+
   { 
     path: 'companyProfile', 
     component: CompanyProfileComponent,
