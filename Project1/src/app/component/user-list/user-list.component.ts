@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private readServiceCompany: AdminViewCompanyService, private readService: ReadUnamePswServiceService,private readServiceStaff: AdminreadstaffService, private chatService:ChatServiceASService,private router: Router) { }
   userN :string;
-  editUser:string;
+  editUser:string;// to symbolize the change in user
   ngOnInit() {
     this.readService.getData()
     .subscribe(data => this.students = data);
@@ -49,9 +49,5 @@ export class UserListComponent implements OnInit {
      this.chatService.editUser(student.name);
      
    }
-  //  editTheUser(supervisors:any){
-    
-  //   this.chatService.editUser(supervisors.name);
-    
-  // }
+  
 }

@@ -14,6 +14,8 @@ import { GetOneCompanyService } from 'src/app/component/Services/get-one-company
 import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-temp-company.service';
 import { staff } from 'src/app/component/Model/Staff';
 import { AddAdminService } from 'src/app/component/Services/add-admin.service';
+import { ChatServiceASService} from '../Services/chat-service-a-s.service';
+
 
 @Component({
   selector: 'app-login',
@@ -29,11 +31,13 @@ export class LoginComponent implements OnInit {
   logCompany : company;
   logTempCompany : company;
   admin :staff;
-
-  constructor(private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
+  
+  constructor(private chatService:ChatServiceASService, private getTempCompany : GetOneTempCompanyService, private getCompany : GetOneCompanyService, private data: DataPassService,private router : Router,private ngxNotificationService: NgxNotificationService, private logStudent : LoggingStudentService, private adminService : AddAdminService) { }
 
   ngOnInit() { 
-    sessionStorage.clear();    
+    sessionStorage.clear();   
+    // to get which kind of user logged in for chat service
+ 
   //  this.readstuentService.getData()
   //  .subscribe(data => this.students = data);
 
@@ -58,7 +62,9 @@ export class LoginComponent implements OnInit {
 
     if (uname=='admin' && psw=='admin'){
       this.newMessage("Admin");
-      this.router.navigate(['/adminHomePage/adminDashboard']);      
+      this.getUserType("Admin");
+      this.router.navigate(['/adminHomePage/adminDashboard']);  
+         
     }
 /*    
     for (let index = 0; index < this.tempCompany.length; index++) {
@@ -75,6 +81,7 @@ export class LoginComponent implements OnInit {
         if(this.logTempCompany!=null){
           if (uname==this.logTempCompany.name && psw==this.logTempCompany.password){
             this.router.navigate(['/companySignupSuccess']);
+            
           }
         }
       }
@@ -97,7 +104,9 @@ export class LoginComponent implements OnInit {
       if(this.logstudent!=null){
         if (uname==this.logstudent.name && psw==this.logstudent.password){
           this.newMessage(this.logstudent.name+"");
+          this.getUserType("Student");
           this.router.navigate(['/student']);
+          
         }
       }     
     });
@@ -118,7 +127,9 @@ export class LoginComponent implements OnInit {
         if(this.logCompany!=null){
           if (uname==this.logCompany.name && psw==this.logCompany.password){
             this.newMessage(this.logCompany.name+"");
+            this.getUserType("Company");
             this.router.navigate(['/companyProfile/home']);
+            
           }
         }else{
           this.sendNotification();
@@ -146,5 +157,13 @@ export class LoginComponent implements OnInit {
   sendNotification1() {
     this.ngxNotificationService.sendMessage('Please enter username and password', 'dark', 'bottom-right');
   }
+
+  // to get which kind of user logged in for chat service
+  getUserType(name:string){
+    
+    this.chatService.loggedUser(name);
+    
+  }
+
 
 }
