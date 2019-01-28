@@ -4,7 +4,26 @@
 
 .container {
     border: 1px solid rgb(68, 0, 255);
-    border-radius: 5px;
-    padding: 2vw ;
-    text-align: left;
+    border-radius: 15px;
+    padding: 0.8vw ;
+    text-align: center;
 }
+
+table {
+    
+    width: 75%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
+    margin: 10px auto;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 20%;
+    margin: 10px auto;
+}
+
+  th.mat-sort-header-sorted {
+    color: rgb(41, 39, 39);
+  }

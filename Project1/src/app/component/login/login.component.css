@@ -532,18 +532,18 @@ form button:hover {
   padding-left: 50px;
   color: rgb(27, 4, 4);
   justify-content: space-between;
-  max-width: 500px;
+  max-width: 400px;
   max-height: 500px;
   background-size: cover;
   display: flex;
   position: relative;
-  opacity: 1;
+  opacity: 2;
   float:right; 
 
 }
 .example-card {
-  max-width: 2000px;
-  max-height: 2000px;
+  max-width: 500px;
+  max-height: 3000px;
   padding-left: 50px;
   vertical-align:right;
   z-index: 10;
