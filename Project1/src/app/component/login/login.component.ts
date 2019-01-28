@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
   //  this.readTempCompanyService.getData()
   //  .subscribe(data => this.tempCompany = data);
 
-    this.adminService.getSupervisorData('admin','admin','admin','admin@gmail.com','0110000000')
-    .subscribe((data : staff )=> {
-        this.admin = data; 
-    });
+    // this.adminService.getSupervisorData('Admin','Admin','Admin','admin@gmail.com','0110000000')
+    // .subscribe((data : staff )=> {
+    //     this.admin = data; 
+    // });
   }
 
   adminLogin(uname,psw){
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       
     }
 
-    if (uname=='admin' && psw=='admin'){
+    if (uname=='Admin' && psw=='admin'){
       this.newMessage("Admin");
       this.getUserType("Admin");
       this.router.navigate(['/adminHomePage/adminDashboard']);  
