@@ -42,8 +42,8 @@ export class ReadUnamePswServiceService {
 
 
   reteriveComData():Observable<StuSelectedCompany[]>{
-    console.log(this.name+"id in reteriveComData");
-    this.name = sessionStorage.getItem("name");
+  //  console.log(this.name+"id in reteriveComData");
+  //  this.name = sessionStorage.getItem("name");
     return this
               .http
               .get<StuSelectedCompany[]>('//localhost:3000/StuSelectedCompany/');

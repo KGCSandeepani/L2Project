@@ -181,38 +181,34 @@
 
 <div class="wrapper">
   <div class="container">
-    <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-list cols="6" rowHeight="100px">
 
-      <mat-grid-tile class="title" colspan="4" rowspan="1">
+      <mat-grid-tile class="title" colspan="6" rowspan="1">
           <div  class="navbar-header" >
               <h1 style="font-size:2vw;" ><b style="color:white">Internship Management System @ Faculty of Information Technology [UOM] </b></h1>    
             </div>
       </mat-grid-tile>
 
-      <mat-grid-tile colspan="2" rowspan="3">
-          <!-- <mat-card class="example-card">
+      <mat-grid-tile colspan="4" rowspan="6">
+           <mat-card class="example-card">
               <mat-card-header>
                 <mat-card-title><h2> WELCOME TO IMS </h2></mat-card-title>
                 <mat-card-subtitle><h3>About Us..</h3></mat-card-subtitle>
-              </mat-card-header>
-        
-             
-             
-             
+              </mat-card-header> 
+              <img mat-card-image src="src/assets/favicon3.jpg" alt="FIT" height="210px" width="300px">
              <mat-card-content>
-                <p>
-                  Internship Management System (IMS)  facilitates industrial training information management and communication.  
-                  This is created to emphasize the aspect of collecting information from students, industrial training coordinators and lecturers. 
+                <p style="text-align:left">
+                  IMS is a web-based system that facilitates industrial training information management and communication.  
+                  It was created to emphasize the aspect of collecting information from students, industrial training coordinators and lecturers. 
                   The information was captured and stored in a centralized database to enable access by multiple users through the internet.  
-                  The system can provide well organized, quickly accessible and quickly updatable capabilities.
                 </p>
               </mat-card-content>
               <mat-card-actions>  
-              </mat-card-actions>
-          </mat-card> -->
+            </mat-card-actions>
+          </mat-card> 
         </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="1">
-            <!-- <mat-card class="mat2">
+        <!-- <mat-grid-tile colspan="2" rowspan="1">
+             <mat-card class="mat2">
                 <form class="form1">
                     <mat-card-header></mat-card-header>
                       <mat-card-content></mat-card-content>
@@ -220,17 +216,20 @@
                         <button id="signup" type="button" (click)="signup();">Sign up</button><br>
                       </mat-card-actions>  
                    </form>
-            </mat-card> -->
+            </mat-card> 
       
-          </mat-grid-tile>
-      <mat-grid-tile colspan="2" rowspan="4">
+          </mat-grid-tile> -->
+      <mat-grid-tile colspan="2" rowspan="6">
           <mat-card class="mat">
               <form class="form">
-                <mat-card-header>
-                  <mat-card-title><h3 style  = "text-align:center">Welcome</h3></mat-card-title>
-                </mat-card-header>
+                <mat-card-header>               
+                  <mat-card-title >
+                      <mat-icon >account_circle</mat-icon><br>
+                      <h3 >LOGIN</h3></mat-card-title>
+                  </mat-card-header>
                   <mat-card-content>
-                    <input type="text" #uname placeholder="Enter Username" name="uname" required ngModel><br>
+                    <input type="text" #uname placeholder="Enter Username" name="uname" required ngModel>                   
+                    <br>
                     <input type="password" #psw placeholder="Enter Password" name="psw" required><br>
                   </mat-card-content>
                   <mat-card-actions >

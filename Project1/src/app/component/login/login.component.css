@@ -532,10 +532,10 @@ form button:hover {
 }
 .mat {
   /* background: rgb(235, 235, 238); */
-  padding-left: 50px;
+  
   color: rgb(27, 4, 4);
   justify-content: space-between;
-  max-width: 400px;
+  max-width: 89%;
   max-height: 500px;
   background-size: cover;
   display: flex;
@@ -547,18 +547,27 @@ form button:hover {
   border-radius: 5px;
 
 }
+.mat-card-header { 
+  justify-content: center; 
+}
+
 .example-card {
-  max-width: 500px;
-  max-height: 3000px;
-  padding-left: 50px;
-  vertical-align:right;
+  max-width: 100%;
+  max-height: 85%;
+  opacity: 0.8;
+  float:right; 
   z-index: 10;
-  opacity: 1;
-  
-}
-example-header-image {
+  padding-left: 1px;
   background-size: cover;
+  justify-content: space-between;
+  position: relative;
 }
+.mat-icon {
+  font-size: 30px;
+}
+
+
+
 p{
   padding: 72px 10px;
 }

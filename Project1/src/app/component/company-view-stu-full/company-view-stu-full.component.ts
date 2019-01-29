@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-company-view-stu-full',
   templateUrl: './company-view-stu-full.component.html',
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 export class CompanyViewStuFullComponent implements OnInit {
   student:student;
   
-  constructor(private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
+  constructor( private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
     this.retrieveData();
@@ -29,10 +28,6 @@ export class CompanyViewStuFullComponent implements OnInit {
      
     });
   }
-  
-  
-  
-  
- 
 
 }
+
