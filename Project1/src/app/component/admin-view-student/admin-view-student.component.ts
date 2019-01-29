@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { student } from '../Model/Student';
+import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminDeleteStudentServiceService } from '../Services/admin-delete-student-service.service';
+import { GetAllCompanyInternshipDetailsService } from '../Services/get-all-company-internship-details.service';
 //import { AdminUpdateStudentServiceService } from '../Services/admin-update-student-service.service';
 
 @Component({
@@ -15,12 +17,17 @@ export class AdminViewStudentComponent implements OnInit {
   [x: string]: any;
   id:string;
   students: student[];
-  constructor(private deleteService: AdminDeleteStudentServiceService,private readService: ReadUnamePswServiceService,private route : ActivatedRoute,private router : Router) { }
+  comInternship: Array<CompanyInternshipDetails> = [];
+  constructor(private deleteService: AdminDeleteStudentServiceService,private readService: ReadUnamePswServiceService,
+    private route: ActivatedRoute,private router: Router, private internshipService: GetAllCompanyInternshipDetailsService) { }
 
   ngOnInit() {
     this.readService.getData()
     .subscribe(data => this.students = data);
     console.log(this.students);
+
+    this.internshipService.getData()
+    .subscribe(data => this.comInternship = data);
   }
 
   onDelete(name) {

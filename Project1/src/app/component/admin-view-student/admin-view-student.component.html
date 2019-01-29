@@ -29,7 +29,7 @@
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title ">Student Details</h4>
-          <p class="card-category"> Here is a subtitle for this table</p>
+          <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -39,7 +39,8 @@
                 <th></th>
                 <th> Student ID </th>
                 <th> Selected or Not </th>
-                <th> Selected Company </th>
+                <th> Student confirmed company</th>
+                <!-- <th> Selected Company </th> -->
                 <th></th>
               </thead>
               <tbody>
@@ -47,7 +48,12 @@
                   <td><input type="checkbox"> </td>
                   <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
                   <td *ngIf="student.availability; else elseBlock"> Not Selected </td>
-                  <td *ngIf="!student.availability; else elseBlock2"> {{student.selectedCompany}} </td>
+                  <div *ngIf="student.availability; else elseBlock2">
+                    <div *ngFor="let com of comInternship">
+                      <td *ngIf="student.name==com.name; else elseBlock2"> {{com.organization}} </td>
+                    </div>
+                  </div>
+                  <!-- <td *ngIf="!student.availability; else elseBlock2"> {{student.selectedCompany}} </td> -->
                   <td>
                     <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
                   </td>

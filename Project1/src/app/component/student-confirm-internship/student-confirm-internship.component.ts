@@ -3,6 +3,8 @@ import { CompanyGetStudentlistService } from '../Services/company-get-studentlis
 import { StuSelectedCompany } from '../Model/StuSelectedCompany';
 import { DataPassService } from '../Services/data-pass.service';
 import { StudentConfirmCompanyService } from '../Services/student-confirm-company.service';
+import { LoggingStudentService } from '../Services/logging-student.service';
+import { student } from '../Model/Student';
 
 @Component({
   selector: 'app-student-confirm-internship',
@@ -16,8 +18,10 @@ export class StudentConfirmInternshipComponent implements OnInit {
   companyList : Array<StuSelectedCompany> = [];
   i = 0;
   selectedCompany;
+  logstudent : student;
 
-  constructor(private readStudentList : CompanyGetStudentlistService, private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService) { }
+  constructor(private logStudent : LoggingStudentService,private readStudentList : CompanyGetStudentlistService, 
+    private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService) { }
 
   ngOnInit() {
 
@@ -32,7 +36,10 @@ export class StudentConfirmInternshipComponent implements OnInit {
       });
     });
 
-    
+    this.logStudent.getData(this.value)
+    .subscribe(data => {
+      this.logstudent=data;     
+    });
 
   }
 
@@ -42,7 +49,7 @@ export class StudentConfirmInternshipComponent implements OnInit {
 
   confirm(){
     console.log(this.selectedCompany);
-    this.confirmCompanyService.updateStudentData(this.value,this.selectedCompany)
+    this.confirmCompanyService.addCompanyInternshipDetails(this.value, this.selectedCompany, this.logstudent.batch)
     .subscribe();
   }
 

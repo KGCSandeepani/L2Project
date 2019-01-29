@@ -15,7 +15,7 @@ export class AdminViewCompanyService {
               .http
               .get<company[]>('//localhost:3000/todosCompany/');
   
-}
+  }
 }
 
 

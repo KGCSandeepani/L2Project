@@ -17,4 +17,11 @@ export class CompanyGetStudentlistService {
   
   }
 
+  getStudentList1(organization : String):Observable<StuSelectedCompany[]>{
+    return this
+              .http
+              .get<StuSelectedCompany[]>('//localhost:3000/StuSelectedCompany/'+organization);
+  
+  }
+
 }

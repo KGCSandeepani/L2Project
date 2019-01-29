@@ -38,6 +38,7 @@ import { StudentCampanyListComponent } from './component/student-campany-list/st
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
+import { CompanyProfileConfirmStudentlistComponent } from './component/company-profile-confirm-studentlist/company-profile-confirm-studentlist.component';
 
 import { SupervisorProfileHomeComponent } from './component/supervisor-profile-home/supervisor-profile-home.component';
 import { SupervisorProfileViewStudentComponent } from './component/supervisor-profile-view-student/supervisor-profile-view-student.component';
@@ -109,6 +110,7 @@ const routes: Routes = [
     children :[
       { path: 'home', component: CompanyProfileHomeComponent },
       { path: 'studentlist', component: CompanyProfileStudentlistComponent },
+      { path: 'confirmedStudentlist', component: CompanyProfileConfirmStudentlistComponent },
       { path: 'studentDetails', component: CompanyViewStuFullComponent },
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
       { path: 'companyAnalysis', component: CompanyAnalysisComponent },

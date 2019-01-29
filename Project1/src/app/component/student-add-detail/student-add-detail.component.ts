@@ -30,7 +30,7 @@ export class StudentAddDetailComponent implements OnInit {
 
   student : student;
   noOfCompany : NoOfCompany;
-  num : number ;
+  num : number = 1;
   array : Array<number> =[];
   company: Array<company>=[];
   selectedCompany: StuSelectedCompany;

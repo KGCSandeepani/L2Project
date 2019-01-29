@@ -3,6 +3,7 @@ export interface student  {
     name : String,
     password : String;
     availability :boolean;
+    batch : number;
     username : String;
     email : String;
     phoneNo : number;

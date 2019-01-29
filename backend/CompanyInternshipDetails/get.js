@@ -3,13 +3,11 @@
 const dynamodb = require('./dynamodb');
 
 module.exports.get = (event, context, callback) => {
-  console.log(event.pathParameters.organization);
   const params = {
-    TableName: "StuSelectedCompany",
-    KeyConditionExpression: "organization = :a",
-    ExpressionAttributeValues: {
-        ":a": event.pathParameters.organization,        
-    }   
+    TableName: "CompanyInternshipDetails",
+    Key: {
+      name: event.pathParameters.name,
+    },
   };
 
   // fetch todo from the database

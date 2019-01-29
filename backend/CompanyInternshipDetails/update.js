@@ -17,25 +17,21 @@ module.exports.update = (event, context, callback) => {
     return;
   }
 */
-
   const params = {
-    TableName: process.env.DYNAMODB_TABLE,
+    TableName: "CompanyInternshipDetails",
     Key: {
       name: event.pathParameters.name,
     },
-    ExpressionAttributeNames: {
-      '#todo_availability': 'availability',
-      //'#todo_selectedCompany': 'selectedCompany',
+    ExpressionAttributeNames: {     
+      '#todo_companyConfirmation': 'companyConfirmation',
     },
-    ExpressionAttributeValues: {
-      ':availability': false,
-      //':selectedCompany': data.selectedCompany,
+    ExpressionAttributeValues: {      
+      ':companyConfirmation': data.companyConfirmation,
     },
-    UpdateExpression: 'SET #todo_availability = :availability ',
+    UpdateExpression: 'SET #todo_companyConfirmation = :companyConfirmation ',
     ReturnValues: 'ALL_NEW',
   };
 
-  // update the todo in the database
   dynamodb.update(params , (error, result) => {
     // handle potential errors
     if (error) {

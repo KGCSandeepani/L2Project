@@ -10,6 +10,8 @@ import { student } from '../Model/Student';
 import { forEach } from '@angular/router/src/utils/collection';
 import { MatTableDataSource,MatSort } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
+import { GetOneCompanyInternshipDetailsService } from 'src/app/component/Services/get-one-company-internship-details.service';
 
 @Component({
   selector: 'app-company-profile-studentlist',
@@ -34,9 +36,16 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['name', 'cgpa'];
 
-  constructor(private readService: ReadUnamePswServiceService,private logStudent: LoggingStudentService,private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService, private studentService : LoggingStudentService) { 
+  // constructor(private readService: ReadUnamePswServiceService,private logStudent: LoggingStudentService,
+  //   private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, 
+  //   private router:Router, private data : DataPassService, private studentService : LoggingStudentService) { 
 
-  }
+  // }
+  cid : CompanyInternshipDetails;
+
+  constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
+    private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService, 
+    private studentService : LoggingStudentService, private intrnshipService: GetOneCompanyInternshipDetailsService) { }
 
   ngOnInit() {
     this.value = this.data.getMessage();
@@ -45,12 +54,15 @@ export class CompanyProfileStudentlistComponent implements OnInit {
     .subscribe(data => {this.stuList = data;
       this.stuList.forEach(element => {
         if(element.organization == this.value){
-            this.studentService.getData(element.name)
+            this.intrnshipService.getData(element.name)
             .subscribe(data => {
-            this.student=data;
-              if (this.student.availability){
-                this. dataSource = new MatTableDataSource(this.students);                 
-                this.students[this.i]=data;
+            // this.student=data;
+            //   if (this.student.availability){
+            //     this. dataSource = new MatTableDataSource(this.students);                 
+            //     this.students[this.i]=data;
+            this.cid=data;
+              if (this.cid==null){
+                this.stuList1[this.i] = element;
                 this.i++;
                 this.dataSource.sort = this.sort;
               }     
@@ -59,6 +71,41 @@ export class CompanyProfileStudentlistComponent implements OnInit {
       });
     }); 
 }   
+    //});
+
+    //   this.stuList.forEach(element => {
+    //     if(element.organization == this.value){
+    //         this.studentService.getData(element.name)
+    //         .subscribe(data => {
+    //         this.student=data;
+    //           if (this.student.availability){
+    //             this.stuList1[this.i] = element;
+    //             this.i++;
+    //           }
+                 
+    //         });
+    //     }
+    //   });
+    // });
+
+    //   this.readStudentList.getStudentList1(this.value)
+    //  .subscribe(data => {this.stuList = data;
+    //   this.stuList.forEach(element => {
+            
+    //             this.studentService.getData(element.name)
+    //             .subscribe(data => {
+    //             this.student=data;
+    //               if (this.student.availability){
+    //                 this.stuList1[this.i] = element;
+    //                 this.i++;
+    //               }
+                     
+    //             });
+            
+    //       });
+    //  });
+
+  
 
   onChange(event : any){
     this.doInternship = event.target.value;

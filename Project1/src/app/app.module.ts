@@ -87,6 +87,7 @@ import { StudentCampanyListComponent } from './component/student-campany-list/st
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { FeedbackComponent } from './component/feedback/feedback.component';
 import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
+import { CompanyProfileConfirmStudentlistComponent } from './component/company-profile-confirm-studentlist/company-profile-confirm-studentlist.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
 	
 //import { FlexLayoutModule } from '@angular/flex-layout';
@@ -156,6 +157,7 @@ import { SupervisiorDashboardComponent } from './component/supervisior-dashboard
     SupervisorProfileSettingsComponent,
     SupervisiorDashboardComponent,
     
+    CompanyProfileConfirmStudentlistComponent,
   //  MatTabsModule,
   ],
   imports: [

@@ -1,27 +1,4 @@
-<!-- <div class="main">
-  
-  <br>
-  <table class="table" style="width:60%;text-align:center;">
-    <thead>
-      <tr>        
-        <th> Student Registration No </th>
-        <th>  </th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let student of stuList1" >        
-      <td >{{student.name}}</td>
-      <td >
-        <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
-        <mat-icon color= "primary">attachment</mat-icon>
-        </button>
-      </td>       
-    </tr>
-</tbody>
-</table>
-</div> -->
 
-<br><br>
 <div class="main">
   
   <table class="table" style="width:60%;text-align:center;">
@@ -32,7 +9,8 @@
         <th> Contact No </th>
         <th> Email </th>
         <th>  </th>
-        
+        <th>  </th>
+        <th>  </th>
       </tr>
     </thead>
 <tbody>
@@ -47,7 +25,12 @@
         <mat-icon color= "primary">attachment</mat-icon>
         </button>
       </td>
-      
+      <td>
+        <button mat-button (click)="onAccept(student.name)"> <mat-icon color= "primary"> done </mat-icon> </button>
+     </td>
+     <td>
+      <button mat-button (click)="onReject(student.name)"> <mat-icon color= "red"> clear </mat-icon> </button>
+   </td>
    
   </tr>
 </tbody>
