@@ -4,7 +4,8 @@
       <!--<img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">-->
     <p>{{userN}}</p>
   </div>
-  
+  <br><br>
+  <p>{{loger}}</p>
   <div #scrollBottom  *ngFor="let messages of items|async" class="message">
      
     <app-message-a-s [chatMessage]="messages"></app-message-a-s>

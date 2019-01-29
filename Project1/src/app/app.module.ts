@@ -103,6 +103,7 @@ import { SupervisorViewCompanyServiceService } from './component/Services/superv
 import { LoggingSupervisorServiceService } from './component/Services/logging-supervisor-service.service';
 import { SupervisorProfileComponent } from './component/supervisor-profile/supervisor-profile.component';
 import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
+import { ViewAdminsService } from './component/Services/view-admins.service';
 
 
 @NgModule({
@@ -189,7 +190,7 @@ import { SupervisiorDashboardComponent } from './component/supervisior-dashboard
               SupervisorChangePasswordServiceService,
               SupervisorViewCompanyServiceService,
               LoggingSupervisorServiceService,
-              
+              ViewAdminsService, 
               AdminChangeNoOfCompanyService],
   bootstrap: [AppComponent]
 })

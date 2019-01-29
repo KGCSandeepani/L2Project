@@ -21,15 +21,15 @@ export class ChatServiceASService {
   senderName: string;
   message: string;
   userR: string = '';
-  sendRece:string;
-  chatListUserType: string; // clicked type
+  sendRece: string;
+  chatListUserType: string; // clicked user type from userlist
   private userN = new BehaviorSubject<string>(this.userR);
   cast = this.userN.asObservable();
-//for comparing two student numbers
-num1:Number;
-num2:Number;
-value1:string;
-value2:string;
+  //for comparing two student numbers
+  num1: Number;
+  num2: Number;
+  value1: string;
+  value2: string;
 
   constructor(private data: DataPassService, private db: AngularFireDatabase) {
 
@@ -40,11 +40,11 @@ value2:string;
   }
   sendMessage(msg: string) {
     const timestamp = this.getTimeStamp();
-
+    this.senderName = this.data.getMessage();
     //generating a comman tag from sender name and receiver name
-    if(this.loggedUserType=="Admin" && this.getClickedUserType(this.receiverName)=="Student"){
+    if (this.getLoggedUserType(this.senderName) == "Admin" && this.getClickedUserType(this.receiverName) == "Student") {
       this.sendRece = this.senderName + "_" + this.userR;
-      console.log(this.sendRece+" insode admin student ");
+      console.log(this.sendRece + " inside admin student ");
     }
     // else if(this.loggedUserType=="Admin"&& this.chatListUserType=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
@@ -55,18 +55,19 @@ value2:string;
     // else if((this.loggedUserType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.senderName,this.receiverName)){
     //   this.sendRece = this.senderName + "_" + this.userR
     // }
-    else{
-      this.sendRece = this.userR  + "_" + this.senderName
+    else {
+      this.sendRece = this.userR + "_" + this.senderName
 
     }
-
+    this.senderName = this.data.getMessage();
+    console.log(this.senderName + " this is sender name at chat");
     this.chatMessages = this.getMessages();
     this.chatMessages.push({
       message: msg,
       timeSent: new Date(),
       userName: this.senderName,
       receiver: this.userR,
-      senderReceiver:this.sendRece
+      senderReceiver: this.sendRece
       // senderReceiver: this.senderName + "_" + this.userR
     });
   }
@@ -96,19 +97,28 @@ value2:string;
     this.loggedUserType = newUser;
     console.log(this.loggedUserType + "is logged user");
   }
-  compareTwoIndexNumbers(index1:string,index2:string,){
+  compareTwoIndexNumbers(index1: string, index2: string, ) {
     this.value1 = index1.substr(0, 7);
     this.value2 = index2.substr(0, 7);
     console.log(this.value1);
-    this.num1=parseInt(this.value1, 10);
-    this.num2=parseInt(this.value2, 10);
+    this.num1 = parseInt(this.value1, 10);
+    this.num2 = parseInt(this.value2, 10);
 
-    if(this.num1>this.num2){
+    if (this.num1 > this.num2) {
       return true;
     }
     return false;
   }
+  getLoggedUserType(name: string) {
+    if(this.senderName=="Admin"){
+      return "Admin";
+    }
+    return "Student";
+  }
   getClickedUserType(name: string) {
+    if(this.receiverName=="Admin"){
+      return "Student";
+    }
     return "Student";
   }
   sendClickedUserTypeToFeed() {

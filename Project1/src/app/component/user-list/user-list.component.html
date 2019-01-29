@@ -1,7 +1,7 @@
 <body style="background-color: #cac7ca">
- 
+
   <div class="container">
-    
+
     <div class="headind_srch">
       <div class="recent_heading">
         <h4>Recent</h4>
@@ -18,40 +18,47 @@
     <div class="inbox_chat">
       <div class="chat_list active_chat">
         <div class="chat_people">
-          
-      
-            <table class="table">
 
-              <tbody>
-                <div class="messageContainer">
-                  <!-- {{userN}}-->
 
-                  <tr *ngFor="let student of students">
-                      <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                      <div class="chat_ib">
+          <table class="table">
+
+            <tbody>
+              <div class="messageContainer">
+                <!-- {{userN}}-->
+
+                <tr *ngFor="let student of students">
+                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                  <div class="chat_ib">
                     <td (click)="editTheUser(student)" [ngClass]="'active'"> {{student.name}}</td>
-                  
+
                   </div>
-                  </tr>
-                  <tr *ngFor="let supervisor of supervisors">
-                    <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-                    <div class="chat_ib">
-                  <td (click)="editTheUser(supervisor)" [ngClass]="'active'"> {{supervisor.name}}</td>
-                
-                </div>
+                </tr>
+                <tr *ngFor="let supervisor of supervisors">
+                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                  <div class="chat_ib">
+                    <td (click)="editTheUser(supervisor)" [ngClass]="'active'"> {{supervisor.name}}</td>
+
+                  </div>
                 </tr>
                 <tr *ngFor="let company of company">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
                   <div class="chat_ib">
-                <td (click)="editTheUser(company)" [ngClass]="'active'"> {{company.name}}</td>
-              
-              </div>
-              </tr>
+                    <td (click)="editTheUser(company)" [ngClass]="'active'"> {{company.name}}</td>
 
-                </div>
-              </tbody>
-            </table>
-          
+                  </div>
+                </tr>
+                <tr *ngFor="let admin of admin">
+                  <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+                  <div class="chat_ib">
+                    <td (click)="editTheUser(admin)" [ngClass]="'active'"> {{admin.name}}</td>
+
+                  </div>
+                </tr>
+
+              </div>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
