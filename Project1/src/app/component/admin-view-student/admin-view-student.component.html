@@ -40,7 +40,7 @@
                 <th> Student ID </th>
                 <th> Selected or Not </th>
                 <th> Student confirmed company</th>
-                <!-- <th> Selected Company </th> -->
+                <th> Selected Company </th>
                 <th></th>
               </thead>
               <tbody>
@@ -53,7 +53,11 @@
                       <td *ngIf="student.name==com.name; else elseBlock2"> {{com.organization}} </td>
                     </div>
                   </div>
-                  <!-- <td *ngIf="!student.availability; else elseBlock2"> {{student.selectedCompany}} </td> -->
+                  <div *ngIf="!student.availability; else elseBlock2"> 
+                    <div *ngFor="let com of comInternship">
+                      <td *ngIf="student.name==com.name"> {{com.organization}} </td>
+                    </div>
+                  </div>
                   <td>
                     <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
                   </td>

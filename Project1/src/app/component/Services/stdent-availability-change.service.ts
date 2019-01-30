@@ -8,12 +8,13 @@ export class StdentAvailabilityChangeService {
 
   constructor(private http:HttpClient) { }
 
-  updateStudentData(name:String){        
+  updateStudentData(name:String,avilability: boolean){        
       return this
                 .http
                 .put('//localhost:3000/todosStudent1/'+name,
                 {
-                  "name":name,                       
+                  "name":name,
+                  "availability":avilability,                       
                 })             
     }
 

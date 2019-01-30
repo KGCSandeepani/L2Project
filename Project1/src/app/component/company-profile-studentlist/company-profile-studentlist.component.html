@@ -6,6 +6,43 @@
      <input type="radio" name="internship" value="false" (change)="onChange($event)"> No <br>
    </div>
 
+<div class="main">
+  
+  <table class="table" style="width:60%;text-align:center;">
+    <thead>
+      <tr>    
+        <th> Registration No </th>
+        <th> Name </th>
+        <th> Contact No </th>
+        <th> Email </th>
+        <th>  </th>
+        
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let student of stuList2" >
+         
+      <td >{{student.name}}</td>
+      <td >{{student.username}}</td>
+      <td >{{student.phoneNo}}</td>
+      <td >{{student.email}}</td>
+      <td >
+        <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
+        <mat-icon color= "primary">attachment</mat-icon>
+        </button>
+      </td>
+      
+   
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
   <mat-form-field>
     <input matInput (keyup)=" applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>

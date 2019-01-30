@@ -30,6 +30,7 @@ export class CompanyProfileSelectedstudentComponent implements OnInit {
   stuList: Array<student> = [];
   student: student;
   i=0;
+  id: string;
 
   constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
     private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService, 
@@ -76,6 +77,12 @@ export class CompanyProfileSelectedstudentComponent implements OnInit {
       });
     });
 
+  }
+
+  getData(id:string){
+    this.id=id;
+    this.readService.getId(this.id);
+    return id;
   }
 
 }

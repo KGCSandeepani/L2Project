@@ -29,6 +29,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   doInternship = "true";
   stuList : StuSelectedCompany[];
   stuList1 : Array<StuSelectedCompany> = [];
+  stuList2 : Array<student> = [];
   i=0;
   student : student;
   logstudent :student;
@@ -62,9 +63,14 @@ export class CompanyProfileStudentlistComponent implements OnInit {
             //     this.students[this.i]=data;
             this.cid=data;
               if (this.cid==null){
-                this.stuList1[this.i] = element;
-                this.i++;
-                this.dataSource.sort = this.sort;
+                this.studentService.getData(element.name)
+                .subscribe(data => {this.student = data;
+                  this.stuList2[this.i] = this.student;
+                  this.i++;
+                })
+                // this.stuList1[this.i] = element;
+                // this.i++;
+                //this.dataSource.sort = this.sort;
               }     
             });
         }

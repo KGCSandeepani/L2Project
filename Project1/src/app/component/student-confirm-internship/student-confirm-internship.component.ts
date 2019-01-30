@@ -4,7 +4,11 @@ import { StuSelectedCompany } from '../Model/StuSelectedCompany';
 import { DataPassService } from '../Services/data-pass.service';
 import { StudentConfirmCompanyService } from '../Services/student-confirm-company.service';
 import { LoggingStudentService } from '../Services/logging-student.service';
+import { GetOneCompanyInternshipDetailsService } from '../Services/get-one-company-internship-details.service';
 import { student } from '../Model/Student';
+import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
+import { NgxNotificationService } from 'ngx-notification';
+import { StdentAvailabilityChangeService } from '../Services/stdent-availability-change.service';
 
 @Component({
   selector: 'app-student-confirm-internship',
@@ -19,9 +23,13 @@ export class StudentConfirmInternshipComponent implements OnInit {
   i = 0;
   selectedCompany;
   logstudent : student;
+  cid : CompanyInternshipDetails;
+  disableButton;
 
   constructor(private logStudent : LoggingStudentService,private readStudentList : CompanyGetStudentlistService, 
-    private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService) { }
+    private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService, 
+    private ngxNotificationService: NgxNotificationService, private getCIDService: GetOneCompanyInternshipDetailsService,
+    private studentAvailabilityChangeService : StdentAvailabilityChangeService) { }
 
   ngOnInit() {
 
@@ -32,6 +40,7 @@ export class StudentConfirmInternshipComponent implements OnInit {
       this.stuList.forEach(element => {
         if(element.name==this.value){
           this.companyList[this.i] = element;
+          this.i++;
         }
       });
     });
@@ -41,6 +50,11 @@ export class StudentConfirmInternshipComponent implements OnInit {
       this.logstudent=data;     
     });
 
+    this.getCIDService.getData(this.value)
+    .subscribe(data => {this.cid = data
+      this.disableButton=this.cid.companyConfirmation});
+      console.log("disable "+this.disableButton);
+
   }
 
   getCompany(organization : String){
@@ -49,8 +63,28 @@ export class StudentConfirmInternshipComponent implements OnInit {
 
   confirm(){
     console.log(this.selectedCompany);
+    if(this.selectedCompany==null){
+      this.sendNotification1();
+      return;
+    }
     this.confirmCompanyService.addCompanyInternshipDetails(this.value, this.selectedCompany, this.logstudent.batch)
-    .subscribe();
+    .subscribe(result => {
+      // this.studentAvailabilityChangeService.updateStudentData(name,true)
+      // .subscribe();
+      this.sendNotification();
+    });
+  }
+
+  sendNotification() {
+    this.ngxNotificationService.sendMessage('Successfully confirm', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
+  }
+
+  sendNotification1() {
+    this.ngxNotificationService.sendMessage('Please select company before confirm', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
   }
 
 }

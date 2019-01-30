@@ -6,6 +6,7 @@ import { student } from '../Model/Student';
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { CompanyConfirmStudentService } from '../Services/company-confirm-student.service';
 import { StdentAvailabilityChangeService } from '../Services/stdent-availability-change.service';
+import { ReadUnamePswServiceService } from 'src/app/component/Services/read-uname-psw-service.service';
 
 @Component({
   selector: 'app-company-profile-confirm-studentlist',
@@ -19,10 +20,11 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
   stuList: Array<student> = [];
   student: student;
   i=0;
+  id:string;
 
   constructor(private data : DataPassService, private internshipService: GetAllCompanyInternshipDetailsService,
     private getStudent:LoggingStudentService, private companyConfirmation: CompanyConfirmStudentService,
-    private studentAvailabilityChangeService : StdentAvailabilityChangeService) { }
+    private studentAvailabilityChangeService : StdentAvailabilityChangeService, private readService: ReadUnamePswServiceService) { }
 
   ngOnInit() {
     this.value = this.data.getMessage();
@@ -30,7 +32,7 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
     this.internshipService.getData()
     .subscribe(data => {this.comInternship = data;
       this.comInternship.forEach(element => {
-        if(element.organization==this.value && element.companyConfirmation==null){
+        if(element.organization==this.value && (element.companyConfirmation==null || element.companyConfirmation==false)){
           this.getStudent.getData(element.name)
           .subscribe(data => {
             this.student=data;
@@ -49,7 +51,7 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
     this.companyConfirmation.updateCompanyInternshipDetails(name,true)
     .subscribe(result=>{
       console.log(result);
-      this.studentAvailabilityChangeService.updateStudentData(name)
+      this.studentAvailabilityChangeService.updateStudentData(name,false)
       .subscribe();
       this.ngOnInit();
     },error => console.log('There was an error: ', error)
@@ -64,6 +66,12 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
       console.log(result);
       this.ngOnInit();
     },error => console.log('There was an error: ', error));
+  }
+
+  getData(id:string){
+    this.id=id;
+    this.readService.getId(this.id);
+    return id;
   }
 
 }
