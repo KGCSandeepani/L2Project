@@ -28,7 +28,7 @@ module.exports.update = (event, context, callback) => {
       //'#todo_selectedCompany': 'selectedCompany',
     },
     ExpressionAttributeValues: {
-      ':availability': false,
+      ':availability': data.availability,
       //':selectedCompany': data.selectedCompany,
     },
     UpdateExpression: 'SET #todo_availability = :availability ',
