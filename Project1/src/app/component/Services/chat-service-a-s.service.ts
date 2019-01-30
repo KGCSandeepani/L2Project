@@ -36,7 +36,7 @@ export class ChatServiceASService {
     this.data.currentMessage.subscribe(message => this.message = message);
     this.senderName = this.data.getMessage();
     this.cast.subscribe(userN => this.userR = userN);
-
+    
   }
   sendMessage(msg: string) {
     const timestamp = this.getTimeStamp();
@@ -64,7 +64,7 @@ export class ChatServiceASService {
     this.chatMessages = this.getMessages();
     this.chatMessages.push({
       message: msg,
-      timeSent: new Date(),
+      timeSent: new Date().toString(),
       userName: this.senderName,
       receiver: this.userR,
       senderReceiver: this.sendRece
@@ -76,15 +76,11 @@ export class ChatServiceASService {
     return this.db.list('messages', ref => ref.orderByKey().limitToLast(25));
   }
   getTimeStamp() {
-    const now = new Date();
-    const date = now.getUTCFullYear() + '/' +
-      (now.getUTCMonth() + 1) + '/' +
-      now.getUTCDate();
-    const time = now.getUTCHours() + ':' +
-      now.getUTCMinutes() + ':' +
-      now.getUTCSeconds();
+    let now = new Date();
+    let date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' + now.getUTCDate();
+    let time = now.getUTCHours() + ':' + now.getUTCMinutes() ;
 
-    return (date + ' ' + time);
+    return (date + ' ' + time).toString;
   }
 
   //to send which user that user has clicked.

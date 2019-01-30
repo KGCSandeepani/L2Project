@@ -14,7 +14,7 @@ export class MessageASComponent implements OnInit {
   receiver: string;
   userName: string;
   messageContent: string;
-  timeStamp: Date = new Date();
+  timeStamp: string;
   isOwnMessage: true;
   ownEmail: string;
   private CurrentUser : boolean = false;
@@ -24,7 +24,7 @@ export class MessageASComponent implements OnInit {
   ngOnInit(chatMessage = this.chatMessage) {
     this.userName = chatMessage.userName;
     this.messageContent = chatMessage.message;
-    //this.timeStamp = chatMessage.timeSent;
+    this.timeStamp = chatMessage.timeSent;
     this.receiver = chatMessage.receiver;
 
     //to check whether current loggned in user is sender
