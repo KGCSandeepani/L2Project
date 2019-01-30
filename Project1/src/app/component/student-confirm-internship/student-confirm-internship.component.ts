@@ -5,6 +5,7 @@ import { DataPassService } from '../Services/data-pass.service';
 import { StudentConfirmCompanyService } from '../Services/student-confirm-company.service';
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { student } from '../Model/Student';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-student-confirm-internship',
@@ -21,7 +22,7 @@ export class StudentConfirmInternshipComponent implements OnInit {
   logstudent : student;
 
   constructor(private logStudent : LoggingStudentService,private readStudentList : CompanyGetStudentlistService, 
-    private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService) { }
+    private data : DataPassService, private confirmCompanyService :StudentConfirmCompanyService, private ngxNotificationService: NgxNotificationService,) { }
 
   ngOnInit() {
 
@@ -32,6 +33,7 @@ export class StudentConfirmInternshipComponent implements OnInit {
       this.stuList.forEach(element => {
         if(element.name==this.value){
           this.companyList[this.i] = element;
+          this.i++;
         }
       });
     });
@@ -50,7 +52,15 @@ export class StudentConfirmInternshipComponent implements OnInit {
   confirm(){
     console.log(this.selectedCompany);
     this.confirmCompanyService.addCompanyInternshipDetails(this.value, this.selectedCompany, this.logstudent.batch)
-    .subscribe();
+    .subscribe(result => {
+      this.sendNotification();
+    });
+  }
+
+  sendNotification() {
+    this.ngxNotificationService.sendMessage('Successfully confirm', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
   }
 
 }

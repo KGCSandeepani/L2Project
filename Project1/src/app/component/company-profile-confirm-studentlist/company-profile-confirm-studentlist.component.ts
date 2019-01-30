@@ -30,7 +30,7 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
     this.internshipService.getData()
     .subscribe(data => {this.comInternship = data;
       this.comInternship.forEach(element => {
-        if(element.organization==this.value && element.companyConfirmation==null){
+        if(element.organization==this.value && (element.companyConfirmation==null || element.companyConfirmation==false)){
           this.getStudent.getData(element.name)
           .subscribe(data => {
             this.student=data;
