@@ -8,6 +8,7 @@ import { AdminDeleteStudentServiceService } from '../Services/admin-delete-stude
 import { GetAllCompanyInternshipDetailsService } from '../Services/get-all-company-internship-details.service';
 //import { AdminUpdateStudentServiceService } from '../Services/admin-update-student-service.service';
 
+
 @Component({
   selector: 'app-admin-view-student',
   templateUrl: './admin-view-student.component.html',
