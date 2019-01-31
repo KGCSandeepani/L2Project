@@ -37,7 +37,7 @@ td :active {
   position: fixed;
   
 } */
-/*.container{max-width:1170px; margin:auto;}*/
+.container{max-width:1170px; margin:auto; overflow-y: hidden;}
 
 
 
@@ -62,20 +62,23 @@ img{ max-width:100%;}
   display: inline-block;
   text-align: right;
   width: 60%; 
+  overflow-y:hidden;
 }
-.headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
+.headind_srch{ padding:10px 29px 10px 20px; overflow-y:hidden; 
+  border-bottom:1px solid #c4c4c4;}
 
 .recent_heading h4 {
   color: #05728f;
   font-size: 21px;
   margin: auto;
 }
-.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}
+.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; 
+  padding:2px 0 4px 6px; background:none;}
 .srch_bar .input-group-addon button {
-  background: white none repeat scroll 0 0;
+  background:   #cdcdcd none repeat scroll 0 0;
   border: medium none;
   padding: 0;
-  color: #cfcccc;
+  color: rgb(73, 73, 73);
   font-size: 18px;
 }
 .srch_bar .input-group-addon { margin: 0 0 0 -27px;}
@@ -99,7 +102,10 @@ img{ max-width:100%;}
   margin: 0;
   padding: 18px 16px 10px;
 }
-.inbox_chat { height: 550px; overflow-y: scroll;}
+.inbox_chat { 
+  height: 510px; 
+  overflow-y: scroll;
+margin-bottom: 30px;}
 
 .active_chat{ background:#ebebeb;}
 td:hover  {

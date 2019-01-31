@@ -67,7 +67,9 @@ export class ChatServiceASService {
       timeSent: new Date().toString(),
       userName: this.senderName,
       receiver: this.userR,
-      senderReceiver: this.sendRece
+      senderReceiver: this.sendRece,
+      read:false
+      // unreadMessageCount:0
       // senderReceiver: this.senderName + "_" + this.userR
     });
   }

@@ -5,4 +5,5 @@ export class ChatMessage {
     message?: string;
     timeSent:string ;
     senderReceiver:string;
+    read:boolean;
 }

@@ -11,6 +11,9 @@ import { AdminreadstaffService } from 'src/app/component/Services/adminreadstaff
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { company } from 'src/app/component/Model/Company';
 import { ViewAdminsService } from '../Services/view-admins.service';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-list',
@@ -19,12 +22,11 @@ import { ViewAdminsService } from '../Services/view-admins.service';
 })
 export class UserListComponent implements OnInit {
   [x: string]: any;
-
+  
   students: student[];
   supervisors: staff[];
   company: company[];
   admin:admin[];
-
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
     private chatService: ChatServiceASService, private router: Router,

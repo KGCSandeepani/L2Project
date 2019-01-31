@@ -75,7 +75,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatAutocompleteModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
@@ -176,7 +177,7 @@ import { ViewAdminsService } from './component/Services/view-admins.service';
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
     MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
-   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule
+   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
