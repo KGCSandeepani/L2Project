@@ -24,7 +24,7 @@ module.exports.create = (event, context, callback) => {
       password: data.psw,
       batch: data.batch,
       availability:true,
-      username:null,     
+      username:data.text1,  
       email: null,
       phoneNo: null,
       l1s1: null,

@@ -15,6 +15,7 @@ export class AdminAddStudentServiceService {
               .post('//localhost:3000/todos',
               {
                 "text" : formdata.value.uname,
+                "text1" : formdata.value.sname,
                 "psw" : formdata.value.psw,
                 "batch" : formdata.value.batch          
               }

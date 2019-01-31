@@ -38,6 +38,7 @@
                 
                 <th></th>
                 <th> Student ID </th>
+                <th> Student Name </th>
                 <th> Selected or Not </th>
                 <th> Student confirmed company</th>
                 <th> Selected Company </th>
@@ -47,10 +48,11 @@
                 <tr *ngFor="let student of students">
                   <td><input type="checkbox"> </td>
                   <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
+                  <td><a >{{student.username}}</a></td>
                   <td *ngIf="student.availability; else elseBlock"> Not Selected </td>
                   <div *ngIf="student.availability; else elseBlock2">
                     <div *ngFor="let com of comInternship">
-                      <td *ngIf="student.name==com.name; else elseBlock2"> {{com.organization}} </td>
+                      <td *ngIf="student.name==com.name && com.companyConfirmation!=true; "> {{com.organization}} </td>
                     </div>
                   </div>
                   <div *ngIf="!student.availability; else elseBlock2"> 

@@ -64,6 +64,7 @@ export class AdminAddStudentComponent implements OnInit {
     const sheet = self.spread.getActiveSheet();
     sheet.setRowCount(300);
     sheet.getCell(0, 0).text('Username').foreColor('blue');   
+    sheet.getCell(0, 1).text('Name').foreColor('blue');   
   }
 
   getData(args,psw2,batch2){
@@ -75,7 +76,10 @@ export class AdminAddStudentComponent implements OnInit {
     this.a=self.spread.getActiveSheet().getRowCount();
           for (let index = 1; index < this.a; index++) {
             if (self.spread.getActiveSheet().getValue(index,0)!=null) {
-              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),psw2,batch2)
+              if(self.spread.getActiveSheet().getValue(index,0).length!=7){
+                this.sendNotification5();
+              }
+              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),self.spread.getActiveSheet().getValue(index,1),psw2,batch2)
               .subscribe((data : student[] )=> {
               this.student = data;
               });
@@ -115,7 +119,10 @@ export class AdminAddStudentComponent implements OnInit {
     this.a=self.spread.getSheet(1).getRowCount();
     for (let index = 0; index < this.a; index++) {
       if (self.spread.getSheet(1).getValue(index,0)!=null) {
-        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),psw3,batch3)
+        if(self.spread.getSheet(1).getValue(index,0).length!=7){
+          this.sendNotification5();
+        }
+        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),self.spread.getSheet(1).getValue(index,1),psw3,batch3)
         .subscribe((data : student[] )=> {
         this.student = data;
         });
@@ -145,6 +152,10 @@ export class AdminAddStudentComponent implements OnInit {
 
   sendNotification4() {
   	this.ngxNotificationService.sendMessage('Added sucessfully', 'dark', 'bottom-right');
+  }
+
+  sendNotification5() {
+  	this.ngxNotificationService.sendMessage('Please enter Register No in first column & Name in second column only', 'dark', 'bottom-right');
   }
 
 }
