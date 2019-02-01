@@ -42,7 +42,7 @@ export class ChatServiceASService {
     //generating a comman tag from sender name and receiver name
     if (this.getLoggedUserType(this.senderName) == "Admin" && this.getClickedUserType(this.receiverName) == "Student") {
       this.sendRece = this.senderName + "_" + this.userR;
-      console.log(this.sendRece + " inside admin student ");
+      // console.log(this.sendRece + " inside admin student ");
     }
     // else if(this.loggedUserType=="Admin"&& this.chatListUserType=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
@@ -58,7 +58,7 @@ export class ChatServiceASService {
 
     }
     this.senderName = this.data.getMessage();
-    console.log(this.senderName + " this is sender name at chat");
+    // console.log(this.senderName + " this is sender name at chat");
     this.chatMessages = this.getMessages();
     this.chatMessages.push({
       message: msg,
@@ -91,7 +91,7 @@ export class ChatServiceASService {
   loggedUser(newUser) {
     //to get which type of user logged in
     this.loggedUserType = newUser;
-    console.log(this.loggedUserType + "is logged user");
+    // console.log(this.loggedUserType + "is logged user");
   }
   compareTwoIndexNumbers(index1: string, index2: string, ) {
     this.value1 = index1.substr(0, 7);

@@ -39,21 +39,13 @@ export class AdminHomePageComponent implements OnInit {
     else
       this.displayButton=false;*/
     this.loger = this.data.getMessage();
-    // const _this = this;
     this.currentUserRefAdmin = this.db.list('userList', ref => ref.limitToLast(1).orderByChild('uid').equalTo(this.loger));
     this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
     this.currentUserAdmin.subscribe(res => { this.msgCount = res[0].readCount; });
-    // console.log(snapshot.key.readCount);
 
   }
-  // ngOnChanges(){
-  //   this.loger = this.data.getMessage();
-  //   this.currentUserRef = this.db.list('userList', ref => ref.limitToLast(1).orderByChild('uid').equalTo(this.loger));
-  //   this.currentUser = this.currentUserRef.valueChanges();
-  //   this.currentUser.subscribe(res=>{this.msgCount=res[0].readCount;});
-  // }
+  
   clearNotification() {
-    console.log("inside clear notificatio");
     this.msgCount = 0;
     this.user.clear();
   }
@@ -66,9 +58,9 @@ export class AdminHomePageComponent implements OnInit {
 
   getValue() {
     this.value = this.getCount.setDetails();
-    console.log(this.value);
+    // console.log(this.value);
     this.count = +this.value;
-    console.log(this.value);
+    // console.log(this.value);
 
   }
 
@@ -83,7 +75,7 @@ export class AdminHomePageComponent implements OnInit {
 
   clearCount() {
     this.count = 0;
-    console.log(this.count);
+    // console.log(this.count);
   }
 
 }
