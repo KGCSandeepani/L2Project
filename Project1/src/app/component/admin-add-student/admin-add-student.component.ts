@@ -52,6 +52,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batch= data;
+      this.batch.sort((a,b)=>a.batch-b.batch);
     });
   }
 
