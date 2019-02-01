@@ -107,6 +107,7 @@ import { SupervisorProfileComponent } from './component/supervisor-profile/super
 import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
 import { ViewAdminsService } from './component/Services/view-admins.service';
 import { UserListService } from './component/Services/user-list.service';
+import { SupervisorViewFeedbackComponent } from './component/supervisor-view-feedback/supervisor-view-feedback.component';
 
 @NgModule({
   declarations: [
@@ -161,6 +162,8 @@ import { UserListService } from './component/Services/user-list.service';
     SupervisiorDashboardComponent,
     
     CompanyProfileConfirmStudentlistComponent,
+    
+    SupervisorViewFeedbackComponent,
   //  MatTabsModule,
   ],
   imports: [

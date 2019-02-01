@@ -47,6 +47,7 @@ import { SupervisorProfileViewCompanyComponent } from './component/supervisor-pr
 import { SupervisorProfileAnalysisComponent } from './component/supervisor-profile-analysis/supervisor-profile-analysis.component';
 import { SupervisorProfileSettingsComponent } from './component/supervisor-profile-settings/supervisor-profile-settings.component';
 import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
+import { SupervisorViewFeedbackComponent } from './component/supervisor-view-feedback/supervisor-view-feedback.component';
 
 
 
@@ -71,7 +72,7 @@ const routes: Routes = [
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
       { path: 'adminDashboard', component: DashboardComponent },
       { path: 'adminSetting', component: AdminSettingComponent },
-      { path: 'chat-room', component:  ChatRoomComponent},
+      { path: 'chat-room', component:  SupervisorViewFeedbackComponent },
      
 
       { path: 'chat-room', component:  ChatRoomComponent,
@@ -95,7 +96,7 @@ const routes: Routes = [
       { path: 'supervisorViewCompany', component:SupervisorProfileViewCompanyComponent},
       { path: 'supervisorAnalysis',component:SupervisorProfileAnalysisComponent},
       { path: 'supervisorSettings',component:SupervisorProfileSettingsComponent},
-      { path: 'chat-room', component:  ChatRoomComponent},
+      { path: 'feedback', component:  SupervisorViewFeedbackComponent},
       { path: 'chat-room', component:  ChatRoomComponent,
         children :[
           {path:'feed',component:FeedASComponent}
