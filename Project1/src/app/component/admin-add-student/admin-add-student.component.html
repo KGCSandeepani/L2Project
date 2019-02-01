@@ -9,9 +9,17 @@
     <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3"><br>
 
     <label for="batch3"><b>Batch : </b></label>
-    <input type="number" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br>
+    <!-- <input type="number" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br> -->
 
-    <button type="button" id="addAll" (click)="uploadData($event,password3,batch3)">Add All Students</button>
+    <mat-form-field>
+            <mat-select placeholder="Batches" >
+            <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch3(bat.batch)" >
+                <a> {{bat.batch}} </a>
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+<br>
+    <button type="button" id="addAll" (click)="uploadData($event,password3)">Add All Students</button>
 
 </div>
 
@@ -28,9 +36,17 @@
     <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2"><br>
 
     <label for="batch2"><b>Batch : </b></label>
-    <input type="number" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br>
+    <!-- <input type="number" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br> -->
     
-    <button type="button" id="addAll" (click)="getData($event,password2,batch2)">Add All Students</button>
+    <mat-form-field>
+        <mat-select placeholder="Batches" >
+        <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch2(bat.batch)" >
+            <a> {{bat.batch}} </a>
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+<br>
+    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Students</button>
 </div>
 
 <br>
@@ -50,13 +66,21 @@
             <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username" ><br>
             <input type="text" placeholder="Enter Name" name="sname" [(ngModel)]="sname" ><br>
             <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
-            <input type="number" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br>
-
+            <!-- <input type="number" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br> -->
+                   
+            <mat-form-field>
+                <mat-select placeholder="Batches" >
+                <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch(bat.batch)" >
+                    <a> {{bat.batch}} </a>
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+              
         </div>
       </div>
      
         <button id="add" type="submit" >Add</button>
-        <button id="clear" type="button" (click)="username='';password='';batch='';">Clear</button><br>
+        <button id="clear" type="button" (click)="username='';password='';batch1='';">Clear</button><br>
     
     </div>
     

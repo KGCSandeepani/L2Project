@@ -11,6 +11,8 @@ import {saveAs} from 'file-saver';
 import { from } from 'rxjs';
 import { error } from '@angular/compiler/src/util';
 import { NgxNotificationService } from 'ngx-notification';
+import { GetPresentBatchService } from '../Services/get-present-batch.service';
+import { Batch } from '../Model/Batch';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -25,9 +27,11 @@ export class AdminAddStudentComponent implements OnInit {
 
   password2:any;
   password3:string;
+  batch1;
   batch2:string;
   batch3:string;
   student:student[];
+  batch: Batch[];
 
   spreadBackColor = 'aliceblue';
   hostStyle = {
@@ -38,22 +42,41 @@ export class AdminAddStudentComponent implements OnInit {
   private excelIO;
   private a;
 
-  constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,private authService: AuthChatASService,private ngxNotificationService: NgxNotificationService) { 
+  constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,
+    private authService: AuthChatASService,private ngxNotificationService: NgxNotificationService,
+    private getBatches: GetPresentBatchService) { 
     this.excelIO = new Excel.IO();
   }
 
   ngOnInit() {
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batch= data;
+    });
+  }
+
+  getSelectedBatch(batch){
+    this.batch1=batch;
+  }
+
+  getSelectedBatch2(batch){
+    this.batch2=batch;
+  }
+
+  getSelectedBatch3(batch){
+    this.batch3=batch;
   }
 
   onSubmit(formdata:NgForm){
-    if (formdata.value.uname==null || formdata.value.psw==null || formdata.value.batch==null ) {
+    if (formdata.value.uname==null || formdata.value.psw==null || this.batch1==null ) {
       this.sendNotification3();
       return;
     }
-    this.studentService.getStudentData(formdata)
+    this.studentService.getStudentData(formdata,this.batch1)
     .subscribe((data : student[] )=> {
         this.student = data;
         formdata.reset();  
+        this.batch1='';
         this.sendNotification4();  
     });
   }
@@ -67,8 +90,8 @@ export class AdminAddStudentComponent implements OnInit {
     sheet.getCell(0, 1).text('Name').foreColor('blue');   
   }
 
-  getData(args,psw2,batch2){
-    if (psw2==null || batch2==null ) {
+  getData(args,psw2){
+    if (psw2==null || this.batch2==null ) {
       this.sendNotification1();
       return;
     }
@@ -79,7 +102,7 @@ export class AdminAddStudentComponent implements OnInit {
               if(self.spread.getActiveSheet().getValue(index,0).length!=7){
                 this.sendNotification5();
               }
-              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),self.spread.getActiveSheet().getValue(index,1),psw2,batch2)
+              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),self.spread.getActiveSheet().getValue(index,1),psw2,parseInt(this.batch2))
               .subscribe((data : student[] )=> {
               this.student = data;
               });
@@ -109,8 +132,8 @@ export class AdminAddStudentComponent implements OnInit {
     }
   }
 
-  uploadData(args,psw3,batch3){
-    if (psw3==null) {
+  uploadData(args,psw3){
+    if (psw3==null || this.batch3==null) {
       this.sendNotification1();
       return;
     }
@@ -122,7 +145,7 @@ export class AdminAddStudentComponent implements OnInit {
         if(self.spread.getSheet(1).getValue(index,0).length!=7){
           this.sendNotification5();
         }
-        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),self.spread.getSheet(1).getValue(index,1),psw3,batch3)
+        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),self.spread.getSheet(1).getValue(index,1),psw3,parseInt(this.batch3))
         .subscribe((data : student[] )=> {
         this.student = data;
         });

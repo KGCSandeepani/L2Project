@@ -406,7 +406,7 @@ form input {
   display: block;
   text-align: center;
   font-size: 18px;
-  color: white;
+  color: rgb(0, 0, 0);
   transition-duration: 0.25s;
   font-weight: 300;
 }
@@ -433,7 +433,8 @@ form button {
   transition-duration: 0.25s;
 }
 form button:hover {
-  background-color: #f5f7f9;
+  background-color: #5d5e5f;
+  color: #dbdddd;
 }
 .bg-bubbles {
   position: absolute;

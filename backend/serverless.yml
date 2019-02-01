@@ -99,6 +99,14 @@ functions:
           method: post
           cors: true  
 
+  createBatch:
+    handler: Batch/create.create
+    events:
+      - http:
+          path: Batch
+          method: post
+          cors: true 
+
   list:
     handler: todos/list.list
     events:
@@ -163,6 +171,14 @@ functions:
           method: get
           cors: true 
 
+  listBatch:
+    handler: Batch/list.list
+    events:
+      - http:
+          path: Batch
+          method: get
+          cors: true 
+
   get:
     handler: todos/get.get
     events:
@@ -224,6 +240,14 @@ functions:
     events:
       - http:
           path: CompanyInternshipDetails/{name}
+          method: get
+          cors: true
+
+  getBatch:
+    handler: Batch/get.get
+    events:
+      - http:
+          path: Batch/{batch}
           method: get
           cors: true
 
@@ -296,6 +320,14 @@ functions:
     events:
       - http:
           path: CompanyInternshipDetails/{name}
+          method: put
+          cors: true
+
+  updateBatch:
+    handler: Batch/update.update
+    events:
+      - http:
+          path: Batch/{batch}
           method: put
           cors: true
 
@@ -491,4 +523,21 @@ resources:
             ReadCapacityUnits: 1
             WriteCapacityUnits: 1
           TableName: "admin"
+
+    TodosDynamoDbTable9:
+        Type: 'AWS::DynamoDB::Table'
+        DeletionPolicy: Retain
+        Properties:
+          AttributeDefinitions:
+          -
+            AttributeName: batch
+            AttributeType: N
+          KeySchema:
+          -
+            AttributeName: batch
+            KeyType: HASH
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+          TableName: "Batch"
           

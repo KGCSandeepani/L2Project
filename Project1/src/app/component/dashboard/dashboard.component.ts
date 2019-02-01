@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
+import { company } from 'src/app/component/Model/Company';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  company: Array<company>=[];
+  comCount=0;
+  constructor(private readCompanyService: AdminViewCompanyService) { }
 
   ngOnInit() {
+
+    this.readCompanyService.getData()
+    .subscribe(data => {this.company = data;
+      this.company.forEach(element => {
+        if (element.doInternship) {
+          this.comCount++;
+        }
+      });
+    });
+
   }
 
 }

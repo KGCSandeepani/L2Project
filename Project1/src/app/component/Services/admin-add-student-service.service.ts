@@ -9,7 +9,7 @@ export class AdminAddStudentServiceService {
   constructor(private http : HttpClient) { }
 
   /*sends get request and returns its response data */ 
-  getStudentData(formdata:NgForm){
+  getStudentData(formdata:NgForm, batch){
     return this
               .http
               .post('//localhost:3000/todos',
@@ -17,7 +17,7 @@ export class AdminAddStudentServiceService {
                 "text" : formdata.value.uname,
                 "text1" : formdata.value.sname,
                 "psw" : formdata.value.psw,
-                "batch" : formdata.value.batch          
+                "batch" : batch          
               }
             );
             
