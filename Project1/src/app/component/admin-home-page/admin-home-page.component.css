@@ -168,3 +168,17 @@ li a:hover:not(.active) {
   color: #6b3333;
   z-index: 10;
 }
+.msg {
+  position: fixed;
+  top:1%;
+  left:40.5%;    
+  font-size: 12px;
+  line-height: 13px;
+  border-radius: 45%;
+  width: 30px;
+  height: 20px;
+  background-color: #ff0000; 
+  border:0px solid #ff0000;
+  color: #6b3333;
+  z-index: 10;
+}

@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
-import { AuthChatASService } from '../Services/auth-chat-a-s.service';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
 import { ChatMessage } from '../Model/Chat-message.model';
 import { DataPassService } from '../Services/data-pass.service';
 import { BehaviorSubject } from 'rxjs';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })

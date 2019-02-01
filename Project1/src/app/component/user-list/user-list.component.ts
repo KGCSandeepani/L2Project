@@ -11,9 +11,8 @@ import { AdminreadstaffService } from 'src/app/component/Services/adminreadstaff
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { company } from 'src/app/component/Model/Company';
 import { ViewAdminsService } from '../Services/view-admins.service';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { UserListService } from '../Services/user-list.service';
+
 
 @Component({
   selector: 'app-user-list',
@@ -30,7 +29,7 @@ export class UserListComponent implements OnInit {
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
     private chatService: ChatServiceASService, private router: Router,
-    private readServiceAdmin: ViewAdminsService) { }
+    private readServiceAdmin: ViewAdminsService,private userList:UserListService) { }
   userN: string;
   editUser: string;// to symbolize the change in user
   ngOnInit() {

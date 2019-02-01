@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
-
+import { User } from '../Model/User.model';
 import { ChatServiceASService} from '../Services/chat-service-a-s.service'
+import { UserListService} from '../Services/user-list.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-chat-a-s',
@@ -9,11 +11,14 @@ import { ChatServiceASService} from '../Services/chat-service-a-s.service'
   styleUrls: ['./chat-a-s.component.css']
 })
 export class ChatASComponent implements OnInit {
-  
+  users: Observable<any[]>;
   message : string;
-  constructor(private chat: ChatServiceASService,private _scrollToService: ScrollToService) { }
-
+  constructor(private chat: ChatServiceASService,private _scrollToService: ScrollToService,
+    private userlist:UserListService) { }
+  // Users:User[];
   ngOnInit() {
+    // this.userlist.sendUser("Admin");// send currentlt logged in user to db
+    // this.users=this.userlist.getMessages().valueChanges();// get that returned value
   }
 
   send() {
@@ -21,10 +26,19 @@ export class ChatASComponent implements OnInit {
     console.log(this.message);
     this.chat.sendMessage(this.message);
     this.message="";
-
+    // this.userlist.sendUser("Admin");
+    this.userlist.update();
+    // this.userlist.updateReadCount();
     // this.triggerScrollTo();
    
   }
+
+  // sendFire(User) {
+  //   this.userlist.updateReadCount(User);
+    
+    
+   
+  // }
 
   
   handleSubmit(event){

@@ -105,7 +105,7 @@ import { LoggingSupervisorServiceService } from './component/Services/logging-su
 import { SupervisorProfileComponent } from './component/supervisor-profile/supervisor-profile.component';
 import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
 import { ViewAdminsService } from './component/Services/view-admins.service';
-
+import { UserListService } from './component/Services/user-list.service';
 
 @NgModule({
   declarations: [
@@ -191,7 +191,7 @@ import { ViewAdminsService } from './component/Services/view-admins.service';
               SupervisorChangePasswordServiceService,
               SupervisorViewCompanyServiceService,
               LoggingSupervisorServiceService,
-              ViewAdminsService, 
+              ViewAdminsService, UserListService,
               AdminChangeNoOfCompanyService],
   bootstrap: [AppComponent]
 })

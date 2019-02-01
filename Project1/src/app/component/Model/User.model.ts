@@ -1,7 +1,6 @@
 export class User {
-    uid?: string;
-    email?: string;
-    username?: string;
-    password?: string;
-    status?: string;
+    uid: string;
+    readCount?: number;
+    status: boolean;
+    // users: string[];
 }

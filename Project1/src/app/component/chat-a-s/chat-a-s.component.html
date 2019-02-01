@@ -16,10 +16,14 @@
   </div>
 </div>
 <div style="background :rgb(214, 214, 214); width:1000px; height:70px;">
-  <div class="type_msg">
+  
+  <div class="type_msg" >
     <div class="input_msg_write">
+      <!-- <table>
+        <tr *ngFor ="let user of users"></tr>
+      </table> -->
       <input [(ngModel)]="message" class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
-      <button class="msg_send_btn" (click)=send(); type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+      <button class="msg_send_btn" (click)="send(); " type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </div>
   </div>
 </div>
