@@ -19,9 +19,9 @@
   
   /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
-  .container-contact100{
-      overflow-y: scroll;
-  }
+  /* .container-contact100{
+      
+  } */
   * {
       margin: 0px; 
       padding: 0px; 
@@ -29,8 +29,9 @@
   }
   
   body, html {
-      height: 100%;
+      height: auto;
       font-family: Oswald-Regular, sans-serif;
+      overflow-y: scroll;
   }
   
   /*---------------------------------------------*/

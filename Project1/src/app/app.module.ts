@@ -34,6 +34,7 @@ import { TitleComponent } from './component/title/title.component';
 import { ChatASComponent } from './component/chat-a-s/chat-a-s.component';
 import { FeedASComponent } from './component/feed-a-s/feed-a-s.component';
 import { MessageASComponent } from './component/message-a-s/message-a-s.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -176,6 +177,7 @@ import { UserListService } from './component/Services/user-list.service';
     ChartsModule,
     ScrollToModule.forRoot(),
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
    ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule
   ],

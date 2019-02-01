@@ -1,35 +1,89 @@
-<mat-grid-list  cols="4" rowHeight="50px">
-    
-    <mat-grid-tile class = "u"  colspan="4" rowspan="1">
-        
-    </mat-grid-tile>
-    <mat-grid-tile class = "m" colspan="4" rowspan="14" >
-        <div class="container-contact100">
+<mat-grid-list cols="4" rowHeight="50px">
+
+  <mat-grid-tile class="u" colspan="4" rowspan="1">
+
+  </mat-grid-tile>
+  <mat-grid-tile class="m" colspan="4" rowspan="14">
+    <!-- <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <h3>Angular 6 Reactive Form Validation</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary">Register</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p>
+        <a href="http://jasonwatmore.com/post/2018/05/10/angular-6-reactive-forms-validation-example" target="_top">Angular
+          6 - Reactive Forms Validation Example</a>
+      </p>
+      <p>
+        <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+      </p>
+    </div> -->
+    <div class="container-contact100">
             <div class="wrap-contact100">
               <form class="contact100-form validate-form">
                 <span class="contact100-form-title">
                   Get in Touch
                 </span>
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
-                  <input class="input100" id="name" type="text" name="name" placeholder="Name">
+                  <input [(ngModel)]="name" class="input100" id="name" type="text" name="name" placeholder="Name">
                   <label class="label-input100" for="name">
                     <span class="lnr lnr-user"></span>
                   </label>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                  <input class="input100" id="email" type="text" name="email" placeholder="Email">
+                  <input [(ngModel)]="email" class="input100" id="email" type="text" name="email" placeholder="Email">
                   <label class="label-input100" for="email">
                     <span class="lnr lnr-envelope"></span>
                   </label>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                  <input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+                  <input [(ngModel)]="phone" class="input100" id="phone" type="text" name="phone" placeholder="Phone">
                   <label class="label-input100" for="phone">
                     <span class="lnr lnr-phone-handset"></span>
                   </label>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
-                  <textarea class="input100" name="message" placeholder="Your message..."></textarea>
+                  <textarea [(ngModel)]="feedback" class="input100" id="feedback" name="message" placeholder="Your message..."></textarea>
                 </div>
                 <div class="contact100-form-checkbox">
                   <input class="input-checkbox100" id="ckb1" type="checkbox" name="copy-mail">
@@ -40,8 +94,8 @@
                 <div class="container-contact100-form-btn">
                   <div class="wrap-contact100-form-btn">
                     <div class="contact100-form-bgbtn"></div>
-                    <button class="contact100-form-btn">
-                      Send Email
+                    <button class="contact100-form-btn" (click)=saveMessage()>
+                      Send 
                     </button>
                   </div>
                 </div>
@@ -74,7 +128,6 @@
           
             gtag('config', 'UA-23581568-13');
           </script>
-    </mat-grid-tile>
-    
-  </mat-grid-list>
+  </mat-grid-tile>
 
+</mat-grid-list>
