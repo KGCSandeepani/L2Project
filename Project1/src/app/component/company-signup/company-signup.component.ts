@@ -11,7 +11,7 @@ import { GetNoOfCompanyService } from 'src/app/component/Services/get-no-of-comp
 import { AdminViewCompanyService } from '../Services/admin-view-company.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgxNotificationService } from 'ngx-notification';
-
+// import {FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-company-signup',
   templateUrl: './company-signup.component.html',
@@ -75,6 +75,11 @@ export class CompanySignupComponent implements OnInit {
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
-
+  // email = new FormControl('', [Validators.required, Validators.email]);
+  // getErrorMessage() {
+  //   return this.email.hasError('required') ? 'You must enter a value' :
+  //       this.email.hasError('email') ? 'Not a valid email' :
+  //           '';
+  // }
 }
 

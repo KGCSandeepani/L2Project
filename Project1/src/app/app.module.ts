@@ -77,7 +77,8 @@ import {
   MatInputModule,
   MatTableModule,
   MatSortModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatDialogModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
@@ -108,6 +109,17 @@ import { SupervisiorDashboardComponent } from './component/supervisior-dashboard
 import { ViewAdminsService } from './component/Services/view-admins.service';
 import { UserListService } from './component/Services/user-list.service';
 import { SupervisorViewFeedbackComponent } from './component/supervisor-view-feedback/supervisor-view-feedback.component';
+import { FusionChartsModule } from 'angular-fusioncharts';
+
+// Import FusionCharts library
+import * as FusionCharts from 'fusioncharts';
+
+// Load FusionCharts Individual Charts
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+
+// Use fcRoot function to inject FusionCharts library, and the modules you want to use
+FusionChartsModule.fcRoot(FusionCharts, Charts)
+
 
 @NgModule({
   declarations: [
@@ -182,7 +194,8 @@ import { SupervisorViewFeedbackComponent } from './component/supervisor-view-fee
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
-   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule
+   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatDialogModule,
+   FusionChartsModule 
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

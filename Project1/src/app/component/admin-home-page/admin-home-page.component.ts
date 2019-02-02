@@ -8,6 +8,9 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { User } from '../Model/User.model';
 import { UserListService } from '../Services/user-list.service';
+import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
+import { company } from 'src/app/component/Model/Company';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-admin-home-page',
@@ -18,20 +21,23 @@ export class AdminHomePageComponent implements OnInit {
 
   constructor(private data: DataPassService, private getCount: CountNumberReqCompanyService,
     private route: ActivatedRoute, private router: Router, private db: AngularFireDatabase,
-    private user: UserListService) { }
+    private user: UserListService,private readService: CompanySignupService) { }
 
   value: string = '';
   count: number = 0;
   msgCount: number = 0;
   loger: string;
-  //displayButton : boolean = false;
+  i=0;
   currentUserAdmin: Observable<any>;
   currentUserRefAdmin: AngularFireList<any>
   message: string;
   loggedUser: string;
-  ngOnInit() {
+  company: company[];
+  com : Array<company>=[];
 
-    this.getValue();
+  ngOnInit() {
+    this.getReqComCount();
+    //this.getValue();
     //this.data.currentMessage.subscribe(message => this.message = message);
 
     /*if(this.data.getMessage()!=null)
@@ -56,18 +62,17 @@ export class AdminHomePageComponent implements OnInit {
     //location.reload();
   }
 
-  getValue() {
+ /* getValue() {
     this.value = this.getCount.setDetails();
     // console.log(this.value);
     this.count = +this.value;
     // console.log(this.value);
 
   }
-
   clearValue() {
     this.getCount.clearDetails();
 
-  }
+  }*/
 
   addStudent() {
     this.router.navigate(['adminAddStudent'], { relativeTo: this.route });
@@ -76,6 +81,19 @@ export class AdminHomePageComponent implements OnInit {
   clearCount() {
     this.count = 0;
     // console.log(this.count);
+  }
+
+  getReqComCount(){
+
+    this.readService.getData()
+    .subscribe(data => {this.company = data;
+      this.company.forEach(element => {
+        this.com[this.i]=element;
+        this.i++;
+      });
+      this.count = this.com.length;
+      console.log(this.com.length+"in");
+    });
   }
 
 }

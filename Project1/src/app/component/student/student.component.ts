@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ReadUnamePswServiceService } from 'src/app/component/Services/read-uname-psw-service.service';
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { student } from '../Model/Student';
-import { relative } from 'path';
+//import { relative } from 'path';
 
 @Component({
   selector: 'app-student',

@@ -1,5 +1,5 @@
 <p></p>
-<h2 class="text-center">students vs. preferences</h2>
+<!-- <h2 class="text-center">students vs. preferences</h2>
 <div class="container">
     <canvas baseChart
           [data]="pieChartData"
@@ -8,4 +8,11 @@
           [options]="pieChartOptions"
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)"></canvas>
-        </div> 
+        </div>  -->
+
+    <fusioncharts 
+        width="1000" 
+        height="500"
+        type="pie3d"
+        [dataSource]=dataSource >
+    </fusioncharts>

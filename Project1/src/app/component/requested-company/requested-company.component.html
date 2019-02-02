@@ -4,7 +4,6 @@
 <table class="table">
     <thead>
   <tr>
-    <th></th>
     <th> Company Name    </th>
     <th> Location    </th>
     <th> Contact Person</th>
@@ -16,7 +15,6 @@
 </thead>
 <tbody>
   <tr *ngFor = "let compan of company">
-      <td><input type="checkbox"> </td>
       <td>{{compan.name}} </td>
       <td>{{compan.location}}</td>
       <td>{{compan.cpname}}</td>
@@ -27,7 +25,7 @@
           <mat-icon color= "primary">done</mat-icon></button>
      </td>
      <td>
-      <button mat-button (click)="onReject(compan.name)"><mat-icon color = "warn">delete</mat-icon></button>
+      <button mat-button (click)="onReject(compan.name)"  ><mat-icon color = "warn">delete</mat-icon></button>
    </td> 
   </tr>
 </tbody>

@@ -69,7 +69,7 @@
             <a class="w3-bar-item  w3-padding-large w3-hide-small">IMS @ FIT</a>
             <a routerLink="./adminDashboard" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a> 
             <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large">ADD</a>
-            <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()"
+            <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" 
               class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTED COMPANY</a>
             <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small" (click)="clearNotification()">MSG</a>
             <a routerLink="./adminAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
@@ -97,7 +97,7 @@
         </div>
         <span class="msg" *ngIf="msgCount > 0" (click)=clearNotification()><span class="msg">new message</span></span>
 
-        <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
+        <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">{{count}}</span></span>
         <!-- <ul>
         <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
         <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
@@ -127,9 +127,6 @@
       <div class="rest" >
         <router-outlet></router-outlet>
       </div>
-
-
-      <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
 
     <!-- </mat-grid-tile>
 

@@ -157,11 +157,11 @@ li a:hover:not(.active) {
 .badge {
   position: fixed;
   top:0%;
-  left: 30%;    
+  left: 34.5%;    
   font-size: 12px;
   line-height: 13px;
-  border-radius: 45%;
-  width: 30px;
+  border-radius: 50%;
+  width: 20px;
   height: 20px;
   background-color: #ff0000; 
   border:0px solid #ff0000;

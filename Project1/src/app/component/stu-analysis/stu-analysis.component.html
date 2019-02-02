@@ -1,16 +1,81 @@
 <p></p>
-
-<h2 class="text-center">students vs. companies </h2>
-<div>
-    <div class="container">
-        <canvas baseChart
+    <!-- <h2 class="text-center">students vs. companies </h2>
+   <div style="display: block" *ngIf="barChartData.length > 0">
+    <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
             [legend]="barChartLegend"
-            [chartType]="barChartType">
-        </canvas>
-      </div>
-     
-</div> 
+            [chartType]="barChartType"></canvas>
+  </div> -->
+<div class="main"> 
+  <table class="table" style="width:60%;">
+    <thead>
+      <tr>    
+        <th> No of Companies </th>
+        <td >{{count3}}</td>
+      </tr>
+      <tr> 
+        <th> No of companies give intern </th>
+        <td >{{count1}}</td>
+      </tr>
+      <tr>
+        <th> No of companies do not give intern </th>
+        <td >{{count2}}</td>
+      </tr> 
+    </thead>
+  </table>
+</div>
+
+
+<div class="card shadow">
+  <div class="card-body chart-wrapper">
+    <div class="chart-wrapper-inner" >
+        <fusioncharts
+          width="50%" 
+          height="400"
+          type="column3d"
+          [dataSource]=dataSource
+          (initialized)="initialized($event)">
+        </fusioncharts> 
+      <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow">
+  <div class="card-body chart-wrapper">
+    <div class="chart-wrapper-inner" >
+        <fusioncharts
+          width="50%" 
+          height="400"
+          type="column3d"
+          [dataSource]=datasource
+          (initialized)="initialized($event)">
+        </fusioncharts> 
+      <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="main">
+  <table class="table" style="width:60%;text-align:center;">
+    <thead>
+      <tr>    
+        <th> Company Name </th>
+        <th> No of students </th>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor="let student of orgName let k = index">
+    <td>{{student}}</td>
+    <td>{{orgNum[k]}}</td>  
+  </tr>      
+</tbody>
+</table>
+</div>
+
+
 
