@@ -70,7 +70,7 @@
             <div *ngFor="let item of array" >       
               <mat-form-field>
                 <mat-select placeholder="Preferred Organization" >
-                  <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(item,com.name)">
+                  <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(com.name)">
                     <a *ngIf="com.doInternship">{{com.name}}</a>
                   </mat-option>
                 </mat-select>

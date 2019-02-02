@@ -25,7 +25,6 @@ module.exports.create = (event, context, callback) => {
       password: data.psw,
       email: data.text2,
       contactNo: data.text3,
-      password: data.psw,
     },
   };
 

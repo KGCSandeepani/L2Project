@@ -69,7 +69,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   onSubmit(formdata:NgForm){
-    if (formdata.value.uname==null || formdata.value.psw==null || this.batch1==null ) {
+    if (formdata.value.uname==null || formdata.value.sname==null || formdata.value.psw==null || this.batch1==null ) {
       this.sendNotification3();
       return;
     }

@@ -97,7 +97,7 @@ retrieveCom(){
 }
 getCompany(item: number,companyname: String){
   console.log(this.loger+" : "+item+" : "+ companyname);
-  this.stuCompany.getStuSelectedCompany(this.loger,item,companyname)
+  this.stuCompany.getStuSelectedCompany(this.loger,companyname)
   .subscribe((data : StuSelectedCompany)=>this.selectedCompany = data);
   
 }

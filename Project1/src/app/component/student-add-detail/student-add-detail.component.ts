@@ -38,7 +38,7 @@ export class StudentAddDetailComponent implements OnInit {
   interest1 : String;
   interest2 : String;
   interest3 : String;
-
+  companyname:String;
   loger: string ;
   message : string;
   disableButton =true;
@@ -76,9 +76,10 @@ export class StudentAddDetailComponent implements OnInit {
           
   }
 
-  getCompany(item: number,companyname: String){
-    console.log(this.loger+" : "+item+" : "+ companyname);
-    this.stuCompany.getStuSelectedCompany(this.loger,item,companyname)
+  getCompany(companyname: String){
+    console.log(this.loger+" : "+ companyname);
+    this.companyname=companyname;
+    this.stuCompany.getStuSelectedCompany(this.loger,companyname)
     .subscribe((data : StuSelectedCompany)=>this.selectedCompany = data);
     
   }

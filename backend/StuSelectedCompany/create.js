@@ -21,7 +21,7 @@ module.exports.create = (event, context, callback) => {
     Item: {
       id: uuid.v1(),
       name: data.text,
-      num:data.num,
+      //num:data.num,
       organization: data.organization,
       //checked: false,
       //createdAt: timestamp,

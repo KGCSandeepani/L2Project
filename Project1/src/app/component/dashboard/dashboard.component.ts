@@ -14,19 +14,19 @@ import { student } from '../Model/Student';
 export class DashboardComponent implements OnInit {
 
   company: Array<company>=[];
-  comCount= 0;
-  allCompany =0 ;
+  comCount: number= 0;
+  allCompany: number =0 ;
   batch: Batch[];
   maxBatch: number = 0;
   students: student[];
   stuCount: number = 0;
-  cvUploadedCount = 0;
-  allStudent = 0;
-  presentageCVUpload = 0 ;
-  selectedStudent = 0;
-  presentageCompamy = 0;
+  cvUploadedCount: number = 0;
+  allStudent: number = 0;
+  presentageCVUpload: number = 0 ;
+  selectedStudent: number = 0;
+  presentageCompamy: number = 0;
   companyList : Array<company>=[];
-  i=0;
+  i: number=0;
 
   constructor(private readCompanyService: AdminViewCompanyService, private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService) { }
 

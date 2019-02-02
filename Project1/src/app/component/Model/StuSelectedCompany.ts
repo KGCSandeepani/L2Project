@@ -1,6 +1,6 @@
 export interface StuSelectedCompany {
     id : String,
     name : String,
-    number : number,
+    //number : number,
     organization : String,
 }

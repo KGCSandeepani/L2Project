@@ -7,7 +7,7 @@ module.exports.get = (event, context, callback) => {
     TableName: "StuSelectedCompany",
     Key: {
       name: event.pathParameters.name,
-      num: event.pathParameters.num,
+      organization: event.pathParameters.organization,
     },
   };
 

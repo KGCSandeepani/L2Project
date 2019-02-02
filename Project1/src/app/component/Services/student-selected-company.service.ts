@@ -9,13 +9,13 @@ export class StudentSelectedCompanyService {
 
   constructor(private http : HttpClient) { }
 
-  getStuSelectedCompany(name: String, num: number, organization: String){
+  getStuSelectedCompany(name: String, organization: String){
     return this
               .http
               .post('//localhost:3000/StuSelectedCompany',
               {
                 "text" : name,
-                "num" : num,
+                //"num" : num,
                 "organization" : organization             
               }
             );
