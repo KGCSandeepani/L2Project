@@ -20,7 +20,8 @@ export interface student  {
     interest1 : String;
     interest2 : String;
     interest3 : String; 
-    cv : File;   
+    cv : File;  
+    uploadPdfUrl; 
     selectedCompany : String;
     position: DoubleRange[]
 }

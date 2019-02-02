@@ -22,7 +22,7 @@
     <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
       <div class="w3-container w3-row">
         <div class="w3-col s4">
-          <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+          <img src="../../../favicon2.png" class="w3-circle w3-margin-right" style="width:46px">
         </div>
         <div class="w3-col s8 w3-bar">
           <span>Welcome, <strong>Admin</strong></span><br>
@@ -155,31 +155,32 @@
       <hr>
       <div class="w3-container">
         <h5>General Stats</h5>
+        
+        <div class="w3-grey">
+          <div class="w3-container w3-center w3-padding w3-green" [style.width.%]="[presentageCVUpload]">{{presentageCVUpload}}%</div>
+        </div>
         <p>CV uploads</p>
+        
         <div class="w3-grey">
-          <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+          <div class="w3-container w3-center w3-padding w3-orange" [style.width.%]="[selectedStudent]">{{selectedStudent}}%</div>
         </div>
-    
         <p>Selected Students</p>
+        
         <div class="w3-grey">
-          <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+          <div class="w3-container w3-center w3-padding w3-red" [style.width.%]="[presentageCompamy]">{{presentageCompamy}}%</div>
         </div>
-    
-        <p>Remaing companies to call internships</p>
-        <div class="w3-grey">
-          <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
-        </div>
+        <p>Companies which offer internships</p>
       </div>
       <hr>
     
       <div class="w3-container">
-        <h5>Remaing companies</h5>
+        <h5>Companies which offer internships</h5>
         <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-          <tr>
-            <td>99X</td>
+          <tr *ngFor="let comp of companyList">
+            <td> {{ comp.name }} </td>
             <td>65%</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>WSO2</td>
             <td>15.7%</td>
           </tr>
@@ -198,7 +199,7 @@
           <tr>
             <td>Creative Software</td>
             <td>1.5%</td>
-          </tr>
+          </tr> -->
         </table><br>
         <button class="w3-button w3-dark-grey">More Companies  <i class="fa fa-arrow-right"></i></button>
       </div>
