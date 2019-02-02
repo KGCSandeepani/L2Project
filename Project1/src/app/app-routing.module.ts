@@ -72,7 +72,7 @@ const routes: Routes = [
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
       { path: 'adminDashboard', component: DashboardComponent },
       { path: 'adminSetting', component: AdminSettingComponent },
-      { path: 'chat-room', component:  SupervisorViewFeedbackComponent },
+      { path: 'chat-room', component:  ChatRoomComponent },
      
 
       { path: 'chat-room', component:  ChatRoomComponent,

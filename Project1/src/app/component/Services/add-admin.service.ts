@@ -9,7 +9,7 @@ export class AddAdminService {
 
   constructor(private http : HttpClient) { }
 
-  getSupervisorData(name:String, uname:String, psw:String , email:String , contactno:String){
+  getSupervisorData(name:String, uname:String, psw:String , email:String , contactno:String ){
     return this
               .http
               .post('//localhost:3000/todosAdmin',
@@ -18,7 +18,7 @@ export class AddAdminService {
                 "text1" : uname,
                 "psw" : psw,
                 "text2" : email,
-                "text3": contactno            
+                "text3": contactno,          
               }
             );
             

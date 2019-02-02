@@ -52,7 +52,7 @@ export class UserListComponent implements OnInit {
 
     //get admins
     this.readServiceAdmin.getData()
-      .subscribe(data => this.admin = data);
+      .subscribe(data => {this.admin = data; console.log(data+ " is admin data" );});
     console.log(this.admin);
   }
 
