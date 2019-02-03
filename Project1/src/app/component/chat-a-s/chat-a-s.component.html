@@ -22,7 +22,7 @@
       <!-- <table>
         <tr *ngFor ="let user of users"></tr>
       </table> -->
-      <input [(ngModel)]="message" class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
+      <input [(ngModel)]="message" (click)="clear(); " class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
       <button class="msg_send_btn" (click)="send(); " type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </div>
   </div>

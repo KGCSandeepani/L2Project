@@ -38,6 +38,9 @@ export class ChatASComponent implements OnInit {
 
 
   // }
+  clear(){
+    this.userlist.clearRecepientMsgCount();
+  }
 
 
   handleSubmit(event) {

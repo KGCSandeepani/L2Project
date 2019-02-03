@@ -31,25 +31,26 @@ export class UserListComponent implements OnInit {
   supervisors: staff[];
   company: company[];
   admin: admin[];
-  items:string;
-  user : Array<String> = [];
-  i=0;
+  items: string;
+  user: Array<String> = [];
+  i = 0;
+  recepientMsgCount: number = 0;
   // items: Observable<any[]>;
 
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
     private chatService: ChatServiceASService, private router: Router,
-    private readServiceAdmin: ViewAdminsService, private userList: UserListService, 
-    private data: DataPassService) { 
-      this.loggedUser=data.getMessage();
-    }
+    private readServiceAdmin: ViewAdminsService, private userList: UserListService,
+    private data: DataPassService) {
+    this.loggedUser = data.getMessage();
+  }
   userN: string;
   editUser: string;// to symbolize the change in user
 
   ngOnInit() {
     this.readService.getData()
       .subscribe(data => this.students = data);
-    console.log(this.students);
+    // console.log(this.students);
 
     //just to view clicked user
     this.chatService.cast.subscribe(userN => this.userN = userN);
@@ -57,17 +58,17 @@ export class UserListComponent implements OnInit {
     //get supervispr list
     this.readServiceStaff.getData()
       .subscribe(data => this.supervisors = data);
-    console.log(this.supervisors);
+    // console.log(this.supervisors);
 
     //get companies
     this.readServiceCompany.getData()
       .subscribe(data => this.company = data);
-    console.log(this.company);
+    // console.log(this.company);
 
     //get admins
     this.readServiceAdmin.getData()
       .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
-    console.log(this.admin);
+    // console.log(this.admin);
 
     this.getRecepient();
 
@@ -77,7 +78,7 @@ export class UserListComponent implements OnInit {
 
     this.chatService.editUser(student);
 
-    
+
   }
 
   getRecepient() {
@@ -89,8 +90,11 @@ export class UserListComponent implements OnInit {
 
     userRef.on('value', (snapshot) => {
       snapshot.forEach((child) => {
-        console.log(child.key);
-        this.items=child.key;
+        console.log(child.key + " child key");
+        console.log(child.val().read + " child values");
+        this.recepientMsgCount=child.val().read;
+
+        this.items = child.key;
         this.user[this.i] = child.key;
         this.i++;
         // console.log("intVal", this.items);
@@ -98,16 +102,16 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  sendRec(student: any){
+  sendRec(student: any) {
     //send recepient to database
-console.log(name+"  is cliked userrrr");
+    // console.log(name+"  is cliked userrrr");
 
-//to add clicked user to recepient list in db
-this.userList.sendRecepient(student.name);
+    //to add clicked user to recepient list in db
+    this.userList.sendRecepient(student.name);
   }
 
-  sendReceiver(name:string ){
-this.userList.getReceiver(name);
+  sendReceiver(name: string) {
+    this.userList.getReceiver(name);
   }
 
 }

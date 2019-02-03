@@ -33,6 +33,8 @@ this.receiverU=user;
     var refU = firebase.database().ref("userList").child(this.receiverU);
     refU.update({ readCount: 1 });
 console.log("inside update");
+
+refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
     // ref.orderByChild("userList").equalTo(this.loggedUser).once("value", function (snapshot) {
     //   snapshot.forEach(function (user) {
     //     user.ref.update({ readCount: 1 });
@@ -49,6 +51,20 @@ console.log("inside update");
     this.loggedUser = this.dataPass.getMessage();
     var refC = firebase.database().ref("userList").child(this.loggedUser);
     refC.update({ readCount: 0 });
+
+    //used to get data when firebase has its auto generated id
+    // var ref = firebase.database().ref("userList");
+    // ref.orderByChild("uid").equalTo(this.loggedUser).once("value", function (snapshot) {
+    //   snapshot.forEach(function (user) {
+    //     user.ref.update({ readCount: 0 });
+    //   });
+    // });
+  }
+  clearRecepientMsgCount() {
+    //clear the msg count
+    this.loggedUser = this.dataPass.getMessage();
+    var refC = firebase.database().ref("userList").child(this.loggedUser);
+    refC.child('recepients').child(this.receiverU).update({ read: 0 });
 
     //used to get data when firebase has its auto generated id
     // var ref = firebase.database().ref("userList");

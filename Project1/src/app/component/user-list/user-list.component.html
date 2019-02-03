@@ -8,39 +8,36 @@
       </div>
       <div class="srch_bar">
         <div class="stylish-input-group">
-            <span class="input-group-addon">
+          <span class="input-group-addon">
             <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-          </span>        
-          <input type="text" class="search-bar" placeholder="Search"  [matAutocomplete]="auto">
+          </span>
+          <input type="text" class="search-bar" placeholder="Search" [matAutocomplete]="auto">
 
           <mat-autocomplete #auto="matAutocomplete">
-              <b>Admins</b>
-              <mat-option *ngFor="let admin of admin" [value]="admin.name" 
-              (click)="sendRec(admin)" [ngClass]="'active'">
-                {{admin.name}}
-              </mat-option>
-              <br>
+            <b>Admins</b>
+            <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
+              {{admin.name}}
+            </mat-option>
+            <br>
             <b>Students</b>
-              <mat-option *ngFor="let student of students" [value]="student.name" 
-              (click)="sendRec(student)" [ngClass]="'active'">
-                {{student.name}}
-              </mat-option>
-              <br>
-              <b>Supervisors</b>
-              <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" 
-              (click)="sendRec(supervisor)" [ngClass]="'active'">
-                {{supervisor.name}}
-              </mat-option>
-              <br>
-              <b>Companies</b>
-              <mat-option *ngFor="let company of company" [value]="company.name" 
-              (click)="sendRec(company)" [ngClass]="'active'">
-                {{company.name}}
-              </mat-option>
-            </mat-autocomplete>
-          
+            <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)" [ngClass]="'active'">
+              {{student.name}}
+            </mat-option>
+            <br>
+            <b>Supervisors</b>
+            <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" (click)="sendRec(supervisor)"
+              [ngClass]="'active'">
+              {{supervisor.name}}
+            </mat-option>
+            <br>
+            <b>Companies</b>
+            <mat-option *ngFor="let company of company" [value]="company.name" (click)="sendRec(company)" [ngClass]="'active'">
+              {{company.name}}
+            </mat-option>
+          </mat-autocomplete>
+
         </div>
-        
+
       </div>
     </div>
 
@@ -52,11 +49,21 @@
           <table class="table">
 
             <tbody>
-                <tr *ngFor="let us of user">
-                    <td (click)="editTheUser(us);sendReceiver(us);" > {{us}} </td>
-                  </tr>
+              <tr *ngFor="let us of user">
+                <!-- <div *ngIf="true ">
+                  <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>
+                </div>
+                <div *ngIf="recepientMsgCount==0">
+                  <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
+                </div> -->
 
-                  
+                <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
+                <ng-template #content> <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td></ng-template>
+                <ng-template #other_content> <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td></ng-template>
+
+              </tr>
+
+
 
               <!-- <div class="messageContainer">
 
