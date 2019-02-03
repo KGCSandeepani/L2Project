@@ -5,6 +5,9 @@ import { ReadUnamePswServiceService } from 'src/app/component/Services/read-unam
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { student } from '../Model/Student';
 //import { relative } from 'path';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
+import { UserListService } from '../Services/user-list.service';
 
 @Component({
   selector: 'app-student',
@@ -13,22 +16,40 @@ import { student } from '../Model/Student';
 })
 export class StudentComponent implements OnInit {
 name:string;
-  
-
+msgCount: number = 0;
+currentUserAdmin: Observable<any>;
+  currentUserRefAdmin: AngularFireList<any>
   loger: string ;
   message : string;
   logstudent : student;
 
-  constructor(private data : DataPassService,private router : Router, private logStudent: LoggingStudentService) { }
+  constructor(private data : DataPassService,private db: AngularFireDatabase,
+    private router : Router,private user: UserListService,
+     private logStudent: LoggingStudentService) { }
 
   ngOnInit() {
     this.loger = this.data.getMessage();
+    this.msgNotification();
     console.log(this.loger+"in the student");
+  }
+  msgNotification() {
+    this.loger = this.data.getMessage();
+    this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loger).orderByChild('readCount'));
+    this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    this.currentUserAdmin.subscribe(res => { this.msgCount = res[0];console.log("msgCount", res[0] ); });
+  
   }
 
   logout(){
     sessionStorage.clear();    
     this.router.navigate(['/login']);
+  }
+
+  clearNotification() {
+    //clear notification count of user
+    console.log("insdie clear notification");
+    this.msgCount = 0;
+    this.user.clear();
   }
 
   studentAdd(){

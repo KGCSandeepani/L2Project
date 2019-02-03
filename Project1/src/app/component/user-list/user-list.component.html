@@ -53,7 +53,7 @@
 
             <tbody>
                 <tr *ngFor="let us of user">
-                    <td (click)="editTheUser(us)" > {{us}} </td>
+                    <td (click)="editTheUser(us);sendReceiver(us);" > {{us}} </td>
                   </tr>
 
                   

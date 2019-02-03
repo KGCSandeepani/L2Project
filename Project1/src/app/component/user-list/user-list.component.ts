@@ -101,8 +101,13 @@ export class UserListComponent implements OnInit {
   sendRec(student: any){
     //send recepient to database
 console.log(name+"  is cliked userrrr");
-//to add clicked user to recepient list
+
+//to add clicked user to recepient list in db
 this.userList.sendRecepient(student.name);
+  }
+
+  sendReceiver(name:string ){
+this.userList.getReceiver(name);
   }
 
 }

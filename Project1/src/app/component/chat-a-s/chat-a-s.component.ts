@@ -24,8 +24,8 @@ export class ChatASComponent implements OnInit {
   }
 
   send() {
-    console.log("inside send");
-    console.log(this.message);
+    // console.log("inside send");
+    // console.log(this.message);
     this.chat.sendMessage(this.message);
     this.message = "";
     // this.userlist.sendUser("Admin");
