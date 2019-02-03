@@ -26,6 +26,7 @@ export class StudentEditDetailComponent implements OnInit {
     message : string;
     student:student;
     StuSelectedCompany:StuSelectedCompany[];
+    StuSelectedCompany1:Array<StuSelectedCompany> = [];
     name:string;
     urlForSave: string;
     logger: string;
@@ -40,6 +41,7 @@ export class StudentEditDetailComponent implements OnInit {
     interest3 : String;  
     disableButton =true;
     probar=false;
+    l=0;
 
     constructor(private data : DataPassService,
                 private ngxNotificationService: NgxNotificationService,
@@ -64,9 +66,9 @@ export class StudentEditDetailComponent implements OnInit {
     .subscribe(data => {this.noOfCompany = data;
     this.num=this.noOfCompany.amount;
    
-    if(this.num==null){
-      this.num=1;
-    }
+    // if(this.num==null){
+    //   this.num=1;
+    // }
     for (let index = 0; index < this.num; index++) {
       this.array[index]=index+1;         
     }
@@ -82,6 +84,9 @@ readData(){
     .subscribe((data : student )=> {
       this.student = data;
       console.log(this.student);
+      this.interest1=this.student.interest1;
+      this.interest2=this.student.interest2;
+      this.interest3=this.student.interest3;
    
    });
 }
@@ -92,6 +97,12 @@ retrieveCom(){
     .subscribe((data : StuSelectedCompany[] )=> {
       this.StuSelectedCompany = data;
       console.log(this.StuSelectedCompany);
+      this.StuSelectedCompany.forEach(element => {
+        if (element.name==this.loger) {
+          this.StuSelectedCompany1[this.l] = element;
+          this.l++;
+        }
+      });
    
   });
 }

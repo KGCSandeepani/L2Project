@@ -42,15 +42,17 @@
             <input type="text" placeholder="Enter L2S1 GPA" name="l2s1" [(ngModel)]="student.l2s1" ><br>
             <input type="text" placeholder="Enter L2S2 GPA" name="l2s2" [(ngModel)]="student.l2s2" ><br>
             <input type="text" placeholder="Enter Average GPA" name="cgpa" [(ngModel)]="student.cgpa" ><br>
+
             <div *ngFor="let item of array" >       
               <mat-form-field>
-                <mat-select  placeholder="Preferred Organization" >
+                <mat-select  placeholder="{{StuSelectedCompany1[item-1].organization}}" >
                   <mat-option *ngFor="let com of company" [value]="com.name"  (click)="getCompany(item,com.name)">
                     <a *ngIf="com.doInternship">{{com.name}}</a>
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
+
             <mat-form-field>
               <mat-select placeholder={{student.interest1}} >
                 <mat-option *ngFor="let i of interestField" [value]="i"  (click)="getInterest1(i)">
