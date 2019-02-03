@@ -21,22 +21,23 @@ export class AdminHomePageComponent implements OnInit {
 
   constructor(private data: DataPassService, private getCount: CountNumberReqCompanyService,
     private route: ActivatedRoute, private router: Router, private db: AngularFireDatabase,
-    private user: UserListService,private readService: CompanySignupService) { }
+    private user: UserListService, private readService: CompanySignupService) { }
 
   value: string = '';
   count: number = 0;
   msgCount: number = 0;
   loger: string;
-  i=0;
+  i = 0;
   currentUserAdmin: Observable<any>;
   currentUserRefAdmin: AngularFireList<any>
   message: string;
   loggedUser: string;
   company: company[];
-  com : Array<company>=[];
+  com: Array<company> = [];
 
   ngOnInit() {
     this.getReqComCount();
+    this.msgNotification();
     //this.getValue();
     //this.data.currentMessage.subscribe(message => this.message = message);
 
@@ -44,15 +45,19 @@ export class AdminHomePageComponent implements OnInit {
       this.displayButton=true;
     else
       this.displayButton=false;*/
-    // this.loger = this.data.getMessage();
-    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.limitToLast(1).orderByChild('uid').equalTo(this.loger));
-    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
-    // this.currentUserAdmin.subscribe(res => { this.msgCount = res[0].readCount; });
-
-  }
+    }
+ 
+  msgNotification() {
+    this.loger = this.data.getMessage();
+    this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loger).orderByChild('readCount'));
+    this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    this.currentUserAdmin.subscribe(res => { this.msgCount = res[0];console.log("msgCount", res[0] ); });
   
+  }
+
   clearNotification() {
     //clear notification count of user
+    console.log("insdie clear notification");
     this.msgCount = 0;
     this.user.clear();
   }
@@ -63,17 +68,17 @@ export class AdminHomePageComponent implements OnInit {
     //location.reload();
   }
 
- /* getValue() {
-    this.value = this.getCount.setDetails();
-    // console.log(this.value);
-    this.count = +this.value;
-    // console.log(this.value);
-
-  }
-  clearValue() {
-    this.getCount.clearDetails();
-
-  }*/
+  /* getValue() {
+     this.value = this.getCount.setDetails();
+     // console.log(this.value);
+     this.count = +this.value;
+     // console.log(this.value);
+ 
+   }
+   clearValue() {
+     this.getCount.clearDetails();
+ 
+   }*/
 
   addStudent() {
     this.router.navigate(['adminAddStudent'], { relativeTo: this.route });
@@ -84,17 +89,18 @@ export class AdminHomePageComponent implements OnInit {
     // console.log(this.count);
   }
 
-  getReqComCount(){
+  getReqComCount() {
 
     this.readService.getData()
-    .subscribe(data => {this.company = data;
-      this.company.forEach(element => {
-        this.com[this.i]=element;
-        this.i++;
+      .subscribe(data => {
+      this.company = data;
+        this.company.forEach(element => {
+          this.com[this.i] = element;
+          this.i++;
+        });
+        this.count = this.com.length;
+        // console.log(this.com.length+"in");
       });
-      this.count = this.com.length;
-      console.log(this.com.length+"in");
-    });
   }
 
 }

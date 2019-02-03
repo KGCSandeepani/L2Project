@@ -29,7 +29,7 @@ export class ChatASComponent implements OnInit {
     this.chat.sendMessage(this.message);
     this.message = "";
     // this.userlist.sendUser("Admin");
-    // this.userlist.update();
+    this.userlist.update();
   }
 
   // sendFire(User) {

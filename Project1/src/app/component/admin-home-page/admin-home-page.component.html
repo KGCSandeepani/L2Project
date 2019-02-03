@@ -71,7 +71,7 @@
             <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large">ADD</a>
             <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" 
               class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTED COMPANY</a>
-            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MSG</a>
+            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small"(click)=clearNotification()>MSG</a>
             <a routerLink="./adminAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
             <a routerLink="./adminSetting" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SETTINGS</a>
             <div class="w3-dropdown-hover w3-hide-small">
@@ -95,7 +95,7 @@
             <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
           </div>
         </div>
-        <span class="msg" *ngIf="msgCount > 0" (click)=clearNotification()><span class="msg">new message</span></span>
+        <span class="msg" *ngIf="msgCount > 0" ><span class="msg">new message</span></span>
 
         <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">{{count}}</span></span>
         <!-- <ul>

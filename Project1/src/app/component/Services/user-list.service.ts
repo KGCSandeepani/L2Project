@@ -25,24 +25,30 @@ export class UserListService {
   update() {
     //pop new notification at receiver's side when new msg arrives
     this.loggedUser = this.dataPass.getMessage();
-    var ref = firebase.database().ref("userList");
-    ref.orderByChild("uid").equalTo(this.loggedUser).once("value", function (snapshot) {
-      snapshot.forEach(function (user) {
-        user.ref.update({ readCount: 1 });
-      });
-    });
+    var refu = firebase.database().ref("userList").child(this.loggedUser);
+    refu.update({ readCount: 1 });
+
+    // ref.orderByChild("userList").equalTo(this.loggedUser).once("value", function (snapshot) {
+    //   snapshot.forEach(function (user) {
+    //     user.ref.update({ readCount: 1 });
+    //   });
+    // });
 
   }
 
   clear() {
     //clear the msg count
     this.loggedUser = this.dataPass.getMessage();
-    var ref = firebase.database().ref("userList");
-    ref.orderByChild("uid").equalTo(this.loggedUser).once("value", function (snapshot) {
-      snapshot.forEach(function (user) {
-        user.ref.update({ readCount: 0 });
-      });
-    });
+    var refc = firebase.database().ref("userList").child(this.loggedUser);
+    refc.update({ readCount: 0 });
+
+    //used to get data when firebase has its auto generated id
+    // var ref = firebase.database().ref("userList");
+    // ref.orderByChild("uid").equalTo(this.loggedUser).once("value", function (snapshot) {
+    //   snapshot.forEach(function (user) {
+    //     user.ref.update({ readCount: 0 });
+    //   });
+    // });
   }
 
 
