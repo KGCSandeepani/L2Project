@@ -6,9 +6,11 @@ import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { student } from '../Model/Student';
 import { GetMaxBatchService } from '../Services/get-max-batch.service';
+import { GetPresentBatchService } from 'src/app/component/Services/get-present-batch.service';
+import { Batch } from 'src/app/component/Model/Batch';
 //import { InternStudentService } from 'src/app/component/Services/intern-student.service';
 //import { intern } from 'src/app/component/Model/intern';
-import { Breakpoints } from '@angular/cdk/layout/typings/breakpoints';
+//import { Breakpoints } from '@angular/cdk/layout/typings/breakpoints';
 
 
 
@@ -46,18 +48,23 @@ export class StuAnalysisComponent implements OnInit {
   clickPlotMsg:string;
   attached: boolean;
   datasource: any;
+  wso2=0;
+  virtusa=0;
+  nnx=0;
+  others=0;
+  batch: Batch[];
   
   constructor(private readCompanyService: AdminViewCompanyService, private internshipService: GetAllCompanyInternshipDetailsService,
-    private studentService : LoggingStudentService, private getMaxBatchService: GetMaxBatchService,
+    private studentService : LoggingStudentService, private getMaxBatchService: GetMaxBatchService,private getBatches: GetPresentBatchService
     ) { }
 
   ngOnInit() {
 
-    
-
-    this.getMaxBatchService.getMaxBatch();
-    this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
-    console.log("max "+this.maxBatch);
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batch= data;
+      this.batch.sort((a,b)=>b.batch-a.batch);
+      console.log(this.batch[0].batch+"max batch")
     
     this.readCompanyService.getData()
     .subscribe(data => {this.company = data ;
@@ -72,20 +79,8 @@ export class StuAnalysisComponent implements OnInit {
             this.stu[this.i]= this.j;
             this.k=0;
             this.comInternship.forEach(element1 => {       
-              if(element1.organization==element.name && element1.companyConfirmation && element1.batch==1){ 
-                this.k++;               
-                // this.studentService.getData(element1.name)
-                // .subscribe(data => {
-                //   this.student=data;
-                //   if(this.student.batch!=1){
-                //     this.t++;
-                //     this.k=this.k-this.t;
-                //     this.stu[this.i]= ++this.j;  
-                //     this.num = this.stu[this.i];              
-                //     console.log("aaa"+element.name+ " : " + this.stu[this.i]);
-                //     this.set(element.name,this.k);
-                //   }
-                // });               
+              if(element1.organization==element.name && element1.companyConfirmation && element1.batch==this.batch[0].batch-1){ 
+                this.k++;                             
               }
             });
             console.log(element.name+" "+this.k);
@@ -95,58 +90,21 @@ export class StuAnalysisComponent implements OnInit {
         }
       });
     });
+  });
 
-    this.countCompany();  
+    this.countCompany(); 
+    this.getChart(); 
   }
 
-h=0;
 
-  set(n:String,y:number){
-    this.h = y;
+set(n:String,y:number){
+  
     this.orgName[this.d]=n.valueOf();
     this.orgNum[this.d]=y;
     this.d++;
-    // this.newArray = this.orgName.filter((elem, i, arr) => {
-    //   if (arr.indexOf(elem) === i) {
-    //     console.log(elem);
-    //     return elem
-    //   }
-    // })
-    // console.log(this.newArray);
-    
-  //   this.attached = false;
-  //   this.dataSource = {
-  //     "chart": {
-  //         "caption": "summary of companies",
-  //         "xAxisName": "company",
-  //         "yAxisName": "count",
-  //         "decimals": "2",
-  //         "formatnumber":"1",
-  //         "formatnumberscale":"6",
-  //         "sformatnumber":"1",
-  //         "theme": "gammel"
-  //     },
-  //     data: [{
-  //       'label': " ",
-  //       "value": " "
-  //   }]
-  // };
-
-  // for(let i=0;i<8;i++){
-  //   this.dataSource.data({
-  //     'label': 'uuuu',
-  //     'value': 10,
-  // });
-  // }
-
- 
-
 }
 
 
-
- 
- 
 countCompany(){
     
     this.readCompanyService.getData()
@@ -202,6 +160,64 @@ countCompany(){
             
     });
   }
+
+  getChart(){
+
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batch= data;
+      this.batch.sort((a,b)=>b.batch-a.batch);
+      console.log(this.batch[0].batch+"max batch")
+
+      this.internshipService.getData()
+      .subscribe(data => {this.comInternship = data;
+
+        this.comInternship.forEach(element1 => {       
+          if(element1.organization=="wso2" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){ 
+            this.wso2++;  
+          }
+          else if(element1.organization=="Virtusa" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
+            this.virtusa++;
+          }
+          else if(element1.organization=="99x" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
+            this.nnx++;
+          }
+          else{
+            this.others++;
+          }         
+    });
+    
+    this.attached = false;
+            this.datasource = {
+              "chart": {
+                  "caption": "How companies gave internships  in the last year",
+                  "xAxisName": "Name of the company",
+                  "yAxisName": "No of students",
+                  "decimals": "2",
+                  "formatnumber":"1",
+                  "formatnumberscale":"6",
+                  "sformatnumber":"1",
+                  "theme": "gammel"
+              },
+              data: [{
+                'label': "WSO2",
+                "value": this.wso2
+            },
+            {
+              'label': "Virtusa",
+              "value": this.virtusa
+            },
+            {
+              'label': "99X",
+              "value": this.nnx
+            },
+
+          ]
+          };
+  });
+    
+  });
+}
  
   
   // public barChartOptions = {

@@ -30,6 +30,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   stuList : StuSelectedCompany[];
   stuList1 : Array<StuSelectedCompany> = [];
   stuList2 : Array<student> = [];
+  stuList3 : Array<student> = [];
   i=0;
   student : student;
   logstudent :student;
@@ -66,6 +67,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
                 this.studentService.getData(element.name)
                 .subscribe(data => {this.student = data;
                   this.stuList2[this.i] = this.student;
+                  
                   this.i++;
                 })
                 // this.stuList1[this.i] = element;
@@ -75,7 +77,10 @@ export class CompanyProfileStudentlistComponent implements OnInit {
             });
         }
       });
+    //  this. dataSource = new MatTableDataSource(this.stuList2);
     }); 
+
+    this.applySort();
 }   
     //});
 
@@ -137,7 +142,37 @@ export class CompanyProfileStudentlistComponent implements OnInit {
     return id;
   }
 
-   applyFilter(filterValue: string) {
+y=0;
+  applySort(){
+    this.value = this.data.getMessage();
+    
+        this.readStudentList.getStudentList()
+        .subscribe(data => {this.stuList = data;
+          this.stuList.forEach(element => {
+            if(element.organization == this.value){
+              this.readService.getData()
+              .subscribe((data: student[]) => { this.students = data;
+                this.students.forEach(element1 => {
+                  if(element1.availability==true){
+                    this.stuList3[this.y] = this.student;                    
+
+                    this. dataSource = new MatTableDataSource(this.stuList3);
+                    this.y++;
+                    
+                  }
+                  
+                })
+                
+              });
+              
+            }
+          });
+         
+        });
+        this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     this.dataSource.filterPredicate = (data: student, filter: string) => 
     data.name.toLowerCase().indexOf(filter) != -1;

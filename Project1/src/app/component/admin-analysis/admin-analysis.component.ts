@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { company } from 'src/app/component/Model/Company';
+import { ReadUnamePswServiceService } from 'src/app/component/Services/read-uname-psw-service.service';
+import { student } from 'src/app/component/Model/Student';
+import { GetPresentBatchService } from 'src/app/component/Services/get-present-batch.service';
+import { Batch } from 'src/app/component/Model/Batch';
+import { GetMaxBatchService } from 'src/app/component/Services/get-max-batch.service';
 
 @Component({
   selector: 'app-admin-analysis',
@@ -9,6 +14,7 @@ import { company } from 'src/app/component/Model/Company';
 })
 export class AdminAnalysisComponent implements OnInit {
   dataSource: any;
+  datasource: any;
   message: string;
   chartObj: any;
   handler:any;
@@ -29,13 +35,18 @@ export class AdminAnalysisComponent implements OnInit {
   t=0;k=0;a=0;
   b=0; c=0;d=0;
   
+  students: student[];
+  batch: Batch[];
+  max1=0; max2=0; max3=0;
+  max4=0; max5=0;
 
-
-  constructor(private readCompanyService: AdminViewCompanyService) { }
+  constructor(private readCompanyService: AdminViewCompanyService,private readService: ReadUnamePswServiceService,
+    private getBatches: GetPresentBatchService,private getMaxBatchService: GetMaxBatchService) { }
 
   ngOnInit() {
  
     this.countCompany();
+    this.adminCountStudent();
 
   }
 
@@ -106,4 +117,80 @@ export class AdminAnalysisComponent implements OnInit {
 //   }
     });
   }
+ 
+  adminCountStudent(){
+
+    this.getMaxBatchService.getMaxBatch();
+    this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
+    console.log("max "+this.maxBatch);
+
+    this.readService.getData()
+    .subscribe((data: student[]) => {
+      this.students = data;
+
+
+      for(var i=0;i<this.students.length;i++){
+        if(this.students[i].batch==(this.maxBatch-1) && this.students[i].availability==false){
+          this.max1++;
+        }
+        else if(this.students[i].batch==(this.maxBatch-2) && this.students[i].availability==false){
+          this.max2++;
+        }
+        else if(this.students[i].batch==(this.maxBatch-3) && this.students[i].availability==false){
+          this.max3++;
+        }
+        else if(this.students[i].batch==(this.maxBatch-4) && this.students[i].availability==false){
+          this.max4++;
+        }
+        else if(this.students[i].batch==(this.maxBatch-5) && this.students[i].availability==false){
+          this.max5++;
+        }
+      }
+
+      console.log(this.max1+"1")
+      console.log(this.max2+"1")
+      console.log(this.max3+"1")
+      console.log(this.max4+"1")
+      console.log(this.max5+"1")
+
+      this.attached = false;
+      this.datasource = {
+        "chart": {
+            "caption": "How many students got inetrnships in previous badges",
+            "xAxisName": "badge",
+            "yAxisName": "no of students",
+            "decimals": "2",
+            "formatnumber":"1",
+            "formatnumberscale":"6",
+            "sformatnumber":"1",
+            "theme": "gammel"
+        },
+        "data": [
+            {
+                "label": "last",
+                "value": this.max1
+            },
+            {
+                "label": "last -1",
+                "value": this.max2
+            },
+            {
+                "label": "last-2",
+                "value": this.max3
+            },
+            {
+              "label": "last-3",
+              "value": this.max4
+          },
+          {
+            "label": "last-4",
+            "value": this.max5
+        },
+           
+        ]
+      }   
+
+    })
+  }
+
 }
