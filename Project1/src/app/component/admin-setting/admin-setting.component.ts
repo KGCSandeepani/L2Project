@@ -3,6 +3,8 @@ import { AdminChangeNoOfCompanyService } from '../Services/admin-change-no-of-co
 import { NoOfCompany } from 'src/app/component/Model/NoOfCompany';
 import { AdminAddBatchService } from '../Services/admin-add-batch.service';
 import { Batch } from 'src/app/component/Model/Batch';
+import { AdminUpdateEnableBatchService } from '../Services/admin-update-enable-batch.service';
+import { GetPresentBatchService } from '../Services/get-present-batch.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -16,7 +18,11 @@ export class AdminSettingComponent implements OnInit {
   batch: any;
   startDate;
   endDate;
-  constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService) { }
+  enability;
+  enable = true;
+  batches : Array<Batch> =[];
+  constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService,
+    private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService) { }
 
   ngOnInit() {
   }
@@ -38,6 +44,35 @@ export class AdminSettingComponent implements OnInit {
       this.startDate='';
       this.endDate= '';
     })
+  }
+
+  onUserChange(event : any){
+    this.enability = event;
+    
+    if(this.enability=="en"){
+      this.enable=true;
+    }
+    if(this.enability=="dis"){
+      this.enable=false;
+    }
+  }
+
+  changeEnability(){
+    
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batches= data;
+      this.batches.sort((a,b)=>b.batch-a.batch);
+      console.log("en : "+ this.enable+" : "+ this.batches[0].batch);
+
+      this.enableBatchService.updateEnabilityOfBatch(this.batches[0].batch, this.enable)
+      .subscribe(data => {
+        
+      });
+
+    });
+    
+    
   }
 
 }

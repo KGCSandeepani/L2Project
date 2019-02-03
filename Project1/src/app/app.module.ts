@@ -78,7 +78,8 @@ import {
   MatTableModule,
   MatSortModule,
   MatAutocompleteModule,
-  MatDialogModule
+  MatDialogModule,
+  MatRadioModule
 } from '@angular/material';
 import { AdminViewFullStudentComponent } from './component/admin-view-full-student/admin-view-full-student.component';
 import { StuAnalysisComponent } from './component/stu-analysis/stu-analysis.component';
@@ -196,6 +197,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
     MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
    ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatDialogModule,
    FusionChartsModule 
+   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatRadioModule
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

@@ -1,4 +1,5 @@
 <div class="main">
+
   <div class="container">
     <h2>Change number of companies which student can choose </h2><br>
     <label for="company"><b>No of companies : </b></label>
@@ -21,6 +22,18 @@
     <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate" id="endDate"><br>
 
     <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
+
+  </div>
+
+  <div class="container">
+    <h2> Change enable to edit details in Student/ disable to view CV to Company </h2><br>
+    <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
+    <mat-radio-group>
+        <mat-radio-button name="enability" value="en" (change)="onUserChange('en')"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')"> Disable </mat-radio-button>
+      </mat-radio-group>
+      <br>
+    <button type="button" id="add" (click)="changeEnability()">Change</button>
 
   </div>
 

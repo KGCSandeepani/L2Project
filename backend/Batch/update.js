@@ -20,17 +20,15 @@ module.exports.update = (event, context, callback) => {
   const params = {
     TableName: "Batch",
     Key: {
-      batch: event.pathParameters.batch,
+      batch: parseInt(event.pathParameters.batch),
     },
     ExpressionAttributeNames: {
-      '#todo_startDate': 'startDate',
-      '#todo_endDate': 'endDate',
+      '#todo_enable': 'enable',
     },
     ExpressionAttributeValues: {
-      ':startDate': data.startDate,
-      ':endDate': data.endDate,
+      ':enable': data.enable,
     },
-    UpdateExpression: 'SET #todo_startDate = :startDate, #todo_endDate = :endDate ',
+    UpdateExpression: 'SET #todo_enable = :enable ',
     ReturnValues: 'ALL_NEW',
   };
 
