@@ -39,6 +39,12 @@ export class AdminAnalysisComponent implements OnInit {
   batch: Batch[];
   max1=0; max2=0; max3=0;
   max4=0; max5=0;
+  max=0;
+
+  maxT1=0; maxT2=0;
+  maxT3=0; maxT4=0;
+  maxT5=0; 
+
 
   constructor(private readCompanyService: AdminViewCompanyService,private readService: ReadUnamePswServiceService,
     private getBatches: GetPresentBatchService,private getMaxBatchService: GetMaxBatchService) { }
@@ -118,11 +124,20 @@ export class AdminAnalysisComponent implements OnInit {
     });
   }
  
+
   adminCountStudent(){
 
-    this.getMaxBatchService.getMaxBatch();
-    this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
-    console.log("max "+this.maxBatch);
+    // this.getMaxBatchService.getMaxBatch();
+    // this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
+    // console.log("max "+this.maxBatch);
+
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batch= data;
+      this.batch.sort((a,b)=>b.batch-a.batch);
+      console.log(this.batch[0].batch+"max batch")
+      this.max = this.batch[0].batch;
+      console.log(this.max+"max batch")
 
     this.readService.getData()
     .subscribe((data: student[]) => {
@@ -130,34 +145,42 @@ export class AdminAnalysisComponent implements OnInit {
 
 
       for(var i=0;i<this.students.length;i++){
-        if(this.students[i].batch==(this.maxBatch-1) && this.students[i].availability==false){
+        if(this.students[i].batch==(this.max-1) && this.students[i].availability==false){
           this.max1++;
         }
-        else if(this.students[i].batch==(this.maxBatch-2) && this.students[i].availability==false){
+       
+        else if(this.students[i].batch==(this.max-2) && this.students[i].availability==false){
           this.max2++;
         }
-        else if(this.students[i].batch==(this.maxBatch-3) && this.students[i].availability==false){
+        
+        else if(this.students[i].batch==(this.max-3) && this.students[i].availability==false){
           this.max3++;
         }
-        else if(this.students[i].batch==(this.maxBatch-4) && this.students[i].availability==false){
+       
+        else if(this.students[i].batch==(this.max-4) && this.students[i].availability==false){
           this.max4++;
         }
-        else if(this.students[i].batch==(this.maxBatch-5) && this.students[i].availability==false){
+        
+        else if(this.students[i].batch==(this.max-5) && this.students[i].availability==false){
           this.max5++;
         }
+       
       }
+
+
 
       console.log(this.max1+"1")
       console.log(this.max2+"1")
       console.log(this.max3+"1")
       console.log(this.max4+"1")
       console.log(this.max5+"1")
+      console.log(this.maxT1+"1")
 
       this.attached = false;
       this.datasource = {
         "chart": {
-            "caption": "How many students got inetrnships in previous badges",
-            "xAxisName": "badge",
+            "caption": "How many students got inetrnships in previous batches",
+            "xAxisName": "batch",
             "yAxisName": "no of students",
             "decimals": "2",
             "formatnumber":"1",
@@ -167,7 +190,7 @@ export class AdminAnalysisComponent implements OnInit {
         },
         "data": [
             {
-                "label": "last",
+                "label": this.max-5,
                 "value": this.max1
             },
             {
@@ -190,7 +213,9 @@ export class AdminAnalysisComponent implements OnInit {
         ]
       }   
 
-    })
+    });
+  });
+
   }
 
 }

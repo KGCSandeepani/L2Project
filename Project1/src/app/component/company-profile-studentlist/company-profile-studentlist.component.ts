@@ -38,15 +38,9 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   logstudent :student;
   dataSource = new MatTableDataSource(this.students);
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumns: string[] = ['name', 'cgpa'];
+  displayedColumns: string[] = ['reg','name','email','contact','cgpa'];
   batch: Batch[];
   disable :boolean ;
-
-  // constructor(private readService: ReadUnamePswServiceService,private logStudent: LoggingStudentService,
-  //   private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, 
-  //   private router:Router, private data : DataPassService, private studentService : LoggingStudentService) { 
-
-  // }
   cid : CompanyInternshipDetails;
 
   constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
@@ -62,7 +56,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
       this.batch= data;
       this.batch.sort((a,b)=>b.batch-a.batch);
       this.disable = this.batch[0].enable;
-      //console.log(this.batch[0].batch);
+
       if( !this.disable ){
       
         this.readStudentList.getStudentList()
@@ -71,72 +65,26 @@ export class CompanyProfileStudentlistComponent implements OnInit {
             if(element.organization == this.value){
                 this.intrnshipService.getData(element.name)
                 .subscribe(data => {
-                // this.student=data;
-                //   if (this.student.availability){
-                //     this. dataSource = new MatTableDataSource(this.students);                 
-                //     this.students[this.i]=data;
                 this.cid=data;
                   if (this.cid==null){
                     this.studentService.getData(element.name)
                     .subscribe(data => {this.student = data;
                       this.stuList2[this.i] = this.student;
-                      
+                      this. dataSource = new MatTableDataSource(this.stuList2);
+                      this.dataSource.sort = this.sort;
                       this.i++;
                     })
-                    // this.stuList1[this.i] = element;
-                    // this.i++;
-                    //this.dataSource.sort = this.sort;
                   }     
                 });
             }
           });
-        //  this. dataSource = new MatTableDataSource(this.stuList2);
         }); 
-
-        this.applySort();
-
       }
       
     });
-
-    
-    
+        
 }   
-    //});
-
-    //   this.stuList.forEach(element => {
-    //     if(element.organization == this.value){
-    //         this.studentService.getData(element.name)
-    //         .subscribe(data => {
-    //         this.student=data;
-    //           if (this.student.availability){
-    //             this.stuList1[this.i] = element;
-    //             this.i++;
-    //           }
-                 
-    //         });
-    //     }
-    //   });
-    // });
-
-    //   this.readStudentList.getStudentList1(this.value)
-    //  .subscribe(data => {this.stuList = data;
-    //   this.stuList.forEach(element => {
-            
-    //             this.studentService.getData(element.name)
-    //             .subscribe(data => {
-    //             this.student=data;
-    //               if (this.student.availability){
-    //                 this.stuList1[this.i] = element;
-    //                 this.i++;
-    //               }
-                     
-    //             });
-            
-    //       });
-    //  });
-
-  
+    
 
   onChange(event : any){
     this.doInternship = event.target.value;
@@ -162,7 +110,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
     return id;
   }
 
-y=0;
+
   applySort(){
     this.value = this.data.getMessage();
     
@@ -170,26 +118,24 @@ y=0;
         .subscribe(data => {this.stuList = data;
           this.stuList.forEach(element => {
             if(element.organization == this.value){
-              this.readService.getData()
-              .subscribe((data: student[]) => { this.students = data;
-                this.students.forEach(element1 => {
-                  if(element1.availability==true){
-                    this.stuList3[this.y] = this.student;                    
-
-                    this. dataSource = new MatTableDataSource(this.stuList3);
-                    this.y++;
-                    
-                  }
-                  
-                })
-                
-              });
-              
+                this.intrnshipService.getData(element.name)
+                .subscribe(data => {
+                this.cid=data;
+                  if (this.cid==null){
+                    this.studentService.getData(element.name)
+                    .subscribe(data => {this.student = data;
+                      this.stuList2[this.i] = this.student;
+                      this. dataSource = new MatTableDataSource(this.stuList2);
+                      this.dataSource.sort = this.sort;
+                      this.i++;
+                    })
+                  }     
+                });
             }
           });
          
-        });
-        this.dataSource.sort = this.sort;
+        }); 
+    
   }
 
   applyFilter(filterValue: string) {
