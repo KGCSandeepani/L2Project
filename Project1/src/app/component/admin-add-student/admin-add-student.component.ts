@@ -13,6 +13,7 @@ import { error } from '@angular/compiler/src/util';
 import { NgxNotificationService } from 'ngx-notification';
 import { GetPresentBatchService } from '../Services/get-present-batch.service';
 import { Batch } from '../Model/Batch';
+import {UserListService } from '../Services/user-list.service';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -44,7 +45,7 @@ export class AdminAddStudentComponent implements OnInit {
 
   constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,
     private authService: AuthChatASService,private ngxNotificationService: NgxNotificationService,
-    private getBatches: GetPresentBatchService) { 
+    private getBatches: GetPresentBatchService,private userList:UserListService) { 
     this.excelIO = new Excel.IO();
   }
 
@@ -76,9 +77,11 @@ export class AdminAddStudentComponent implements OnInit {
     this.studentService.getStudentData(formdata,this.batch1)
     .subscribe((data : student[] )=> {
         this.student = data;
+        this.userList.sendUserWithCustomId(formdata.value.uname);
         formdata.reset();  
         this.batch1='';
-        this.sendNotification4();  
+        this.sendNotification4(); 
+
     });
   }
   

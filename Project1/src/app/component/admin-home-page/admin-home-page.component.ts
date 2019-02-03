@@ -44,14 +44,15 @@ export class AdminHomePageComponent implements OnInit {
       this.displayButton=true;
     else
       this.displayButton=false;*/
-    this.loger = this.data.getMessage();
-    this.currentUserRefAdmin = this.db.list('userList', ref => ref.limitToLast(1).orderByChild('uid').equalTo(this.loger));
-    this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
-    this.currentUserAdmin.subscribe(res => { this.msgCount = res[0].readCount; });
+    // this.loger = this.data.getMessage();
+    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.limitToLast(1).orderByChild('uid').equalTo(this.loger));
+    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    // this.currentUserAdmin.subscribe(res => { this.msgCount = res[0].readCount; });
 
   }
   
   clearNotification() {
+    //clear notification count of user
     this.msgCount = 0;
     this.user.clear();
   }

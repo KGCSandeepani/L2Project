@@ -3,6 +3,8 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import * as firebase from 'firebase/app';
 import { DataPassService } from '../Services/data-pass.service';
 import { User } from '../Model/User.model';
+import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +12,8 @@ export class UserListService {
   user: firebase.User;
   loggedUser: string;
   userList: AngularFireList<User>;
-
+  items: Observable<any[]>;
+  intVal;
 
   constructor(private db: AngularFireDatabase, private dataPass: DataPassService) {
 
@@ -51,11 +54,33 @@ export class UserListService {
       uid: this.loggedUser,
       readCount: 0,
       status: true
-
     });
-
-
   }
 
+  sendUserWithCustomId(user: string) {
+    // add user to firebase user list with Id of user
+    this.loggedUser = this.dataPass.getMessage();
+    var ref = firebase.database().ref("userList");
+
+    ref.child(user).set({
+      readCount: 0,
+      status: true
+    });
+  }
+
+  sendRecepient(user: string) {
+
+    //add user to recepient list with Id of user
+    
+    this.loggedUser = this.dataPass.getMessage();
+    var ref = firebase.database().ref('userList');
+    var userRef = ref.child(this.loggedUser).child('recepients');
+
+    userRef.child(user).set({
+      read: 0
+    });
+  }
+  
 }
+
 

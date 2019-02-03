@@ -14,6 +14,7 @@ import { GetOneTempCompanyService } from 'src/app/component/Services/get-one-tem
 import { LoggingStudentService } from '../Services/logging-student.service';
 import { AddAdminService } from 'src/app/component/Services/add-admin.service';
 import { ChatServiceASService } from '../Services/chat-service-a-s.service';
+import {UserListService } from '../Services/user-list.service';
 
 
 import { LoggingSupervisorServiceService } from '../Services/logging-supervisor-service.service';
@@ -46,7 +47,8 @@ export class LoginComponent implements OnInit {
     private logStaff: LoggingSupervisorServiceService, private getTempCompany: GetOneTempCompanyService,
     private getCompany: GetOneCompanyService, private data: DataPassService,
     private router: Router, private ngxNotificationService: NgxNotificationService,
-    private logStudent: LoggingStudentService, private adminService: AddAdminService) { }
+    private logStudent: LoggingStudentService, private adminService: AddAdminService,
+    private userList:UserListService) { }
 
   ngOnInit() {
     sessionStorage.clear();
@@ -79,6 +81,7 @@ export class LoginComponent implements OnInit {
       this.newMessage("Admin");
       // this.getUserType("Admin");
       console.log("inside admin login component");
+      this.userList.sendUserWithCustomId("Admin");
       this.adminService.getSupervisorData('Admin', 'Admin', 'Admin', 'admin@gmail.com', '0110000000')
         .subscribe((data: admin) => {
           this.admin = data;

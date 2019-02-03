@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
 import { User } from '../Model/User.model';
-import { ChatServiceASService} from '../Services/chat-service-a-s.service'
-import { UserListService} from '../Services/user-list.service'
+import { ChatServiceASService } from '../Services/chat-service-a-s.service'
+import { UserListService } from '../Services/user-list.service'
 import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-chat-a-s',
@@ -12,9 +14,9 @@ import { Observable } from 'rxjs';
 })
 export class ChatASComponent implements OnInit {
   users: Observable<any[]>;
-  message : string;
-  constructor(private chat: ChatServiceASService,private _scrollToService: ScrollToService,
-    private userlist:UserListService) { }
+  message: string;
+  constructor(private chat: ChatServiceASService, private _scrollToService: ScrollToService,
+    private userlist: UserListService, private db: AngularFireDatabase) { }
   // Users:User[];
   ngOnInit() {
     // this.userlist.sendUser("Admin");// send currentlt logged in user to db
@@ -25,33 +27,30 @@ export class ChatASComponent implements OnInit {
     console.log("inside send");
     console.log(this.message);
     this.chat.sendMessage(this.message);
-    this.message="";
+    this.message = "";
     // this.userlist.sendUser("Admin");
-    this.userlist.update();
-    // this.userlist.updateReadCount();
-    // this.triggerScrollTo();
-   
+    // this.userlist.update();
   }
 
   // sendFire(User) {
   //   this.userlist.updateReadCount(User);
-    
-    
-   
+
+
+
   // }
 
-  
-  handleSubmit(event){
-    if(event.keyCode == 13){
+
+  handleSubmit(event) {
+    if (event.keyCode == 13) {
       this.send();
     }
   }
   public triggerScrollTo() {
-    
+
     const config: ScrollToConfigOptions = {
       target: 'destination'
     };
- 
+
     // this._scrollToService.scrollTo(config);
   }
 

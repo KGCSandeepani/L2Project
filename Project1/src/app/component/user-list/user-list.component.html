@@ -16,25 +16,25 @@
           <mat-autocomplete #auto="matAutocomplete">
               <b>Admins</b>
               <mat-option *ngFor="let admin of admin" [value]="admin.name" 
-              (click)="editTheUser(admin)" [ngClass]="'active'">
+              (click)="sendRec(admin)" [ngClass]="'active'">
                 {{admin.name}}
               </mat-option>
               <br>
             <b>Students</b>
               <mat-option *ngFor="let student of students" [value]="student.name" 
-              (click)="editTheUser(student)" [ngClass]="'active'">
+              (click)="sendRec(student)" [ngClass]="'active'">
                 {{student.name}}
               </mat-option>
               <br>
               <b>Supervisors</b>
               <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" 
-              (click)="editTheUser(supervisor)" [ngClass]="'active'">
+              (click)="sendRec(supervisor)" [ngClass]="'active'">
                 {{supervisor.name}}
               </mat-option>
               <br>
               <b>Companies</b>
               <mat-option *ngFor="let company of company" [value]="company.name" 
-              (click)="editTheUser(company)" [ngClass]="'active'">
+              (click)="sendRec(company)" [ngClass]="'active'">
                 {{company.name}}
               </mat-option>
             </mat-autocomplete>
@@ -52,8 +52,13 @@
           <table class="table">
 
             <tbody>
-              <div class="messageContainer">
-                <!-- {{userN}}-->
+                <tr *ngFor="let us of user">
+                    <td (click)="editTheUser(us)" > {{us}} </td>
+                  </tr>
+
+                  
+
+              <!-- <div class="messageContainer">
 
                 <tr *ngFor="let student of students">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
@@ -84,7 +89,7 @@
                   </div>
                 </tr>
 
-              </div>
+              </div> -->
             </tbody>
           </table>
 

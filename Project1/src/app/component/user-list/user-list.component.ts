@@ -12,6 +12,9 @@ import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-c
 import { company } from 'src/app/component/Model/Company';
 import { ViewAdminsService } from '../Services/view-admins.service';
 import { UserListService } from '../Services/user-list.service';
+import * as firebase from 'firebase/app';
+import { DataPassService } from '../Services/data-pass.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -21,17 +24,28 @@ import { UserListService } from '../Services/user-list.service';
 })
 export class UserListComponent implements OnInit {
   [x: string]: any;
-  
+  loggedUser: string;
+
+  //to get all users to list
   students: student[];
   supervisors: staff[];
   company: company[];
-  admin:admin[];
+  admin: admin[];
+  items:string;
+  user : Array<String> = [];
+  i=0;
+  // items: Observable<any[]>;
+
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
     private chatService: ChatServiceASService, private router: Router,
-    private readServiceAdmin: ViewAdminsService,private userList:UserListService) { }
+    private readServiceAdmin: ViewAdminsService, private userList: UserListService, 
+    private data: DataPassService) { 
+      this.loggedUser=data.getMessage();
+    }
   userN: string;
   editUser: string;// to symbolize the change in user
+
   ngOnInit() {
     this.readService.getData()
       .subscribe(data => this.students = data);
@@ -52,14 +66,43 @@ export class UserListComponent implements OnInit {
 
     //get admins
     this.readServiceAdmin.getData()
-      .subscribe(data => {this.admin = data; console.log(data+ " is admin data" );});
+      .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
     console.log(this.admin);
+
+    this.getRecepient();
+
   }
 
   editTheUser(student: any) {
 
-    this.chatService.editUser(student.name);
+    this.chatService.editUser(student);
 
+    
+  }
+
+  getRecepient() {
+    //view recepient list
+    console.log(" inside recepient");
+
+    var ref = firebase.database().ref('userList');
+    var userRef = ref.child(this.loggedUser).child('recepients');
+
+    userRef.on('value', (snapshot) => {
+      snapshot.forEach((child) => {
+        console.log(child.key);
+        this.items=child.key;
+        this.user[this.i] = child.key;
+        this.i++;
+        // console.log("intVal", this.items);
+      })
+    });
+  }
+
+  sendRec(student: any){
+    //send recepient to database
+console.log(name+"  is cliked userrrr");
+//to add clicked user to recepient list
+this.userList.sendRecepient(student.name);
   }
 
 }
