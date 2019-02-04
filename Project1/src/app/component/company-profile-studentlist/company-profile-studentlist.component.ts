@@ -57,7 +57,9 @@ export class CompanyProfileStudentlistComponent implements OnInit {
       this.batch.sort((a,b)=>b.batch-a.batch);
       this.disable = this.batch[0].enable;
 
-      if( !this.disable ){
+      //if( !this.disable ){
+      //console.log(this.batch[0].batch);
+      if( this.disable == false ){
       
         this.readStudentList.getStudentList()
         .subscribe(data => {this.stuList = data;
