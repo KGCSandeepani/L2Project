@@ -15,6 +15,7 @@ import { UserListService } from '../Services/user-list.service';
 import * as firebase from 'firebase/app';
 import { DataPassService } from '../Services/data-pass.service';
 import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 
 
 @Component({
@@ -31,17 +32,21 @@ export class UserListComponent implements OnInit {
   supervisors: staff[];
   company: company[];
   admin: admin[];
-  items: string;
+  // items: string;
   user: Array<String> = [];
   i = 0;
   recepientMsgCount: number = 0;
-  // items: Observable<any[]>;
+  items: Observable<any[]>;
   userN: string;
   editUser: string;// to symbolize the change in user
 loggerType:string;
+
+currentUserAdmin: Observable<any>;
+  currentUserRefAdmin: AngularFireList<any>
+
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
-    private chatService: ChatServiceASService, private router: Router,
+    private chatService: ChatServiceASService, private router: Router,private db: AngularFireDatabase,
     private readServiceAdmin: ViewAdminsService, private userList: UserListService,
     private data: DataPassService) {
     this.loggedUser = data.getMessage();
@@ -111,6 +116,16 @@ loggerType:string;
     //view recepient list
     console.log(" inside recepient");
 
+    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loggedUser));
+    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    // this.currentUserAdmin.subscribe(res => { this.items = res;console.log("responses", res); });
+    
+    // this.loggedUser = this.data.getMessage();
+    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loggedUser).child('recepients').orderByChild('rerecepients'));
+    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    // this.currentUserAdmin.subscribe(res => { this.items = res;console.log("msgCount", res ); });
+  
+//////////////////////////////
     var ref = firebase.database().ref('userList');
     var userRef = ref.child(this.loggedUser).child('recepients');
 
@@ -121,8 +136,10 @@ loggerType:string;
         this.recepientMsgCount=child.val().read;
 
         // this.items = child.key;
+      if(this.user.indexOf(child.key)<0){
         this.user[this.i] = child.key;
         this.i++;
+      }
         // console.log("intVal", this.items);
       })
     });

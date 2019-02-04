@@ -40,6 +40,7 @@ export class ChatASComponent implements OnInit {
   // }
   clear(){
     this.userlist.clearRecepientMsgCount();
+    this.userlist.clear();
   }
 
 
