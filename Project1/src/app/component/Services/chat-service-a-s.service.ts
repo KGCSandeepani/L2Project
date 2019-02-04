@@ -6,6 +6,11 @@ import { ChatMessage } from '../Model/Chat-message.model';
 import { DataPassService } from '../Services/data-pass.service';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
+import { LoggingSupervisorServiceService } from '../Services/logging-supervisor-service.service';
+import { GetOneCompanyService } from 'src/app/component/Services/get-one-company.service';
+import { staff } from 'src/app/component/Model/Staff';
+import { company } from '../Model/Company';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,12 +34,17 @@ export class ChatServiceASService {
   value1: string;
   value2: string;
 
-  constructor(private data: DataPassService, private db: AngularFireDatabase) {
+  staff: staff[];
+  companies: company[];
+  logCompany: company;
+  logstaff: staff;
+  constructor(private data: DataPassService, private db: AngularFireDatabase,
+    private logStaff: LoggingSupervisorServiceService, private getCompany: GetOneCompanyService) {
 
     this.data.currentMessage.subscribe(message => this.message = message);
     this.senderName = this.data.getMessage();
     this.cast.subscribe(userN => this.userR = userN);
-    
+
   }
   sendMessage(msg: string) {
     const timestamp = this.getTimeStamp();
@@ -44,13 +54,13 @@ export class ChatServiceASService {
       this.sendRece = this.senderName + "_" + this.userR;
       // console.log(this.sendRece + " inside admin student ");
     }
-    // else if(this.loggedUserType=="Admin"&& this.chatListUserType=="Company"){
+    // else if(this.getLoggedUserType(this.senderName) =="Admin"&& this.getClickedUserType(this.receiverName)=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
     // }
-    // else if(this.loggedUserType=="Supervisor"&& this.chatListUserType=="Student"){
+    // else if(this.getLoggedUserType(this.senderName) =="Supervisor"&& this.getClickedUserType(this.receiverName)=="Student"){
     //   this.sendRece = this.senderName + "_" + this.userR;
     // }
-    // else if((this.loggedUserType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.senderName,this.receiverName)){
+    // else if((this.getLoggedUserType(this.senderName) =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && this.compareTwoIndexNumbers(this.senderName,this.receiverName)){
     //   this.sendRece = this.senderName + "_" + this.userR
     // }
     else {
@@ -66,7 +76,7 @@ export class ChatServiceASService {
       userName: this.senderName,
       receiver: this.userR,
       senderReceiver: this.sendRece,
-      read:false
+      read: false
       // unreadMessageCount:0
       // senderReceiver: this.senderName + "_" + this.userR
     });
@@ -78,7 +88,7 @@ export class ChatServiceASService {
   getTimeStamp() {
     let now = new Date();
     let date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' + now.getUTCDate();
-    let time = now.getUTCHours() + ':' + now.getUTCMinutes() ;
+    let time = now.getUTCHours() + ':' + now.getUTCMinutes();
 
     return (date + ' ' + time).toString;
   }
@@ -106,14 +116,26 @@ export class ChatServiceASService {
     return false;
   }
   getLoggedUserType(name: string) {
-    if(this.senderName=="Admin"){
+    console.log("inside  grt logged user type");
+    if (name == "Admin") {
       return "Admin";
+    } else if (this.checkCompany(name)) {
+      return "Company";
+    } else if (this.checkStaff(name)) {
+      console.log("inside supervisor");
+      return "Supervisor";
     }
     return "Student";
   }
   getClickedUserType(name: string) {
-    if(this.receiverName=="Admin"){
-      return "Student";
+
+    if (this.receiverName == "Admin") {
+      return "Admin";
+    } else if (this.checkCompany(name)) {
+      return "Company";
+    } else if (this.checkStaff(name)) {
+     
+      return "Supervisor";
     }
     return "Student";
   }
@@ -121,5 +143,37 @@ export class ChatServiceASService {
     return this.loggedUserType;
   }
 
+  checkCompany(name: string) {
+    console.log("inside company checking");
+    this.getCompany.getData(name)
+      .subscribe(
+        data => {
+          this.logCompany = data;
+          if (this.logCompany != null && name == this.logCompany.name) {
+            return true;
+          }
+        }
+      )
+
+    return false;
+  }
+
+  checkStaff(name: string) {
+    this.logStaff.getData(name)
+      .subscribe(data => {
+
+        this.logstaff = data;
+        // console.log('here'+this.logstaff.name);
+
+        console.log(this.logStaff);
+        if (this.logstaff != null && name == this.logstaff.name) {
+          console.log('here' + this.logstaff.name);
+
+          return true;
+        }
+      }
+      )
+    return false;
+  }
 
 }

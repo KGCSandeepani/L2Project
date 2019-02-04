@@ -14,7 +14,18 @@
           <input type="text" class="search-bar" placeholder="Search" [matAutocomplete]="auto">
 
           <mat-autocomplete #auto="matAutocomplete">
-            <b>Admins</b>
+              <div *ngIf="loggerType=='Admin' then content else other_content"></div>
+              <ng-template #content> <b>Students</b>
+                <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)" [ngClass]="'active'">
+                  {{student.name}}
+                </mat-option></ng-template>
+              <ng-template #other_content> <b>Admins</b>
+                <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
+                  {{admin.name}}
+                </mat-option></ng-template>
+
+
+            <!-- <b>Admins</b>
             <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
               {{admin.name}}
             </mat-option>
@@ -33,7 +44,7 @@
             <b>Companies</b>
             <mat-option *ngFor="let company of company" [value]="company.name" (click)="sendRec(company)" [ngClass]="'active'">
               {{company.name}}
-            </mat-option>
+            </mat-option> -->
           </mat-autocomplete>
 
         </div>

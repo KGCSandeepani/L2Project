@@ -36,7 +36,9 @@ export class UserListComponent implements OnInit {
   i = 0;
   recepientMsgCount: number = 0;
   // items: Observable<any[]>;
-
+  userN: string;
+  editUser: string;// to symbolize the change in user
+loggerType:string;
   constructor(private readServiceCompany: AdminViewCompanyService,
     private readService: ReadUnamePswServiceService, private readServiceStaff: AdminreadstaffService,
     private chatService: ChatServiceASService, private router: Router,
@@ -44,34 +46,58 @@ export class UserListComponent implements OnInit {
     private data: DataPassService) {
     this.loggedUser = data.getMessage();
   }
-  userN: string;
-  editUser: string;// to symbolize the change in user
+  
 
   ngOnInit() {
-    this.readService.getData()
-      .subscribe(data => this.students = data);
-    // console.log(this.students);
-
+    
     //just to view clicked user
     this.chatService.cast.subscribe(userN => this.userN = userN);
+    this.loggerType=this.chatService.getLoggedUserType(this.data.getMessage());
+    console.log(this.loggerType+" this.loggerType");
 
+    this.getRecepient();
+    this.getAdminData();
+    this.getCompanyData();
+    this.getStafftData();
+    this.getCompanyData();
+    this.readService.getData()
+    .subscribe(data => this.students = data);
+
+    this.readServiceStaff.getData()
+      .subscribe(data => this.supervisors = data);
+      this.readServiceCompany.getData()
+      .subscribe(data => this.company = data);
+      this.readServiceAdmin.getData()
+      .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
+    // console.log(this.admin);
+  }
+
+  getStudentData(){
+    this.readService.getData()
+    .subscribe(data => this.students = data);
+  // console.log(this.students);
+
+  }
+  getStafftData(){
     //get supervispr list
     this.readServiceStaff.getData()
       .subscribe(data => this.supervisors = data);
     // console.log(this.supervisors);
-
+    
+  }
+  getCompanyData(){
+    
     //get companies
     this.readServiceCompany.getData()
       .subscribe(data => this.company = data);
     // console.log(this.company);
-
-    //get admins
-    this.readServiceAdmin.getData()
-      .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
-    // console.log(this.admin);
-
-    this.getRecepient();
-
+    
+  }
+  getAdminData(){
+     //get admins
+     this.readServiceAdmin.getData()
+     .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
+   // console.log(this.admin);
   }
 
   editTheUser(student: any) {
@@ -94,7 +120,7 @@ export class UserListComponent implements OnInit {
         console.log(child.val().read + " child values");
         this.recepientMsgCount=child.val().read;
 
-        this.items = child.key;
+        // this.items = child.key;
         this.user[this.i] = child.key;
         this.i++;
         // console.log("intVal", this.items);
