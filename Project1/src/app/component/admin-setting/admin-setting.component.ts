@@ -20,11 +20,21 @@ export class AdminSettingComponent implements OnInit {
   endDate;
   enability;
   enable = true;
+  selectedbutton ;
   batches : Array<Batch> =[];
   constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService,
     private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService) { }
 
   ngOnInit() {
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batches= data;
+      this.batches.sort((a,b)=>b.batch-a.batch);
+      console.log("ng : "+ this.enable+" : "+ this.batches[0].batch);
+      if (this.batches[0].enable!=null) {
+        this.selectedbutton= this.batches[0].enable;
+      }
+    });
   }
 
   changeCompany(a:number){
