@@ -3,8 +3,8 @@
     
   <ul>
     <li><a routerLink="./home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="./studentlist" routerLinkActive="active">Requested Student List</a></li>
-    <li><a routerLink="./confirmedStudentlist" routerLinkActive="active">Confirmed Student List</a></li>
+    <li><a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()" >Requested Student List</a></li>
+    <li><a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()" >Confirmed Student List</a></li>
     <li><a routerLink="./selectedStudentDetail" routerLinkActive="active">Selected Student Details</a></li>
     <li><a >Feedback</a></li>
     <li><a >Message</a></li>
@@ -27,4 +27,9 @@
     <router-outlet></router-outlet>
   </div>
   </div>
+  <span class="bagdeCount" *ngIf="bagdeCount > 0">{{bagdeCount}}</span>
+
+   <span class="badge" *ngIf="count > 0">{{count}}</span> 
+ 
   </body>
+
