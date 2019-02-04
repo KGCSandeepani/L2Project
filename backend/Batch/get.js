@@ -6,7 +6,7 @@ module.exports.get = (event, context, callback) => {
   const params = {
     TableName: "Batch",
     Key: {
-      batch: event.pathParameters.batch,
+      batch: parseInt(event.pathParameters.batch),
     },
   };
 

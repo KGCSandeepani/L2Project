@@ -68,6 +68,18 @@ label{
     width: 20%;    
 }
 
+#disable {
+    background-color: rgb(120, 119, 128);
+    color: white;
+    padding: 10px 20px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: none;
+    width: 20%;
+    margin-left: 325px;
+}
+
 /* Add a hover effect for buttons */
 button:hover {
     opacity: 0.6;

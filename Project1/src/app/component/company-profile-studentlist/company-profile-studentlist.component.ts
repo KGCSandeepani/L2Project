@@ -12,6 +12,8 @@ import { MatTableDataSource,MatSort } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
 import { GetOneCompanyInternshipDetailsService } from 'src/app/component/Services/get-one-company-internship-details.service';
+import { GetPresentBatchService } from '../Services/get-present-batch.service';
+import { Batch } from '../Model/Batch';
 
 @Component({
   selector: 'app-company-profile-studentlist',
@@ -37,6 +39,8 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   dataSource = new MatTableDataSource(this.students);
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['name', 'cgpa'];
+  batch: Batch[];
+  disable :boolean ;
 
   // constructor(private readService: ReadUnamePswServiceService,private logStudent: LoggingStudentService,
   //   private readStudentList : CompanyGetStudentlistService, private updateInternship : CompanyUpdateInternshipService, 
@@ -47,40 +51,56 @@ export class CompanyProfileStudentlistComponent implements OnInit {
 
   constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
     private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService, 
-    private studentService : LoggingStudentService, private intrnshipService: GetOneCompanyInternshipDetailsService) { }
+    private studentService : LoggingStudentService, private intrnshipService: GetOneCompanyInternshipDetailsService,
+    private getBatches: GetPresentBatchService) { }
 
   ngOnInit() {
     this.value = this.data.getMessage();
 
-    this.readStudentList.getStudentList()
-    .subscribe(data => {this.stuList = data;
-      this.stuList.forEach(element => {
-        if(element.organization == this.value){
-            this.intrnshipService.getData(element.name)
-            .subscribe(data => {
-            // this.student=data;
-            //   if (this.student.availability){
-            //     this. dataSource = new MatTableDataSource(this.students);                 
-            //     this.students[this.i]=data;
-            this.cid=data;
-              if (this.cid==null){
-                this.studentService.getData(element.name)
-                .subscribe(data => {this.student = data;
-                  this.stuList2[this.i] = this.student;
-                  
-                  this.i++;
-                })
-                // this.stuList1[this.i] = element;
-                // this.i++;
-                //this.dataSource.sort = this.sort;
-              }     
-            });
-        }
-      });
-    //  this. dataSource = new MatTableDataSource(this.stuList2);
-    }); 
+    this.getBatches.getAllData()
+    .subscribe(data => {
+      this.batch= data;
+      this.batch.sort((a,b)=>b.batch-a.batch);
+      this.disable = this.batch[0].enable;
+      
+      if( !this.disable ){
+      
+        this.readStudentList.getStudentList()
+        .subscribe(data => {this.stuList = data;
+          this.stuList.forEach(element => {
+            if(element.organization == this.value){
+                this.intrnshipService.getData(element.name)
+                .subscribe(data => {
+                // this.student=data;
+                //   if (this.student.availability){
+                //     this. dataSource = new MatTableDataSource(this.students);                 
+                //     this.students[this.i]=data;
+                this.cid=data;
+                  if (this.cid==null){
+                    this.studentService.getData(element.name)
+                    .subscribe(data => {this.student = data;
+                      this.stuList2[this.i] = this.student;
+                      
+                      this.i++;
+                    })
+                    // this.stuList1[this.i] = element;
+                    // this.i++;
+                    //this.dataSource.sort = this.sort;
+                  }     
+                });
+            }
+          });
+        //  this. dataSource = new MatTableDataSource(this.stuList2);
+        }); 
 
-    this.applySort();
+        this.applySort();
+        
+      }
+      
+    });
+
+    
+    
 }   
     //});
 

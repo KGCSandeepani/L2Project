@@ -15,6 +15,8 @@ import { StudentSelectedCompanyService } from 'src/app/component/Services/studen
 import { isUndefined, isNull } from 'util';
 import { NgxNotificationService } from 'ngx-notification';
 import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTask } from 'angularfire2/storage';
+import { GetBatchOfStudentService } from '../Services/get-batch-of-student.service';
+import { Batch } from '../Model/Batch';
 
 @Component({
   selector: 'app-student-edit-detail',
@@ -39,11 +41,13 @@ export class StudentEditDetailComponent implements OnInit {
     interest1 : String;
     interest2 : String;
     interest3 : String;  
-    disableButton =true;
+    disableButton :boolean ;
     probar=false;
     l=0;
+    batch: Batch;
+    
 
-    constructor(private data : DataPassService,
+    constructor(private data : DataPassService, private getBatches: GetBatchOfStudentService, 
                 private ngxNotificationService: NgxNotificationService,
                 private afStorage: AngularFireStorage ,
                 private stuCompany : StudentSelectedCompanyService,
@@ -77,6 +81,9 @@ export class StudentEditDetailComponent implements OnInit {
 
   this.readCompanyService.getData()
   .subscribe(data => {this.company = data });
+
+  
+
   }
   
 readData(){
@@ -87,7 +94,15 @@ readData(){
       this.interest1=this.student.interest1;
       this.interest2=this.student.interest2;
       this.interest3=this.student.interest3;
-   
+      
+      this.getBatches.getData(this.student.batch)
+      .subscribe(data => {
+        this.batch= data;
+        
+        this.disableButton=this.batch.enable;
+        console.log(this.disableButton);
+      });
+
    });
 }
 
@@ -157,7 +172,7 @@ upload(event) {
         console.log("Uploaded "+this.urlForSave);
         // this.uploadProgress= this.task.percentageChanges();
         this.probar=false;
-        this.disableButton=false;
+        //this.disableButton=false;
         this.sendNotification2();
     })
   }); 

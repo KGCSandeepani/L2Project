@@ -3,4 +3,5 @@ export interface Batch  {
     batch : number;
     startDate : Date;
     endDate : Date;
+    enable : boolean;
 }
