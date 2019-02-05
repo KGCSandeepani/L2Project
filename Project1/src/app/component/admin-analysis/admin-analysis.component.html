@@ -10,15 +10,25 @@
           (chartClick)="chartClicked($event)"></canvas>
         </div>  -->
 
+    <fusioncharts
+        [width]="width"
+        [height]="height"
+        [type]="type"
+        [dataFormat]="dataFormat"
+        [dataSource]="datasource">
+    </fusioncharts>
+
+<br><br>
+
     <fusioncharts 
-        width="1000" 
-        height="500"
+        width="800" 
+        height="400"
         type="pie3d"
         [dataSource]=dataSource >
     </fusioncharts>
 
 
-    <div class="card shadow">
+    <!-- <div class="card shadow">
         <div class="card-body chart-wrapper">
           <div class="chart-wrapper-inner" >
               <fusioncharts
@@ -31,12 +41,6 @@
             <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <!-- <fusioncharts
-      width = 600;
-      height = 400;
-      type = 'msbar3d';
-      dataFormat = 'json';
-      [dataSource]="datasource">
-  </fusioncharts> -->
+     

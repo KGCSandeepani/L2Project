@@ -6,6 +6,7 @@ import {NgForm} from '@angular/forms';
   providedIn: 'root'
 })
 export class AddAdminService {
+  
 
   constructor(private http : HttpClient) { }
 
@@ -23,5 +24,9 @@ export class AddAdminService {
             );
             
   }
+
+
+  
+  
 
 }

@@ -89,7 +89,7 @@ export class CompanyAnalysisComponent implements OnInit {
                 this.attached = false;
                     this.datasource = {
                       "chart": {
-                          "caption": "How many internship  offers to UOM students in previous batches",
+                          "caption": "How many internship  offerings to UOM students in previous batches",
                           "xAxisName": "batch",
                           "yAxisName": "no of internships",
                           "decimals": "2",

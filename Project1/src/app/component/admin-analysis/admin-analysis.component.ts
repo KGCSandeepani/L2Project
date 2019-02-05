@@ -46,13 +46,21 @@ export class AdminAnalysisComponent implements OnInit {
   maxT5=0; 
 
 
+
+  width = 1000;
+  height = 400;
+  type = 'msbar3d';
+  dataFormat = 'json';
+ // datasource = datas;
+
   constructor(private readCompanyService: AdminViewCompanyService,private readService: ReadUnamePswServiceService,
     private getBatches: GetPresentBatchService,private getMaxBatchService: GetMaxBatchService) { }
 
   ngOnInit() {
  
     this.countCompany();
-    this.adminCountStudent();
+  //  this.adminCountStudent();
+    this.adminCount();
 
   }
 
@@ -82,7 +90,7 @@ export class AdminAnalysisComponent implements OnInit {
       this.attached = false;
       this.dataSource = {
         "chart": {
-          "caption": "Summary of companies in this year",
+          "caption": "Summary: number of companies in this year",
           "showValues":"1",
           "showPercentInTooltip" : "0",
           "enableMultiSlicing":"1",
@@ -129,7 +137,97 @@ export class AdminAnalysisComponent implements OnInit {
  
  
 
-  adminCountStudent(){
+//   adminCountStudent(){
+//     this.getBatches.getAllData()
+//     .subscribe(data => {
+//       this.batch= data;
+//       this.batch.sort((a,b)=>b.batch-a.batch);
+//       console.log(this.batch[0].batch+"max batch")
+//       this.max = this.batch[0].batch;
+//       console.log(this.max+"max batch")
+
+//     this.readService.getData()
+//     .subscribe((data: student[]) => {
+//       this.students = data;
+
+
+//       for(var i=0;i<this.students.length;i++){
+//         if(this.students[i].batch==(this.max) && this.students[i].availability==false ){
+//           this.max1++;
+//         }
+       
+//         else if(this.students[i].batch==(this.max-2) && this.students[i].availability==false){
+//           this.max2++;
+//         }
+        
+//         else if(this.students[i].batch==(this.max-3) && this.students[i].availability==false){
+//           this.max3++;
+//         }
+       
+//         else if(this.students[i].batch==(this.max-4) && this.students[i].availability==false){
+//           this.max4++;
+//         }
+        
+//         else if(this.students[i].batch==(this.max-5) && this.students[i].availability==false){
+//           this.max5++;
+//         }
+       
+//       }
+
+//       console.log(this.max1+"1")
+//       console.log(this.max2+"1")
+//       console.log(this.max3+"1")
+//       console.log(this.max4+"1")
+//       console.log(this.max5+"1")
+//     //  console.log(this.maxT1+"1")
+
+//       this.attached = false;
+//       this.datasource = {
+//         "chart": {
+//             "caption": "How many students got inetrnships in previous batches",
+//             "xAxisName": "batch",
+//             "yAxisName": "no of students",
+//             "decimals": "2",
+//             "formatnumber":"1",
+//             "formatnumberscale":"6",
+//             "sformatnumber":"1",
+//             "theme": "gammel"
+//         },
+//         "data": [
+//             {
+//                 "label": "last",
+//                 "value": this.max1
+//             },
+//             {
+//                 "label": "last -1",
+//                 "value": this.max2
+//             },
+//             {
+//                 "label": "last-2",
+//                 "value": this.max3
+//             },
+//             {
+//               "label": "last-3",
+//               "value": this.max4
+//           },
+//           {
+//             "label": "last-4",
+//             "value": this.max5
+//         },
+           
+//         ]
+//       }   
+
+//     });
+//   });
+// }
+
+
+adminCount(){
+  this.getMaxBatchService.getMaxBatch();
+    this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
+    console.log("max "+this.maxBatch);
+
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batch= data;
@@ -144,7 +242,7 @@ export class AdminAnalysisComponent implements OnInit {
 
 
       for(var i=0;i<this.students.length;i++){
-        if(this.students[i].batch==(this.max) && this.students[i].availability==false ){
+        if(this.students[i].batch==(this.max-1) && this.students[i].availability==false){
           this.max1++;
         }
        
@@ -166,238 +264,154 @@ export class AdminAnalysisComponent implements OnInit {
        
       }
 
+      for(var i=0;i<this.students.length;i++){
+        if(this.students[i].batch==(this.max-1) ){
+          this.maxT1++;
+        }
+       
+        else if(this.students[i].batch==(this.max-2) ){
+          this.maxT2++;
+        }
+        
+        else if(this.students[i].batch==(this.max-3) ){
+          this.maxT3++;
+        }
+       
+        else if(this.students[i].batch==(this.max-4) ){
+          this.maxT4++;
+        }
+        
+        else if(this.students[i].batch==(this.max-5) ){
+          this.maxT5++;
+        }
+       
+      }
+
+
+
       console.log(this.max1+"1")
       console.log(this.max2+"1")
       console.log(this.max3+"1")
       console.log(this.max4+"1")
       console.log(this.max5+"1")
-    //  console.log(this.maxT1+"1")
+      console.log(this.maxT1+"1")
+
+      // this.attached = false;
+      // this.datasource = {
+      //   "chart": {
+      //       "caption": "How many students got inetrnships in previous batches",
+      //       "xAxisName": "batch",
+      //       "yAxisName": "no of students",
+      //       "decimals": "2",
+      //       "formatnumber":"1",
+      //       "formatnumberscale":"6",
+      //       "sformatnumber":"1",
+      //       "theme": "gammel"
+      //   },
+      //   "data": [
+      //       {
+      //           "label": "last",
+      //           "value": this.max1
+      //       },
+      //       {
+      //           "label": "last -1",
+      //           "value": this.max2
+      //       },
+      //       {
+      //           "label": "last-2",
+      //           "value": this.max3
+      //       },
+      //       {
+      //         "label": "last-3",
+      //         "value": this.max4
+      //     },
+      //     {
+      //       "label": "last-4",
+      //       "value": this.max5
+      //   },
+           
+      //   ]
 
       this.attached = false;
-      this.datasource = {
+      this.datasource  = {
         "chart": {
-            "caption": "How many students got inetrnships in previous batches",
-            "xAxisName": "batch",
-            "yAxisName": "no of students",
-            "decimals": "2",
-            "formatnumber":"1",
-            "formatnumberscale":"6",
-            "sformatnumber":"1",
-            "theme": "gammel"
+          "caption": "FIT student count in previous batches",
+          "subcaption": "interns got vs total",
+          "plottooltext": "$label won <b>$dataValue</b> medals in $seriesName",
+          "formatnumber":"1",
+          "formatnumberscale":"6",
+          "sformatnumber":"1",
+          "theme": "fusion"
         },
-        "data": [
-            {
-                "label": "last",
-                "value": this.max1
-            },
-            {
-                "label": "last -1",
-                "value": this.max2
-            },
-            {
-                "label": "last-2",
-                "value": this.max3
-            },
-            {
-              "label": "last-3",
-              "value": this.max4
+        "categories": [
+          {
+            "category": [
+              {
+                "label": "last"
+              },
+              {
+                "label": "last-1"
+              },
+              {
+                "label": "last-2"
+              },
+              {
+                "label": "last-3"
+              },
+              {
+                "label": "last-4"
+              }
+            ]
+          }
+        ],
+        "dataset": [
+          {
+            "seriesname": "Total students",
+            "data": [
+              {
+                "value": this.maxT1
+              },
+              {
+                "value": this.maxT2
+              },
+              {
+                "value": this.maxT3
+              },
+              {
+                "value": this.maxT4
+              },
+              {
+                "value": this.maxT5
+              }
+            ]
           },
           {
-            "label": "last-4",
-            "value": this.max5
-        },
-           
+            "seriesname": "Intern got students",
+            "data": [
+              {
+                "value": this.max1
+              },
+              {
+                "value": this.max2
+              },
+              {
+                "value": this.max3
+              },
+              {
+                "value": this.max4
+              },
+              {
+                "value": this.max5
+              }
+            ]
+          }
         ]
-      }   
+       }   
 
     });
   });
-}
 
-    // this.getMaxBatchService.getMaxBatch();
-    // this.maxBatch = parseInt(sessionStorage.getItem("maxBatch"), 10);
-    // console.log("max "+this.maxBatch);
-
-  //   this.getBatches.getAllData()
-  //   .subscribe(data => {
-  //     this.batch= data;
-  //     this.batch.sort((a,b)=>b.batch-a.batch);
-  //     console.log(this.batch[0].batch+"max batch")
-  //     this.max = this.batch[0].batch;
-  //     console.log(this.max+"max batch")
-
-  //   this.readService.getData()
-  //   .subscribe((data: student[]) => {
-  //     this.students = data;
-
-
-  //     for(var i=0;i<this.students.length;i++){
-  //       if(this.students[i].batch==(this.max-1) && this.students[i].availability==false){
-  //         this.max1++;
-  //       }
-       
-  //       else if(this.students[i].batch==(this.max-2) && this.students[i].availability==false){
-  //         this.max2++;
-  //       }
-        
-  //       else if(this.students[i].batch==(this.max-3) && this.students[i].availability==false){
-  //         this.max3++;
-  //       }
-       
-  //       else if(this.students[i].batch==(this.max-4) && this.students[i].availability==false){
-  //         this.max4++;
-  //       }
-        
-  //       else if(this.students[i].batch==(this.max-5) && this.students[i].availability==false){
-  //         this.max5++;
-  //       }
-       
-  //     }
-
-  //     for(var i=0;i<this.students.length;i++){
-  //       if(this.students[i].batch==(this.max-1) ){
-  //         this.maxT1++;
-  //       }
-       
-  //       else if(this.students[i].batch==(this.max-2) ){
-  //         this.maxT2++;
-  //       }
-        
-  //       else if(this.students[i].batch==(this.max-3) ){
-  //         this.maxT3++;
-  //       }
-       
-  //       else if(this.students[i].batch==(this.max-4) ){
-  //         this.maxT4++;
-  //       }
-        
-  //       else if(this.students[i].batch==(this.max-5) ){
-  //         this.maxT5++;
-  //       }
-       
-  //     }
-
-
-
-  //     console.log(this.max1+"1")
-  //     console.log(this.max2+"1")
-  //     console.log(this.max3+"1")
-  //     console.log(this.max4+"1")
-  //     console.log(this.max5+"1")
-  //     console.log(this.maxT1+"1")
-
-  //     this.attached = false;
-  //     this.datasource = {
-  //       "chart": {
-  //           "caption": "How many students got inetrnships in previous batches",
-  //           "xAxisName": "batch",
-  //           "yAxisName": "no of students",
-  //           "decimals": "2",
-  //           "formatnumber":"1",
-  //           "formatnumberscale":"6",
-  //           "sformatnumber":"1",
-  //           "theme": "gammel"
-  //       },
-  //       "data": [
-  //           {
-  //               "label": "last",
-  //               "value": this.max1
-  //           },
-  //           {
-  //               "label": "last -1",
-  //               "value": this.max2
-  //           },
-  //           {
-  //               "label": "last-2",
-  //               "value": this.max3
-  //           },
-  //           {
-  //             "label": "last-3",
-  //             "value": this.max4
-  //         },
-  //         {
-  //           "label": "last-4",
-  //           "value": this.max5
-  //       },
-           
-  //       ]
-
-  //     // this.attached = false;
-  //     // this.datasource  = {
-  //     //   "chart": {
-  //     //     "caption": "Medal Tally for 2017",
-  //     //     "subcaption": "Olympics vs Paralympics",
-  //     //     "plottooltext": "$label won <b>$dataValue</b> medals in $seriesName",
-  //     //     "theme": "fusion"
-  //     //   },
-  //     //   "categories": [
-  //     //     {
-  //     //       "category": [
-  //     //         {
-  //     //           "label": "USA"
-  //     //         },
-  //     //         {
-  //     //           "label": "United Kingdom"
-  //     //         },
-  //     //         {
-  //     //           "label": "China"
-  //     //         },
-  //     //         {
-  //     //           "label": "Russia"
-  //     //         },
-  //     //         {
-  //     //           "label": "Germany"
-  //     //         }
-  //     //       ]
-  //     //     }
-  //     //   ],
-  //     //   "dataset": [
-  //     //     {
-  //     //       "seriesname": "Olympics",
-  //     //       "data": [
-  //     //         {
-  //     //           "value": this.max1
-  //     //         },
-  //     //         {
-  //     //           "value": this.max1
-  //     //         },
-  //     //         {
-  //     //           "value": this.max1
-  //     //         },
-  //     //         {
-  //     //           "value": this.max1
-  //     //         },
-  //     //         {
-  //     //           "value": this.max1
-  //     //         }
-  //     //       ]
-  //     //     },
-  //     //     {
-  //     //       "seriesname": "Paralympics",
-  //     //       "data": [
-  //     //         {
-  //     //           "value": "115"
-  //     //         },
-  //     //         {
-  //     //           "value": "147"
-  //     //         },
-  //     //         {
-  //     //           "value": "239"
-  //     //         },
-  //     //         {
-  //     //           "value": ""
-  //     //         },
-  //     //         {
-  //     //           "value": "57"
-  //     //         }
-  //     //       ]
-  //     //     }
-  //     //   ]
-  //      }   
-
-  //   });
-  // });
-
-  // }
+  }
 
 }
+

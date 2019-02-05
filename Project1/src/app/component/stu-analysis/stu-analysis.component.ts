@@ -50,6 +50,8 @@ export class StuAnalysisComponent implements OnInit {
   datasource: any;
   wso2=0;
   virtusa=0;
+  csw=0;
+  codegen=0;
   nnx=0;
   others=0;
   batch: Batch[];
@@ -173,14 +175,17 @@ countCompany(){
       .subscribe(data => {this.comInternship = data;
 
         this.comInternship.forEach(element1 => {       
-          if(element1.organization=="wso2" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){ 
+          if((element1.organization).toLocaleLowerCase()=="wso2" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){ 
             this.wso2++;  
           }
-          else if(element1.organization=="Virtusa" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
+          else if((element1.organization).toLocaleLowerCase()=="virtusa" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
             this.virtusa++;
           }
-          else if(element1.organization=="99x" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
+          else if((element1.organization).toLocaleLowerCase()=="99x" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
             this.nnx++;
+          }
+          else if((element1.organization).toLocaleLowerCase()=="codegen" && element1.companyConfirmation && element1.batch==(this.batch[0].batch-1)){
+            this.codegen++;
           }
           else{
             this.others++;
@@ -210,6 +215,10 @@ countCompany(){
             {
               'label': "99X",
               "value": this.nnx
+            },
+            {
+              'label': "Codegen",
+              "value": this.codegen
             },
 
           ]
