@@ -117,6 +117,7 @@ import * as FusionCharts from 'fusioncharts';
 
 // Load FusionCharts Individual Charts
 import * as Charts from 'fusioncharts/fusioncharts.charts';
+import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
 
 // Use fcRoot function to inject FusionCharts library, and the modules you want to use
 FusionChartsModule.fcRoot(FusionCharts, Charts)
@@ -177,6 +178,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
     CompanyProfileConfirmStudentlistComponent,
     
     SupervisorViewFeedbackComponent,
+    
+    StudentDashboardComponent,
   //  MatTabsModule,
   ],
   imports: [

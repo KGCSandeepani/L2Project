@@ -39,6 +39,7 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 import { CompanyProfileConfirmStudentlistComponent } from './component/company-profile-confirm-studentlist/company-profile-confirm-studentlist.component';
+import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
 
 import { SupervisorProfileHomeComponent } from './component/supervisor-profile-home/supervisor-profile-home.component';
 import { SupervisorProfileViewStudentComponent } from './component/supervisor-profile-view-student/supervisor-profile-view-student.component';
@@ -124,6 +125,7 @@ const routes: Routes = [
     path: 'student', 
     component: StudentComponent,
     children :[
+      { path: 'dashboard', component: StudentDashboardComponent },
       { path: 'studentAdd', component: StudentAddDetailComponent },
       { path: 'studentAddSuccess', component: StudentAddSuccessComponent },
       { path: 'studentEdit', component: StudentEditDetailComponent },

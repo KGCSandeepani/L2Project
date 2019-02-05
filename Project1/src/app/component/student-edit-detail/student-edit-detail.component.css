@@ -1,10 +1,12 @@
 /* Bordered form */
+.main-content{
+    padding-top:60px
+}
 form {
     border: none;
     width: 98%;
     background-color: rgb(255, 255, 255);
-    padding: 10px 20px; 
-    margin-top: 50px;
+    
 }
 
 h3{
@@ -14,16 +16,16 @@ h3{
 /* Full-width inputs */
 input[type=text], input[type=password], input[type=file] {
     width: 60%;
-    padding: 12px 20px;
-    margin: 15px 0;
+    /* padding: 12px 20px; */
+    /* margin: 15px 0; */
     display: inline-block;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 8px;
 }
 
 /* Create two equal columns that floats next to each other */
-.column1 {
+/* .column1 {
     float: left;
     width: 30%;   
 }
@@ -31,12 +33,12 @@ input[type=text], input[type=password], input[type=file] {
 .column2 {
     float: left;
     width: 70%;    
-}
+} */
 
-label{
+/* label{
     padding: 24px 10px;
     
-}
+} */
 
 /* Clear floats after the columns */
 .row:after {
@@ -89,8 +91,8 @@ button:hover {
 
 input[type=text], input[type=password] {
     width: 60%;
-    padding: 12px 20px;
-    margin: 15px 0;
+    /* padding: 5px 5px; */
+    margin: 2px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -99,8 +101,8 @@ input[type=text], input[type=password] {
 
 .dropdown {
     width: 60%;
-    padding: 12px 20px;
-    margin: 15px 0;
+    /* padding: 12px 20px; */
+    /* margin: 15px 0; */
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;

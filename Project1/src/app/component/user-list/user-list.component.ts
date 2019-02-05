@@ -114,18 +114,7 @@ currentUserAdmin: Observable<any>;
 
   getRecepient() {
     //view recepient list
-    console.log(" inside recepient");
-
-    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loggedUser));
-    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
-    // this.currentUserAdmin.subscribe(res => { this.items = res;console.log("responses", res); });
-    
-    // this.loggedUser = this.data.getMessage();
-    // this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loggedUser).child('recepients').orderByChild('rerecepients'));
-    // this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
-    // this.currentUserAdmin.subscribe(res => { this.items = res;console.log("msgCount", res ); });
-  
-//////////////////////////////
+   
     var ref = firebase.database().ref('userList');
     var userRef = ref.child(this.loggedUser).child('recepients');
 
