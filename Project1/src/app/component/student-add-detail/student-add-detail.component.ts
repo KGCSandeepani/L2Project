@@ -69,6 +69,9 @@ export class StudentAddDetailComponent implements OnInit {
         this.array[index]=index+1;         
       }
      
+    },error => {
+      this.num=1;
+      this.array[0]=1;  
     });
 
     this.readCompanyService.getData()

@@ -5,6 +5,8 @@ import { AdminAddBatchService } from '../Services/admin-add-batch.service';
 import { Batch } from 'src/app/component/Model/Batch';
 import { AdminUpdateEnableBatchService } from '../Services/admin-update-enable-batch.service';
 import { GetPresentBatchService } from '../Services/get-present-batch.service';
+import { NgxNotificationService } from 'ngx-notification';
+import { GetNoOfCompanyService } from '../Services/get-no-of-company.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -22,18 +24,29 @@ export class AdminSettingComponent implements OnInit {
   enable = true;
   selectedbutton ;
   batches : Array<Batch> =[];
+  num : number;
+
   constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService,
-    private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService) { }
+    private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService,
+    private ngxNotificationService: NgxNotificationService, private getNoOfCompany : GetNoOfCompanyService) { }
 
   ngOnInit() {
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batches= data;
       this.batches.sort((a,b)=>b.batch-a.batch);
-      console.log("ng : "+ this.enable+" : "+ this.batches[0].batch);
+      //console.log("ng : "+ this.enable+" : "+ this.batches[0].batch);
       if (this.batches[0].enable!=null) {
         this.selectedbutton= this.batches[0].enable;
       }
+    });
+
+    this.getNoOfCompany.getData()
+      .subscribe(data => {this.noOfCompany = data;
+      this.num=this.noOfCompany.amount;
+     console.log("num "+this.num);
+    },error => {
+      console.log("error "+this.num + " : " + error);      
     });
   }
 
@@ -43,16 +56,24 @@ export class AdminSettingComponent implements OnInit {
     .subscribe( (data : NoOfCompany) =>{
       this.noOfCompany = data;
       this.amount='';
+      this.sendNotification();
+      this.ngOnInit();
+    },errror => {
+      this.sendNotification1();
     })
   }
 
   insertBatch(batch, startDate, endDate){
-    console.log(batch +" : "+ startDate +" : "+ endDate);
+    //console.log(batch +" : "+ startDate +" : "+ endDate);
     this.addBatchService.addNewBatch(batch,startDate, endDate)
     .subscribe(result => {
       this.batch= '';
       this.startDate='';
       this.endDate= '';
+      this.sendNotification();
+      this.ngOnInit();
+    },errror => {
+      this.sendNotification1();
     })
   }
 
@@ -65,24 +86,31 @@ export class AdminSettingComponent implements OnInit {
     if(this.enability=="dis"){
       this.enable=false;
     }
-  }
-
-  changeEnability(){
-    
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batches= data;
       this.batches.sort((a,b)=>b.batch-a.batch);
-      console.log("en : "+ this.enable+" : "+ this.batches[0].batch);
+      //console.log("en : "+ this.enable+" : "+ this.batches[0].batch);
 
       this.enableBatchService.updateEnabilityOfBatch(this.batches[0].batch, this.enable)
       .subscribe(data => {
-        
+        this.sendNotification();
+      },errror => {
+        this.sendNotification1();
       });
 
     });
-    
-    
+  }
+
+  // changeEnability(){
+  // }
+
+  sendNotification() {
+  	this.ngxNotificationService.sendMessage('Added Successfully', 'dark', 'bottom-right');
+  }
+
+  sendNotification1() {
+  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'dark', 'bottom-right');
   }
 
 }

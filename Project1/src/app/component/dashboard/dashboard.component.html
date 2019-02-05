@@ -38,7 +38,7 @@
       <div class="w3-bar-block">
         <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
         <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  General stat</a>
+        <a href="#abcd" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  General stat</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Remaining companies</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Recently selected students</a>
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Recent feedback</a>
@@ -153,9 +153,9 @@
         </div>
       </div>
       <hr>
-      <div class="w3-container">
-        <h5>General Stats</h5>
-        
+      <div  class="w3-container">
+        <span id="abcd"><h5>General Stats</h5></span>
+        <a id="abcd"></a>
         <div class="w3-grey">
           <div class="w3-container w3-center w3-padding w3-green" [style.width.%]="[presentageCVUpload]">{{presentageCVUpload}}%</div>
         </div>

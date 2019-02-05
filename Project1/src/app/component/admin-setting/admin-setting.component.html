@@ -1,12 +1,28 @@
 <div class="main">
 
   <div class="container">
-    <h2>Change number of companies which student can choose </h2><br>
-    <label for="company"><b>No of companies : </b></label>
-    <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
-
-    <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
-
+    <!-- <div style="margin-left:10px;margin-top:43px;width: 60%;"> -->
+        <h2>Change number of companies which student can choose </h2><br>
+        <label for="company"><b>No of companies : </b></label>
+        <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
+    
+        <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
+    <!-- </div> -->
+    
+    
+      <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
+        <div class="w3-quarter">
+          <div class="w3-container w3-blue w3-padding-16">
+            <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+            <div class="w3-right">
+              <h3> {{num}} </h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>No of companies</h4>
+          </div>
+        </div>
+      </div> 
+   
   </div>
 
   <div class="container">
@@ -23,6 +39,19 @@
 
     <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
 
+    <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
+    <div class="w3-quarter">
+        <div class="w3-container w3-orange w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3> {{ batches[0].batch }} </h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Last Batch</h4>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="container">
@@ -30,11 +59,13 @@
     <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
     <mat-radio-group>
         <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="!selectedbutton"> Disable </mat-radio-button>
+        <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false"> Disable </mat-radio-button>
       </mat-radio-group>
       <br>
-    <button type="button" id="add" (click)="changeEnability()">Change</button>
+    <!-- <button type="button" id="add" (click)="changeEnability()">Change</button> -->
 
   </div>
+
+  <lib-ngx-notification></lib-ngx-notification>
 
 </div>

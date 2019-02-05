@@ -1,12 +1,12 @@
 <div class="container">
-    <h3>Upload all student usernames & name : </h3><br>
+    <h3>Upload all student usernames & names : </h3><br>
     <div class='loadExcelInput'>
         <p>Open Excel File ( First column - Register No, Second column - Name )</p>
       <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
     </div>
     <br>
     <label for="psw3"><b>Password : </b></label>
-    <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3"><br>
+    <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3" style="width:30%"><br>
 
     <label for="batch3"><b>Batch : </b></label>
     <!-- <input type="number" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br> -->
@@ -27,13 +27,13 @@
 
 
 <div class="container">
-    <h3>Enter all student usernames : </h3><br>
+    <h3>Enter all student usernames & names: </h3><br>
     <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
     </gc-spread-sheets>
 
     <br>
     <label for="psw2"><b>Password : </b></label>
-    <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2"><br>
+    <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2" style="width:30%"><br>
 
     <label for="batch2"><b>Batch : </b></label>
     <!-- <input type="number" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br> -->
@@ -57,13 +57,13 @@
     <h3>Enter student details : </h3><br>
       <div class="row">
         <div class="column1">
-            <label for="uname"><b id="username">Username : </b></label><br>
+            <label for="uname"><b id="username">Register No : </b></label><br>
             <label for="sname"><b id="sname">Name : </b></label><br>
             <label for="psw"><b>Password : </b></label><br>
             <label for="batch"><b>Batch : </b></label><br>
         </div>
         <div class="column2">
-            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username" ><br>
+            <input type="text" placeholder="Enter Register No" name="uname" [(ngModel)]="username" ><br>
             <input type="text" placeholder="Enter Name" name="sname" [(ngModel)]="sname" ><br>
             <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
             <!-- <input type="number" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br> -->

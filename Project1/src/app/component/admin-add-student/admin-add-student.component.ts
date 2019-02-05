@@ -33,10 +33,12 @@ export class AdminAddStudentComponent implements OnInit {
   batch3:string;
   student:student[];
   batch: Batch[];
+  count = 0 ;
+  aaa = "aaa";
 
   spreadBackColor = 'aliceblue';
   hostStyle = {
-    width: '50vw',
+    width: '98%',
     height: '50vh'
   };
   private spread: GC.Spread.Sheets.Workbook;
@@ -50,6 +52,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   ngOnInit() {
+    //console.log(this.aaa.toLocaleUpperCase());
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batch= data;
@@ -80,8 +83,11 @@ export class AdminAddStudentComponent implements OnInit {
         this.userList.sendUserWithCustomId(formdata.value.uname);
         formdata.reset();  
         this.batch1='';
-        this.sendNotification4(); 
-
+        this.count= 1;
+        this.sendNotification4(1); 
+      
+    },error => {
+      this.sendNotification7();
     });
   }
   
@@ -90,8 +96,11 @@ export class AdminAddStudentComponent implements OnInit {
     self.spread = args.spread;
     const sheet = self.spread.getActiveSheet();
     sheet.setRowCount(300);
-    sheet.getCell(0, 0).text('Username').foreColor('blue');   
-    sheet.getCell(0, 1).text('Name').foreColor('blue');   
+    sheet.setColumnWidth(0,175);
+    sheet.setColumnWidth(1,250);
+    sheet.getCell(0, 0).text('Register No').foreColor('blue');   
+    sheet.getCell(0, 1).text('Name').foreColor('blue');  
+    sheet.setActiveCell(1,0); 
   }
 
   getData(args,psw2){
@@ -104,11 +113,15 @@ export class AdminAddStudentComponent implements OnInit {
           for (let index = 1; index < this.a; index++) {
             if (self.spread.getActiveSheet().getValue(index,0)!=null) {
               if(self.spread.getActiveSheet().getValue(index,0).length!=7){
-                this.sendNotification5();
+                this.sendNotification6(self.spread.getActiveSheet().getValue(index,0));
+                continue;
               }
-              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0),self.spread.getActiveSheet().getValue(index,1),psw2,parseInt(this.batch2))
+              this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0).toLocaleUpperCase(),self.spread.getActiveSheet().getValue(index,1),psw2,parseInt(this.batch2))
               .subscribe((data : student[] )=> {
               this.student = data;
+              self.spread.getActiveSheet().setValue(index,0,'');
+              self.spread.getActiveSheet().setValue(index,1,'');
+              this.count++;
               });
               console.log(self.spread.getActiveSheet().getValue(index,0));
               
@@ -119,7 +132,7 @@ export class AdminAddStudentComponent implements OnInit {
           }
           this.password2='';
           this.batch2='';
-          this.sendNotification4();
+          this.sendNotification4(this.count);
   }
 
   onFileChange(args) {
@@ -147,22 +160,28 @@ export class AdminAddStudentComponent implements OnInit {
     for (let index = 0; index < this.a; index++) {
       if (self.spread.getSheet(1).getValue(index,0)!=null) {
         if(self.spread.getSheet(1).getValue(index,0).length!=7){
-          this.sendNotification5();
+          this.sendNotification6(self.spread.getActiveSheet().getValue(index,0));
+          continue;
         }
-        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0),self.spread.getSheet(1).getValue(index,1),psw3,parseInt(this.batch3))
+        this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0).toLocaleUpperCase(),self.spread.getSheet(1).getValue(index,1),psw3,parseInt(this.batch3))
         .subscribe((data : student[] )=> {
         this.student = data;
+        self.spread.getActiveSheet().setValue(index,0,'');
+        self.spread.getActiveSheet().setValue(index,1,'');
+        this.count++;
+        },error => {
+          this.sendNotification7();
         });
         
-        console.log(self.spread.getSheet(1).getValue(index,0));
-        console.log(psw3);
+        // console.log(self.spread.getSheet(1).getValue(index,0));
+        // console.log(psw3);
       } else {
         continue;
       }      
     }
     this.password3='';
     this.batch3='';
-    this.sendNotification4();
+    this.sendNotification4(this.count);
   }
 
   sendNotification1() {
@@ -177,12 +196,20 @@ export class AdminAddStudentComponent implements OnInit {
   	this.ngxNotificationService.sendMessage('Please enter Username, Password and batch', 'dark', 'bottom-right');
   }
 
-  sendNotification4() {
-  	this.ngxNotificationService.sendMessage('Added sucessfully', 'dark', 'bottom-right');
+  sendNotification4(count: number) {
+  	this.ngxNotificationService.sendMessage(this.count+' record(s) added sucessfully', 'dark', 'bottom-right');
   }
 
   sendNotification5() {
   	this.ngxNotificationService.sendMessage('Please enter Register No in first column & Name in second column only', 'dark', 'bottom-right');
+  }
+
+  sendNotification6(name) {
+  	this.ngxNotificationService.sendMessage('Register No should be 7 characters long', 'dark', 'bottom-right');
+  }
+
+  sendNotification7() {
+  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'dark', 'bottom-right');
   }
 
 }
