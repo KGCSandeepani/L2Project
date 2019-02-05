@@ -65,7 +65,7 @@ img{ max-width:100%;}
   overflow-y:hidden;
 }
 .headind_srch{ padding:10px 29px 10px 20px; overflow-y:hidden; 
-  border-bottom:1px solid #c4c4c4;}
+  border-bottom:1px solid #9c9c9c;}
 
 .recent_heading h4 {
   color: #05728f;
@@ -75,7 +75,8 @@ img{ max-width:100%;}
 .srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; 
   padding:2px 0 4px 6px; background:none;}
 .srch_bar .input-group-addon button {
-  background:   #cdcdcd none repeat scroll 0 0;
+  /* serach buttom */
+  background:   rgb(238, 236, 240) none repeat scroll 0 0;
   border: medium none;
   padding: 0;
   color: rgb(73, 73, 73);

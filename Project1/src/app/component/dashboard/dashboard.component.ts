@@ -5,6 +5,8 @@ import { GetPresentBatchService } from '../Services/get-present-batch.service';
 import { Batch } from '../Model/Batch';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { student } from '../Model/Student';
+import { ChatServiceASService } from '../Services/chat-service-a-s.service'
+import { BroadcastingMessagesService} from '../Services/broadcasting-messages.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -27,8 +29,8 @@ export class DashboardComponent implements OnInit {
   presentageCompamy: number = 0;
   companyList : Array<company>=[];
   i: number=0;
-
-  constructor(private readCompanyService: AdminViewCompanyService, private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService) { }
+  message:string
+  constructor(private broadcasting:BroadcastingMessagesService,private readCompanyService: AdminViewCompanyService, private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService) { }
 
   ngOnInit() {
 
@@ -81,5 +83,11 @@ export class DashboardComponent implements OnInit {
       
 
   }
+  // send() {
+   
+  //   this.broadcasting.send(this.message);
+  //   this.message = "";
+   
+  // }
 
 }

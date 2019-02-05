@@ -132,7 +132,7 @@ export class LoginComponent implements OnInit {
           if (uname == this.logstudent.name && psw == this.logstudent.password) {
             this.newMessage(this.logstudent.name + "");
             this.getUserType("Student");
-            this.router.navigate(['/student']);
+            this.router.navigate(['/student/dashboardStudent']);
 
           }
         }

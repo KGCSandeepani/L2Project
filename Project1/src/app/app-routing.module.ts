@@ -125,7 +125,7 @@ const routes: Routes = [
     path: 'student', 
     component: StudentComponent,
     children :[
-      { path: 'dashboard', component: StudentDashboardComponent },
+      { path: 'dashboardStudent', component: StudentDashboardComponent },
       { path: 'studentAdd', component: StudentAddDetailComponent },
       { path: 'studentAddSuccess', component: StudentAddSuccessComponent },
       { path: 'studentEdit', component: StudentEditDetailComponent },

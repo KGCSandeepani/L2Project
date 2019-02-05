@@ -45,6 +45,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AfterViewChecked, ElementRef, ViewChild} from '@angular/core'
 import { AuthChatASService } from './component/Services/auth-chat-a-s.service';
 import { ChatServiceASService} from './component/Services/chat-service-a-s.service'
+import { BroadcastingMessagesService} from './component/Services/broadcasting-messages.service'
 
 import { environment} from '../environments/environment';
 
@@ -93,7 +94,6 @@ import { FeedbackComponent } from './component/feedback/feedback.component';
 import { StudentConfirmInternshipComponent } from './component/student-confirm-internship/student-confirm-internship.component';
 import { CompanyProfileConfirmStudentlistComponent } from './component/company-profile-confirm-studentlist/company-profile-confirm-studentlist.component';
 //import {TabsTemplateLabelExample} from './app/tabs-template-label-example';
-	
 //import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { SupervisorProfileHomeComponent } from './component/supervisor-profile-home/supervisor-profile-home.component';
@@ -222,6 +222,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
               DataPassService,
               
 
+              BroadcastingMessagesService,
               SupervisorChangePasswordServiceService,
               SupervisorViewCompanyServiceService,
               LoggingSupervisorServiceService,

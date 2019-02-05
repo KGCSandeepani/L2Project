@@ -36,6 +36,7 @@ export class AdminHomePageComponent implements OnInit {
   com: Array<company> = [];
 
   ngOnInit() {
+    this.loger = this.data.getMessage();
     this.getReqComCount();
     this.msgNotification();
     //this.getValue();
@@ -49,6 +50,7 @@ export class AdminHomePageComponent implements OnInit {
  
   msgNotification() {
     this.loger = this.data.getMessage();
+    console.log("loger"+this.loger)
     this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(this.loger).orderByChild('readCount'));
     this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
     this.currentUserAdmin.subscribe(res => { this.msgCount = res[0];console.log("msgCount", res[0] ); });

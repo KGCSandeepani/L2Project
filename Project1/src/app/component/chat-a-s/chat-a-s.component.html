@@ -1,4 +1,4 @@
-<div  class="name"style="background :rgb(202, 202, 202); width:1000px; height:70px;">
+<div  class="name"style="background :rgb(224, 223, 223);  height:70px;">
   <div>
     <!-- <a href="#destination">Back to top</a> -->
     <img style=" margin-top:5px; margin-left:5px; width:60px; height:60px;" src="https://ptetutorials.com/images/user-profile.png"
@@ -7,7 +7,7 @@
     <h6 >Username</h6>
   </div>
 </div>
-<div class="test" style="background :rgb(236, 235, 235); height:430px;overflow-y:scroll;">
+<div class="test" style="background :rgb(250, 249, 249); height:430px;overflow-y:scroll;">
 
 
   <div class="feedWrapper">
@@ -15,7 +15,7 @@
     <router-outlet></router-outlet>
   </div>
 </div>
-<div style="background :rgb(214, 214, 214);  height:70px;">
+<div style="background :rgb(224, 223, 223);  ">
   
   <div class="type_msg" >
     <div class="input_msg_write">
@@ -23,7 +23,7 @@
         <tr *ngFor ="let user of users"></tr>
       </table> -->
       <input [(ngModel)]="message" (click)="clear(); " class="write_msg" placeholder="Type a message" (keydown)="handleSubmit($event)" />
-      <button class="msg_send_btn" (click)="send(); " type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+      <button class="msg_send_btn" (click)="send(); " type="button"></button>
     </div>
   </div>
 </div>

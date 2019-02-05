@@ -8,6 +8,27 @@
     margin-right: 20%;
     max-height:200px;
 }*/
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 20%;
+    /* min-width: 200px;   */
+    /* position: fixed;  */
+}
+
+.column2 {
+    float: left;
+     /* position: fixed;  */
+    width: 60%;    
+    /* margin-left: 300px; */
+}
+.column3 {
+    float: right;
+    background-color: rgb(216, 216, 215);
+    width: 20%;  
+    height: 570px;  
+   
+}
 .split {
     height: 100%;
     /* margin-top: 5%; */
