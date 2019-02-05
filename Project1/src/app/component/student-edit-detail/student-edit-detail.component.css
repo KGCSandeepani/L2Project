@@ -25,7 +25,7 @@ input[type=text], input[type=password], input[type=file] {
 }
 
 /* Create two equal columns that floats next to each other */
-/* .column1 {
+.column1 {
     float: left;
     width: 30%;   
 }
@@ -33,7 +33,7 @@ input[type=text], input[type=password], input[type=file] {
 .column2 {
     float: left;
     width: 70%;    
-} */
+}
 
 /* label{
     padding: 24px 10px;
