@@ -28,7 +28,7 @@ currentUserAdmin: Observable<any>;
      private logStudent: LoggingStudentService) { }
 
   ngOnInit() {
-    this.loger = this.data.getMessage();
+    // this.loger = this.data.getMessage();
     this.msgNotification();
     console.log(this.loger+"in the student");
   }

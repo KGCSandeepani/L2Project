@@ -1,18 +1,26 @@
 
 .user{
   margin-left: 10px;
-  margin-right: 10px;
-  float: right;
-    /* margin-top: 5px; */
+  /* margin-right: 20px; */
+  color:white;
+  /* float: right; */
+    margin-top: -4px;
 }
+/* .logger{
+  margin-top: 1px;
+} */
 .icon{
-  position: relative;
+  position: relative;align-content: space-between;
   margin-top: 10px;
 }
 .button{
   margin-left: 10px;
-  float: right;
+  margin-right: 10px;
+  /* float: right; */
     margin-top: 7px;
+}
+.topnav-right-{
+  float: right;
 }
 ul {
     list-style-type: none;

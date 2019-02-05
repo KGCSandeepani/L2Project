@@ -4,7 +4,7 @@
         <ul>
             <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
             <!-- <li><a routerLink="./studentAdd" routerLinkActive="active">Add</a></li> -->
-            <a routerLink="./dashboard" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">HOME</a> 
+            <li><a routerLink="./dashboard" routerLinkActive="active" >HOME</a> </li>
 
             <li><a (click)="studentAdd()">Add</a></li>
             <li><a routerLink="./studentEdit" routerLinkActive="active">Edit</a></li>
@@ -17,17 +17,21 @@
 
             <!-- <li><a >Message</a></li> -->
             <li><a routerLink="./studentSetting" routerLinkActive="active">Setting</a></li>
-            <!-- <div class="topnav-right-"> -->
-            <li class="user"><span style="color: white;">
-                    <mat-icon class="icon" color="white">account_circle</mat-icon> {{ loger }}
-                </span></li>
+            <div class="topnav-right-">
+            <li class="user">
+                <span style="color: white;">
+                    <mat-icon class="icon" color="white">account_circle</mat-icon> 
+                    {{ loger }}
+                </span>
+            </li>
             <li class="button">
                 <button mat-raised-button style="background-color:white" (click)="logout()">
-                    <mat-icon color="black">settings_power</mat-icon> Logout
+                    <mat-icon color="black">settings_power</mat-icon> 
+                    Logout
                 </button>
 
             </li>
-            <!-- </div> -->
+            </div>
         </ul>
     </div>
     <span class="msg" *ngIf="msgCount > 0" ><span class="msg">new message</span></span>
