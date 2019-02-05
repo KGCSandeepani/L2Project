@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { company } from 'src/app/component/Model/Company';
 import { CompanySignupService } from 'src/app/component/Services/company-signup.service';
 import { ActivatedRoute } from '@angular/router';
@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
 import { AdminAcceptTempCompanyService } from 'src/app/component/Services/admin-accept-temp-company.service';
 import { AdminRejectTempCompanyService } from 'src/app/component/Services/admin-reject-temp-company.service';
 import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
-//import { CompanySignupComponent } from 'src/app/component/company-signup.component';
+import { ConfirmationDialogServiceService } from 'src/app/component/confirmation-dialog-component/confirmation-dialog-service.service';
+
 
 @Component({
   selector: 'app-requested-company',
@@ -15,13 +16,14 @@ import { CountNumberReqCompanyService } from 'src/app/component/Services/count-n
   styleUrls: ['./requested-company.component.css']
 })
 export class RequestedCompanyComponent implements OnInit {
-  [x: string]: any;
 
+  [x: string]: any;
   company: company[];
   company2: company;
 
   constructor(private deleteService: AdminRejectTempCompanyService,private readService: CompanySignupService,private accept: AdminAcceptTempCompanyService,
-  setCount:CountNumberReqCompanyService,private route: ActivatedRoute,private router : Router) { 
+  setCount:CountNumberReqCompanyService,private route: ActivatedRoute,private confirmationDialogService: ConfirmationDialogServiceService,
+  private router : Router) { 
     
   }
 
@@ -33,19 +35,7 @@ export class RequestedCompanyComponent implements OnInit {
     
   }
 
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-  //     width: '250px',
-  //     data: {name: this.name, animal: this.animal}
-  //   });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   });
-  // }
-
- 
   name:String;
   location:String;
   email:String;
@@ -82,14 +72,26 @@ export class RequestedCompanyComponent implements OnInit {
   
   }
   
-  onReject(name){
-    this.deleteService.deleteTempCompanyData(name).subscribe(result=>{
-      console.log(result);
-      this.ngOnInit();
-    },error => console.log('There was an error: ', error))
+  onReject(name:string, d:boolean){
+    if(d==true){
+      this.deleteService.deleteTempCompanyData(name).subscribe(result=>{
+        console.log(result);
+        this.ngOnInit();
+      },error => console.log('There was an error: ', error))
+    }
+    
   }
+  
   sendNotification2() {
   	this.ngxNotificationService.sendMessage('Load sucessfully', 'dark', 'bottom-right');
   }
 
+  public openConfirmationDialog(name) {
+    this.confirmationDialogService.confirm('Please confirm..', ' Do you really wish to delete '+name)
+    .then((confirmed) => this.onReject(name,confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+  }
+
 }
+
+

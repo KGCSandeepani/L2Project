@@ -6,7 +6,7 @@ import { CompanyInternshipDetails } from '../Model/CompanyInternshipDetails';
 import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.service';
 import { AdminDeleteStudentServiceService } from '../Services/admin-delete-student-service.service';
 import { GetAllCompanyInternshipDetailsService } from '../Services/get-all-company-internship-details.service';
-//import { AdminUpdateStudentServiceService } from '../Services/admin-update-student-service.service';
+import { ConfirmationDialogServiceService } from 'src/app/component/confirmation-dialog-component/confirmation-dialog-service.service';
 
 
 @Component({
@@ -15,12 +15,15 @@ import { GetAllCompanyInternshipDetailsService } from '../Services/get-all-compa
   styleUrls: ['./admin-view-student.component.css']
 })
 export class AdminViewStudentComponent implements OnInit {
+
   [x: string]: any;
   id:string;
   students: student[];
   comInternship: Array<CompanyInternshipDetails> = [];
+
   constructor(private deleteService: AdminDeleteStudentServiceService,private readService: ReadUnamePswServiceService,
-    private route: ActivatedRoute,private router: Router, private internshipService: GetAllCompanyInternshipDetailsService) { }
+    private route: ActivatedRoute,private router: Router, private internshipService: GetAllCompanyInternshipDetailsService,
+    private confirmationDialogService: ConfirmationDialogServiceService) { }
 
   ngOnInit() {
     this.readService.getData()
@@ -31,11 +34,14 @@ export class AdminViewStudentComponent implements OnInit {
     .subscribe(data => this.comInternship = data);
   }
 
-  onDelete(name) {
-    this.deleteService.deleteStudentData(name).subscribe(result=>{
-      console.log(result);
-      this.ngOnInit();
-    },error => console.log('There was an error: ', error))}
+  onDelete(name:string,d:boolean) {
+    if(d==true){
+      this.deleteService.deleteStudentData(name).subscribe(result=>{
+        console.log(result);
+        this.ngOnInit();
+      },error => console.log('There was an error: ', error))
+    }
+  }
 
     getData(id:string){
       this.id=id;
@@ -49,6 +55,12 @@ export class AdminViewStudentComponent implements OnInit {
       console.log(this.id+'getDataCom function 1')
       this.readService.getId(this.id);
       return id;
+    }
+
+    public openConfirmationDialog(name) {
+      this.confirmationDialogService.confirm('Please confirm..', ' Do you really wish to delete '+name)
+      .then((confirmed) => this.onDelete(name,confirmed))
+      .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
     }
 
 }

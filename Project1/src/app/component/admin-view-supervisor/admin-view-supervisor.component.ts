@@ -4,7 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { staff } from '../Model/Staff';
 import { AdminreadstaffService } from 'src/app/component/Services/adminreadstaff.service';
 import { AdmindeletestaffService } from 'src/app/component/Services/admindeletestaff.service';
-//import {ReadSupervisorService } from '../Services/read-supervisor.service';
+import { ConfirmationDialogServiceService } from 'src/app/component/confirmation-dialog-component/confirmation-dialog-service.service';
+
 
 @Component({
   selector: 'app-admin-view-supervisor',
@@ -16,7 +17,8 @@ export class AdminViewSupervisorComponent implements OnInit {
  
 
   staff: staff[];
-  constructor(private deleteService: AdmindeletestaffService,private readService: AdminreadstaffService,private route : ActivatedRoute,private router : Router) { }
+  constructor(private deleteService: AdmindeletestaffService,private readService: AdminreadstaffService,
+    private confirmationDialogService: ConfirmationDialogServiceService,private route : ActivatedRoute,private router : Router) { }
   
   
 
@@ -27,10 +29,19 @@ export class AdminViewSupervisorComponent implements OnInit {
   }
 
 
-  onDelete(name) {
-    this.deleteService.deleteStaffData(name).subscribe(result=>{
-      console.log(result);
-      this.ngOnInit();
-    },error => console.log('There was an error: ', error))}
+  onDelete(name:string,d:boolean) {
+    if(d==true){
+      this.deleteService.deleteStaffData(name).subscribe(result=>{
+        console.log(result);
+        this.ngOnInit();
+      },error => console.log('There was an error: ', error))
+    }
+  }
+
+  public openConfirmationDialog(name) {
+    this.confirmationDialogService.confirm('Please confirm..', ' Do you really wish to delete '+name)
+    .then((confirmed) => this.onDelete(name,confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
+  }
 
 }

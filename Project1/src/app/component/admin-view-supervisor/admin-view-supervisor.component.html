@@ -57,7 +57,7 @@
                   <td>{{supervisor.email}}</td>
                   <td>{{supervisor.contactNo}}</td>
                  <td>
-                    <button mat-button (click)="onDelete(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
+                    <button mat-button (click)="openConfirmationDialog(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
                  </td>
               </tr>
               </tbody>

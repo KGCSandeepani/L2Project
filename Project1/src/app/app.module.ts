@@ -112,12 +112,16 @@ import { UserListService } from './component/Services/user-list.service';
 import { SupervisorViewFeedbackComponent } from './component/supervisor-view-feedback/supervisor-view-feedback.component';
 import { FusionChartsModule } from 'angular-fusioncharts';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // Import FusionCharts library
 import * as FusionCharts from 'fusioncharts';
 
 // Load FusionCharts Individual Charts
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
+//import { ConfirmationDialogServiceComponent } from './component/confirmation-dialog-service/confirmation-dialog-service.component';
+import { ConfirmationDialogComponentComponent } from './component/confirmation-dialog-component/confirmation-dialog-component.component';
 
 // Use fcRoot function to inject FusionCharts library, and the modules you want to use
 FusionChartsModule.fcRoot(FusionCharts, Charts)
@@ -174,12 +178,17 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
     SupervisorProfileAnalysisComponent,
     SupervisorProfileSettingsComponent,
     SupervisiorDashboardComponent,
-    
+    CompanyProfileStudentlistComponent,
+   // ConfirmationDialogComponentComponent,
     CompanyProfileConfirmStudentlistComponent,
     
     SupervisorViewFeedbackComponent,
     
     StudentDashboardComponent,
+    ConfirmationDialogComponentComponent,
+    
+    
+    
   //  MatTabsModule,
   ],
   imports: [
@@ -200,7 +209,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
     MatToolbarModule, MatButtonModule, MatIconModule, MatSelectModule,MatTabsModule,MatGridListModule,MatCardModule,MatProgressBarModule
    ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatDialogModule,
    FusionChartsModule 
-   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatRadioModule
+   ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatRadioModule,
+   NgbModule.forRoot()
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,
@@ -210,12 +220,14 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
               CompanySignupService,AuthChatASService, 
               ChatServiceASService,
               DataPassService,
+              
 
               SupervisorChangePasswordServiceService,
               SupervisorViewCompanyServiceService,
               LoggingSupervisorServiceService,
               ViewAdminsService, UserListService,
               AdminChangeNoOfCompanyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ ConfirmationDialogComponentComponent ]
 })
 export class AppModule { }

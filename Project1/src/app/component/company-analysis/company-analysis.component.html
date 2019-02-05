@@ -1,3 +1,16 @@
-<p>
-  company-analysis works!
-</p>
+<p></p>
+
+<div class="card shadow">
+  <div class="card-body chart-wrapper">
+    <div class="chart-wrapper-inner" >
+        <fusioncharts
+          width="50%" 
+          height="400"
+          type="column3d"
+          [dataSource]=datasource
+          (initialized)="initialized($event)">
+        </fusioncharts> 
+      <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
+    </div>
+  </div>
+</div>
