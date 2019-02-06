@@ -1,26 +1,31 @@
 <body>
-  <div > 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div  class="topnav" id="myTopnav"> 
     
-  <ul>
-    <li><a routerLink="./home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()" >Requested Student List</a></li>
-    <li><a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()" >Confirmed Student List</a></li>
-    <li><a routerLink="./selectedStudentDetail" routerLinkActive="active">Selected Student Details</a></li>
-    <li><a >Feedback</a></li>
-    <li><a >Message</a></li>
-    <li><a routerLink="./companyAnalysis" routerLinkActive="active">Analysis</a></li>
-    <li><a routerLink="./companySetting" routerLinkActive="active">Setting</a></li>
+  <a>IMS@FIT</a>>
+    <a routerLink="./home" routerLinkActive="active">Home</a>
+    <a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()" >Requested Student List</a>
+   <a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()" >Confirmed Student List</a>
+    <a routerLink="./selectedStudentDetail" routerLinkActive="active">Selected Student Details</a>
+    
+    <a routerLink="./companyAnalysis" routerLinkActive="active">Analysis</a>
+    <a routerLink="./companySetting" routerLinkActive="active">Setting</a>
+    
     <div class="topnav-right">
-      <li><span style="color: white;">
+      <span style="color: white;">
           <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
-      </span></li>
-  <li >
+      </span>
+  
       <button mat-raised-button style="background-color:white" (click)="logout()">
           <mat-icon color= "black">settings_power</mat-icon> Logout</button>
       
-    </li>
+   
   </div>
-  </ul>
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
   <div class ="col-sm-19" >
   <div style="padding:1px 16px;margin-top: 50px">
@@ -30,6 +35,15 @@
   <span class="bagdeCount" *ngIf="bagdeCount > 0">{{bagdeCount}}</span>
 
    <span class="badge" *ngIf="count > 0">{{count}}</span> 
- 
+   <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+      </script>
   </body>
 
