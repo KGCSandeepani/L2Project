@@ -7,6 +7,8 @@ import { AdminUpdateEnableBatchService } from '../Services/admin-update-enable-b
 import { GetPresentBatchService } from '../Services/get-present-batch.service';
 import { NgxNotificationService } from 'ngx-notification';
 import { GetNoOfCompanyService } from '../Services/get-no-of-company.service';
+import { DataPassService } from '../Services/data-pass.service';
+import { AdminChangePasswordService } from '../Services/admin-change-password.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -25,12 +27,16 @@ export class AdminSettingComponent implements OnInit {
   selectedbutton ;
   batches : Array<Batch> =[];
   num : number;
+  loger : string;
 
   constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService,
     private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService,
-    private ngxNotificationService: NgxNotificationService, private getNoOfCompany : GetNoOfCompanyService) { }
+    private ngxNotificationService: NgxNotificationService, private getNoOfCompany : GetNoOfCompanyService,
+    private data: DataPassService, private updateAdmin : AdminChangePasswordService) { }
 
   ngOnInit() {
+    this.loger = this.data.getMessage();
+
     this.getBatches.getAllData()
     .subscribe(data => {
       this.batches= data;
@@ -113,6 +119,18 @@ export class AdminSettingComponent implements OnInit {
 
   // changeEnability(){
   // }
+
+  changePassword(password :String,password1 : String){
+    if (password==password1 && password.length>=8) {
+      
+      this.updateAdmin.updateAdminData(this.loger,password)
+      .subscribe(data =>{
+        this.sendNotification();
+      });
+    } else {
+      this.sendNotification2();
+    }
+  }
 
   sendNotification() {
   	this.ngxNotificationService.sendMessage('Added Successfully', 'dark', 'bottom-right');

@@ -18,26 +18,17 @@ module.exports.update = (event, context, callback) => {
   }
 */
   const params = {
-    TableName: "supervisor",
+    TableName: "admin",
     Key: {
       name: event.pathParameters.name,
     },
-    ExpressionAttributeNames: {
-      //'#todo_name':'name',
-      //'#todo_name': 'name',
-      '#todo_username': 'username',
-      '#todo_email' : 'email',
-      '#todo_contactNo' : 'contactNo',
+    ExpressionAttributeNames: {     
+      '#todo_password': 'password',      
     },
     ExpressionAttributeValues: {
-      //':name':data.name,
-      ':username': data.username,
-      ':email': data.email,
-      ':contactNo': data.contactNo
-      
+      ':password': data.password,     
     },
-    UpdateExpression: 'SET #todo_username = :username, #todo_email = :email, #todo_contactNo = :contactNo',
-    //#todo_organization1 = :organization1, #todo_organization2 = :organization2, #todo_organization3 = :organization3, #todo_organization4 = :organization4, #todo_organization5 = :organization5,
+    UpdateExpression: 'SET #todo_password = :password ',
     ReturnValues: 'ALL_NEW',
   };
 
