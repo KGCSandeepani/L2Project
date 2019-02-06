@@ -1,14 +1,16 @@
 /* Bordered form */
 form {
     border: none;
-    width: 98%;
+    width: 88%;
     background-color: rgb(255, 255, 255);
-    padding: 25px 20px; 
+    padding: 50px 50px; 
+    margin-left: 20%
+    
 }
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
-    width: 60%;
+    width: 5%;
     padding: 12px 20px;
     margin: 15px 0;
     display: inline-block;
@@ -20,12 +22,12 @@ input[type=text], input[type=password] {
 /* Create two equal columns that floats next to each other */
 .column1 {
     float: left;
-    width: 30%;   
+    width: 20%;   
 }
 
 .column2 {
     float: left;
-    width: 70%;    
+    width: 60%;    
 }
 
 /* Clear floats after the columns */
@@ -80,4 +82,7 @@ input[type=text], input[type=password], input[type=number] {
     border-radius: 8px;
 }
 
-
+h2{
+    /* font-family: 'Source Sans Pro', sans-serif; */
+    margin-left: 28%
+}

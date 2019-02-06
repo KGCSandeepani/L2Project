@@ -9,8 +9,8 @@
           (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)"></canvas>
         </div>  -->
-
-    <fusioncharts
+<div >
+        <fusioncharts
         [width]="width"
         [height]="height"
         [type]="type"
@@ -18,10 +18,13 @@
         [dataSource]="datasource">
     </fusioncharts>
 
+
+</div>
+   
 <br><br>
 
     <fusioncharts 
-        width="800" 
+        width="1000" 
         height="400"
         type="pie3d"
         [dataSource]=dataSource >

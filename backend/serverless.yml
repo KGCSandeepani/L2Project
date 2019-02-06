@@ -13,6 +13,7 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
+      # sharedDb: true
 
     migration:
       dir: offline/migrations

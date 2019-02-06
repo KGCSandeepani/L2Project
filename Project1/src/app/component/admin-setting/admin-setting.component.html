@@ -1,83 +1,83 @@
 <div class="main">
-
-  <div class="container">
-    <!-- <div style="margin-left:10px;margin-top:43px;width: 60%;"> -->
-        <h2>Change number of companies which student can choose </h2><br>
-        <label for="company"><b>No of companies : </b></label>
-        <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
-    
-        <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
-    <!-- </div> -->
-    
-    
+  
+    <div class="container">
+      <!-- <div style="margin-left:10px;margin-top:43px;width: 60%;"> -->
+          <h2>Change number of companies which student can choose </h2><br>
+          <label for="company"><b>No of companies : </b></label>
+          <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
+      
+          <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
+      <!-- </div> -->
+      
+      
+        <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
+          <div class="w3-quarter">
+            <div class="w3-container w3-blue w3-padding-16">
+              <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+              <div class="w3-right">
+                <h3> {{num}} </h3>
+              </div>
+              <div class="w3-clear"></div>
+              <h4>No of companies</h4>
+            </div>
+          </div>
+        </div> 
+     
+    </div>
+  
+    <div class="container">
+      <h2>Insert new Batch Details </h2><br>
+  
+      <label for="batch"><b>Batch : </b></label>
+      <input type="number" placeholder="Enter Batch" name="batch" required [(ngModel)]="batch" id="batch"><br>
+  
+      <label for="startDate"><b>Start Date : </b></label>
+      <input type="date" placeholder="Enter start date" name="startDate" required [(ngModel)]="startDate" id="startDate"><br>
+  
+      <label for="endDate"><b>End Date : </b></label>
+      <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate" id="endDate"><br>
+  
+      <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
+  
       <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
-        <div class="w3-quarter">
-          <div class="w3-container w3-blue w3-padding-16">
-            <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+      <div class="w3-quarter">
+          <div class="w3-container w3-orange w3-text-white w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
             <div class="w3-right">
-              <h3> {{num}} </h3>
+              <h3> {{ batches[0].batch }} </h3>
             </div>
             <div class="w3-clear"></div>
-            <h4>No of companies</h4>
+            <h4>Last Batch</h4>
           </div>
-        </div>
-      </div> 
-   
-  </div>
-
-  <div class="container">
-    <h2>Insert new Batch Details </h2><br>
-
-    <label for="batch"><b>Batch : </b></label>
-    <input type="number" placeholder="Enter Batch" name="batch" required [(ngModel)]="batch" id="batch"><br>
-
-    <label for="startDate"><b>Start Date : </b></label>
-    <input type="date" placeholder="Enter start date" name="startDate" required [(ngModel)]="startDate" id="startDate"><br>
-
-    <label for="endDate"><b>End Date : </b></label>
-    <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate" id="endDate"><br>
-
-    <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
-
-    <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
-    <div class="w3-quarter">
-        <div class="w3-container w3-orange w3-text-white w3-padding-16">
-          <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-          <div class="w3-right">
-            <h3> {{ batches[0].batch }} </h3>
-          </div>
-          <div class="w3-clear"></div>
-          <h4>Last Batch</h4>
         </div>
       </div>
+  
     </div>
-
+  
+    <div class="container">
+      <h2> Change enable to edit details in Student/ disable to view CV to Company </h2><br>
+      <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
+      <mat-radio-group>
+          <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false"> Disable </mat-radio-button>
+        </mat-radio-group>
+        <br>
+      <!-- <button type="button" id="add" (click)="changeEnability()">Change</button> -->
+  
+    </div>
+  
+    <div class="container">
+      <h2>Change password </h2><br>
+      <label for="password"><b>New password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </b></label>
+      <input type="password" placeholder="Enter password" name="password" required [(ngModel)]="password" id="password"><br>
+  
+      <label for="password1"><b>Confirm New password : </b></label>
+      <input type="password" placeholder="Reenter password" name="password1" required [(ngModel)]="password1" id="password1"><br>
+  
+      <button type="button" id="add" (click)="changePassword(password,password1)" (click)="password='';password1='';" >Change</button>
+  
+    </div>
+  
+    <lib-ngx-notification></lib-ngx-notification>
+  
   </div>
-
-  <div class="container">
-    <h2> Change enable to edit details in Student/ disable to view CV to Company </h2><br>
-    <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
-    <mat-radio-group>
-        <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false"> Disable </mat-radio-button>
-      </mat-radio-group>
-      <br>
-    <!-- <button type="button" id="add" (click)="changeEnability()">Change</button> -->
-
-  </div>
-
-  <div class="container">
-    <h2>Change password </h2><br>
-    <label for="password"><b>New password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </b></label>
-    <input type="password" placeholder="Enter password" name="password" required [(ngModel)]="password" id="password"><br>
-
-    <label for="password1"><b>Confirm New password : </b></label>
-    <input type="password" placeholder="Reenter password" name="password1" required [(ngModel)]="password1" id="password1"><br>
-
-    <button type="button" id="add" (click)="changePassword(password,password1)" (click)="password='';password1='';" >Change</button>
-
-  </div>
-
-  <lib-ngx-notification></lib-ngx-notification>
-
-</div>
