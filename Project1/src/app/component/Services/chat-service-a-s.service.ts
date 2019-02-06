@@ -69,9 +69,10 @@ export class ChatServiceASService {
       console.log(" supervisor inside admin student ");
 
     }
-    // else if((this.getLoggedUserType(this.senderName) =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && this.compareTwoIndexNumbers(this.senderName,this.receiverName)){
-    //   this.sendRece = this.senderName + "_" + this.userR
-    // }
+    else if((this.loger =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && 
+    this.compareTwoIndexNumbers(this.senderName,this.userR)){
+      this.sendRece = this.senderName + "_" + this.userR
+    }
     else {
       this.sendRece = this.userR + "_" + this.senderName
 
@@ -105,7 +106,7 @@ export class ChatServiceASService {
   //to send which user that user has clicked.
   editUser(newUser) {
     this.userN.next(newUser);
-    // this.checkStaff(this.senderName);
+    
   }
 
   loggedUser(newUser) {
@@ -114,9 +115,10 @@ export class ChatServiceASService {
     // console.log(this.loggedUserType + "is logged user");
   }
   compareTwoIndexNumbers(index1: string, index2: string, ) {
+    console.log(" inside compareTwoIndexNumbers "+index1+ index2);
     this.value1 = index1.substr(0, 7);
     this.value2 = index2.substr(0, 7);
-    console.log(this.value1);
+    console.log(this.value1+"  this.value1");
     this.num1 = parseInt(this.value1, 10);
     this.num2 = parseInt(this.value2, 10);
 

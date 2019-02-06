@@ -61,7 +61,10 @@ export class FeedASComponent implements OnInit, OnChanges {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       }
-      // else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){}
+      else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){
+        this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+
+      }
       else {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.userN + "_" + "Admin")).valueChanges();
 
@@ -87,7 +90,11 @@ export class FeedASComponent implements OnInit, OnChanges {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       }
-      // else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){}
+      else if((this.logerType=="Student"&& this.chatListUserType=="Student") && 
+      this.compareTwoIndexNumbers(this.loger,this.userN)){
+        this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+
+      }
       else {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.userN + "_" + this.loger )).valueChanges();
         console.log("inside else of feed");
