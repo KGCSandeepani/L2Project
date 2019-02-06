@@ -7,6 +7,9 @@ import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.s
 import { student } from '../Model/Student';
 import { ChatServiceASService } from '../Services/chat-service-a-s.service'
 import { BroadcastingMessagesService} from '../Services/broadcasting-messages.service'
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
+import { DataPassService } from '../Services/data-pass.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -30,10 +33,18 @@ export class StudentDashboardComponent implements OnInit {
   companyList : Array<company>=[];
   i: number=0;
   message:string
+  loger: string;// currently logged user
+  items: Observable<any[]>;
+  dataSource;
 
-  constructor(private readCompanyService: AdminViewCompanyService, private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService) { }
+  constructor(private readCompanyService: AdminViewCompanyService, 
+    private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService,
+    private db: AngularFireDatabase, 
+    private data: DataPassService) { }
 
   ngOnInit() {
+    this.db.list('broadcast', db => db.orderByChild("time")).valueChanges().
+    subscribe(res => {this.dataSource = res;console.log(res);} );
 
     this.readCompanyService.getData()
     .subscribe(data => {this.company = data;

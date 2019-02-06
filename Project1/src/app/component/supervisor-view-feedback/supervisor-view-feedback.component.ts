@@ -23,7 +23,8 @@ export class SupervisorViewFeedbackComponent implements OnInit {
 
   ngOnInit() {
     this.loger = this.data.getMessage();
-    this.db.list('feedback', db => db.orderByChild("name").equalTo(this.loger)).valueChanges().subscribe(res => {this.dataSource = res;console.log(res);} );
+    this.db.list('feedback', db => db.orderByChild("name").equalTo(this.loger)).
+    valueChanges().subscribe(res => {this.dataSource = res;console.log(res);} );
 
   }
  
