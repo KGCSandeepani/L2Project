@@ -15,49 +15,7 @@
 
 <body>
 
-<!-- <div  > 
-  
-  <ul>
-    <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
-    <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
-    <li><a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()">Requested Company </a></li> 
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">View
-      <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a routerLink="./adminViewStudent" routerLinkActive="active2">Student Details</a></li>
-        <li><a routerLink="./adminViewSupervisor" routerLinkActive="active2">Supervisor Details</a></li>
-        <li><a routerLink="./adminViewCompany" routerLinkActive="active2">Company Details</a></li>
-      </ul>
-    </li>
-    <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
-    <li><a routerLink="./adminAnalysis" routerLinkActive="active">Analysis</a></li>
-    <li><a routerLink="./adminSetting" routerLinkActive="active">Setting</a></li>
-    <div class="topnav-right">
-        <li><span style="color: white;">
-            <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
-        </span></li>
-    <li >
-        <button mat-raised-button style="background-color:white" (click)="logout()">
-            <mat-icon color= "black">settings_power</mat-icon> Logout</button>
-        
-      </li>
-    </div>
-  </ul>
 
-</div>
-<div class ="col-sm-19" >
-<div style="padding:1px 16px;">
-<router-outlet></router-outlet>
-</div>
-</div>
-
-<span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
-
-</body> -->
-
-  <!-- <mat-grid-list class="container" cols="4" rowHeight="53px">
-    <mat-grid-tile class="menu" colspan="4" rowspan="1"> -->
       <div>
 
 
@@ -95,42 +53,13 @@
             <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
           </div>
         </div>
-        <span class="msg" *ngIf="msgCount > 0" ><span class="msg">new </span></span>
 
         <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">{{count}}</span></span>
-        <!-- <ul>
-        <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
-        <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
-        <li><a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()">Requested
-            Company </a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">View
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a routerLink="./adminViewStudent" routerLinkActive="active2">Student Details</a></li>
-            <li><a routerLink="./adminViewSupervisor" routerLinkActive="active2">Supervisor Details</a></li>
-            <li><a routerLink="./adminViewCompany" routerLinkActive="active2">Company Details</a></li>
-          </ul>
-        </li>
-        <li><a routerLink="./chat-room" routerLinkActive="active">Message</a></li>
-        <li><a routerLink="./adminAnalysis" routerLinkActive="active">Analysis</a></li>
-        <li><a routerLink="./adminSetting" routerLinkActive="active">Setting</a></li>
         
-        
-      </ul> -->
-
       </div>
-    <!-- </mat-grid-tile>
-
-    <mat-grid-tile class="rest" colspan="1" rowspan="11"> -->
-
+    
       <div class="rest" >
         <router-outlet></router-outlet>
       </div>
 
-    <!-- </mat-grid-tile>
-
-
-  </mat-grid-list> -->
-  
 </body>

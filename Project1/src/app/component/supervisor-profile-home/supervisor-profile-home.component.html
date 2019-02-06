@@ -73,7 +73,9 @@
             <!-- <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" (click)="clearValue()" -->
             <!-- class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTED COMPANY</a> -->
             
-            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MSG</a>
+            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MSG                
+              <span class="msg" *ngIf="msgCount > 0" ><span class="msg">new </span></span>
+            </a>
             
             <a routerLink="./supervisorAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
             <a routerLink="./supervisorSettings" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SETTINGS</a>
@@ -95,13 +97,13 @@
                   <span class="topnav-right-user" style="color: white;">
                     <mat-icon color= "white">account_circle</mat-icon> {{ loger }}
                 </span>
-            
+
           <!-- </div> -->
             <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
           </div>
         </div>
 
-        <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
+        <!-- <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span> -->
         <!-- <ul>
         <li> <a style="background-color: black;color: white;">IMS @ FIT</a></li>
         <li><a routerLink="./adminAddUser" routerLinkActive="active">Add User</a></li>
@@ -133,7 +135,7 @@
       </div>
 
 
-      <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span>
+      <!-- <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">new</span></span> -->
 
     <!-- </mat-grid-tile>
 

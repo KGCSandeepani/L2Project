@@ -57,7 +57,7 @@ currentUserAdmin: Observable<any>;
     
     //just to view clicked user
     this.chatService.cast.subscribe(userN => this.userN = userN);
-    this.loggerType=this.chatService.getLoggedUserType(this.data.getMessage());
+    this.loggerType=this.data.getString();
     // console.log(this.loggerType+" this.loggerType");
 
     this.getRecepient();
@@ -138,7 +138,8 @@ currentUserAdmin: Observable<any>;
   sendRec(student: any) {
     //send recepient to database
     // console.log(name+"  is cliked userrrr");
-
+    // this.userlist.clearRecepientMsgCount();
+    // this.userlist.clear();
     //to add clicked user to recepient list in db
     this.userList.sendRecepient(student.name);
   }

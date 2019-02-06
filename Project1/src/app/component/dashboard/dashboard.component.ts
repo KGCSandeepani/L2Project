@@ -7,6 +7,8 @@ import { ReadUnamePswServiceService } from '../Services/read-uname-psw-service.s
 import { student } from '../Model/Student';
 import { ChatServiceASService } from '../Services/chat-service-a-s.service'
 import { BroadcastingMessagesService} from '../Services/broadcasting-messages.service'
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +32,12 @@ export class DashboardComponent implements OnInit {
   companyList : Array<company>=[];
   i: number=0;
   message:string
-  constructor(private broadcasting:BroadcastingMessagesService,private readCompanyService: AdminViewCompanyService, private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService) { }
+  feedback:string;
+
+  constructor(private broadcasting:BroadcastingMessagesService,
+    private readCompanyService: AdminViewCompanyService, 
+    private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService,private db: AngularFireDatabase) { }
+    
 
   ngOnInit() {
 
@@ -82,6 +89,16 @@ export class DashboardComponent implements OnInit {
       });
       
 
+  }
+  saveMessage(){
+    var messagesRef = firebase.database().ref('broadcast');
+
+    messagesRef.push({
+      time:new Date().toString(),
+      message:this.feedback
+    });
+   
+    this.feedback="";
   }
   // send() {
    

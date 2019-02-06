@@ -16,25 +16,51 @@
               <input type="text" class="search-bar" placeholder="Search" [matAutocomplete]="auto">
 
               <mat-autocomplete #auto="matAutocomplete">
-                <div *ngIf="loggerType=='Admin' then content else other_content"></div>
-                <ng-template #content> <b>Students</b>
-                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                    [ngClass]="'active'">
-                    {{student.name}}
-                  </mat-option>
-                </ng-template>
+                <!-- <div *ngIf="loggerType=='Admin' ">
+                    <b>Students</b>
+                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                      [ngClass]="'active'">
+                      {{student.name}}
+                    </mat-option>
+                </div> -->
+                <div *ngIf="loggerType=='Supervisor'  ">
+                  <!-- <ng-template #other_content> -->
 
-                <ng-template #other_content> <b>Admins</b>
-                  <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
-                    {{admin.name}}
-                  </mat-option>
-                  <b>Students</b>
-                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                    [ngClass]="'active'">
-                    {{student.name}}
-                  </mat-option>
-                </ng-template>
-
+                    <b>Students</b>
+                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                      [ngClass]="'active'">
+                      {{student.name}}
+                    </mat-option>
+                  <!-- </ng-template> -->
+                </div>
+                <div *ngIf="loggerType=='Admin'  ">
+                    <!-- <ng-template #other_content> -->
+  
+                      <b>Students</b>
+                      <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                        [ngClass]="'active'">
+                        {{student.name}}
+                      </mat-option>
+                    <!-- </ng-template> -->
+                  </div>
+                <div *ngIf="loggerType=='Student' ">
+                  <!-- <ng-template #other_content> -->
+                    <b>Admins</b>
+                    <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
+                      {{admin.name}}
+                    </mat-option>
+                    <b>Supervisors</b>
+                    <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" (click)="sendRec(supervisor)"
+                      [ngClass]="'active'">
+                      {{supervisor.name}}
+                    </mat-option>
+                    <b>Students</b>
+                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                      [ngClass]="'active'">
+                      {{student.name}}
+                    </mat-option>
+                  <!-- </ng-template> -->
+                </div>
 
                 <!-- <b>Admins</b>
             <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">

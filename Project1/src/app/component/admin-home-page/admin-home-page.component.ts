@@ -17,8 +17,8 @@ import { forEach } from '@angular/router/src/utils/collection';
   templateUrl: './admin-home-page.component.html',
   styleUrls: ['./admin-home-page.component.css']
 })
-export class AdminHomePageComponent implements OnInit {
 
+export class AdminHomePageComponent implements OnInit {
   constructor(private data: DataPassService, private getCount: CountNumberReqCompanyService,
     private route: ActivatedRoute, private router: Router, private db: AngularFireDatabase,
     private user: UserListService, private readService: CompanySignupService) { }
@@ -47,6 +47,7 @@ export class AdminHomePageComponent implements OnInit {
     else
       this.displayButton=false;*/
     }
+    
  
   msgNotification() {
     this.loger = this.data.getMessage();

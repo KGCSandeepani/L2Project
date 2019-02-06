@@ -142,44 +142,29 @@
             </div>
           <!-- <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map"> -->
         </div>
-        <div class="w3-twothird">
+        <div class="w3-twothird" style="background:brown">
           <h5>Important Notifications</h5>
-          <table class="w3-table w3-striped w3-white">
-            <tr>
-              <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-              <td>Student uploaded the CV</td>
-              <td><i>10 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-              <td>New company registered</td>
-              <td><i>15 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-              <td>Student edited the CV</td>
-              <td><i>17 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-              <td>Student got selected to a company</td>
-              <td><i>25 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-              <td>Student got selected to a company</td>
-              <td><i>28 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-              <td>Student got selected to a company</td>
-              <td><i>35 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-              <td>Student edited the CV</td>
-              <td><i>39 mins</i></td>
-            </tr>
+          <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+              <!-- Position Column -->
+              <ng-container matColumnDef="Notification">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+              </ng-container>
+  
+              <!-- Name Column -->
+              <ng-container matColumnDef="Time">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+              </ng-container>
+  
+              
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
       </div>
