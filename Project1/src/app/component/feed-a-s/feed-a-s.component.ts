@@ -44,6 +44,9 @@ export class FeedASComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    this.logerType = this.data.getString();
+    this.loger = this.data.getMessage();
+    console.log(this.loger +" loger typeeeeeeeeeeee");
     // this.logerType = this.chat.sendClickedUserTypeToFeed();
     this.chat.cast.subscribe((userN) => {
       this.userN = userN; //this.userN is clicked user from userlist
@@ -54,10 +57,10 @@ export class FeedASComponent implements OnInit, OnChanges {
       //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       // }
-      // else if(this.logerType=="Supervisor"&& this.chatListUserType=="Student"){
-      //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+      else if(this.logerType=="Supervisor"&& this.getClickedUserType(this.userN)=="Student"){
+        this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
-      // }
+      }
       // else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){}
       else {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.userN + "_" + "Admin")).valueChanges();
@@ -69,8 +72,8 @@ export class FeedASComponent implements OnInit, OnChanges {
     // window.scrollTo(0,document.body.scrollHeight);
   }
   viewMessage() {
-    // this.loger = this.data.getMessage();
-    // this.logerType = this.chat.sendClickedUserTypeToFeed();
+    this.loger = this.data.getMessage();
+    this.logerType = this.data.getString();
     this.chat.cast.subscribe((userN) => {
       this.userN = userN; //this.userN is clicked user from userlist
       if (this.getLoggedUserType(this.loger) == "Admin" && this.getClickedUserType(this.userN) == "Student") {
@@ -80,10 +83,10 @@ export class FeedASComponent implements OnInit, OnChanges {
       //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       // }
-      // else if(this.logerType=="Supervisor"&& this.chatListUserType=="Student"){
-      //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+      else if(this.logerType=="Supervisor"&& this.getClickedUserType(this.userN)=="Student"){
+        this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
-      // }
+      }
       // else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){}
       else {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.userN + "_" + this.loger )).valueChanges();

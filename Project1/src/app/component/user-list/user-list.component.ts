@@ -58,13 +58,13 @@ currentUserAdmin: Observable<any>;
     //just to view clicked user
     this.chatService.cast.subscribe(userN => this.userN = userN);
     this.loggerType=this.chatService.getLoggedUserType(this.data.getMessage());
-    console.log(this.loggerType+" this.loggerType");
+    // console.log(this.loggerType+" this.loggerType");
 
     this.getRecepient();
-    this.getAdminData();
-    this.getCompanyData();
-    this.getStafftData();
-    this.getCompanyData();
+    // this.getAdminData();
+    // this.getCompanyData();
+    // this.getStafftData();
+    // this.getCompanyData();
     this.readService.getData()
     .subscribe(data => this.students = data);
 
@@ -73,37 +73,38 @@ currentUserAdmin: Observable<any>;
       this.readServiceCompany.getData()
       .subscribe(data => this.company = data);
       this.readServiceAdmin.getData()
-      .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
-    // console.log(this.admin);
+      .subscribe(data => { this.admin = data; 
+        // console.log(data + " is admin data");
+       });
   }
 
-  getStudentData(){
-    this.readService.getData()
-    .subscribe(data => this.students = data);
-  // console.log(this.students);
+  // getStudentData(){
+  //   this.readService.getData()
+  //   .subscribe(data => this.students = data);
+  // // console.log(this.students);
 
-  }
-  getStafftData(){
-    //get supervispr list
-    this.readServiceStaff.getData()
-      .subscribe(data => this.supervisors = data);
-    // console.log(this.supervisors);
+  // }
+  // getStafftData(){
+  //   //get supervispr list
+  //   this.readServiceStaff.getData()
+  //     .subscribe(data => this.supervisors = data);
+  //   // console.log(this.supervisors);
     
-  }
-  getCompanyData(){
+  // }
+  // getCompanyData(){
     
-    //get companies
-    this.readServiceCompany.getData()
-      .subscribe(data => this.company = data);
-    // console.log(this.company);
+  //   //get companies
+  //   this.readServiceCompany.getData()
+  //     .subscribe(data => this.company = data);
+  //   // console.log(this.company);
     
-  }
-  getAdminData(){
-     //get admins
-     this.readServiceAdmin.getData()
-     .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
-   // console.log(this.admin);
-  }
+  // }
+  // getAdminData(){
+  //    //get admins
+  //    this.readServiceAdmin.getData()
+  //    .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
+  //  // console.log(this.admin);
+  // }
 
   editTheUser(student: any) {
 
@@ -120,8 +121,8 @@ currentUserAdmin: Observable<any>;
 
     userRef.on('value', (snapshot) => {
       snapshot.forEach((child) => {
-        console.log(child.key + " child key");
-        console.log(child.val().read + " child values");
+        // console.log(child.key + " child key");
+        // console.log(child.val().read + " child values");
         this.recepientMsgCount=child.val().read;
 
         // this.items = child.key;

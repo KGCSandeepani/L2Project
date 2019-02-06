@@ -104,6 +104,7 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   getData(args,psw2){
+    //add datavfrom work sheet
     if (psw2==null || this.batch2==null ) {
       this.sendNotification1();
       return;
@@ -119,6 +120,7 @@ export class AdminAddStudentComponent implements OnInit {
               this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0).toLocaleUpperCase(),self.spread.getActiveSheet().getValue(index,1),psw2,parseInt(this.batch2))
               .subscribe((data : student[] )=> {
               this.student = data;
+              this.userList.sendUserWithCustomId(self.spread.getActiveSheet().getValue(index,0),"Student");
               self.spread.getActiveSheet().setValue(index,0,'');
               self.spread.getActiveSheet().setValue(index,1,'');
               this.count++;
@@ -166,6 +168,7 @@ export class AdminAddStudentComponent implements OnInit {
         this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0).toLocaleUpperCase(),self.spread.getSheet(1).getValue(index,1),psw3,parseInt(this.batch3))
         .subscribe((data : student[] )=> {
         this.student = data;
+        this.userList.sendUserWithCustomId(self.spread.getSheet(1).getValue(index,0),"Student");
         self.spread.getActiveSheet().setValue(index,0,'');
         self.spread.getActiveSheet().setValue(index,1,'');
         this.count++;

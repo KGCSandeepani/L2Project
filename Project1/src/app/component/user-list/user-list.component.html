@@ -1,33 +1,42 @@
 <body style="background-color: rgb(207, 189, 224)">
-    <mat-grid-list class="chatRoom" cols="4" rowHeight="25px">
-    
-        <mat-grid-tile class = "u" colspan="4" rowspan="22" style="background-color: rgb(238, 236, 240)">
-  <div class="container">
+  <mat-grid-list class="chatRoom" cols="4" rowHeight="25px">
 
-    <div class="headind_srch">
-      <div class="recent_heading">
-        <h4>Recent</h4>
-      </div>
-      <div class="srch_bar">
-        <div class="stylish-input-group">
-          <span class="input-group-addon">
-            <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-          </span>
-          <input type="text" class="search-bar" placeholder="Search" [matAutocomplete]="auto">
+    <mat-grid-tile class="u" colspan="4" rowspan="22" style="background-color: rgb(238, 236, 240)">
+      <div class="container">
 
-          <mat-autocomplete #auto="matAutocomplete">
-              <div *ngIf="loggerType=='Admin' then content else other_content"></div>
-              <ng-template #content> <b>Students</b>
-                <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)" [ngClass]="'active'">
-                  {{student.name}}
-                </mat-option></ng-template>
-              <ng-template #other_content> <b>Admins</b>
-                <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
-                  {{admin.name}}
-                </mat-option></ng-template>
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Recent</h4>
+          </div>
+          <div class="srch_bar">
+            <div class="stylish-input-group">
+              <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </span>
+              <input type="text" class="search-bar" placeholder="Search" [matAutocomplete]="auto">
+
+              <mat-autocomplete #auto="matAutocomplete">
+                <div *ngIf="loggerType=='Admin' then content else other_content"></div>
+                <ng-template #content> <b>Students</b>
+                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                    [ngClass]="'active'">
+                    {{student.name}}
+                  </mat-option>
+                </ng-template>
+
+                <ng-template #other_content> <b>Admins</b>
+                  <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
+                    {{admin.name}}
+                  </mat-option>
+                  <b>Students</b>
+                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                    [ngClass]="'active'">
+                    {{student.name}}
+                  </mat-option>
+                </ng-template>
 
 
-            <!-- <b>Admins</b>
+                <!-- <b>Admins</b>
             <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
               {{admin.name}}
             </mat-option>
@@ -47,38 +56,42 @@
             <mat-option *ngFor="let company of company" [value]="company.name" (click)="sendRec(company)" [ngClass]="'active'">
               {{company.name}}
             </mat-option> -->
-          </mat-autocomplete>
+              </mat-autocomplete>
 
+            </div>
+
+          </div>
         </div>
 
-      </div>
-    </div>
-
-    <div class="inbox_chat">
-      <div class="chat_list active_chat">
-        <div class="chat_people">
+        <div class="inbox_chat">
+          <div class="chat_list active_chat">
+            <div class="chat_people">
 
 
-          <table class="table">
+              <table class="table">
 
-            <tbody>
-              <tr *ngFor="let us of user">
-                <!-- <div *ngIf="true ">
+                <tbody>
+                  <tr *ngFor="let us of user">
+                    <!-- <div *ngIf="true ">
                   <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>
                 </div>
                 <div *ngIf="recepientMsgCount==0">
                   <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
                 </div> -->
 
-                <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
-                <ng-template #content> <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td></ng-template>
-                <ng-template #other_content> <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td></ng-template>
+                    <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
+                    <ng-template #content>
+                      <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
+                    </ng-template>
+                    <ng-template #other_content>
+                      <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>
+                    </ng-template>
 
-              </tr>
+                  </tr>
 
 
 
-              <!-- <div class="messageContainer">
+                  <!-- <div class="messageContainer">
 
                 <tr *ngFor="let student of students">
                   <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
@@ -110,17 +123,17 @@
                 </tr>
 
               </div> -->
-            </tbody>
-          </table>
+                </tbody>
+              </table>
 
+            </div>
+          </div>
         </div>
+
+
       </div>
-    </div>
-
-
-  </div>
-</mat-grid-tile>
-</mat-grid-list>
+    </mat-grid-tile>
+  </mat-grid-list>
 </body>
 <!-- <div class="container">
        

@@ -19,6 +19,8 @@ export class ChatServiceASService {
   chatMessage: ChatMessage;
   chatMessages: AngularFireList<ChatMessage>;
   //chatMessages: AngularFireList<string>;
+  currentUserAdmin: Observable<any>;
+  currentUserRefAdmin: AngularFireList<any>
   loggedUserType: string;
   receiverName: string;
   senderName: string;
@@ -38,15 +40,20 @@ export class ChatServiceASService {
   companies: company[];
   logCompany: company;
   logstaff: staff;
+  loger;
   constructor(private data: DataPassService, private db: AngularFireDatabase,
     private logStaff: LoggingSupervisorServiceService, private getCompany: GetOneCompanyService) {
 
     this.data.currentMessage.subscribe(message => this.message = message);
     this.senderName = this.data.getMessage();
     this.cast.subscribe(userN => this.userR = userN);
+    // this.checkStaff(this.senderName);
 
   }
   sendMessage(msg: string) {
+
+    this.loger = this.data.getString();
+    console.log(this.loger +" loger typeeeeeeeeeeee");
     const timestamp = this.getTimeStamp();
     this.senderName = this.data.getMessage();
     //generating a comman tag from sender name and receiver name
@@ -57,9 +64,11 @@ export class ChatServiceASService {
     // else if(this.getLoggedUserType(this.senderName) =="Admin"&& this.getClickedUserType(this.receiverName)=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
     // }
-    // else if(this.getLoggedUserType(this.senderName) =="Supervisor"&& this.getClickedUserType(this.receiverName)=="Student"){
-    //   this.sendRece = this.senderName + "_" + this.userR;
-    // }
+    else if(this.loger=="Supervisor" && this.getClickedUserType(this.receiverName)=="Student"){
+      this.sendRece = this.senderName + "_" + this.userR;
+      console.log(" supervisor inside admin student ");
+
+    }
     // else if((this.getLoggedUserType(this.senderName) =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && this.compareTwoIndexNumbers(this.senderName,this.receiverName)){
     //   this.sendRece = this.senderName + "_" + this.userR
     // }
@@ -96,6 +105,7 @@ export class ChatServiceASService {
   //to send which user that user has clicked.
   editUser(newUser) {
     this.userN.next(newUser);
+    // this.checkStaff(this.senderName);
   }
 
   loggedUser(newUser) {
@@ -116,27 +126,24 @@ export class ChatServiceASService {
     return false;
   }
   getLoggedUserType(name: string) {
-    console.log("inside  grt logged user type");
+    console.log("inside  get logged user type");
     if (name == "Admin") {
       return "Admin";
-    } else if (this.checkCompany(name)) {
-      return "Company";
-    } else if (this.checkStaff(name)) {
-      console.log("inside supervisor");
-      return "Supervisor";
-    }
+    } 
+    
     return "Student";
   }
   getClickedUserType(name: string) {
 
     if (this.receiverName == "Admin") {
       return "Admin";
-    } else if (this.checkCompany(name)) {
-      return "Company";
-    } else if (this.checkStaff(name)) {
+    // } else if (this.checkCompany(name)) {
+    //   return "Company";
+    // } else if (this.checkStaff(name)) {
      
-      return "Supervisor";
+    //   return "Supervisor";
     }
+    // this.checkStaff(name);
     return "Student";
   }
   sendClickedUserTypeToFeed() {
@@ -159,21 +166,27 @@ export class ChatServiceASService {
   }
 
   checkStaff(name: string) {
-    this.logStaff.getData(name)
-      .subscribe(data => {
+    // this.logStaff.getData(name)
+    //   .subscribe(data => {
 
-        this.logstaff = data;
-        // console.log('here'+this.logstaff.name);
+    //     this.logstaff = data;
+    //     // console.log('here'+this.logstaff.name);
 
-        console.log(this.logStaff);
-        if (this.logstaff != null && name == this.logstaff.name) {
-          console.log('here' + this.logstaff.name);
+    //     console.log(this.logStaff);
+    //     if (this.logstaff != null && name == this.logstaff.name) {
+    //       console.log('here' + this.logstaff.name);
 
-          return true;
-        }
-      }
-      )
-    return false;
+    //       return true;
+    //     }
+    //   }
+    //   )
+
+
+    this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(name).orderByChild('type'));
+    this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+    this.currentUserAdmin.subscribe(res => {console.log("msgCountsss"+res[3] );
+    this.data.setString(res[3]); });
+    
   }
 
 }

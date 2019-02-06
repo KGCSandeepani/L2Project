@@ -23,6 +23,8 @@ import { admin } from '../Model/admin';
 import { student } from '../Model/Student';
 import { company } from '../Model/Company';
 
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 
 
 @Component({
@@ -43,12 +45,15 @@ export class LoginComponent implements OnInit {
 
   admin: admin;
 
+  currentUserAdmin: Observable<any>;
+  currentUserRefAdmin: AngularFireList<any>
+
   constructor(private chatService: ChatServiceASService,
     private logStaff: LoggingSupervisorServiceService, private getTempCompany: GetOneTempCompanyService,
     private getCompany: GetOneCompanyService, private data: DataPassService,
     private router: Router, private ngxNotificationService: NgxNotificationService,
     private logStudent: LoggingStudentService, private adminService: AddAdminService,
-    private userList:UserListService) { }
+    private userList:UserListService,private db: AngularFireDatabase) { }
 
   ngOnInit() {
     sessionStorage.clear();
@@ -82,6 +87,7 @@ export class LoginComponent implements OnInit {
       // this.getUserType("Admin");
       console.log("inside admin login component");
       this.userList.sendUserWithCustomId("Admin","Admin");
+      this.data.setString("Admin");
       this.adminService.getSupervisorData('Admin', 'Admin', 'Admin', 'admin@gmail.com', '0110000000')
         .subscribe((data: admin) => {
           this.admin = data;
@@ -108,6 +114,7 @@ export class LoginComponent implements OnInit {
           if (this.logTempCompany != null) {
             if (uname == this.logTempCompany.name && psw == this.logTempCompany.password) {
               this.router.navigate(['/companySignupSuccess']);
+              
 
             }
           }
@@ -131,7 +138,8 @@ export class LoginComponent implements OnInit {
         if (this.logstudent != null) {
           if (uname == this.logstudent.name && psw == this.logstudent.password) {
             this.newMessage(this.logstudent.name + "");
-            this.getUserType("Student");
+            // this.getUserType("Student");
+            this.data.setString("Student");
             this.router.navigate(['/student/dashboardStudent']);
 
           }
@@ -142,11 +150,14 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
         // console.log('here');
         this.logstaff = data;
-        console.log(this.logStaff);
+        // console.log(this.logStaff);
         if (this.logstaff != null) {
           if (uname == this.logstaff.name && psw == this.logstaff.password) {
             this.newMessage(this.logstaff.name + "");
-            this.getUserType("Supervisor");
+            this.data.setString("Supervisor");
+
+            // this.getUserType("Supervisor");
+            console.log(this.data.getString());
             // this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
             this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
           }
@@ -170,8 +181,9 @@ export class LoginComponent implements OnInit {
           if (this.logCompany != null) {
             if (uname == this.logCompany.name && psw == this.logCompany.password) {
               this.newMessage(this.logCompany.name + "");
-              this.getUserType("Company");
+              // this.getUserType("Company");
               this.router.navigate(['/companyProfile/home']);
+              this.data.setString("Company");
 
             }
           } else {
@@ -207,6 +219,14 @@ export class LoginComponent implements OnInit {
     this.chatService.loggedUser(name);
 
   }
+  // checkStaff(name: string) {
+    
+  //   this.currentUserRefAdmin = this.db.list('userList', ref => ref.child(name).orderByChild('type'));
+  //   this.currentUserAdmin = this.currentUserRefAdmin.valueChanges();
+  //   this.currentUserAdmin.subscribe(res => {console.log("msgCountsss"+res[3] );
+  //   this.data.setString(res[3]); });
+    
+  // }
 
 
 }

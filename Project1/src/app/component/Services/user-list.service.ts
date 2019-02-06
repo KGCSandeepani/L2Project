@@ -14,8 +14,8 @@ export class UserListService {
   userList: AngularFireList<User>;
   items: Observable<any[]>;
   intVal;
-  receiver:string;
-  receiverU:string;
+  receiver: string;
+  receiverU: string;
 
   constructor(private db: AngularFireDatabase, private dataPass: DataPassService) {
 
@@ -23,18 +23,18 @@ export class UserListService {
   ngOnInit() {
 
   }
-getReceiver(user:string){
-this.receiverU=user;
-}
+  getReceiver(user: string) {
+    this.receiverU = user;
+  }
   update() {
     //pop new notification at receiver's side when new msg arrives
-    
+
     this.loggedUser = this.dataPass.getMessage();
     var refU = firebase.database().ref("userList").child(this.receiverU);
     refU.update({ readCount: 1 });
-console.log("inside update");
+    console.log("inside update");
 
-refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
+    refU.child('recepients').child(this.loggedUser).update({ read: 1 });
     // ref.orderByChild("userList").equalTo(this.loggedUser).once("value", function (snapshot) {
     //   snapshot.forEach(function (user) {
     //     user.ref.update({ readCount: 1 });
@@ -87,23 +87,23 @@ refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
   //   });
   // }
 
-  sendUserWithCustomId(user: string,typeU:string) {
+  sendUserWithCustomId(user: string, typeU: string) {
     // add user to firebase user list with Id of user
     this.loggedUser = this.dataPass.getMessage();
     var ref = firebase.database().ref("userList");
 
     ref.child(user).set({
-      recepients:true,
+      recepients: true,
       readCount: 0,
       status: true,
-      type:typeU,
+      type: typeU,
     });
   }
 
   sendRecepient(user: string) {
 
     //add user to recepient list with Id of user
-    this.receiver=user;
+    this.receiver = user;
     this.loggedUser = this.dataPass.getMessage();
     var ref = firebase.database().ref('userList');
 
@@ -121,8 +121,8 @@ refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
       read: 0
     });
   }
-  
-  
+
+
 }
 
 

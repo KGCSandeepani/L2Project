@@ -21,4 +21,13 @@ export class DataPassService {
     return sessionStorage.getItem("logger");
   }
 
+  setString(message: string) {
+    this.messageSource.next(message);
+    sessionStorage.setItem("logString", message);
+  }
+
+  getString(){
+    return sessionStorage.getItem("logString");
+  }
+
 }
