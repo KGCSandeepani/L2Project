@@ -12,9 +12,7 @@ import { StudentSelectedCompanyService } from 'src/app/component/Services/studen
 import { isUndefined, isNull } from 'util';
 import { DataPassService } from '../Services/data-pass.service';
 import { NgxNotificationService } from 'ngx-notification';
-
 import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTask } from 'angularfire2/storage';
-// import { DataPassService } from '../Services/data-pass.service';
 
 @Component({
   selector: 'app-student-add-detail',
@@ -22,12 +20,10 @@ import { AngularFireStorage , AngularFireStorageReference , AngularFireUploadTas
   styleUrls: ['./student-add-detail.component.css']
 })
 export class StudentAddDetailComponent implements OnInit {
-  //file upload url
+
   urlForSave: string;
   name:string;
-  // loger: string ;
   logger: string;
-
   student : student;
   noOfCompany : NoOfCompany;
   num : number = 1;
@@ -101,16 +97,16 @@ export class StudentAddDetailComponent implements OnInit {
     
      console.log(formdata.value.name);
      console.log(formdata.value , formdata);
-    if(formdata.value.uname==null || formdata.value.email==null || formdata.value.phoneNo==null || 
-      formdata.value.l1s1==null || formdata.value.l1s2==null || formdata.value.l2s1==null || formdata.value.l2s2==null || 
-      formdata.value.cgpa==null || this.interest1==null || this.interest2==null || this.interest3== null){
-        this.sendNotification();
-      }else{
-        this.updateService.updateStudentData(formdata,this.interest1,this.interest2,this.interest3,this.loger)
-        .subscribe(res=>{
-        this.router.navigate(['student/studentAddSuccess']);
-        });
-      }
+      if(formdata.value.uname==null || formdata.value.email==null || formdata.value.phoneNo==null || 
+        formdata.value.l1s1==null || formdata.value.l1s2==null || formdata.value.l2s1==null || formdata.value.l2s2==null || 
+        formdata.value.cgpa==null || this.interest1==null || this.interest2==null || this.interest3== null){
+          this.sendNotification();
+        }else{
+          this.updateService.updateStudentData(formdata,this.interest1,this.interest2,this.interest3,this.loger)
+          .subscribe(res=>{
+          this.router.navigate(['student/studentAddSuccess']);
+          });
+        }
     
   }
 

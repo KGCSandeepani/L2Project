@@ -22,17 +22,17 @@ input[type=text], input[type=password], input[type=file] {
     border-radius: 8px;
 }
 
-/* Create two equal columns that floats next to each other */
+/* label */
 .column1 {
     float: left;
     width: 30%;   
 }
-
+/* input */
 .column2 {
     float: left;
     width: 70%;    
 }
-
+/* label */
 label{
     padding: 24px 10px;
     
