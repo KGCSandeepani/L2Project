@@ -39,7 +39,7 @@
       font-family: Oswald-Regular;
       font-size: 14px;
       line-height: 1.7;
-      color: #666666;
+      color: #ffffff;
       margin: 0px;
       transition: all 0.4s;
       -webkit-transition: all 0.4s;
@@ -47,13 +47,13 @@
     -moz-transition: all 0.4s;
   }
   
-  a:focus {
+  /* a:focus {
       outline: none !important;
-  }
+  } */
   
-  a:hover {
+  /* a:hover {
       text-decoration: none;
-  }
+  } */
   
   /*---------------------------------------------*/
   h1,h2,h3,h4,h5,h6 {
@@ -64,7 +64,7 @@
       font-family: Oswald-Regular;
       font-size: 14px;
       line-height: 1.7;
-      color: #666666;
+      color: #ffffff;
       margin: 0px;
   }
   
@@ -75,10 +75,10 @@
   
   
   /*---------------------------------------------*/
-  input {
+  /* input {
       outline: none;
       border: none;
-  }
+  } */
   
   input[type="number"] {
       -moz-appearance: textfield;
@@ -91,16 +91,16 @@
       -webkit-appearance: none;
   }
   
-  textarea {
+  /* textarea {
     outline: none;
     border: none;
-  }
+  } */
   
-  textarea:focus, input:focus {
+  /* textarea:focus, input:focus {
     border-color: transparent !important;
-  }
+  } */
   
-  input:focus::-webkit-input-placeholder { color:transparent; }
+  /* input:focus::-webkit-input-placeholder { color:transparent; }
   input:focus:-moz-placeholder { color:transparent; }
   input:focus::-moz-placeholder { color:transparent; }
   input:focus:-ms-input-placeholder { color:transparent; }
@@ -110,16 +110,16 @@
   textarea:focus::-moz-placeholder { color:transparent; }
   textarea:focus:-ms-input-placeholder { color:transparent; }
   
-  input::-webkit-input-placeholder { color: #999999;}
-  input:-moz-placeholder { color: #999999;}
-  input::-moz-placeholder { color: #999999;}
-  input:-ms-input-placeholder { color: #999999;}
+  input::-webkit-input-placeholder { color: #ffffff;}
+  input:-moz-placeholder { color: #ffffff;}
+  input::-moz-placeholder { color: #ffffff;}
+  input:-ms-input-placeholder { color: #ffffff;}
   
-  textarea::-webkit-input-placeholder { color: #999999;}
-  textarea:-moz-placeholder { color: #999999;}
-  textarea::-moz-placeholder { color: #999999;}
-  textarea:-ms-input-placeholder { color: #999999;}
-  
+  textarea::-webkit-input-placeholder { color: #ffffff;}
+  textarea:-moz-placeholder { color: #ffffff;}
+  textarea::-moz-placeholder { color: #ffffff;}
+  textarea:-ms-input-placeholder { color: #ffffff;}
+   */
   /*---------------------------------------------*/
   button {
       outline: none !important;
@@ -159,7 +159,7 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #e6e6e6;
+    background: #ffffff;
     
   }
   
@@ -198,6 +198,9 @@
     background-color: #fff;
     margin-bottom: 17px;
   }
+  #mat-form-field{
+    min-width: 60%;
+  }
   
   .label-input100 {
     display: -webkit-box;
@@ -222,7 +225,7 @@
     width: 100%;
     background: transparent;
     font-family: Oswald-Medium;
-    font-size: 15px;
+    font-size: 12px;
     color: #43383e;
     line-height: 1.2;
     padding: 0 5px;
@@ -231,7 +234,7 @@
   
   /*---------------------------------------------*/
   input.input100 {
-    height: 62px;
+    height: 30px;
     padding: 0 20px 0 58px;
   }
   
@@ -321,11 +324,11 @@
     z-index: -1;
     width: 300%;
     height: 100%;
-    background: #df2351;
-    background: -webkit-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-    background: -o-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-    background: -moz-linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
-    background: linear-gradient(-135deg, #d5007d, #e53935, #d5007d, #e53935);
+    background: #6b13dd;
+    background: -webkit-linear-gradient(-135deg, #d7e0e6, #95c2e0, #6467f7, #4103ec);
+    background: -o-linear-gradient(-135deg,  #d7e0e6, #95c2e0, #6467f7, #4103ec);
+    background: -moz-linear-gradient(-135deg,  #d7e0e6, #95c2e0, #6467f7, #4103ec);
+    background: linear-gradient(-135deg,  #d7e0e6, #95c2e0, #6467f7, #4103ec);
     top: 0;
     left: -100%;
   
