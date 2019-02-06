@@ -1,7 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-danger">
             <h4 class="card-title">Industrial Placement</h4>
@@ -14,114 +14,129 @@
                 <div class="row">
                   <div class="column1">
 
-                    <label for="registrationNo"><b id="registrationNo">Registration No : </b></label><br>
-                    <label for="name1"><b id="name1">Name : </b></label><br>
-                    <label for="emailAddress"><b id="emailAddress">Email Address : </b></label><br>
-                    <label for="phoneNo"><b id="phoneNo">Phone No : </b></label><br>
-
-                    <label for="l1s1"><b id="l1s1">L1S1 GPA : </b></label><br>
-                    <label for="l1s2"><b id="l1s2">L1S2 GPA : </b></label><br>
-                    <label for="l2s1"><b id="l2s1">L2S1 GPA : </b></label><br>
-                    <label for="l2s2"><b id="l2s2">L2S2 GPA : </b></label><br>
-                    <label for="avggpa"><b id="avggpa">Average GPA : </b></label><br>
-                    <div *ngFor="let item of array">
-                      <label for="organization"><b id="organization">Preferred Organization {{item}} : </b></label><br>
-                    </div>
-
-                    <label for="interest1"><b id="interest1">Preferred Area of Interest 1 : </b></label><br>
-                    <label for="interest2"><b id="interest2">Preferred Area of Interest 2 : </b></label><br>
-                    <label for="interest3"><b id="interest3">Preferred Area of Interest 3 : </b></label><br>
-
-                    <label for="cv"><b id="cv">Uploaded CV : </b></label><br>
+                    <label for="registrationNo"><b id="registrationNo">Registration No : </b></label><br><br>
+                    <label for="name1"><b id="name1">Name : </b></label><br><br>
+                    <label for="emailAddress"><b id="emailAddress">Email Address : </b></label><br><br>
+                    <label for="phoneNo"><b id="phoneNo">Phone No : </b></label><br><br>
+                    <label for="l1s1"><b id="l1s1">L1S1 GPA : </b></label><br><br>
+                    <label for="l1s2"><b id="l1s2">L1S2 GPA : </b></label><br><br>
+                    <label for="l2s1"><b id="l2s1">L2S1 GPA : </b></label><br><br>
+                    <label for="l2s2"><b id="l2s2">L2S2 GPA : </b></label><br><br>
+                    <label for="avggpa"><b id="avggpa">Average GPA : </b></label><br><br>
 
                   </div>
 
                   <div class="column2">
-                    <label for="name"><b id="name">{{loger}} </b></label><br>
-                    <!-- <input type="text" placeholder="Enter Registration No" name="name" [(ngModel)]="name" value="loger"><br>  -->
-                    <!-- <mat-form-field> -->
-                    <input type="text" placeholder="Enter Name" name="uname" [(ngModel)]="student.username"><br>
-                  <!-- </mat-form-field> -->
-                    <!-- <mat-form-field> -->
-                    <input type="text" placeholder="Enter Email Address" name="email" [(ngModel)]="student.email"><br>
-                  <!-- </mat-form-field> -->
-                    <!-- <mat-form-field> -->
-                    <input type="text" placeholder="Enter phone No" name="phoneNo" [(ngModel)]="student.phoneNo"><br>
-                  <!-- </mat-form-field> -->
-                    <input type="text" placeholder="Enter L1S1 GPA" name="l1s1" [(ngModel)]="student.l1s1"><br>
-                    <input type="text" placeholder="Enter L1S2 GPA" name="l1s2" [(ngModel)]="student.l1s2"><br>
-                    <input type="text" placeholder="Enter L2S1 GPA" name="l2s1" [(ngModel)]="student.l2s1"><br>
-                    <input type="text" placeholder="Enter L2S2 GPA" name="l2s2" [(ngModel)]="student.l2s2"><br>
-                    <input type="text" placeholder="Enter Average GPA" name="cgpa" [(ngModel)]="student.cgpa"><br>
-
-                    <div *ngFor="let item of array">
-                      <mat-form-field>
-                        <mat-select placeholder="{{StuSelectedCompany1[item-1].organization}}">
-                          <mat-option *ngFor="let com of company" [value]="com.name" (click)="getCompany(item,com.name)">
-                            <a *ngIf="com.doInternship">{{com.name}}</a>
-                          </mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                    </div>
-
-                    <mat-form-field>
-                      <mat-select placeholder={{student.interest1}}>
-                        <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest1(i)">
-                          {{i}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field>
-                      <mat-select placeholder={{student.interest2}}>
-                        <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest2(i)">
-                          {{i}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field>
-                      <mat-select placeholder={{student.interest3}}>
-                        <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest3(i)">
-                          {{i}}
-                        </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <br>
-                    <!-- <input type="file" (change)="upload($event)" accept=".pdf" /> -->
-                    <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null">View CV</a><br><br><br>
-                    <input type="file" (change)="upload($event)" accept=".pdf" />
-                    <mat-progress-bar mode="indeterminate" *ngIf="probar"></mat-progress-bar>
-
+                      <label for="name"><b id="name">{{loger}} </b></label><br><br>
+                      <input type="text" placeholder="Enter Name" name="uname" [(ngModel)]="student.username"><br><br>
+                      <input type="text" placeholder="Enter Email Address" name="email" [(ngModel)]="student.email"><br><br>
+                      <input type="text" placeholder="Enter phone No" name="phoneNo" [(ngModel)]="student.phoneNo"><br><br>
+                      <input type="text" placeholder="Enter L1S1 GPA" name="l1s1" [(ngModel)]="student.l1s1"><br><br>
+                      <input type="text" placeholder="Enter L1S2 GPA" name="l1s2" [(ngModel)]="student.l1s2"><br><br>
+                      <input type="text" placeholder="Enter L2S1 GPA" name="l2s1" [(ngModel)]="student.l2s1"><br><br>
+                      <input type="text" placeholder="Enter L2S2 GPA" name="l2s2" [(ngModel)]="student.l2s2"><br><br>
+                      <input type="text" placeholder="Enter Average GPA" name="cgpa" [(ngModel)]="student.cgpa"><br><br>
                   </div>
                 </div>
-
+                <div class="row">
+                    <div class="column1">
+                        <div *ngFor="let item of array">
+                            <label for="organization"><b id="organization">Preferred Organization {{item}} : </b></label>
+                          </div>                        
+                    </div>
+                    <div class="column2">
+                        <div *ngFor="let item of array">
+                            <mat-form-field>
+                              <mat-select placeholder="{{StuSelectedCompany1[item-1].organization}}">
+                                <mat-option *ngFor="let com of company" [value]="com.name" (click)="getCompany(item,com.name)">
+                                  <a *ngIf="com.doInternship">{{com.name}}</a>
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <div *ngFor="let item of array">
+                            <label for="interest1"><b id="interest1">Preferred Area of Interest 1 : </b></label><br>
+                          </div>                        
+                    </div>
+                    <div class="column2">
+                        <mat-form-field>
+                            <mat-select placeholder={{student.interest1}}>
+                              <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest1(i)">
+                                {{i}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <div *ngFor="let item of array">
+                            <label for="interest2"><b id="interest2">Preferred Area of Interest 2 : </b></label><br>
+                          </div>                        
+                    </div>
+                    <div class="column2">
+                        <mat-form-field>
+                            <mat-select placeholder={{student.interest2}}>
+                              <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest2(i)">
+                                {{i}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <div *ngFor="let item of array">
+                            <label for="interest3"><b id="interest3">Preferred Area of Interest 3 : </b></label><br>
+                          </div>                        
+                    </div>
+                    <div class="column2">
+                        <mat-form-field>
+                            <mat-select placeholder={{student.interest3}}>
+                              <mat-option *ngFor="let i of interestField" [value]="i" (click)="getInterest3(i)">
+                                {{i}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column1">
+                        <label for="cv"><b id="cv">Uploaded CV : </b></label><br>                        
+                    </div>
+                    <div class="column2">
+                        <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null">View CV</a><br><br><br>
+                        <input type="file" (change)="upload($event)" accept=".pdf" />
+                        <mat-progress-bar mode="indeterminate" *ngIf="probar"></mat-progress-bar>
+                    </div>
+                </div>
                 <button id="add" type="submit" *ngIf="disableButton; else elseBlock">Submit</button>
               </div>
               <lib-ngx-notification></lib-ngx-notification>
             </form>
 
-            <!-- <div class="column3">
-              <iframe name="test1" id="test1" scrolling="no" height="700px" frameborder="4" width="900px" noscaling="true"
+            <br><br><br><br>
+            <div class="column3">
+              <iframe name="test1" id="test1" scrolling="no" height="900px" frameborder="4" width="100%" noscaling="true"
                 allowtransparency="true" marginwidth="0" marginheight="0">
               </iframe>
-            </div> -->
+            </div>
 
             <ng-template #elseBlock>
               <button type="button" id="disable"> Submit </button>
             </ng-template>
 
-
-
-
-
-
-
-
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <!-- <div class="col-md-4">
           <div class="card card-profile">
               <div class="card-avatar">
                   <a href="#pablo">
@@ -131,8 +146,8 @@
               <iframe name="test1" id="test1" scrolling="no"  frameborder="4" 
                 allowtransparency="true" marginwidth="0" marginheight="0">
               </iframe>
-      </div>
-
+           </div>
+      </div> -->
     </div>
   </div>
 </div>

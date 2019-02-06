@@ -111,9 +111,11 @@ input[type=text], input[type=password] {
     visibility: visible;
    
   }
+
   .dropdown-menu{
     min-width: 60%;
   }
+  
   .dropdown-menu a:hover {
     background-color: #666464 ;
     min-width: 60%;
