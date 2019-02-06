@@ -37,6 +37,7 @@ export class StudentDashboardComponent implements OnInit {
   items: Observable<any[]>;
   dataSource;
   selectedStu: number;
+  logger: string ;
 
   constructor(private readCompanyService: AdminViewCompanyService, 
     private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService,
@@ -44,6 +45,9 @@ export class StudentDashboardComponent implements OnInit {
     private data: DataPassService) { }
 
   ngOnInit() {
+
+    this.logger = this.data.getMessage();
+    
     this.db.list('broadcast', db => db.orderByChild("time")).valueChanges().
     subscribe(res => {this.dataSource = res;console.log(res);} );
 
