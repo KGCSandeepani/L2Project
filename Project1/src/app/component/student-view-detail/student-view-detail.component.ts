@@ -26,9 +26,7 @@ export class StudentViewDetailComponent implements OnInit {
     this.readData();
     this.retrieveCom();
     this.name = this.readService.setId();
-    
-   
-    
+        
   }
   
   readData(){
