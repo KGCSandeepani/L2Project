@@ -28,7 +28,7 @@
             <a routerLink="./adminDashboard" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large ">HOME</a> 
             <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADD</a>
             <a routerLink="./requestedCompany" routerLinkActive="active" (click)="clearCount()" 
-              class="w3-bar-item w3-button w3-padding-large w3-hide-small">REQUESTED COMPANY</a>
+              class="w3-bar-item w3-button w3-padding-large w3-hide-small">  <span class="badge" *ngIf="count > 0">{{count}}</span>REQUESTED COMPANY</a>
             <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large "(click)=clearNotification()>MESSAGE</a>
             <a routerLink="./adminAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
             <a routerLink="./adminSetting" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large ">SETTINGS</a>
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <span class="badge" *ngIf="count > 0"><span class="badge badge-primary">{{count}}</span></span>
+       
         
       </div>
     
