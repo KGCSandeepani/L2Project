@@ -1,6 +1,6 @@
+
 <form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
-  
-  <h2 style="text-align:center">Sign up</h2>
+  <h2>IMS SIGN UP</h2>
   <div class="container" >
       
     <div class="row">
@@ -20,6 +20,7 @@
         <input type="text" placeholder="Enter your email" name="email" [(ngModel)]="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
         <div *ngIf="email.errors?.pattern">
           <label class="validation-message">Invalid email address.</label>
+          <br>
       </div>
       
         <input matInput type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password"  [type]="!hide ? 'password' : 'text' "id="password">
@@ -28,6 +29,7 @@
     </div>
   
       <button id="add" type="submit"  >Add</button>
+      <!-- <button mat-button id="add" type="submit" >Add</button> -->
       <button id="clear" type="button" (click)="copanyname='';cpname='';location='';contactno='';email='';password=''">Clear</button><br>
   
   </div>

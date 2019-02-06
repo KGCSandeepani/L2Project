@@ -97,6 +97,7 @@ export class AdminAnalysisComponent implements OnInit {
           "formatnumber":"1",
           "formatnumberscale":"6",
           "sformatnumber":"1",
+          "showBorder": "1",
           "theme": "fusion"
         },
         "data": [{
