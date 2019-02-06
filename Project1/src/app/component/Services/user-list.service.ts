@@ -87,7 +87,7 @@ refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
   //   });
   // }
 
-  sendUserWithCustomId(user: string) {
+  sendUserWithCustomId(user: string,typeU:string) {
     // add user to firebase user list with Id of user
     this.loggedUser = this.dataPass.getMessage();
     var ref = firebase.database().ref("userList");
@@ -95,7 +95,8 @@ refU.child('recepients').child(this.loggedUser ).update({ read: 1 });
     ref.child(user).set({
       recepients:true,
       readCount: 0,
-      status: true
+      status: true,
+      type:typeU,
     });
   }
 

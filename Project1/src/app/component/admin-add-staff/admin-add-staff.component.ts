@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 //import { AdminAddStudentServiceService } from 'src/app/component/Services/admin-add-student-service.service';
 import { AdminAddStaffServiceService } from 'src/app/component/Services/admin-add-staff-service.service';
 import { NgxNotificationService } from 'ngx-notification';
+import {UserListService } from '../Services/user-list.service';
 
 @Component({
   selector: 'app-admin-add-staff',
@@ -13,7 +14,8 @@ import { NgxNotificationService } from 'ngx-notification';
 export class AdminAddStaffComponent implements OnInit {
 
   staff:staff[];
-  constructor(private staffService : AdminAddStaffServiceService, private ngxNotificationService: NgxNotificationService) { }
+  constructor(private staffService : AdminAddStaffServiceService, 
+    private ngxNotificationService: NgxNotificationService,private userList:UserListService) { }
 
 
   ngOnInit() {
@@ -24,6 +26,8 @@ export class AdminAddStaffComponent implements OnInit {
     this.staffService.getSupervisorData(formdata)
     .subscribe((data : staff[] )=> {
         this.staff = data;
+        this.userList.sendUserWithCustomId(formdata.value.uname,"Supervisor");
+
         formdata.reset();    
         this.sendNotification();
     }, error => { 

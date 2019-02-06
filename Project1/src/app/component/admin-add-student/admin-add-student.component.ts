@@ -80,7 +80,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.studentService.getStudentData(formdata,this.batch1)
     .subscribe((data : student[] )=> {
         this.student = data;
-        this.userList.sendUserWithCustomId(formdata.value.uname);
+        this.userList.sendUserWithCustomId(formdata.value.uname,"Student");
         formdata.reset();  
         this.batch1='';
         this.count= 1;

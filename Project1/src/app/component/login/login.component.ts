@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
       this.newMessage("Admin");
       // this.getUserType("Admin");
       console.log("inside admin login component");
-      this.userList.sendUserWithCustomId("Admin");
+      this.userList.sendUserWithCustomId("Admin","Admin");
       this.adminService.getSupervisorData('Admin', 'Admin', 'Admin', 'admin@gmail.com', '0110000000')
         .subscribe((data: admin) => {
           this.admin = data;

@@ -8,6 +8,7 @@ import { AdminAcceptTempCompanyService } from 'src/app/component/Services/admin-
 import { AdminRejectTempCompanyService } from 'src/app/component/Services/admin-reject-temp-company.service';
 import { CountNumberReqCompanyService } from 'src/app/component/Services/count-number-req-company.service';
 import { ConfirmationDialogServiceService } from 'src/app/component/confirmation-dialog-component/confirmation-dialog-service.service';
+import {UserListService } from '../Services/user-list.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class RequestedCompanyComponent implements OnInit {
 
   constructor(private deleteService: AdminRejectTempCompanyService,private readService: CompanySignupService,private accept: AdminAcceptTempCompanyService,
   setCount:CountNumberReqCompanyService,private route: ActivatedRoute,private confirmationDialogService: ConfirmationDialogServiceService,
-  private router : Router) { 
+  private router : Router,private userList:UserListService) { 
     
   }
 
@@ -61,7 +62,7 @@ export class RequestedCompanyComponent implements OnInit {
     this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newContactPersonName,this.newPsw,this.doInternship)
     .subscribe((data : company )=> {
       this.company2 = data;
-
+      this.userList.sendUserWithCustomId(name,"Company");
       this.deleteService.deleteTempCompanyData(name).subscribe(result=>{
       console.log(result);
       this.ngOnInit();
