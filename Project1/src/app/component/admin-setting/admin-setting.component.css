@@ -1,15 +1,14 @@
 .main{
-    padding-top: 1vw;
+    padding-top: 4vw;
     padding-bottom: 4vw;
 }
 
 .container {
     padding: 1vw;
     border: 1px solid rgb(68, 0, 255);
-    border-radius: 3px;
-    margin-top: 0.2vw;
+    border-radius: 5px;
+    margin-top: 2vw;
     text-align: center;
-    font-size: 15px
 }
 
 /* Full-width inputs */
@@ -51,8 +50,4 @@ label{
 
 button:hover {
     opacity: 0.6;
-}
-
-h2{
-    font-size: 20px
 }
