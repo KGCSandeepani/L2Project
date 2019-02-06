@@ -52,6 +52,10 @@ export class AdminSettingComponent implements OnInit {
 
   changeCompany(a:number){
     console.log(a);
+    if(a == null){
+      this.sendNotification2();
+      return;
+    }
     this.changeAmount.getAmount(a)
     .subscribe( (data : NoOfCompany) =>{
       this.noOfCompany = data;
@@ -65,6 +69,11 @@ export class AdminSettingComponent implements OnInit {
 
   insertBatch(batch, startDate, endDate){
     //console.log(batch +" : "+ startDate +" : "+ endDate);
+    if(batch==null || startDate==null || endDate==null){
+      this.sendNotification2();
+      return;
+    }
+
     this.addBatchService.addNewBatch(batch,startDate, endDate)
     .subscribe(result => {
       this.batch= '';
@@ -111,6 +120,10 @@ export class AdminSettingComponent implements OnInit {
 
   sendNotification1() {
   	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'dark', 'bottom-right');
+  }
+
+  sendNotification2() {
+  	this.ngxNotificationService.sendMessage('Please fill required field', 'dark', 'bottom-right');
   }
 
 }

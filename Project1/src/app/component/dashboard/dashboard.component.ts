@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
         }
       });
 
-      this.presentageCompamy = this.comCount/this.allCompany*100;
+      this.presentageCompamy = this.comCount/this.allCompany*100>=0 ?this.comCount/this.allCompany*100 : 0;
     });
 
     this.getBatches.getAllData()
@@ -77,8 +77,8 @@ export class DashboardComponent implements OnInit {
           }          
           
         });
-        this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100;
-        this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100;
+        this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100>=0 ? this.cvUploadedCount/this.allStudent*100 : 0;
+        this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100>=0 ? (this.allStudent - this.stuCount)/this.allStudent*100 : 0;
       });
       
 

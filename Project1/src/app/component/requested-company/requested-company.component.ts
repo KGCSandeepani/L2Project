@@ -59,16 +59,17 @@ export class RequestedCompanyComponent implements OnInit {
     this.newPsw=psw;
    
     this.accept.getCompanyData(this.newName,this.newLocation,this.newEmail,this.newContactNo,this.newContactPersonName,this.newPsw,this.doInternship)
-   .subscribe((data : company )=> {
-    this.company2 = data;
-  })
-    
-    
-    this.deleteService.deleteTempCompanyData(name).subscribe(result=>{
+    .subscribe((data : company )=> {
+      this.company2 = data;
+
+      this.deleteService.deleteTempCompanyData(name).subscribe(result=>{
       console.log(result);
       this.ngOnInit();
-    },error => console.log('There was an error: ', error))
+      this.sendNotification2();
+      },error => console.log('There was an error: ', error));
 
+    });
+    
   
   }
   
@@ -83,7 +84,7 @@ export class RequestedCompanyComponent implements OnInit {
   }
   
   sendNotification2() {
-  	this.ngxNotificationService.sendMessage('Load sucessfully', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Added sucessfully', 'dark', 'bottom-right');
   }
 
   public openConfirmationDialog(name) {

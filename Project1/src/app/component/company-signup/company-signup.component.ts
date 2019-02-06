@@ -22,7 +22,7 @@ export class CompanySignupComponent implements OnInit {
   acceptedCompanies:company[];
   company:company[]; 
   count:number=0;
-  psw;
+  password;
   constructor(private ngxNotificationService: NgxNotificationService, private readcompanyService : AdminViewCompanyService,private readService: AdminAcceptTempCompanyService,private get:GetNoOfCompanyService,private companyadddataservice: CompanyAddDataService,private setCount:CountNumberReqCompanyService,private router :Router) { }
   
   ngOnInit() {
@@ -40,12 +40,17 @@ export class CompanySignupComponent implements OnInit {
         return;
       }
     }
-    /*
+    
    if(formdata.value.psw.length<8){
-    this.psw='';
+    this.password='';
     this.sendNotification1();
     return;
-   }*/
+   }
+
+   if(formdata.value.cname==null || formdata.value.cpname==null || formdata.value.location==null || formdata.value.contactno==null || formdata.value.email==null || formdata.value.psw==null){
+    this.sendNotification2();
+    return;
+   }
 
     this. companyadddataservice.getCompanyData(formdata)
     .subscribe((data : company[] )=> {
@@ -75,6 +80,13 @@ export class CompanySignupComponent implements OnInit {
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
+
+  sendNotification2() {
+    this.ngxNotificationService.sendMessage('Please fill all the field', 'dark', 'bottom-right');
+    //dark, light, success, info, warning, danger and none
+    //top-left, top-right, bottom-left, bottom-right and center
+  }
+
   // email = new FormControl('', [Validators.required, Validators.email]);
   // getErrorMessage() {
   //   return this.email.hasError('required') ? 'You must enter a value' :

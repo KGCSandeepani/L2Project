@@ -16,7 +16,7 @@
         <input type="text" placeholder="Enter Company Name" name="cname" [(ngModel)]="copanyname"  required><br>
         <input type="text" placeholder="Enter Contact Person Name" name="cpname" [(ngModel)]="cpname" ><br>
         <input type="text" placeholder="Enter Location" name="location" [(ngModel)]="location" ><br>
-        <input type="text" placeholder="Enter Contact No" name="contactno" [(ngModel)]="contactno" ><br>       
+        <input type="number" placeholder="Enter Contact No" name="contactno" [(ngModel)]="contactno" ><br>       
         <input type="text" placeholder="Enter your email" name="email" [(ngModel)]="email" >
         <input matInput type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password"  [type]="!hide ? 'password' : 'text' "id="password">
         <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon><br>      

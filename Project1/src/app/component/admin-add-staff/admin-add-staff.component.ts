@@ -3,6 +3,7 @@ import { staff } from 'src/app/component/Model/Staff';
 import { NgForm } from '@angular/forms';
 //import { AdminAddStudentServiceService } from 'src/app/component/Services/admin-add-student-service.service';
 import { AdminAddStaffServiceService } from 'src/app/component/Services/admin-add-staff-service.service';
+import { NgxNotificationService } from 'ngx-notification';
 
 @Component({
   selector: 'app-admin-add-staff',
@@ -12,7 +13,7 @@ import { AdminAddStaffServiceService } from 'src/app/component/Services/admin-ad
 export class AdminAddStaffComponent implements OnInit {
 
   staff:staff[];
-  constructor(private staffService : AdminAddStaffServiceService) { }
+  constructor(private staffService : AdminAddStaffServiceService, private ngxNotificationService: NgxNotificationService) { }
 
 
   ngOnInit() {
@@ -24,8 +25,19 @@ export class AdminAddStaffComponent implements OnInit {
     .subscribe((data : staff[] )=> {
         this.staff = data;
         formdata.reset();    
+        this.sendNotification();
+    }, error => { 
+      this.sendNotification1();
     });
 
-}
+  }
+
+  sendNotification() {
+    this.ngxNotificationService.sendMessage('Added Successfully', 'dark', 'bottom-right');
+  }
+
+  sendNotification1() {
+    this.ngxNotificationService.sendMessage('Please fill all the field', 'dark', 'bottom-right');
+  }
 
 }
