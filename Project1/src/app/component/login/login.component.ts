@@ -204,13 +204,13 @@ export class LoginComponent implements OnInit {
   }
 
   sendNotification() {
-    this.ngxNotificationService.sendMessage('Wrong username or password', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Wrong username or password', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Please enter username and password', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please enter username and password', 'danger', 'bottom-right');
   }
 
   // to get which kind of user logged in for chat service

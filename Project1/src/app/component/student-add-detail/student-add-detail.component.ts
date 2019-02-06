@@ -137,13 +137,13 @@ export class StudentAddDetailComponent implements OnInit {
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Wait until upload file', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Wait until upload file', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
   
   sendNotification2() {
-    this.ngxNotificationService.sendMessage('File uploaded', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('File uploaded', 'success', 'bottom-right');
   }
 
 }

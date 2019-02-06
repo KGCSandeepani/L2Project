@@ -188,31 +188,31 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   sendNotification1() {
-  	this.ngxNotificationService.sendMessage('Please enter password and batch', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please enter password and batch', 'danger', 'bottom-right');
   }
 
   sendNotification2() {
-  	this.ngxNotificationService.sendMessage('Load sucessfully', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Load sucessfully', 'success', 'bottom-right');
   }
 
   sendNotification3() {
-  	this.ngxNotificationService.sendMessage('Please enter Username, Password and batch', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please enter Username, Password and batch', 'danger', 'bottom-right');
   }
 
   sendNotification4(count: number) {
-  	this.ngxNotificationService.sendMessage(this.count+' record(s) added sucessfully', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage(this.count+' record(s) added sucessfully', 'success', 'bottom-right');
   }
 
   sendNotification5() {
-  	this.ngxNotificationService.sendMessage('Please enter Register No in first column & Name in second column only', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please enter Register No in first column & Name in second column only', 'danger', 'bottom-right');
   }
 
   sendNotification6(name) {
-  	this.ngxNotificationService.sendMessage('Register No should be 7 characters long', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Register No should be 7 characters long', 'danger', 'bottom-right');
   }
 
   sendNotification7() {
-  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'danger', 'bottom-right');
   }
 
 }

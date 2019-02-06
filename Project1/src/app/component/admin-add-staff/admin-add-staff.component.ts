@@ -40,11 +40,11 @@ export class AdminAddStaffComponent implements OnInit {
   }
 
   sendNotification() {
-    this.ngxNotificationService.sendMessage('Added Successfully', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Added Successfully', 'success', 'bottom-right');
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Please fill all the field', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please fill all the field', 'danger', 'bottom-right');
   }
 
 }

@@ -32,13 +32,13 @@ export class CompanySettingComponent implements OnInit {
   }
 
   sendNotification() {
-    this.ngxNotificationService.sendMessage('Successful change password', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Successful change password', 'success', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Unable to change password', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Unable to change password', 'danger', 'bottom-right');
   }
 
 }

@@ -133,15 +133,15 @@ export class AdminSettingComponent implements OnInit {
   }
 
   sendNotification() {
-  	this.ngxNotificationService.sendMessage('Added Successfully', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Added Successfully', 'success', 'bottom-right');
   }
 
   sendNotification1() {
-  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Added Fail. Try again', 'danger', 'bottom-right');
   }
 
   sendNotification2() {
-  	this.ngxNotificationService.sendMessage('Please fill required field', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Please fill required field', 'danger', 'bottom-right');
   }
 
 }
