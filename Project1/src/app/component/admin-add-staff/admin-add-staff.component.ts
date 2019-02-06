@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { AdminAddStaffServiceService } from 'src/app/component/Services/admin-add-staff-service.service';
 import { NgxNotificationService } from 'ngx-notification';
 import {UserListService } from '../Services/user-list.service';
+// import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-admin-add-staff',
@@ -12,10 +13,12 @@ import {UserListService } from '../Services/user-list.service';
   styleUrls: ['./admin-add-staff.component.css']
 })
 export class AdminAddStaffComponent implements OnInit {
+ // private notifier: NotifierService;
 
   staff:staff[];
   constructor(private staffService : AdminAddStaffServiceService, 
-    private ngxNotificationService: NgxNotificationService,private userList:UserListService) { }
+  private ngxNotificationService: NgxNotificationService,private userList:UserListService) { }
+  
 
 
   ngOnInit() {

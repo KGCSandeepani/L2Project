@@ -345,7 +345,15 @@ functions:
       - http:
           path: todosStaff/{name}
           method: delete
-          cors: true  
+          cors: true 
+
+  deleteCompany:
+    handler: todosCompany/delete.delete
+    events:
+      - http:
+          path: todosCompany/{name}
+          method: delete
+          cors: true          
   
   deleteAdmin:
     handler: todosAdmin/delete.delete

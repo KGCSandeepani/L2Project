@@ -7,6 +7,8 @@ import { CompanySignupService } from 'src/app/component/Services/company-signup.
 import { NgForm } from '@angular/forms';
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { EmailService } from 'src/app/component/Services/email.service';
+import { AdminDeleteCompanyService } from 'src/app/component/Services/admin-delete-company.service';
+import { ConfirmationDialogServiceService } from 'src/app/component/confirmation-dialog-component/confirmation-dialog-service.service';
 
 export interface Email {
   // email: ''
@@ -31,7 +33,7 @@ export class AdminViewCompanyComponent implements OnInit {
   message = false;
   
   constructor(private readService: AdminViewCompanyService,private email:EmailService,private accept: AdminAcceptTempCompanyService,
-  route : ActivatedRoute,private router : Router) { }
+  private deleteService: AdminDeleteCompanyService,private confirmationDialogService: ConfirmationDialogServiceService,route : ActivatedRoute,private router : Router) { }
 
   ngOnInit() {
     
@@ -40,6 +42,22 @@ export class AdminViewCompanyComponent implements OnInit {
       console.log(this.company);
     
    
+  }
+
+  onReject(name:string, d:boolean){
+    if(d==true){
+      this.deleteService.deleteCompanyData(name).subscribe(result=>{
+        console.log(result);
+        this.ngOnInit();
+      },error => console.log('There was an error: ', error))
+    }
+    
+  }
+
+  public openConfirmationDialog(name) {
+    this.confirmationDialogService.confirm('Please confirm..', ' Do you really wish to delete '+name)
+    .then((confirmed) => this.onReject(name,confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
 
 

@@ -22,6 +22,7 @@ export class RequestedCompanyComponent implements OnInit {
   company: company[];
   company2: company;
 
+
   constructor(private deleteService: AdminRejectTempCompanyService,private readService: CompanySignupService,private accept: AdminAcceptTempCompanyService,
   setCount:CountNumberReqCompanyService,private route: ActivatedRoute,private confirmationDialogService: ConfirmationDialogServiceService,
   private router : Router,private userList:UserListService) { 

@@ -20,10 +20,12 @@
       <td>{{compan.cpname}}</td>
       <td>{{compan.email}}</td>
       <td>{{compan.contactNo}}</td>
+     
       <td>
-        <button mat-button (click)="onAccept(compan.name,compan.location,compan.cpname,compan.email,compan.contactNo,compan.password)">
+        <button mat-button (click)="onAccept(compan.name,compan.location,compan.cpname,compan.email,compan.contactNo,compan.password)" >
           <mat-icon color= "primary">done</mat-icon></button>
      </td>
+    
      <td>
       <button  mat-button (click)="openConfirmationDialog(compan.name)" ><mat-icon color = "warn">delete</mat-icon></button>
    </td> 

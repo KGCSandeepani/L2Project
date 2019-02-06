@@ -117,6 +117,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Import FusionCharts library
 import * as FusionCharts from 'fusioncharts';
 
+
 // Load FusionCharts Individual Charts
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
@@ -210,7 +211,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
    ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatDialogModule,
    FusionChartsModule 
    ,MatTableModule,MatFormFieldModule, MatInputModule,MatSortModule,MatAutocompleteModule,MatRadioModule,
-   NgbModule.forRoot()
+   NgbModule.forRoot(),
+  
   ],
   providers: [AdminAddStudentServiceService,
               ReadUnamePswServiceService,

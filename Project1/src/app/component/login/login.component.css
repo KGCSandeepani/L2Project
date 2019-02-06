@@ -354,7 +354,7 @@ body :-ms-input-placeholder {
   font-weight: 300;
 }
 .wrapper {
-  background: #50a3a2;
+  background: #9ee6e4;
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
@@ -380,6 +380,7 @@ body :-ms-input-placeholder {
   /* padding: 80px 0; */
   height: 500px;
   text-align: center;
+  /* background-image: url("src/assets/favicon3.jpg"); */
  
 }
 .container h1 {
@@ -543,7 +544,7 @@ form button:hover {
   display: flex;
   position: relative;
   opacity: 0.8;
-  float:right; 
+  /* float:right;  */
   z-index: 9;
   border: 1px solid rgba(5, 5, 5, 0.4);
   border-radius: 5px;

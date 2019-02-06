@@ -54,6 +54,7 @@
                     <th> Contact No    </th>
                     <th> Contact Person </th>
                     <th> Do Internship </th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let company of company">
@@ -62,7 +63,10 @@
                         <td>{{company.email}}</td>
                         <td>{{company.contactNo}}</td>
                         <td>{{company.contactPerson}}</td> 
-                        <td>{{company.doInternship}}</td>   
+                        <td>{{company.doInternship}}</td> 
+                        <td>
+                            <button  mat-button (click)="openConfirmationDialog(company.name)" ><mat-icon color = "warn">delete</mat-icon></button>
+                        </td>   
                     </tr>
                 </tbody>
               </table>
