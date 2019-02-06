@@ -35,7 +35,6 @@ label{
     padding: 8px 10px;
     
 }
-
 /* Clear floats after the columns */
 .row:after {
     content: "";

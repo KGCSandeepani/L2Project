@@ -10,8 +10,7 @@
               <label for="registrationNo"><b >Registration No : </b></label><br>
               <label for="name"><b >Name : </b></label><br>
               <label for="emailAddress"><b >Email Address : </b></label><br>
-              <label for="phoneNo"><b >Phone No : </b></label><br>
-            
+              <label for="phoneNo"><b >Phone No : </b></label><br>            
               <label for="l1s1"><b >L1S1 GPA : </b></label><br>
               <label for="l1s2"><b >L1S2 GPA : </b></label><br>
               <label for="l2s1"><b >L2S1 GPA : </b></label><br>
@@ -20,15 +19,14 @@
               <label for="interest1"><b >Preferred Area of Interest 1 : </b></label><br>
               <label for="interest2"><b >Preferred Area of Interest 2 : </b></label><br>
               <label for="interest3"><b >Preferred Area of Interest 3 : </b></label><br>
-              <label for="uploadPdfUrl"><b id="uploadPdfUrl">Uploaded CV : </b></label><br>
+              
           </div>
   
           <div class="column2">
             <label for="registrationNo"><b >{{student.name}}</b></label><br>
             <label for="name"><b >{{student.username}}</b></label><br>
             <label for="emailAddress"><b >{{student.email}}</b></label><br>
-            <label for="phoneNo"><b >{{student.phoneNo}}</b></label><br>
-          
+            <label for="phoneNo"><b >{{student.phoneNo}}</b></label><br>          
             <label for="l1s1"><b >{{student.l1s1}}</b></label><br>
             <label for="l1s2"><b >{{student.l1s2}}</b></label><br>
             <label for="l2s1"><b >{{student.l2s1}}</b></label><br>
@@ -37,57 +35,20 @@
             <label for="interest1"><b >{{student.interest1}}</b></label><br>
             <label for="interest2"><b >{{student.interest2}}</b></label><br>
             <label for="interest3"><b >{{student.interest3}}</b></label><br>
-            <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null">View CV</a><br><br><br>
             
-          </div>
-          <div class="column3">
-            <iframe name="test1" id="test1" scrolling="no" height="600px" frameborder="4" width="900px" noscaling="true" allowtransparency="true" marginwidth="0" marginheight="0">
-            </iframe>  
           </div>
         </div>
-
-        <!-- <form method="POST" action="send">
-            
-          
-              <div class="container">
-                <div class="row">
-                  <div class="column1"> 
-                    <label for="subject"><b>Subject : </b></label><br>
-                    <label for="to"><b>To : </b></label><br>
-                    <label for="from"><b>From : </b></label><br>
-                    <label for="msg"><b>msg : </b></label><br>
-                  </div>
-                <div class="column2">
-                    <input type="text" placeholder="subject" name="subject" required ngModel><br>     
-                    <input type="text" placeholder="to" name="to" required ngModel><br>      
-                    <input type="text" placeholder="from" name="from" required ngModel><br>     
-                    <input type="text" placeholder="msg" name="msg" required ngModel><br>
-                </div>
+        <div class="row">
+              <div class="column1">
+                <label for="uploadPdfUrl"><b id="uploadPdfUrl">Uploaded CV : </b></label><br>
               </div>
-                
-                
-                
-                  <button id="add" type="submit" >Add</button>
-                  
-              
-              </div>
-              
-              </form>
-         -->
-
-
-
-
-
-<!-- <h3 class="title">send email</h3>
-        
-<form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit()" class="register-form">
-  <label>To</label>
-    <input class="form-control" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text"
-        placeholder="Email" [(ngModel)]="model.email"> 
-                                  
-  <input type="submit" [disabled]="!signInForm.valid" class="btn btn-danger btn-block btn-round" value="Sign In">
-  
-</form> -->
-        
-                  
+              <div class="column2">
+                <a href="{{student.uploadPdfUrl}}" target="test1" *ngIf="student.uploadPdfUrl!=null" >View CV</a><br><br><br>
+              </div>   
+        </div> 
+      </div>
+  </form>
+        <div class="column3">
+            <iframe name="test1" id="test1" scrolling="no" height="900px" frameborder="4" width="100%" noscaling="true" allowtransparency="true" marginwidth="0" marginheight="0">
+            </iframe>  
+        </div>
