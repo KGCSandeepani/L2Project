@@ -50,10 +50,12 @@ export class CompanyProfileConfirmStudentlistComponent implements OnInit {
   onAccept(name: String){
     this.companyConfirmation.updateCompanyInternshipDetails(name,true)
     .subscribe(result=>{
-      console.log(result);
+
       this.studentAvailabilityChangeService.updateStudentData(name,false)
-      .subscribe();
-      this.ngOnInit();
+      .subscribe(result=>{
+        this.ngOnInit();
+      },error => console.log('There was an error: ', error));
+      
     },error => console.log('There was an error: ', error)
     );
 

@@ -72,6 +72,8 @@ export class StudentConfirmInternshipComponent implements OnInit {
       // this.studentAvailabilityChangeService.updateStudentData(name,true)
       // .subscribe();
       this.sendNotification();
+    },error => {
+      this.sendNotification1();
     });
   }
 
