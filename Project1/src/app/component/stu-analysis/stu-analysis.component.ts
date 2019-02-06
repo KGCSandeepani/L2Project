@@ -1,3 +1,9 @@
+
+
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { AdminViewCompanyService } from 'src/app/component/Services/admin-view-company.service';
 import { company } from 'src/app/component/Model/Company';

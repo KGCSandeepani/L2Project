@@ -78,13 +78,13 @@ export class StudentConfirmInternshipComponent implements OnInit {
   }
 
   sendNotification() {
-    this.ngxNotificationService.sendMessage('Successfully confirm', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Successfully confirm', 'success', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Please select company before confirm', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please select company before confirm', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }

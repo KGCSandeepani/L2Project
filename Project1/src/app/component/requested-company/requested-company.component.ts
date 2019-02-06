@@ -86,7 +86,7 @@ export class RequestedCompanyComponent implements OnInit {
   }
   
   sendNotification2() {
-  	this.ngxNotificationService.sendMessage('Added sucessfully', 'dark', 'bottom-right');
+  	this.ngxNotificationService.sendMessage('Added sucessfully', 'success', 'bottom-right');
   }
 
   public openConfirmationDialog(name) {

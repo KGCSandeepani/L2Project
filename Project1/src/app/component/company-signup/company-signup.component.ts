@@ -70,19 +70,19 @@ export class CompanySignupComponent implements OnInit {
   }
 
   sendNotification() {
-    this.ngxNotificationService.sendMessage('Please enter different username or password', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please enter different username or password', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Please enter more than or equal eight characters', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please enter more than or equal eight characters', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
 
   sendNotification2() {
-    this.ngxNotificationService.sendMessage('Please fill all the field', 'dark', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please fill all the field', 'danger', 'bottom-right');
     //dark, light, success, info, warning, danger and none
     //top-left, top-right, bottom-left, bottom-right and center
   }
