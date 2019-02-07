@@ -61,10 +61,7 @@ currentUserAdmin: Observable<any>;
     // console.log(this.loggerType+" this.loggerType");
 
     this.getRecepient();
-    // this.getAdminData();
-    // this.getCompanyData();
-    // this.getStafftData();
-    // this.getCompanyData();
+    
     this.readService.getData()
     .subscribe(data => this.students = data);
 
@@ -78,33 +75,7 @@ currentUserAdmin: Observable<any>;
        });
   }
 
-  // getStudentData(){
-  //   this.readService.getData()
-  //   .subscribe(data => this.students = data);
-  // // console.log(this.students);
-
-  // }
-  // getStafftData(){
-  //   //get supervispr list
-  //   this.readServiceStaff.getData()
-  //     .subscribe(data => this.supervisors = data);
-  //   // console.log(this.supervisors);
-    
-  // }
-  // getCompanyData(){
-    
-  //   //get companies
-  //   this.readServiceCompany.getData()
-  //     .subscribe(data => this.company = data);
-  //   // console.log(this.company);
-    
-  // }
-  // getAdminData(){
-  //    //get admins
-  //    this.readServiceAdmin.getData()
-  //    .subscribe(data => { this.admin = data; console.log(data + " is admin data"); });
-  //  // console.log(this.admin);
-  // }
+  
 
   editTheUser(student: any) {
 
@@ -121,11 +92,10 @@ currentUserAdmin: Observable<any>;
 
     userRef.on('value', (snapshot) => {
       snapshot.forEach((child) => {
-        // console.log(child.key + " child key");
-        // console.log(child.val().read + " child values");
+        
         this.recepientMsgCount=child.val().read;
 
-        // this.items = child.key;
+    
       if(this.user.indexOf(child.key)<0){
         this.user[this.i] = child.key;
         this.i++;
@@ -142,6 +112,8 @@ currentUserAdmin: Observable<any>;
     // this.userlist.clear();
     //to add clicked user to recepient list in db
     this.userList.sendRecepient(student.name);
+    // this.userList.clear();
+    // this.userList.clearRecepientMsgCount();
   }
 
   sendReceiver(name: string) {

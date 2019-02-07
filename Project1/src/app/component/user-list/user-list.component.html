@@ -26,39 +26,39 @@
                 <div *ngIf="loggerType=='Supervisor'  ">
                   <!-- <ng-template #other_content> -->
 
-                    <b>Students</b>
-                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                      [ngClass]="'active'">
-                      {{student.name}}
-                    </mat-option>
+                  <b>Students</b>
+                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                    [ngClass]="'active'">
+                    {{student.name}}
+                  </mat-option>
                   <!-- </ng-template> -->
                 </div>
                 <div *ngIf="loggerType=='Admin'  ">
-                    <!-- <ng-template #other_content> -->
-  
-                      <b>Students</b>
-                      <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                        [ngClass]="'active'">
-                        {{student.name}}
-                      </mat-option>
-                    <!-- </ng-template> -->
-                  </div>
+                  <!-- <ng-template #other_content> -->
+
+                  <b>Students</b>
+                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                    [ngClass]="'active'">
+                    {{student.name}}
+                  </mat-option>
+                  <!-- </ng-template> -->
+                </div>
                 <div *ngIf="loggerType=='Student' ">
                   <!-- <ng-template #other_content> -->
-                    <b>Admins</b>
-                    <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
-                      {{admin.name}}
-                    </mat-option>
-                    <b>Supervisors</b>
-                    <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" (click)="sendRec(supervisor)"
-                      [ngClass]="'active'">
-                      {{supervisor.name}}
-                    </mat-option>
-                    <b>Students</b>
-                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                      [ngClass]="'active'">
-                      {{student.name}}
-                    </mat-option>
+                  <b>Admins</b>
+                  <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
+                    {{admin.name}}
+                  </mat-option>
+                  <b>Supervisors</b>
+                  <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" (click)="sendRec(supervisor)"
+                    [ngClass]="'active'">
+                    {{supervisor.name}}
+                  </mat-option>
+                  <b>Students</b>
+                  <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
+                    [ngClass]="'active'">
+                    {{student.name}}
+                  </mat-option>
                   <!-- </ng-template> -->
                 </div>
 
@@ -108,6 +108,7 @@
                     <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
                     <ng-template #content>
                       <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
+
                     </ng-template>
                     <ng-template #other_content>
                       <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>

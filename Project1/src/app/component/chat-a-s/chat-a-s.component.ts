@@ -15,14 +15,19 @@ import * as firebase from 'firebase/app';
 export class ChatASComponent implements OnInit {
   users: Observable<any[]>;
   message: string;
+  userName:string="ddg";
   constructor(private chat: ChatServiceASService, private _scrollToService: ScrollToService,
     private userlist: UserListService, private db: AngularFireDatabase) { }
   // Users:User[];
   ngOnInit() {
+    this.userName=this.userlist.sendReceiver();
+    this.chat.cast.subscribe((userN) => {
+      this.userName = userN;
+
     // this.userlist.sendUser("Admin");// send currentlt logged in user to db
     // this.users=this.userlist.getMessages().valueChanges();// get that returned value
+  });
   }
-
   send() {
     // console.log("inside send");
     // console.log(this.message);

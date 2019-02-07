@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./supervisor-view-feedback.component.css']
 })
 export class SupervisorViewFeedbackComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight'];
   dataSource;
   loger: string;// currently logged user
   items: Observable<any[]>;
@@ -23,8 +23,9 @@ export class SupervisorViewFeedbackComponent implements OnInit {
 
   ngOnInit() {
     this.loger = this.data.getMessage();
-    this.db.list('feedback', db => db.orderByChild("name").equalTo(this.loger)).
-    valueChanges().subscribe(res => {this.dataSource = res;console.log(res);} );
+    console.log(this.loger+" inside res");
+    this.db.list('feedback', db => db.orderByChild("supervisor").equalTo(this.loger)).
+    valueChanges().subscribe(res => {this.dataSource = res;console.log(res+" inside res");} );
 
   }
  

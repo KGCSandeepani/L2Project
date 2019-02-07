@@ -9,6 +9,7 @@ import { ChatServiceASService } from '../Services/chat-service-a-s.service'
 import { BroadcastingMessagesService} from '../Services/broadcasting-messages.service'
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database"
 import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
   message:string
   feedback:string;
   selectedStu: number;
+  items: Observable<any[]>;
 
   constructor(private broadcasting:BroadcastingMessagesService,
     private readCompanyService: AdminViewCompanyService, 
@@ -41,6 +43,9 @@ export class DashboardComponent implements OnInit {
     
 
   ngOnInit() {
+
+    this.items = this.db.list('broadcast', db => db.orderByChild("time")).valueChanges();
+
 
     this.readCompanyService.getData()
     .subscribe(data => {this.company = data;

@@ -47,9 +47,10 @@ export class StudentDashboardComponent implements OnInit {
   ngOnInit() {
 
     this.logger = this.data.getMessage();
-    
-    this.db.list('broadcast', db => db.orderByChild("time")).valueChanges().
-    subscribe(res => {this.dataSource = res;console.log(res);} );
+    this.items = this.db.list('broadcast', db => db.orderByChild("time")).valueChanges();
+
+    // this.db.list('broadcast', db => db.orderByChild("time")).valueChanges().
+    // subscribe(res => {this.dataSource = res;console.log(res);} );
 
     this.readCompanyService.getData()
     .subscribe(data => {this.company = data;

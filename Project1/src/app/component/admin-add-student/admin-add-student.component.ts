@@ -86,7 +86,7 @@ export class AdminAddStudentComponent implements OnInit {
     this.studentService.getStudentData(formdata,this.batch1)
     .subscribe((data : student[] )=> {
         this.student = data;
-        this.userList.sendUserWithCustomId(formdata.value.uname,"Student");
+        this.userList.sendUserWithCustomId(formdata.value.uname.toLocaleUpperCase(),"Student");
         formdata.reset();  
         this.batch1='';
         this.count= 1;
@@ -127,7 +127,7 @@ export class AdminAddStudentComponent implements OnInit {
               this.allStudentService.getStudentData(self.spread.getActiveSheet().getValue(index,0).toLocaleUpperCase(),self.spread.getActiveSheet().getValue(index,1),psw2,parseInt(this.batch2))
               .subscribe((data : student[] )=> {
               this.student = data;
-              this.userList.sendUserWithCustomId(self.spread.getActiveSheet().getValue(index,0),"Student");
+              this.userList.sendUserWithCustomId(self.spread.getActiveSheet().getValue(index,0).toLocaleUpperCase(),"Student");
               self.spread.getActiveSheet().setValue(index,0,'');
               self.spread.getActiveSheet().setValue(index,1,'');
               this.count++;
@@ -176,7 +176,7 @@ export class AdminAddStudentComponent implements OnInit {
         this.allStudentService.getStudentData(self.spread.getSheet(1).getValue(index,0).toLocaleUpperCase(),self.spread.getSheet(1).getValue(index,1),psw3,parseInt(this.batch3))
         .subscribe((data : student[] )=> {
         this.student = data;
-        this.userList.sendUserWithCustomId(self.spread.getSheet(1).getValue(index,0),"Student");
+        this.userList.sendUserWithCustomId(self.spread.getSheet(1).getValue(index,0).toLocaleUpperCase(),"Student");
         self.spread.getActiveSheet().setValue(index,0,'');
         self.spread.getActiveSheet().setValue(index,1,'');
         this.count++;

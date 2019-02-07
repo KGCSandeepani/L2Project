@@ -54,7 +54,7 @@ export class ChatServiceASService {
 
     this.loger = this.data.getString();
     console.log(this.loger +" loger typeeeeeeeeeeee");
-    const timestamp = this.getTimeStamp();
+    // const timestamp = this.getTimeStamp();
     this.senderName = this.data.getMessage();
     //generating a comman tag from sender name and receiver name
     if (this.getLoggedUserType(this.senderName) == "Admin" && this.getClickedUserType(this.receiverName) == "Student") {
@@ -66,7 +66,7 @@ export class ChatServiceASService {
     // }
     else if(this.loger=="Supervisor" && this.getClickedUserType(this.receiverName)=="Student"){
       this.sendRece = this.senderName + "_" + this.userR;
-      console.log(" supervisor inside admin student ");
+      // console.log(" supervisor inside admin student ");
 
     }
     else if((this.loger =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && 
@@ -95,13 +95,13 @@ export class ChatServiceASService {
 
     return this.db.list('messages', ref => ref.orderByKey().limitToLast(25));
   }
-  getTimeStamp() {
-    let now = new Date();
-    let date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' + now.getUTCDate();
-    let time = now.getUTCHours() + ':' + now.getUTCMinutes();
+  // getTimeStamp() {
+  //   let now = new Date();
+  //   let date = now.getUTCFullYear() + '/' + (now.getUTCMonth() + 1) + '/' + now.getUTCDate();
+  //   let time = now.getUTCHours() + ':' + now.getUTCMinutes();
 
-    return (date + ' ' + time).toString;
-  }
+  //   return (date + ' ' + time).toString;
+  // }
 
   //to send which user that user has clicked.
   editUser(newUser) {

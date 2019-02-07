@@ -26,6 +26,10 @@ export class UserListService {
   getReceiver(user: string) {
     this.receiverU = user;
   }
+
+  sendReceiver(){
+    return this.receiverU;
+  }
   update() {
     //pop new notification at receiver's side when new msg arrives
 

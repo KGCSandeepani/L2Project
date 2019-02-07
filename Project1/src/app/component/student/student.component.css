@@ -60,9 +60,9 @@ ul {
     color: black;
   }
   .msg {
-    position: fixed;
+    position: relative;
     top:1%;
-    left:40.5%;    
+    /* left:40.5%;     */
     font-size: 12px;
     line-height: 13px;
     border-radius: 45%;
