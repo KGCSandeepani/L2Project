@@ -47,7 +47,7 @@ export class AdminAnalysisComponent implements OnInit {
 
 
 
-  width = 1000;
+  width = 800;
   height = 400;
   type = 'msbar3d';
   dataFormat = 'json';
@@ -97,7 +97,6 @@ export class AdminAnalysisComponent implements OnInit {
           "formatnumber":"1",
           "formatnumberscale":"6",
           "sformatnumber":"1",
-          "showBorder": "1",
           "theme": "fusion"
         },
         "data": [{

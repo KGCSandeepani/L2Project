@@ -201,7 +201,7 @@ countCompany(){
     this.attached = false;
             this.datasource = {
               "chart": {
-                  "caption": "How companies gave internships  in the last year",
+                  "caption": "How companies gave internships  in the last batch",
                   "xAxisName": "Name of the company",
                   "yAxisName": "No of students",
                   "decimals": "2",
@@ -234,15 +234,6 @@ countCompany(){
   });
 }
  
-  
-  // public barChartOptions = {
-  //    scaleShowVerticalLines: false,
-  //     responsive: true
-  //  };
-  //   public barChartLabels: Array<string>[];
-  //   public barChartType = 'bar';
-  //   public barChartLegend = true;
-  //   public barChartData : Array<number>=[];
    
 }
 

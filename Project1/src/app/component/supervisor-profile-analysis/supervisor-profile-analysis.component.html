@@ -10,17 +10,35 @@
           (chartClick)="chartClicked($event)"></canvas>
         </div>  -->
 
-        <div class="card shadow">
-          <div class="card-body chart-wrapper">
-            <div class="chart-wrapper-inner" >
-                <fusioncharts
-                  width="50%" 
-                  height="400"
-                  type="column3d"
-                  [dataSource]=datasource
-                  (initialized)="initialized($event)">
-                </fusioncharts> 
-              <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
-            </div>
-          </div>
-        </div>
+       
+        <mat-grid-list cols="6" rowHeight="100px">
+            
+              <mat-grid-tile class="title" colspan="1" rowspan="4">
+              </mat-grid-tile>
+                
+              <mat-grid-tile class="chart" colspan="4" rowspan="4">
+                  <!-- <div class="card shadow">
+                      <div class="card-body chart-wrapper">
+                        <div class="chart-wrapper-inner" > -->
+                            <fusioncharts
+                              width="80%" 
+                              height="400"
+                              type="column3d"
+                              [dataSource]=datasource
+                              (initialized)="initialized($event)">
+                            </fusioncharts> 
+                          <!-- <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
+                        </div>
+                      </div>
+                    </div> -->
+              </mat-grid-tile>
+                
+              <mat-grid-tile class="title" colspan="1" rowspan="4">
+                  <h5>current batch in internship<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{max}}</h5>
+              </mat-grid-tile>
+            
+              <br>
+            
+              <mat-grid-tile class="title" colspan="1" rowspan="4">
+              </mat-grid-tile>
+        </mat-grid-list>
