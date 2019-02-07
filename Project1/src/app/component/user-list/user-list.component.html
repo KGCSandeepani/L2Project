@@ -16,13 +16,7 @@
               <input type="text" class="search-bar" placeholder="Recepients" [matAutocomplete]="auto">
 
               <mat-autocomplete #auto="matAutocomplete">
-                <!-- <div *ngIf="loggerType=='Admin' ">
-                    <b>Students</b>
-                    <mat-option *ngFor="let student of students" [value]="student.name" (click)="sendRec(student)"
-                      [ngClass]="'active'">
-                      {{student.name}}
-                    </mat-option>
-                </div> -->
+               
                 <div *ngIf="loggerType=='Supervisor'  ">
                   <!-- <ng-template #other_content> -->
 
@@ -49,6 +43,7 @@
                   <mat-option *ngFor="let admin of admin" [value]="admin.name" (click)="sendRec(admin)" [ngClass]="'active'">
                     {{admin.name}}
                   </mat-option>
+                  <br>
                   <b>Supervisors</b>
                   <mat-option *ngFor="let supervisor of supervisors" [value]="supervisor.name" (click)="sendRec(supervisor)"
                     [ngClass]="'active'">

@@ -26,7 +26,7 @@ export class ChatServiceASService {
   senderName: string;
   message: string;
   userR: string = '';
-  sendRece: string;
+  sendRece: string; 
   chatListUserType: string; // clicked user type from userlist
   private userN = new BehaviorSubject<string>(this.userR);
   cast = this.userN.asObservable();
