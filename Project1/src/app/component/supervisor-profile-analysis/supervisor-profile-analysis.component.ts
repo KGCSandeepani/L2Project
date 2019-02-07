@@ -52,7 +52,7 @@ export class SupervisorProfileAnalysisComponent implements OnInit {
     
     
           for(var i=0;i<this.students.length;i++){
-            if(this.students[i].batch==(this.max) && this.students[i].availability==false ){
+            if(this.students[i].batch==(this.max-1) && this.students[i].availability==false ){
               this.max1++;
             }
            
