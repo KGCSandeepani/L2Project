@@ -4,9 +4,10 @@
   <div  class="topnav" id="myTopnav"> 
     
   <a>IMS@FIT</a>>
-    <a routerLink="./home" routerLinkActive="active">Home</a>
-    <a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()" >  <span class="badge" *ngIf="count > 0">{{count}}</span> Requested Student List</a>
-   <a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()" >  <span class="bagdeCount" *ngIf="bagdeCount > 0">{{bagdeCount}}</span>Confirmed Student List</a>
+    <!-- <a routerLink="./home" routerLinkActive="active">Home</a> -->
+    <!-- <span class="badge" *ngIf="count > 0">{{count}}</span> -->
+    <a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()" >   Requested List</a>
+   <a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()" >  <span class="bagdeCount" *ngIf="bagdeCount > 0">{{bagdeCount}}</span>Confirmed List</a>
     <a routerLink="./selectedStudentDetail" routerLinkActive="active">Selected Student Details</a>
     
     <a routerLink="./companyAnalysis" routerLinkActive="active">Analysis</a>

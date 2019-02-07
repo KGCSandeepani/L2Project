@@ -61,7 +61,7 @@ img{ max-width:100%;}
 .srch_bar {
   display: inline-block;
   text-align: right;
-  width: 60%; 
+  width: 100%; 
   overflow-y:hidden;
 }
 .headind_srch{ padding:10px 29px 10px 20px; overflow-y:hidden; 
@@ -72,7 +72,7 @@ img{ max-width:100%;}
   font-size: 21px;
   margin: auto;
 }
-.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; 
+.srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:100%; 
   padding:2px 0 4px 6px; background:none;}
 .srch_bar .input-group-addon button {
   /* serach buttom */

@@ -42,6 +42,7 @@
         <a  routerLink="../adminViewStudent" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Students</a>
         <a  routerLink="../adminViewSupervisor" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Supervisors </a>
         <a  routerLink="../adminViewCompany" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Company </a>
+        <a  routerLink="../adminAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Analysis </a>
         <!--<a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Recently selected students</a>
         <a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Recent feedback</a>
          <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
@@ -71,7 +72,8 @@
               <h3> {{comCount}} </h3>
             </div>
             <div class="w3-clear"></div>
-            <h4> Companies </h4>
+            <br>
+            <h4> Companies          </h4>
           </div>
         </div>
         <div class="w3-quarter">
@@ -81,6 +83,7 @@
               <h3> {{ maxBatch }} </h3>
             </div>
             <div class="w3-clear"></div>
+            <br>
             <h4> Last Batch </h4>
           </div>
         </div>
@@ -146,8 +149,9 @@
                 
           </div>
           <br><br>
-          <input [(ngModel)]="feedback" class="input100" id="feedback" name="message" placeholder="Your message..." style ="height:200px">
-                <button (click)="saveMessage(); ">Send</button>
+          <div style="float:right">
+          <input [(ngModel)]="feedback" class="input100" id="feedback" name="message" placeholder="Your message..." style ="height:100px">
+                <button (click)="saveMessage(); ">Send</button></div>
         </div>
       </div>
       <hr>
