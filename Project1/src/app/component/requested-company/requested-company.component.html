@@ -1,5 +1,5 @@
 <!-- <h2 class="title">Requested Company Details</h2> -->
-<br>
+<!-- <br>
 <div class="container">
 <table class="table">
     <thead>
@@ -33,4 +33,58 @@
 </tbody>
 </table>
 <lib-ngx-notification></lib-ngx-notification>
-</div>
+</div> -->
+
+
+<div>
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Intern Selected Student Details</h4>
+            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                    <th> Company Name    </th>
+                    <th> Location    </th>
+                    <th> Contact Person</th>
+                    <th> Email    </th>
+                    <th> Contact No    </th>
+                    <th> </th>
+                    <th> </th>
+                  
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let compan of company">
+                        <td>{{compan.name}} </td>
+                        <td>{{compan.location}}</td>
+                        <td>{{compan.cpname}}</td>
+                        <td>{{compan.email}}</td>
+                        <td>{{compan.contactNo}}</td>
+                       
+                        <td>
+                          <button mat-button (click)="onAccept(compan.name,compan.location,compan.cpname,compan.email,compan.contactNo,compan.password)" >
+                            <mat-icon color= "primary">done</mat-icon></button>
+                       </td>
+                      
+                       <td>
+                        <button  mat-button (click)="openConfirmationDialog(compan.name)" ><mat-icon color = "warn">delete</mat-icon></button>
+                     </td> 
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <ng-template #elseBlock>
+   <td> Selected </td>
+  </ng-template>
+  
+  <ng-template #elseBlock2>
+    <td> - </td>
+   </ng-template>

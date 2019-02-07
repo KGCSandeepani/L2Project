@@ -21,7 +21,7 @@
 </table>
 </div> -->
 
-
+<!-- 
 <div class="main">
   
   <table class="table" style="width:60%;text-align:center;">
@@ -52,4 +52,54 @@
   </tr>
 </tbody>
 </table>
-</div>
+</div> -->
+
+
+<div>
+    <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Intern Selected Student Details</h4>
+            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                    <th> Registration No </th>
+                    <th> Name </th>
+                    <th> Contact No </th>
+                    <th> Email </th>
+                    <th>  </th>
+                  
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of stuList" >
+                        
+                     <td >{{student.name}}</td>
+                     <td >{{student.username}}</td>
+                     <td >{{student.phoneNo}}</td>
+                     <td >{{student.email}}</td>
+                     <td >
+                       <button mat-button routerLink="../studentDetails" routerLinkActive="active" (click)="getData(student.name)">
+                       <mat-icon color= "primary">attachment</mat-icon>
+                       </button>
+                     </td>
+                     
+                  
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  <ng-template #elseBlock>
+   <td> Selected </td>
+  </ng-template>
+  
+  <ng-template #elseBlock2>
+    <td> - </td>
+   </ng-template>

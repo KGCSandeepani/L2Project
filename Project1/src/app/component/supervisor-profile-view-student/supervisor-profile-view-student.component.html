@@ -29,21 +29,26 @@
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title ">Student Details</h4>
-          <p class="card-category"> Here is a subtitle for this table</p>
+          <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 
-                <th></th>
-                <th> Student ID     </th>
-                <th></th>
+                  <th> Student ID </th>
+                  <th> Student Name </th>
+                  <th> Batch </th>
+                 
+                  <th></th>
               </thead>
               <tbody>
                 <tr *ngFor="let student of students">
-                  <td><input type="checkbox"> </td>
+                 
                   <td><a routerLink="../supervisorViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
+                  <td><a >{{student.username}}</a></td>
+                  <td><a >{{student.batch}}</a></td>
+                  
                     <!-- <td>
                       <button mat-button (click)="onDelete(student.name)"><mat-icon color = "warn">delete</mat-icon></button>
                    </td> -->

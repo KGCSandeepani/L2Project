@@ -36,7 +36,6 @@
             <table class="table">
               <thead class=" text-primary">
                 
-                <th></th>
                 <th> Student ID </th>
                 <th> Student Name </th>
                 <th> Batch </th>
@@ -47,7 +46,6 @@
               </thead>
               <tbody>
                 <tr *ngFor="let student of students">
-                  <td><input type="checkbox"> </td>
                   <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
                   <td><a >{{student.username}}</a></td>
                   <td><a >{{student.batch}}</a></td>

@@ -54,7 +54,7 @@
       </mat-grid-tile>
     
       </mat-grid-list>
-      <p>Further more....</p>
+      <!-- <p>Further more....</p>
       
       <div class="main">
         <table class="table" style="width:60%;text-align:center;">
@@ -71,4 +71,33 @@
         </tr>      
       </tbody>
       </table>
-      </div>
+      </div> -->
+
+      <div>
+          <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Further more....</h4>
+                  <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        
+                          <th> Company Name </th>
+                          <th> No of students </th>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let student of orgName let k = index">
+                              <td>{{student}}</td>
+                              <td>{{orgNum[k]}}</td>  
+                            </tr> 
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        
