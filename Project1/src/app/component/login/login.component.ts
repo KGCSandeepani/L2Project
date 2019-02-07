@@ -95,10 +95,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/adminHomePage/adminDashboard']);
 
     }
-    if (uname == 'q' && psw == 'q') {
-      this.newMessage("staff");
-      this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
-    }
+    // if (uname == 'q' && psw == 'q') {
+    //   this.newMessage("staff");
+    //   this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+    // }
     /*    
         for (let index = 0; index < this.tempCompany.length; index++) {
           const temp = this.tempCompany[index];
