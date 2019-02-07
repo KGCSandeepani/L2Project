@@ -14,7 +14,8 @@ export class StudentSettingComponent implements OnInit {
   loger: string ;
   message : string;
 
-  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, private changePasswordService :StudentChangePasswordService) { }
+  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, 
+    private changePasswordService :StudentChangePasswordService) { }
 
   ngOnInit() {
     this.loger = this.data.getMessage();

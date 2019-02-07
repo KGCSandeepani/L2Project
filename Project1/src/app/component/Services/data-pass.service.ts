@@ -30,4 +30,13 @@ export class DataPassService {
     return sessionStorage.getItem("logString");
   }
 
+  setStuCount(message: string) {
+    this.messageSource.next(message);
+    sessionStorage.setItem("stuCount", message);
+  }
+
+  getStuCount(){
+    return sessionStorage.getItem("stuCount");
+  }
+
 }

@@ -14,6 +14,7 @@ import { NgxNotificationService } from 'ngx-notification';
 import { GetPresentBatchService } from '../Services/get-present-batch.service';
 import { Batch } from '../Model/Batch';
 import {UserListService } from '../Services/user-list.service';
+import { DataPassService } from '../Services/data-pass.service';
 
 @Component({
   selector: 'app-admin-add-student',
@@ -34,6 +35,7 @@ export class AdminAddStudentComponent implements OnInit {
   student:student[];
   batch: Batch[];
   count = 0 ;
+  countString ;
   aaa = "aaa";
 
   spreadBackColor = 'aliceblue';
@@ -47,7 +49,7 @@ export class AdminAddStudentComponent implements OnInit {
 
   constructor(private studentService : AdminAddStudentServiceService,private allStudentService :AdminAddAllStudentService,
     private authService: AuthChatASService,private ngxNotificationService: NgxNotificationService,
-    private getBatches: GetPresentBatchService,private userList:UserListService) { 
+    private getBatches: GetPresentBatchService,private userList:UserListService,private data: DataPassService) { 
     this.excelIO = new Excel.IO();
   }
 
@@ -77,6 +79,10 @@ export class AdminAddStudentComponent implements OnInit {
       this.sendNotification3();
       return;
     }
+    if(formdata.value.uname.length!=7){
+      this.sendNotification6(formdata.value.uname);
+      return;
+    }
     this.studentService.getStudentData(formdata,this.batch1)
     .subscribe((data : student[] )=> {
         this.student = data;
@@ -84,6 +90,7 @@ export class AdminAddStudentComponent implements OnInit {
         formdata.reset();  
         this.batch1='';
         this.count= 1;
+        this.data.setStuCount("1");
         this.sendNotification4(1); 
       
     },error => {
@@ -124,6 +131,7 @@ export class AdminAddStudentComponent implements OnInit {
               self.spread.getActiveSheet().setValue(index,0,'');
               self.spread.getActiveSheet().setValue(index,1,'');
               this.count++;
+              this.data.setStuCount(this.count+"");
               });
               console.log(self.spread.getActiveSheet().getValue(index,0));
               
@@ -172,6 +180,8 @@ export class AdminAddStudentComponent implements OnInit {
         self.spread.getActiveSheet().setValue(index,0,'');
         self.spread.getActiveSheet().setValue(index,1,'');
         this.count++;
+        console.log(this.count+"");
+        this.data.setStuCount(this.count+"");
         },error => {
           this.sendNotification7();
         });
@@ -200,7 +210,8 @@ export class AdminAddStudentComponent implements OnInit {
   }
 
   sendNotification4(count: number) {
-  	this.ngxNotificationService.sendMessage(this.count+' record(s) added sucessfully', 'success', 'bottom-right');
+    this.countString = this.data.getStuCount();
+  	this.ngxNotificationService.sendMessage(this.countString+' record(s) added sucessfully', 'success', 'bottom-right');
   }
 
   sendNotification5() {

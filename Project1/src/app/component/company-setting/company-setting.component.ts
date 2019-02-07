@@ -3,6 +3,7 @@ import { DataPassService } from '../Services/data-pass.service';
 import { Router } from '@angular/router';
 import { NgxNotificationService } from 'ngx-notification';
 import { CompanyUpdatePasswordService } from '../Services/company-update-password.service';
+import { CompanyUpdateInternshipService } from '../Services/company-update-internship.service';
 
 @Component({
   selector: 'app-company-setting',
@@ -13,15 +14,17 @@ export class CompanySettingComponent implements OnInit {
 
   loger: string ;
   message : string;
+  doInternship = "true";
 
-  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, private changePasswordService :CompanyUpdatePasswordService) { }
+  constructor(private ngxNotificationService: NgxNotificationService,private data : DataPassService,private router : Router, 
+    private changePasswordService :CompanyUpdatePasswordService, private updateInternship : CompanyUpdateInternshipService) { }
 
   ngOnInit() {
     this.loger = this.data.getMessage();
   }
 
   changePassword(password :String,password1 : String){
-    if (password==password1 && password.length==8) {
+    if (password==password1 && password.length>=8) {
       this.changePasswordService.updateCompanyData(this.loger,password)
       .subscribe(data =>{
         this.sendNotification();
@@ -29,6 +32,29 @@ export class CompanySettingComponent implements OnInit {
     } else {
       this.sendNotification1();
     }
+  }
+
+  onChange(event : any){
+    this.doInternship = event.target.value;
+
+    if(this.doInternship=="true"){
+      this.updateInternship.updateCompanyInternshipData(this.loger,true)
+      .subscribe(res=>{
+        this.sendNotification2();
+      },error => {
+        this.sendNotification3();
+      });
+    }
+
+    else{
+      this.updateInternship.updateCompanyInternshipData(this.loger,false)
+      .subscribe(res=>{
+        this.sendNotification2();
+      },error => {
+        this.sendNotification3();
+      });
+    }  
+
   }
 
   sendNotification() {
@@ -39,6 +65,14 @@ export class CompanySettingComponent implements OnInit {
 
   sendNotification1() {
     this.ngxNotificationService.sendMessage('Unable to change password', 'danger', 'bottom-right');
+  }
+
+  sendNotification2() {
+    this.ngxNotificationService.sendMessage('Added Successfull', 'success', 'bottom-right');
+  }
+
+  sendNotification3() {
+    this.ngxNotificationService.sendMessage('Added Fail. Try Again', 'success', 'bottom-right');
   }
 
 }

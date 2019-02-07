@@ -1,11 +1,11 @@
 .main{
-    padding-top: 2vw;
+    padding-top: 0vw;
 }
 
 .container {
     border: 1px solid rgb(68, 0, 255);
     border-radius: 15px;
-    padding: 0.8vw ;
+    padding: 0vw ;
     text-align: center;
 }
 
@@ -15,13 +15,13 @@ table {
     overflow-x: auto;
     overflow-y: hidden;
     min-width: 500px;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 .mat-form-field {
     font-size: 14px;
     width: 20%;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
   th.mat-sort-header-sorted {

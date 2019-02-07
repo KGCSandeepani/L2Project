@@ -9,6 +9,8 @@ import { NgxNotificationService } from 'ngx-notification';
 import { GetNoOfCompanyService } from '../Services/get-no-of-company.service';
 import { DataPassService } from '../Services/data-pass.service';
 import { AdminChangePasswordService } from '../Services/admin-change-password.service';
+import { StudentChangePasswordService } from '../Services/student-change-password.service';
+import { CompanyUpdatePasswordService } from '../Services/company-update-password.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -32,7 +34,8 @@ export class AdminSettingComponent implements OnInit {
   constructor(private changeAmount : AdminChangeNoOfCompanyService, private addBatchService: AdminAddBatchService,
     private enableBatchService: AdminUpdateEnableBatchService, private getBatches: GetPresentBatchService,
     private ngxNotificationService: NgxNotificationService, private getNoOfCompany : GetNoOfCompanyService,
-    private data: DataPassService, private updateAdmin : AdminChangePasswordService) { }
+    private data: DataPassService, private updateAdmin : AdminChangePasswordService,
+    private changePasswordService :StudentChangePasswordService, private changePasswordComService :CompanyUpdatePasswordService) { }
 
   ngOnInit() {
     this.loger = this.data.getMessage();
@@ -129,6 +132,26 @@ export class AdminSettingComponent implements OnInit {
       });
     } else {
       this.sendNotification2();
+    }
+  }
+
+  changePasswordStudent(stu,passwords){
+    this.changePasswordService.updateStudentData(stu,passwords)
+      .subscribe(data =>{
+        this.sendNotification();
+      },error => {
+        this.sendNotification1();
+      });
+  }
+
+  changePasswordCompany(cuname,passwordc){
+    if (passwordc.length>=8) {
+      this.changePasswordComService.updateCompanyData(cuname,passwordc)
+      .subscribe(data =>{
+        this.sendNotification();
+      });
+    } else {
+      this.sendNotification1();
     }
   }
 

@@ -1,4 +1,11 @@
 <div class="main">
+
+  <div class="container">    
+    <label for="company"><b>Does {{value}} give internship in this year? </b></label> &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="internship" value="true" (change)="onChange($event)" checked > Yes &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="internship" value="false" (change)="onChange($event)"> No <br>
+  </div>
+
   <div class="container">
     <h2>Change password </h2><br>
     <label for="password"><b>New password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </b></label>

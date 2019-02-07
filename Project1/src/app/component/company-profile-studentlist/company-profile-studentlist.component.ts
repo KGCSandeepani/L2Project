@@ -1,5 +1,4 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
-import { CompanyUpdateInternshipService } from '../Services/company-update-internship.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataPassService } from '../Services/data-pass.service';
 import { StuSelectedCompany } from '../Model/StuSelectedCompany';
@@ -28,7 +27,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   value: string ;
   id:string;
   students: Array<student>=[];
-  doInternship = "true";
+  
   stuList : StuSelectedCompany[];
   stuList1 : Array<StuSelectedCompany> = [];
   stuList2 : Array<student> = [];
@@ -44,8 +43,8 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   cid : CompanyInternshipDetails;
 
   constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
-    private updateInternship : CompanyUpdateInternshipService, private router:Router, private data : DataPassService, 
-    private studentService : LoggingStudentService, private intrnshipService: GetOneCompanyInternshipDetailsService,
+    private router:Router, private data : DataPassService, private studentService : LoggingStudentService, 
+    private intrnshipService: GetOneCompanyInternshipDetailsService,
     private getBatches: GetPresentBatchService) { }
 
   ngOnInit() {
@@ -88,22 +87,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
 }   
     
 
-  onChange(event : any){
-    this.doInternship = event.target.value;
-
-    if(this.doInternship=="true"){
-      this.updateInternship.updateCompanyInternshipData(this.value,true)
-      .subscribe(res=>{
-      });
-    }
-
-    else{
-      this.updateInternship.updateCompanyInternshipData(this.value,false)
-      .subscribe(res=>{
-      });
-    }  
-
-  }
+  
 
   getData(id:string){
     this.id=id;
