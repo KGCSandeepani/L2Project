@@ -14,6 +14,12 @@ custom:
       inMemory: true
       migrate: true
       # sharedDb: true
+    #   noStart:true
+    # seed:
+    #   default:
+    #     sources:
+    #       -table:table_name
+    #        sources:[.dyanmodb/seeds/your-seed-file.jason] 
 
     migration:
       dir: offline/migrations
