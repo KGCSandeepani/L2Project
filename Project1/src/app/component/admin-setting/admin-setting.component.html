@@ -66,31 +66,8 @@
   
     </div>
   
-    <div class="container">
-      <h2>Change password </h2><br>
-      <label for="password"><b>New password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </b></label>
-      <input type="password" placeholder="Enter password" name="password" required [(ngModel)]="password" id="password"><br>
-  
-      <label for="password1"><b>Confirm New password : </b></label>
-      <input type="password" placeholder="Reenter password" name="password1" required [(ngModel)]="password1" id="password1"><br>
-  
-      <button type="button" id="add" (click)="changePassword(password,password1)" (click)="password='';password1='';" >Change</button>
-  
-    </div>
+    
 
-  
-
-  <div class="container">
-    <h2> Change enable to edit details in Student/ disable to view CV to Company </h2><br>
-    <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
-    <mat-radio-group>
-        <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false"> Disable </mat-radio-button>
-      </mat-radio-group>
-      <br>
-    <!-- <button type="button" id="add" (click)="changeEnability()">Change</button> -->
-
-  </div>
 
   <div class="container">
     <h2>Change Admin password </h2><br>

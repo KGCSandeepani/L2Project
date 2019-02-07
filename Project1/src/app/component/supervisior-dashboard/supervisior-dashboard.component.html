@@ -22,30 +22,57 @@
   <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
     <div class="w3-container w3-row">
       <div class="w3-col s4">
-        <!-- <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px"> -->
+        <img src="https://ptetutorials.com/images/user-profile.png" class="w3-circle w3-margin-right" style="width:46px">
       </div>
       <div class="w3-col s8 w3-bar">
-        <span>Welcome, <strong>UserName</strong></span><br>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+        <span>Welcome, <strong>{{logger}}</strong></span><br>
+        <!-- <a routerLink="../chat-room" routerLinkActive="active" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+        <a routerLink="../adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+        <a routerLink="../adminSetting" routerLinkActive="active" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a> -->
       </div>
     </div>
     <hr>
     <div class="w3-container">
       <h5>Dashboard</h5>
     </div>
+    <!-- <div class="w3-bar-block">
+      <div class="card card-profile">
+          <div class="card-avatar">
+              <a href="#pablo">
+                  <img class="img" src="./assets/img/faces/marc.jpg" />
+              </a>
+          </div>
+          <div class="col-md-12">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="#pablo">
+                          <img class="img" src="./assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                      <h4 class="card-title">Alec Thompson</h4>
+                      <p class="card-description">
+                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                      </p>
+                      <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div> -->
     <div class="w3-bar-block">
-      <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+      <a  class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+      <a  routerLink="../supervisorDashboard" routerLinkActive="active" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-bank fa-fw"></i>  Overiew </a>
+      <a  routerLink="../supervisorViewStudent" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Students </a>
+      <a  routerLink="../supervisorViewCompany" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Organization List </a>
+      <a  routerLink="../supervisorSettings" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Settings </a>
+      <!--<a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Recently selected students</a>
+      <a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Recent feedback</a>
+       <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
       <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
       <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br> -->
     </div>
   </nav>
   
@@ -66,27 +93,27 @@
         <div class="w3-container w3-red w3-padding-16">
           <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>52</h3>
+            <h3> {{comCount}} </h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>Messages</h4>
+          <h4> Companies </h4>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-blue w3-padding-16">
           <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>99</h3>
+            <h3> {{maxBatch}} </h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>Companies</h4>
+          <h4> Last Batch </h4>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-teal w3-padding-16">
           <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>23</h3>
+            <h3>{{ selectedStu }}</h3>
           </div>
           <div class="w3-clear"></div>
           <h4>Selected Students</h4>
@@ -96,7 +123,7 @@
         <div class="w3-container w3-orange w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
           <div class="w3-right">
-            <h3>50</h3>
+            <h3> {{ stuCount }} </h3>
           </div>
           <div class="w3-clear"></div>
           <h4>Waiting Students</h4>
@@ -104,149 +131,106 @@
       </div>
     </div>
   
-    <div class="w3-panel">
+    <br>
+
+    <div  class="w3-container">
+      <span id="abcd"><h5>General Stats</h5></span>
+      <a id="abcd"></a>
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-green" [style.width.%]="[presentageCVUpload]">{{presentageCVUpload}}%</div>
+      </div>
+      <p>CV uploads</p>
+      
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-orange" [style.width.%]="[selectedStudent]">{{selectedStudent}}%</div>
+      </div>
+      <p>Selected Students</p>
+      
+      <div class="w3-grey">
+        <div class="w3-container w3-center w3-padding w3-red" [style.width.%]="[presentageCompamy]">{{presentageCompamy}}%</div>
+      </div>
+      <p>Companies which offer internships</p>
+    </div>
+    <!-- <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-third">
           <h5>Companies which finished selecting</h5>
+          <div class="w3-container">
+              <h5>General Stats</h5>
+              
+              <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-green" [style.width.%]="[presentageCVUpload]">{{presentageCVUpload}}%</div>
+              </div>
+              <p>CV uploads</p>
+              
+              <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-orange" [style.width.%]="[selectedStudent]">{{selectedStudent}}%</div>
+              </div>
+              <p>Selected Students</p>
+              
+              <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-red" [style.width.%]="[presentageCompamy]">{{presentageCompamy}}%</div>
+              </div>
+              <p>Companies which offer internships</p>
+            </div> -->
           <!-- <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map"> -->
-        </div>
-        <div class="w3-twothird">
-          <h5>Recent events</h5>
-          <table class="w3-table w3-striped w3-white">
-            <tr>
-              <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
-              <td>Student uploaded the CV</td>
-              <td><i>10 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
-              <td>New company registered</td>
-              <td><i>15 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
-              <td>Student edited the CV</td>
-              <td><i>17 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
-              <td>Student got selected to a company</td>
-              <td><i>25 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
-              <td>Check transactions.</td>
-              <td><i>28 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
-              <td>CPU overload.</td>
-              <td><i>35 mins</i></td>
-            </tr>
-            <tr>
-              <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-              <td>New shares.</td>
-              <td><i>39 mins</i></td>
-            </tr>
+        <!-- </div> -->
+        <!-- <div class="w3-twothird" style="background:brown">
+          <h5>Important Notifications</h5>
+          <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+
+              <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+              <!-- Position Column -->
+              <!-- <ng-container matColumnDef="Notification">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.message}} </td>
+              </ng-container> -->
+  
+              <!-- Name Column -->
+              <!-- <ng-container matColumnDef="Time">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.time}} </td>
+              </ng-container>
+  
+              
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div>
     </div>
-    <hr>
-    <div class="w3-container">
-      <h5>General Stats</h5>
-      <p>CV uploads</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
-      </div>
+    <hr> -->
+   
+    
   
-      <p>Selected Students</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
-      </div>
-  
-      <p>Remaing companies to call internships</p>
-      <div class="w3-grey">
-        <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
-      </div>
-    </div>
-    <hr>
-  
-    <div class="w3-container">
-      <h5>Remaing companies</h5>
-      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-        <tr>
-          <td>United States</td>
-          <td>65%</td>
-        </tr>
-        <tr>
-          <td>UK</td>
-          <td>15.7%</td>
-        </tr>
-        <tr>
-          <td>Russia</td>
-          <td>5.6%</td>
-        </tr>
-        <tr>
-          <td>Spain</td>
-          <td>2.1%</td>
-        </tr>
-        <tr>
-          <td>India</td>
-          <td>1.9%</td>
-        </tr>
-        <tr>
-          <td>France</td>
-          <td>1.5%</td>
-        </tr>
-      </table><br>
-      <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-    </div>
-    <hr>
-    <div class="w3-container">
-      <h5>Recently selected students</h5>
-      <ul class="w3-ul w3-card-4 w3-white">
-        <li class="w3-padding-16">
-          <!-- <img src="/w3images/avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-          <span class="w3-xlarge">Mike</span><br>
-        </li>
-        <li class="w3-padding-16">
-          <!-- <img src="/w3images/avatar5.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-          <span class="w3-xlarge">Jill</span><br>
-        </li>
-        <li class="w3-padding-16">
-          <!-- <img src="/w3images/avatar6.png" class="w3-left w3-circle w3-margin-right" style="width:35px"> -->
-          <span class="w3-xlarge">Jane</span><br>
-        </li>
-      </ul>
-    </div>
-    <hr>
-  
-    <div class="w3-container">
+    <!-- <div class="w3-container">
       <h5>Recent feedback</h5>
       <div class="w3-row">
         <div class="w3-col m2 text-center">
-          <!-- <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px"> -->
+          <img class="w3-circle" src="/w3images/avatar3.png" style="width:96px;height:96px">
         </div>
         <div class="w3-col m10 w3-container">
           <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
-          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+          <p>I'm doing my work well. The work place provides me better opportunities for my career life.</p><br>
         </div>
       </div>
   
       <div class="w3-row">
         <div class="w3-col m2 text-center">
-          <!-- <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px"> -->
+          <img class="w3-circle" src="/w3images/avatar1.png" style="width:96px;height:96px">
         </div>
         <div class="w3-col m10 w3-container">
           <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
-          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
+          <p>I  was going through tough time because i had less knowlegde about technologies. </p><br>
         </div>
       </div>
-    </div>
+    </div> -->
     <br>
-    <div class="w3-container w3-dark-grey w3-padding-32">
-      <div class="w3-row">
+    <!-- <div class="w3-container w3-dark-grey w3-padding-32"> -->
+      <!-- <div class="w3-row">
         <div class="w3-container w3-third">
           <h5 class="w3-bottombar w3-border-green">Demographic</h5>
           <p>Language</p>
@@ -266,8 +250,8 @@
           <p>Geo</p>
           <p>Interests</p>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div> -->
   
     <!-- Footer -->
     <!-- <footer class="w3-container w3-padding-16 w3-light-grey">

@@ -185,10 +185,14 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/companyProfile/home']);
               this.data.setString("Company");
 
+            }else {
+              this.sendNotification();
             }
           } else {
             this.sendNotification();
           }
+        },error => {
+          this.sendNotification();
         }
       )
 
