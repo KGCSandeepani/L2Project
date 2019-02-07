@@ -36,6 +36,7 @@ export class StudentDashboardComponent implements OnInit {
   loger: string;// currently logged user
   items: Observable<any[]>;
   dataSource;
+  selectedStu: number;
 
   constructor(private readCompanyService: AdminViewCompanyService, 
     private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService,
@@ -91,6 +92,7 @@ export class StudentDashboardComponent implements OnInit {
         });
         this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100>=0 ? this.cvUploadedCount/this.allStudent*100 : 0;
         this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100>=0 ? (this.allStudent - this.stuCount)/this.allStudent*100 : 0;
+        this.selectedStu = this.allStudent - this.stuCount;
       });
       
   }

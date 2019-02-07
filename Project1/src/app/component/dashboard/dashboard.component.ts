@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   i: number=0;
   message:string
   feedback:string;
+  selectedStu: number;
 
   constructor(private broadcasting:BroadcastingMessagesService,
     private readCompanyService: AdminViewCompanyService, 
@@ -86,8 +87,9 @@ export class DashboardComponent implements OnInit {
         });
         this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100>=0 ? this.cvUploadedCount/this.allStudent*100 : 0;
         this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100>=0 ? (this.allStudent - this.stuCount)/this.allStudent*100 : 0;
+        this.selectedStu = this.allStudent - this.stuCount;
       });
-      
+    
 
   }
   saveMessage(){
