@@ -59,21 +59,24 @@ export class ChatServiceASService {
     //generating a comman tag from sender name and receiver name
     if (this.getLoggedUserType(this.senderName) == "Admin" && this.getClickedUserType(this.receiverName) == "Student") {
       this.sendRece = this.senderName + "_" + this.userR;
-      // console.log(this.sendRece + " inside admin student ");
+      console.log(this.sendRece + " inside admin student ");
     }
     // else if(this.getLoggedUserType(this.senderName) =="Admin"&& this.getClickedUserType(this.receiverName)=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
     // }
     else if(this.loger=="Supervisor" && this.getClickedUserType(this.receiverName)=="Student"){
       this.sendRece = this.senderName + "_" + this.userR;
-      // console.log(" supervisor inside admin student ");
+      console.log(" supervisor inside admin student ");
 
     }
     else if((this.loger =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && 
     this.compareTwoIndexNumbers(this.senderName,this.userR)){
       this.sendRece = this.senderName + "_" + this.userR
+      console.log(" inside wrong");
     }
     else {
+      console.log(this.userR + " inside student ");
+
       this.sendRece = this.userR + "_" + this.senderName
 
     }

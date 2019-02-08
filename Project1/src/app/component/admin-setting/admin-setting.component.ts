@@ -11,6 +11,7 @@ import { DataPassService } from '../Services/data-pass.service';
 import { AdminChangePasswordService } from '../Services/admin-change-password.service';
 import { StudentChangePasswordService } from '../Services/student-change-password.service';
 import { CompanyUpdatePasswordService } from '../Services/company-update-password.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-admin-setting',
@@ -75,7 +76,11 @@ export class AdminSettingComponent implements OnInit {
       this.sendNotification1();
     })
   }
+resetAllMessages(){
+  var ref = firebase.database().ref('messages');
+  ref.remove();
 
+}
   insertBatch(batch, startDate, endDate){
     //console.log(batch +" : "+ startDate +" : "+ endDate);
     if(batch==null || startDate==null || endDate==null){

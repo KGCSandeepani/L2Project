@@ -1,0 +1,43 @@
+<div>
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title ">Company Feedback</h4>
+          <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                
+                  <th> Name    </th>
+                  <th> Email    </th>
+                  <th> Subject    </th>
+                  <!-- <th> Sender   </th> -->
+                  <th> Feedback</th>
+                  <!-- <th> Do Internship </th> -->
+                  <th></th>
+              </thead>
+              <tbody>
+                  <!-- <div #scrollBottom  *ngFor="let messages of items|async" class="message">
+     
+                      <app-message-a-s [chatMessage]="messages"></app-message-a-s>
+                      
+                    </div> -->
+
+                  <tr *ngFor="let feedback of items|async">
+                      <td>{{feedback.name}} </td>
+                      <td>{{feedback.email}}</td>
+                      <td>{{feedback.subject}}</td>
+                      <!-- <td>{{feed back.sender}}</td> -->
+                      <td>{{feedback.feedback}}</td> 
+                      <!-- <td>{{feedback.doInternship}}</td>  -->
+                        
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

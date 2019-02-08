@@ -92,7 +92,7 @@
               <table class="table">
 
                 <tbody>
-                  <tr *ngFor="let us of user">
+                  <tr *ngFor="let us of user;">
                     <!-- <div *ngIf="true ">
                   <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>
                 </div>
@@ -102,7 +102,7 @@
 
                     <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
                     <ng-template #content>
-                      <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
+                      <td (click)="editTheUser(us);sendReceiver(us);"> {{us}}{{usC}} </td>
 
                     </ng-template>
                     <ng-template #other_content>
@@ -110,6 +110,8 @@
                     </ng-template>
 
                   </tr>
+
+                  
 
 
 

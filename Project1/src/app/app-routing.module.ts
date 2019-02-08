@@ -50,6 +50,8 @@ import { SupervisorProfileSettingsComponent } from './component/supervisor-profi
 import { SupervisiorDashboardComponent } from './component/supervisior-dashboard/supervisior-dashboard.component';
 import { SupervisorViewFeedbackComponent } from './component/supervisor-view-feedback/supervisor-view-feedback.component';
 
+import { CompanyFeedbackComponent } from './component/company-feedback/company-feedback.component';
+import { AdminViewCompanyFeedbackComponent } from './component/admin-view-company-feedback/admin-view-company-feedback.component';
 
 
 const routes: Routes = [
@@ -73,6 +75,7 @@ const routes: Routes = [
       { path: 'adminAnalysis', component: AdminAnalysisComponent },
       { path: 'adminDashboard', component: DashboardComponent },
       { path: 'adminSetting', component: AdminSettingComponent },
+      { path: 'companyFeedback', component: AdminViewCompanyFeedbackComponent },
       { path: 'chat-room', component:  ChatRoomComponent },
      
 
@@ -117,6 +120,8 @@ const routes: Routes = [
       { path: 'selectedStudentDetail', component: CompanyProfileSelectedstudentComponent },
       { path: 'companyAnalysis', component: CompanyAnalysisComponent },
       { path: 'companySetting', component: CompanySettingComponent },
+      { path: 'feedback', component: CompanyFeedbackComponent  },
+
     ]
   },
   { path: 'companySignup', component: CompanySignupComponent },

@@ -8,7 +8,7 @@ import { UserListService } from '../Services/user-list.service'
   styleUrls: ['./chat-room.component.css']
 })
 export class ChatRoomComponent implements OnInit {
-  userName:string="ddg";
+  userName:string="";
 
   constructor(private userlist: UserListService,private chat: ChatServiceASService) { }
 
@@ -20,6 +20,9 @@ export class ChatRoomComponent implements OnInit {
     // this.userlist.sendUser("Admin");// send currentlt logged in user to db
     // this.users=this.userlist.getMessages().valueChanges();// get that returned value
   });
+  }
+  delete(receiver:string){
+    this.userlist.delete(receiver);
   }
 
 }

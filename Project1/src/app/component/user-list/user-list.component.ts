@@ -34,6 +34,7 @@ export class UserListComponent implements OnInit {
   admin: admin[];
   // items: string;
   user: Array<String> = [];
+  userCount:Array<number>=[];
   i = 0;
   recepientMsgCount: number = 0;
   items: Observable<any[]>;
@@ -94,15 +95,19 @@ currentUserAdmin: Observable<any>;
       snapshot.forEach((child) => {
         
         this.recepientMsgCount=child.val().read;
-
+        if(this.user.indexOf(child.key)<0){
+          this.user[this.i] = child.key;
+          
+          this.i++;
+        }
     
-      if(this.user.indexOf(child.key)<0){
-        this.user[this.i] = child.key;
-        this.i++;
-      }
-        // console.log("intVal", this.items);
+      
+         console.log("intValusercount", this.userCount);
       })
     });
+
+    
+   
   }
 
   sendRec(student: any) {

@@ -123,6 +123,8 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import { StudentDashboardComponent } from './component/student-dashboard/student-dashboard.component';
 //import { ConfirmationDialogServiceComponent } from './component/confirmation-dialog-service/confirmation-dialog-service.component';
 import { ConfirmationDialogComponentComponent } from './component/confirmation-dialog-component/confirmation-dialog-component.component';
+import { CompanyFeedbackComponent } from './component/company-feedback/company-feedback.component';
+import { AdminViewCompanyFeedbackComponent } from './component/admin-view-company-feedback/admin-view-company-feedback.component';
 
 // Use fcRoot function to inject FusionCharts library, and the modules you want to use
 FusionChartsModule.fcRoot(FusionCharts, Charts)
@@ -187,6 +189,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts)
     
     StudentDashboardComponent,
     ConfirmationDialogComponentComponent,
+    CompanyFeedbackComponent,
+    AdminViewCompanyFeedbackComponent,
     
     
     

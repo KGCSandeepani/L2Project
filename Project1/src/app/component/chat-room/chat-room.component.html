@@ -20,7 +20,7 @@
       </div>
     </div>
 </body> -->
-<br>
+    <br>
     <mat-grid-list class="container" cols="4" rowHeight="53px">
         <mat-grid-tile class="menu" colspan="4" rowspan="1"></mat-grid-tile>
     </mat-grid-list>
@@ -38,11 +38,17 @@
     <div class="column1">
         <app-user-list></app-user-list>
     </div>
-    <div class="column2">
-        <app-chat-a-s></app-chat-a-s>
-    </div>
-    <div class="column3">
-            <img style=" margin-top:50px; margin-left:60px; width:100px; height:100px;" src="https://ptetutorials.com/images/user-profile.png">
-     <b>{{ userName}}</b>
-        
+
+    <!-- <div *ngIf="userName!='null'" class="loggedUser"> -->
+        <div class="column2">
+            <app-chat-a-s></app-chat-a-s>
         </div>
+
+        <div class="column3">
+            <img style=" margin-top:50px; margin-left:60px; width:100px; height:100px;" src="https://ptetutorials.com/images/user-profile.png">
+            <br><br>
+            <b>{{ userName}}</b>
+            <!-- <button type="button" (click)="delete(userName)">Click Me!</button> -->
+
+        </div>
+    <!-- </div> -->

@@ -16,7 +16,17 @@ export class UserListService {
   intVal;
   receiver: string;
   receiverU: string;
+  logerType: string; // currently logged user type
+//for comparing two student numbers
+num1: Number;
+num2: Number;
+value1: string;
+value2: string;
 
+key:string;
+
+users: Array<String> = [];
+  i = 0;
   constructor(private db: AngularFireDatabase, private dataPass: DataPassService) {
 
   }
@@ -64,6 +74,111 @@ export class UserListService {
     //   });
     // });
   }
+  
+  delete(userN:String){
+    // console.log("userN " + userN);
+    // this.logerType = this.dataPass.getString();
+    // this.loggedUser = this.dataPass.getMessage();
+    // var ref = firebase.database().ref("messages");
+    // ref.orderByChild("userName").equalTo(this.loggedUser).once("value", function (snapshot) {
+    //   snapshot.forEach(function (user) {
+    //    console.log(user.key+" keyy");
+    //   // this.key=user.key;
+    //   // this.user.ref.remove(this.key);
+    //   this.remove(user.key);
+     
+    //   });
+    // });
+
+    var ref = firebase.database().ref('messages');
+    // var userRef = ref.child(this.loggedUser).child('messages');
+
+    ref.on('value', (snapshot) => {
+      snapshot.forEach((child) => {
+        console.log("intVal", child.key);
+        this.users[this.i] = child.key;
+        this.i++;
+      })
+    });
+
+    console.log(this.users);
+
+    this.loggedUser = this.dataPass.getMessage();
+    var refC = firebase.database().ref("messages").child('LY955nV_Q2vJjPKE24x');
+    refC.update({ timeSent: 0 });
+
+    // this.remove(this.users);
+
+    // this.db.list('/messages/${this.users[0]}').remove();LY955nV_Q2vJjPKE24x
+    // this.db.list('messages').remove('LY955nV_Q2vJjPKE24x');
+    // ref.child('LY955nV_Q2vJjPKE24x').remove();
+    refC.set({ LY955nV_Q2vJjPKE24x: null });
+    ref.remove();
+    // this.db.list('messages/LY955nV_Q2vJjPKE24x', db => db.orderByChild("timeSent")
+    //    ).remove();
+
+    // this.db.list('messages/${this.users[0]}', db => db.orderByChild("senderReceiver").
+    //    equalTo("Admin" + "_" + userN)).remove();
+
+    // if (this.getLoggedUserType(this.loggedUser) == "Admin" && this.getClickedUserType(userN) == "Student") {
+    //   console.log("userN Admin");
+    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
+    //    equalTo("Admin" + "_" + userN)).valueChanges();
+    // }
+    // else if(this.logerType=="Admin"&& this.chatListUserType=="Company"){
+    //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+
+    // }
+    // else if(this.logerType=="Supervisor"&& this.getClickedUserType(userN)=="Student"){
+    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
+    //   equalTo(this.loggedUser + "_" + userN)).valueChanges();
+
+    // }
+    // else if((this.logerType=="Student"&& this.getClickedUserType(userN)=="Student") &&
+    //  this.compareTwoIndexNumbers(this.loggedUser,userN)){
+    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
+    //   equalTo(this.loggedUser+ "_" + userN)).valueChanges();
+
+    // }
+    // else {
+    //   var ref = firebase.database().ref("userList");
+    // ref.orderByChild("uid").equalTo(this.loggedUser+ "_" + userN).once("value", function (snapshot) {
+    //   snapshot.forEach(function (user) {
+    //     user.ref.remove();
+    //   });
+    // });
+      
+    // }
+    // this.items.remove();
+
+    
+  }
+  getLoggedUserType(name: string) {
+    if(this.loggedUser=="Admin"){
+      return "Admin";
+    }
+    return "Student";
+  }
+  getClickedUserType(name: string) {
+    if(name=="Admin"){
+      return "Student";
+    }
+    return "Student";
+  }
+
+  compareTwoIndexNumbers(index1: string, index2: string, ) {
+    this.value1 = index1.substr(0, 7);
+    this.value2 = index2.substr(0, 7);
+    console.log(this.value1);
+    this.num1 = parseInt(this.value1, 10);
+    this.num2 = parseInt(this.value2, 10);
+
+    if (this.num1 > this.num2) {
+      return true;
+    }
+    return false;
+  }
+
   clearRecepientMsgCount() {
     //clear the msg count
     this.loggedUser = this.dataPass.getMessage();

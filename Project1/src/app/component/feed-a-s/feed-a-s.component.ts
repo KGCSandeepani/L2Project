@@ -61,7 +61,7 @@ export class FeedASComponent implements OnInit, OnChanges {
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       }
-      else if((this.logerType=="Student"&& this.chatListUserType=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){
+      else if((this.logerType=="Student"&& this.getClickedUserType(this.userN)=="Student") && this.compareTwoIndexNumbers(this.loger,this.userN)){
         this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
 
       }
