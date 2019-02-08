@@ -15,7 +15,7 @@ import * as firebase from 'firebase/app';
 export class ChatASComponent implements OnInit {
   users: Observable<any[]>;
   message: string;
-  userName:string="ddg";
+  userName:string="";
   constructor(private chat: ChatServiceASService, private _scrollToService: ScrollToService,
     private userlist: UserListService, private db: AngularFireDatabase) { }
   // Users:User[];
@@ -31,10 +31,12 @@ export class ChatASComponent implements OnInit {
   send() {
     // console.log("inside send");
     // console.log(this.message);
+    if(this.userName!=""){
     this.chat.sendMessage(this.message);
     this.message = "";
     // this.userlist.sendUser("Admin");
     this.userlist.update();
+  }
   }
 
   // sendFire(User) {
