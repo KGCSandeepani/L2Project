@@ -38,6 +38,9 @@ export class StudentDashboardComponent implements OnInit {
   dataSource;
   selectedStu: number;
   logger: string ;
+  presentageComp;
+  presentageCVU;
+  presentageStu;
 
   constructor(private readCompanyService: AdminViewCompanyService, 
     private getBatches: GetPresentBatchService, private readService: ReadUnamePswServiceService,
@@ -70,6 +73,7 @@ export class StudentDashboardComponent implements OnInit {
       });
 
       this.presentageCompamy = this.comCount/this.allCompany*100>=0 ?this.comCount/this.allCompany*100 : 0;
+      this.presentageComp = this.presentageCompamy.toFixed();
     });
 
     this.getBatches.getAllData()
@@ -96,7 +100,9 @@ export class StudentDashboardComponent implements OnInit {
           
         });
         this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100>=0 ? this.cvUploadedCount/this.allStudent*100 : 0;
+        this.presentageCVU = this.presentageCVUpload.toFixed();
         this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100>=0 ? (this.allStudent - this.stuCount)/this.allStudent*100 : 0;
+        this.presentageStu = this.selectedStudent.toFixed();
         this.selectedStu = this.allStudent - this.stuCount;
       });
       

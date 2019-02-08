@@ -24,13 +24,18 @@ export class CompanySettingComponent implements OnInit {
   }
 
   changePassword(password :String,password1 : String){
-    if (password==password1 && password.length>=8) {
-      this.changePasswordService.updateCompanyData(this.loger,password)
-      .subscribe(data =>{
-        this.sendNotification();
-      });
+    if (password==password1) {
+      if(password.length>=8){
+        this.changePasswordService.updateCompanyData(this.loger,password)
+        .subscribe(data =>{
+          this.sendNotification();
+        });
+      } else {
+        this.sendNotification1();
+      }
+      
     } else {
-      this.sendNotification1();
+      this.sendNotification4();
     }
   }
 
@@ -64,7 +69,7 @@ export class CompanySettingComponent implements OnInit {
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Unable to change password', 'danger', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please enter more than or equal 8 characters', 'danger', 'bottom-right');
   }
 
   sendNotification2() {
@@ -73,6 +78,10 @@ export class CompanySettingComponent implements OnInit {
 
   sendNotification3() {
     this.ngxNotificationService.sendMessage('Added Fail. Try Again', 'success', 'bottom-right');
+  }
+
+  sendNotification4() {
+    this.ngxNotificationService.sendMessage('Not equal new password & confirmed password', 'success', 'bottom-right');
   }
 
 }

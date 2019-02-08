@@ -22,13 +22,17 @@ export class StudentSettingComponent implements OnInit {
   }
 
   changePassword(password :String,password1 : String){
-    if (password==password1 && password.length==8) {
-      this.changePasswordService.updateStudentData(this.loger,password)
-      .subscribe(data =>{
-        this.sendNotification();
-      });
+    if (password==password1 ) {
+      if(password.length>=8){
+        this.changePasswordService.updateStudentData(this.loger,password)
+        .subscribe(data =>{
+          this.sendNotification();
+        });
+      } else {
+        this.sendNotification1();
+      }     
     } else {
-      this.sendNotification1();
+      this.sendNotification2();
     }
   }
 
@@ -39,7 +43,11 @@ export class StudentSettingComponent implements OnInit {
   }
 
   sendNotification1() {
-    this.ngxNotificationService.sendMessage('Unable to change password', 'danger', 'bottom-right');
+    this.ngxNotificationService.sendMessage('Please enter more than or equal 8 characters', 'danger', 'bottom-right');
+  }
+
+  sendNotification2() {
+    this.ngxNotificationService.sendMessage('Not equal new password & confirmed password', 'danger', 'bottom-right');
   }
 
 }
