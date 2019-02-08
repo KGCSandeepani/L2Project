@@ -211,7 +211,7 @@ export class AdminAddStudentComponent implements OnInit {
 
   sendNotification4(count: number) {
     this.countString = this.data.getStuCount();
-  	this.ngxNotificationService.sendMessage(this.countString+' record(s) added sucessfully', 'success', 'bottom-right');
+  	this.ngxNotificationService.sendMessage(' Added sucessfully', 'success', 'bottom-right');
   }
 
   sendNotification5() {

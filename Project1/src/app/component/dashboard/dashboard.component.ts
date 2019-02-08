@@ -28,13 +28,16 @@ export class DashboardComponent implements OnInit {
   cvUploadedCount: number = 0;
   allStudent: number = 0;
   presentageCVUpload: number = 0 ;
+  presentageCVU;
   selectedStudent: number = 0;
   presentageCompamy: number = 0;
+  presentageComp;
   companyList : Array<company>=[];
   i: number=0;
   message:string
   feedback:string;
   selectedStu: number;
+  presentageStu;
   items: Observable<any[]>;
 
   constructor(private broadcasting:BroadcastingMessagesService,
@@ -65,6 +68,8 @@ export class DashboardComponent implements OnInit {
       });
 
       this.presentageCompamy = this.comCount/this.allCompany*100>=0 ?this.comCount/this.allCompany*100 : 0;
+      this.presentageComp = this.presentageCompamy.toFixed() ;
+      
     });
 
     this.getBatches.getAllData()
@@ -91,7 +96,9 @@ export class DashboardComponent implements OnInit {
           
         });
         this.presentageCVUpload = this.cvUploadedCount/this.allStudent*100>=0 ? this.cvUploadedCount/this.allStudent*100 : 0;
+        this.presentageCVU = this.presentageCVUpload.toFixed();
         this.selectedStudent = (this.allStudent - this.stuCount)/this.allStudent*100>=0 ? (this.allStudent - this.stuCount)/this.allStudent*100 : 0;
+        this.presentageStu = this.selectedStudent.toFixed();
         this.selectedStu = this.allStudent - this.stuCount;
       });
     

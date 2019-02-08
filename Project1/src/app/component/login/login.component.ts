@@ -16,7 +16,7 @@ import { AddAdminService } from 'src/app/component/Services/add-admin.service';
 import { ChatServiceASService } from '../Services/chat-service-a-s.service';
 import {UserListService } from '../Services/user-list.service';
 
-
+import { GetAdminDataService } from '../Services/get-admin-data.service';
 import { LoggingSupervisorServiceService } from '../Services/logging-supervisor-service.service';
 import { staff } from 'src/app/component/Model/Staff';
 import { admin } from '../Model/admin';
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
   logCompany: company;
   logTempCompany: company;
   logstaff: staff;
+  admin1:admin;
 
   admin: admin;
 
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit {
     private getCompany: GetOneCompanyService, private data: DataPassService,
     private router: Router, private ngxNotificationService: NgxNotificationService,
     private logStudent: LoggingStudentService, private adminService: AddAdminService,
-    private userList:UserListService,private db: AngularFireDatabase) { }
+    private userList:UserListService,private db: AngularFireDatabase, private getAdminData: GetAdminDataService) { }
 
   ngOnInit() {
     sessionStorage.clear();
@@ -79,7 +80,7 @@ export class LoginComponent implements OnInit {
 
     if (uname == '' || psw == '') {
       this.sendNotification1();
-
+      return;
     }
 
     if (uname == 'Admin' && psw == 'admin') {
@@ -88,13 +89,26 @@ export class LoginComponent implements OnInit {
       console.log("inside admin login component");
       this.userList.sendUserWithCustomId("Admin","Admin");
       this.data.setString("Admin");
-      this.adminService.getSupervisorData('Admin', 'Admin', 'Admin', 'admin@gmail.com', '0110000000')
+      this.adminService.getSupervisorData('Admin', 'Admin', 'admin', 'admin@gmail.com', '0110000000')
         .subscribe((data: admin) => {
           this.admin = data;
         });
       this.router.navigate(['/adminHomePage/adminDashboard']);
 
     }
+
+    this.getAdminData.getData()
+    .subscribe(data => {
+      this.admin1 = data;
+      if (this.admin1 != null) {
+        if (uname == this.admin1.name && psw == this.admin1.password) {
+          this.newMessage(this.admin1.name + "");
+          this.userList.sendUserWithCustomId("Admin","Admin");
+          this.data.setString("Admin");
+          this.router.navigate(['/adminHomePage/adminDashboard']);
+        }
+      }
+    })
     // if (uname == 'q' && psw == 'q') {
     //   this.newMessage("staff");
     //   this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
@@ -148,17 +162,14 @@ export class LoginComponent implements OnInit {
 
     this.logStaff.getData(uname)
       .subscribe(data => {
-        // console.log('here');
+        
         this.logstaff = data;
-        // console.log(this.logStaff);
+        
         if (this.logstaff != null) {
           if (uname == this.logstaff.name && psw == this.logstaff.password) {
             this.newMessage(this.logstaff.name + "");
-            this.data.setString("Supervisor");
-
-            // this.getUserType("Supervisor");
-            console.log(this.data.getString());
-            // this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
+            this.data.setString("Supervisor");            
+            console.log(this.data.getString());            
             this.router.navigate(['/supervisorHomePage/supervisorDashboard']);
           }
         }

@@ -124,14 +124,18 @@ export class AdminSettingComponent implements OnInit {
   // }
 
   changePassword(password :String,password1 : String){
-    if (password==password1 && password.length>=8) {
+    if (password==password1 ) {
+      if(password.length>=8){
+        this.updateAdmin.updateAdminData(this.loger,password)
+        .subscribe(data =>{
+          this.sendNotification();
+        });
+      } else {
+        this.sendNotification3();
+      }
       
-      this.updateAdmin.updateAdminData(this.loger,password)
-      .subscribe(data =>{
-        this.sendNotification();
-      });
     } else {
-      this.sendNotification2();
+      this.sendNotification4();
     }
   }
 
@@ -151,7 +155,7 @@ export class AdminSettingComponent implements OnInit {
         this.sendNotification();
       });
     } else {
-      this.sendNotification1();
+      this.sendNotification3();
     }
   }
 
@@ -165,6 +169,14 @@ export class AdminSettingComponent implements OnInit {
 
   sendNotification2() {
   	this.ngxNotificationService.sendMessage('Please fill required field', 'danger', 'bottom-right');
+  }
+
+  sendNotification3() {
+  	this.ngxNotificationService.sendMessage('Please enter more than or equal 8 characters', 'danger', 'bottom-right');
+  }
+
+  sendNotification4() {
+  	this.ngxNotificationService.sendMessage('Not equal new password & confirmed password', 'danger', 'bottom-right');
   }
 
 }
