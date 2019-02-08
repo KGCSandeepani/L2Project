@@ -1,13 +1,4 @@
-/*.row{
-    padding-top: 2%;
-}
-.userList{
-    position: fixed;
-}
-.messageArea{
-    margin-right: 20%;
-    max-height:200px;
-}*/
+
 /* Create two equal columns that floats next to each other */
 .column1 {
     float: left;
@@ -29,6 +20,10 @@
     height: 570px;  
    
 }
+.img{
+    width: 20%;
+
+}
 .split {
     height: 100%;
     /* margin-top: 5%; */
@@ -39,33 +34,7 @@
     padding-top: 20px;
   }
   
-  /* Control the left side */
-  /* .left {
-    left: 0;
-    width: 30%;
-    margin-top: 2.3%;
-  } */
   
-  /* Control the right side */
-  /* .right {
-      margin-top: 4%;
-    right: 2px;
-    width: 71%;
-    background-color: rgb(207, 203, 203);
-    
-    overflow-y: scroll;
-    height: 68%;
-    
-  } */
-  /* .container{
-      position: relative;
-      
-      
-  } */
-  /* .menu{
-      position: fixed;
-      z-index: 10;
-  } */
   .u{
       position: fixed;
       z-index: 0;
