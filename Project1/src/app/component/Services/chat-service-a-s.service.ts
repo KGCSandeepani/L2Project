@@ -53,29 +53,23 @@ export class ChatServiceASService {
   sendMessage(msg: string) {
 
     this.loger = this.data.getString();
-    console.log(this.loger +" loger typeeeeeeeeeeee");
-    // const timestamp = this.getTimeStamp();
     this.senderName = this.data.getMessage();
     //generating a comman tag from sender name and receiver name
     if (this.getLoggedUserType(this.senderName) == "Admin" && this.getClickedUserType(this.receiverName) == "Student") {
       this.sendRece = this.senderName + "_" + this.userR;
-      console.log(this.sendRece + " inside admin student ");
     }
     // else if(this.getLoggedUserType(this.senderName) =="Admin"&& this.getClickedUserType(this.receiverName)=="Company"){
     //   this.sendRece = this.senderName + "_" + this.userR;
     // }
     else if(this.loger=="Supervisor" && this.getClickedUserType(this.receiverName)=="Student"){
       this.sendRece = this.senderName + "_" + this.userR;
-      console.log(" supervisor inside admin student ");
 
     }
     else if((this.loger =="Student"&& this.getClickedUserType(this.receiverName)=="Student") && 
     this.compareTwoIndexNumbers(this.senderName,this.userR)){
       this.sendRece = this.senderName + "_" + this.userR
-      console.log(" inside wrong");
     }
     else {
-      console.log(this.userR + " inside student ");
 
       this.sendRece = this.userR + "_" + this.senderName
 
@@ -118,10 +112,10 @@ export class ChatServiceASService {
     // console.log(this.loggedUserType + "is logged user");
   }
   compareTwoIndexNumbers(index1: string, index2: string, ) {
-    console.log(" inside compareTwoIndexNumbers "+index1+ index2);
+    // console.log(" inside compareTwoIndexNumbers "+index1+ index2);
     this.value1 = index1.substr(0, 7);
     this.value2 = index2.substr(0, 7);
-    console.log(this.value1+"  this.value1");
+    // console.log(this.value1+"  this.value1");
     this.num1 = parseInt(this.value1, 10);
     this.num2 = parseInt(this.value2, 10);
 
@@ -131,7 +125,7 @@ export class ChatServiceASService {
     return false;
   }
   getLoggedUserType(name: string) {
-    console.log("inside  get logged user type");
+    // console.log("inside  get logged user type");
     if (name == "Admin") {
       return "Admin";
     } 

@@ -1,54 +1,22 @@
 <body>
 
-    <!--<div class="row">
-    
-    <div class="userList"><app-user-list></app-user-list></div>
-    <div class="messageArea"><app-chat-a-s></app-chat-a-s></div>
-    
-  </div>-->
-    <!-- <div class="split left">
-      <div class="centered">
-          <div class="userList"><app-user-list></app-user-list></div>
-        
-      </div>
-    </div>
-    
-    <div class="split right">
-      <div class="centered">
-          <div class="messageArea"><app-chat-a-s></app-chat-a-s></div>
-        
-      </div>
-    </div>
-</body> -->
-    <br>
     <mat-grid-list class="container" cols="4" rowHeight="53px">
         <mat-grid-tile class="menu" colspan="4" rowspan="1"></mat-grid-tile>
     </mat-grid-list>
 
-    <!-- <mat-grid-list class="chatRoom" cols="4" rowHeight="25px">
-    
-    <mat-grid-tile class = "u" colspan="1" rowspan="22">
-        <div class="userList"><app-user-list></app-user-list></div>
-    </mat-grid-tile>
-    <mat-grid-tile class = "m" colspan="3" rowspan="22" >
-        <div class="messageArea"><app-chat-a-s></app-chat-a-s></div>
-    </mat-grid-tile>
-    
-  </mat-grid-list> -->
     <div class="column1">
         <app-user-list></app-user-list>
     </div>
 
-    <!-- <div *ngIf="userName!='null'" class="loggedUser"> -->
         <div class="column2">
             <app-chat-a-s></app-chat-a-s>
         </div>
 
         <div class="column3">
-            <img style=" margin-top:50px; margin-left:60px; width:100px; height:100px;" src="https://ptetutorials.com/images/user-profile.png">
+            <img class ="middle" style=" width:100px; height:100px;" src="https://ptetutorials.com/images/user-profile.png">
             <br><br>
-            <b style="  margin-left:60px; " >{{ userName}}</b>
-            <!-- <button type="button" (click)="delete(userName)">Click Me!</button> -->
+            <b class ="middle" >{{ userName}}</b>
+            <br> <br>
+            <button class="button1" type="button" (click)="delete(userName)">Clear Conversation</button>
 
         </div>
-    <!-- </div> -->

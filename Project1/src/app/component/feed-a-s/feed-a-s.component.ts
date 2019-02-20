@@ -46,7 +46,7 @@ export class FeedASComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.logerType = this.data.getString();
     this.loger = this.data.getMessage();
-    console.log(this.loger +" loger typeeeeeeeeeeee");
+    // console.log(this.loger +" loger typeeeeeeeeeeee");
     // this.logerType = this.chat.sendClickedUserTypeToFeed();
     this.chat.cast.subscribe((userN) => {
       this.userN = userN; //this.userN is clicked user from userlist

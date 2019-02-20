@@ -14,18 +14,19 @@ export class UserListService {
   userList: AngularFireList<User>;
   items: Observable<any[]>;
   intVal;
+  sendRece: string;
   receiver: string;
   receiverU: string;
   logerType: string; // currently logged user type
-//for comparing two student numbers
-num1: Number;
-num2: Number;
-value1: string;
-value2: string;
+  //for comparing two student numbers
+  num1: Number;
+  num2: Number;
+  value1: string;
+  value2: string;
 
-key:string;
+  key: string;
 
-users: Array<String> = [];
+  users: Array<String> = [];
   i = 0;
   constructor(private db: AngularFireDatabase, private dataPass: DataPassService) {
 
@@ -37,7 +38,7 @@ users: Array<String> = [];
     this.receiverU = user;
   }
 
-  sendReceiver(){
+  sendReceiver() {
     return this.receiverU;
   }
   update() {
@@ -74,93 +75,86 @@ users: Array<String> = [];
     //   });
     // });
   }
-  
-  delete(userN:String){
-    // console.log("userN " + userN);
-    // this.logerType = this.dataPass.getString();
-    // this.loggedUser = this.dataPass.getMessage();
-    // var ref = firebase.database().ref("messages");
-    // ref.orderByChild("userName").equalTo(this.loggedUser).once("value", function (snapshot) {
-    //   snapshot.forEach(function (user) {
-    //    console.log(user.key+" keyy");
-    //   // this.key=user.key;
-    //   // this.user.ref.remove(this.key);
-    //   this.remove(user.key);
-     
-    //   });
-    // });
 
-    var ref = firebase.database().ref('messages');
-    // var userRef = ref.child(this.loggedUser).child('messages');
-
-    ref.on('value', (snapshot) => {
-      snapshot.forEach((child) => {
-        console.log("intVal", child.key);
-        this.users[this.i] = child.key;
-        this.i++;
-      })
-    });
-
-    console.log(this.users);
-
+  delete(userN: string) {
+    this.logerType = this.dataPass.getString();
     this.loggedUser = this.dataPass.getMessage();
-    var refC = firebase.database().ref("messages").child('LY955nV_Q2vJjPKE24x');
-    refC.update({ timeSent: 0 });
+   
 
-    // this.remove(this.users);
+    //generating a comman tag from sender name and receiver name
+    if (this.getLoggedUserType(this.loggedUser) == "Admin" && this.getClickedUserType(userN) == "Student") {
+      this.sendRece = this.loggedUser + "_" + userN;
 
-    // this.db.list('/messages/${this.users[0]}').remove();LY955nV_Q2vJjPKE24x
-    // this.db.list('messages').remove('LY955nV_Q2vJjPKE24x');
-    // ref.child('LY955nV_Q2vJjPKE24x').remove();
-    refC.set({ LY955nV_Q2vJjPKE24x: null });
-    ref.remove();
-    // this.db.list('messages/LY955nV_Q2vJjPKE24x', db => db.orderByChild("timeSent")
-    //    ).remove();
+      var ref = firebase.database().ref('messages');
+      ref.orderByChild("senderReceiver").equalTo(this.sendRece).once("value", function (snapshot) {
+        snapshot.forEach(function (user) {
+          console.log(user.key + " keyy");
+          var refC = firebase.database().ref('/messages/' + user.key);
 
-    // this.db.list('messages/${this.users[0]}', db => db.orderByChild("senderReceiver").
-    //    equalTo("Admin" + "_" + userN)).remove();
+          refC.remove();
 
-    // if (this.getLoggedUserType(this.loggedUser) == "Admin" && this.getClickedUserType(userN) == "Student") {
-    //   console.log("userN Admin");
-    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
-    //    equalTo("Admin" + "_" + userN)).valueChanges();
-    // }
-    // else if(this.logerType=="Admin"&& this.chatListUserType=="Company"){
-    //   this.items = this.db.list('messages', db => db.orderByChild("senderReceiver").equalTo(this.loger + "_" + this.userN)).valueChanges();
+        });
+      });
 
-    // }
-    // else if(this.logerType=="Supervisor"&& this.getClickedUserType(userN)=="Student"){
-    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
-    //   equalTo(this.loggedUser + "_" + userN)).valueChanges();
+    }
 
-    // }
-    // else if((this.logerType=="Student"&& this.getClickedUserType(userN)=="Student") &&
-    //  this.compareTwoIndexNumbers(this.loggedUser,userN)){
-    //   this.items=this.db.list('messages', db => db.orderByChild("senderReceiver").
-    //   equalTo(this.loggedUser+ "_" + userN)).valueChanges();
+    else if (this.logerType == "Supervisor" && this.getClickedUserType(userN) == "Student") {
+      this.sendRece = this.loggedUser + "_" + userN;
 
-    // }
-    // else {
-    //   var ref = firebase.database().ref("userList");
-    // ref.orderByChild("uid").equalTo(this.loggedUser+ "_" + userN).once("value", function (snapshot) {
-    //   snapshot.forEach(function (user) {
-    //     user.ref.remove();
-    //   });
-    // });
-      
-    // }
-    // this.items.remove();
+      var ref = firebase.database().ref('messages');
+      ref.orderByChild("senderReceiver").equalTo(this.sendRece).once("value", function (snapshot) {
+        snapshot.forEach(function (user) {
+          console.log(user.key + " keyy");
+          var refC = firebase.database().ref('/messages/' + user.key);
 
-    
+          refC.remove();
+
+        });
+      });
+
+    }
+    else if ((this.logerType == "Student" && this.getClickedUserType(userN) == "Student") &&
+      this.compareTwoIndexNumbers(this.loggedUser, userN)) {
+      this.sendRece = this.loggedUser + "_" + userN;
+
+      var ref = firebase.database().ref('messages');
+      ref.orderByChild("senderReceiver").equalTo(this.sendRece).once("value", function (snapshot) {
+        snapshot.forEach(function (user) {
+          console.log(user.key + " keyy");
+          var refC = firebase.database().ref('/messages/' + user.key);
+
+          refC.remove();
+
+        });
+      });
+
+    }
+    else {
+
+      this.sendRece = userN + "_" + this.loggedUser;
+
+      var ref = firebase.database().ref('messages');
+      ref.orderByChild("senderReceiver").equalTo(this.sendRece).once("value", function (snapshot) {
+        snapshot.forEach(function (user) {
+          console.log(user.key + " keyy");
+          var refC = firebase.database().ref('/messages/' + user.key);
+
+          refC.remove();
+
+        });
+      });
+
+    }
+
   }
   getLoggedUserType(name: string) {
-    if(this.loggedUser=="Admin"){
+    if (this.loggedUser == "Admin") {
       return "Admin";
     }
     return "Student";
   }
   getClickedUserType(name: string) {
-    if(name=="Admin"){
+    if (name == "Admin") {
       return "Student";
     }
     return "Student";
