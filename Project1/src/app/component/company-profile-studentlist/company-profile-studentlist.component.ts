@@ -39,7 +39,7 @@ export class CompanyProfileStudentlistComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   displayedColumns: string[] = ['reg','name','email','contact','cgpa'];
   batch: Batch[];
-  disable :boolean ;
+  enable :boolean ;
   cid : CompanyInternshipDetails;
 
   constructor(private readService: ReadUnamePswServiceService,private readStudentList : CompanyGetStudentlistService, 
@@ -54,11 +54,11 @@ export class CompanyProfileStudentlistComponent implements OnInit {
     .subscribe(data => {
       this.batch= data;
       this.batch.sort((a,b)=>b.batch-a.batch);
-      this.disable = this.batch[0].enable;
+      this.enable = this.batch[0].enable;
 
       //if( !this.disable ){
       //console.log(this.batch[0].batch);
-      if( this.disable == false ){
+      if( this.enable == true ){
       
         this.readStudentList.getStudentList()
         .subscribe(data => {this.stuList = data;
