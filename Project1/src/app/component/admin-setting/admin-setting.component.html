@@ -205,14 +205,19 @@
 
   <lib-ngx-notification></lib-ngx-notification>
  -->
+ 
 
-<mat-grid-list cols="6" rowHeight="90px">
-
+ <!--Page content-->
+<div class="w3-main" style="background-color:#F8F8F8" >
+<mat-grid-list cols="6" rowHeight="70px" >
+<!------------------------->
+  <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile>
   <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
-    <div class="container">
+    <div class="container" >
       <b>Change number of companies which student can choose </b><br>
       <label for="company"><b>No of companies : </b></label>
       <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
@@ -227,11 +232,10 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
+  <!------------------------->
 
 
-  <mat-grid-tile colspan="1" rowspan="4">
+  <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -259,12 +263,12 @@
       </div>
     </div>
   </mat-grid-tile>
+<!------------------------->
+  <!-- <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile> -->
 
-  <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
 
-
-  <mat-grid-tile colspan="1" rowspan="2">
+  <mat-grid-tile colspan="2" rowspan="2">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="2">
@@ -280,14 +284,14 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="2">
+  <mat-grid-tile colspan="1" rowspan="2">
   </mat-grid-tile>
-
+<!------------------------->
   <!-- <mat-grid-tile colspan="1" rowspan="4">
     </mat-grid-tile>      
   -->
 
-  <mat-grid-tile colspan="1" rowspan="4">
+  <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -304,13 +308,13 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="4">
+  <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile>
-
+<!------------------------->
   <!-- <mat-grid-tile colspan="1" rowspan="4">
     </mat-grid-tile> -->
 
-  <mat-grid-tile colspan="1" rowspan="4">
+  <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -328,12 +332,9 @@
 
   <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile>
-
-  <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
-
-
-  <mat-grid-tile colspan="1" rowspan="4">
+<!------------------------->
+  
+  <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -350,10 +351,10 @@
 
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="4">
-  </mat-grid-tile>
-
   <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile>
+<!------------------------->
+  <mat-grid-tile colspan="2" rowspan="4">
     </mat-grid-tile>
   
   <mat-grid-tile colspan="3" rowspan="4">
@@ -366,8 +367,9 @@
       </div>
   
     </mat-grid-tile>
-  <!-- <mat-grid-tile colspan="1" rowspan="4">
-          </mat-grid-tile> -->
+  <mat-grid-tile colspan="1" rowspan="4">
+          </mat-grid-tile>
   <lib-ngx-notification></lib-ngx-notification>
 
 </mat-grid-list>
+</div>

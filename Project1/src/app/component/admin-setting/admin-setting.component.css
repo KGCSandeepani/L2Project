@@ -1,14 +1,14 @@
-.main{
+/* .main{
     padding-top: 4vw;
     padding-bottom: 4vw;
-}
+} */
 
 .container {
-    padding: 1vw;
-    border: 1px solid rgb(68, 0, 255);
+    /* padding: 1vw; */
+    border: 1px solid rgb(17, 17, 17);
     border-radius: 5px;
-    margin-top: 2vw;
-    text-align: center;
+    /* margin-top: 2vw; */
+    text-align: left;
 }
 
 

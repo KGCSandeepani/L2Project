@@ -1,37 +1,12 @@
-<!--
-<h2 class="title">Supervisor Details</h2>
-<br>
-<div class="container">
-<table class="table">
-    <thead>
-  <tr>
-    <th>  </th>
-    <th> Name with initials </th>
-    <th> Username    </th>
-    <th> Email    </th>
-    <th> Contact No    </th>
-    <th>  </th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let supervisor of staff">
-      <td><input type="checkbox"> </td>
-      <td>{{supervisor.name}} </td>
-      <td>{{supervisor.uname}}</td>
-      <td>{{supervisor.email}}</td>
-      <td>{{supervisor.contactNo}}</td>
-     <td>
-        <button mat-button (click)="onDelete(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
-     </td>
-  </tr>
-</tbody>
-</table>
-</div>
 
--->
 
-<div>
-  <div class="col-md-12">
+<!--Page content-->
+<!-- <div class="w3-main" style="background-color:#F8F8F8; min-height: 500px"> -->
+  <div class="w3-main" style=" background-color:#F8F8F8 ; min-height: 500px">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-9" style="float:right; background-color:#F8F8F8">
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title ">Supervisor Details</h4>
@@ -41,12 +16,12 @@
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                
+
                 <th> Name with initials </th>
-                <th> Username    </th>
-                <th> Email    </th>
-                <th> Contact No    </th>
-                <th>  </th>
+                <th> Username </th>
+                <th> Email </th>
+                <th> Contact No </th>
+                <th> </th>
               </thead>
               <tbody>
                 <tr *ngFor="let supervisor of staff">
@@ -54,14 +29,17 @@
                   <td>{{supervisor.uname}}</td>
                   <td>{{supervisor.email}}</td>
                   <td>{{supervisor.contactNo}}</td>
-                 <td>
-                    <button mat-button (click)="openConfirmationDialog(supervisor.name)"><mat-icon color = "warn">delete</mat-icon></button>
-                 </td>
-              </tr>
+                  <td>
+                    <button mat-button (click)="openConfirmationDialog(supervisor.name)">
+                      <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-</div>
+  </div>
+<!-- </div> -->
