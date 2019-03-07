@@ -102,12 +102,17 @@
 
                     <div *ngIf="recepientMsgCount==0;then content else other_content"></div>
                     <ng-template #content>
-                      <td (click)="editTheUser(us);sendReceiver(us);"> {{us}}{{usC}} </td>
+                      <td (click)="editTheUser(us);sendReceiver(us);"> {{us}} </td>
 
                     </ng-template>
                     <ng-template #other_content>
                       <td (click)="editTheUser(us);sendReceiver(us);"> <b>{{us}}</b> </td>
                     </ng-template>
+
+                  </tr>
+
+                  <tr *ngFor="let us of  userCount;">
+                    <td > {{us}} </td>
 
                   </tr>
 

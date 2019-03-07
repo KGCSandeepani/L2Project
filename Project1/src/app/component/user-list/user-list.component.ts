@@ -76,7 +76,9 @@ currentUserAdmin: Observable<any>;
        });
   }
 
-  
+  dummyMethod(){
+    // this.recepientMsgCount=0;
+  }
 
   editTheUser(student: any) {
 
@@ -94,12 +96,14 @@ currentUserAdmin: Observable<any>;
     userRef.on('value', (snapshot) => {
       snapshot.forEach((child) => {
         
-        this.recepientMsgCount=child.val().read;
+        // this.recepientMsgCount=child.val().read;
         if(this.user.indexOf(child.key)<0){
           this.user[this.i] = child.key;
-          
+          this.userCount[this.i]=child.val().read;
           this.i++;
         }
+
+        
     
       
          console.log("intValusercount", this.userCount);
