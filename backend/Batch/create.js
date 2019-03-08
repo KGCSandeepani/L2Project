@@ -23,7 +23,7 @@ module.exports.create = (event, context, callback) => {
       batch: data.batch,
       startDate: data.startDate,
       endDate: data.endDate, 
-      enable: null,     
+      enable: false,     
       //checked: false,
       //createdAt: timestamp,
       //updatedAt: timestamp,
