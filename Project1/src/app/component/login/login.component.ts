@@ -193,7 +193,7 @@ export class LoginComponent implements OnInit {
             if (uname == this.logCompany.name && psw == this.logCompany.password) {
               this.newMessage(this.logCompany.name + "");
               // this.getUserType("Company");
-              this.router.navigate(['/companyProfile/studentlist']);
+              this.router.navigate(['/companyProfile/home']);
               this.data.setString("Company");
 
             }else {
