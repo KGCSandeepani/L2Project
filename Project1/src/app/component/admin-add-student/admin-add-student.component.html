@@ -1,90 +1,97 @@
-<div class="container">
-    <h3>Upload all student usernames & names : </h3><br>
-    <div class='loadExcelInput'>
-        <p>Open Excel File ( First column - Register No, Second column - Name )</p>
-      <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
-    </div>
-    <br>
-    <label for="psw3"><b>Password : </b></label>
-    <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3" id="password3" style="width:30%"><br>
+<mat-grid-list cols="20" rowHeight="100px">
+   
+    <mat-grid-tile colspan="20" rowspan="5">
+        <div class="container">
+            <h3>Upload all student usernames & names : </h3><br>
+            <div class='loadExcelInput'>
+                <p>Open Excel File ( First column - Register No, Second column - Name )</p>
+                <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx"
+                    (change)="onFileChange($event)" />
+            </div>
+            <br>
+            <label for="psw3"><b>Password : </b></label>
+            <input type="password" placeholder="Enter Password" name="psw3" required [(ngModel)]="password3"
+                id="password3" style="width:30%"><br>
 
-    <label for="batch3"><b>Batch : </b></label>
-    <!-- <input type="number" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br> -->
+            <label for="batch3"><b>Batch : </b></label>
+            <!-- <input type="number" placeholder="Enter batch" name="batch3" required [(ngModel)]="batch3" id="batch3"><br> -->
 
-    <mat-form-field>
-            <mat-select placeholder="Batches" >
-            <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch3(bat.batch)" >
-                <a> {{bat.batch}} </a>
-            </mat-option>
-            </mat-select>
-        </mat-form-field>
-<br>
-    <button type="button" id="addAll" (click)="uploadData($event,password3)">Add All Students</button>
-
-</div>
-
-<br>
-
-
-<div class="container">
-    <h3>Enter all student usernames & names: </h3><br>
-    <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
-    </gc-spread-sheets>
-
-    <br>
-    <label for="psw2"><b>Password : </b></label>
-    <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2" id="password2" style="width:30%"><br>
-
-    <label for="batch2"><b>Batch : </b></label>
-    <!-- <input type="number" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br> -->
-    
-    <mat-form-field>
-        <mat-select placeholder="Batches" >
-        <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch2(bat.batch)" >
-            <a> {{bat.batch}} </a>
-        </mat-option>
-        </mat-select>
-    </mat-form-field>
-<br>
-    <button type="button" id="addAll" (click)="getData($event,password2)">Add All Students</button>
-</div>
-
-<br>
-
-<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
-
-    <div class="container" >
-    <h3>Enter student details : </h3><br>
-      <div class="row">
-        <div class="column1">
-            <label for="uname"><b id="username">Register No : </b></label><br>
-            <label for="sname"><b id="sname">Name : </b></label><br>
-            <label for="psw"><b>Password : </b></label><br>
-            <label for="batch"><b>Batch : </b></label><br>
-        </div>
-        <div class="column2">
-            <input type="text" placeholder="Enter Register No" name="uname" [(ngModel)]="username" ><br>
-            <input type="text" placeholder="Enter Name" name="sname" [(ngModel)]="sname" ><br>
-            <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password" id="password"><br>
-            <!-- <input type="number" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br> -->
-                   
             <mat-form-field>
-                <mat-select placeholder="Batches" >
-                <mat-option *ngFor="let bat of batch" [value]="bat.batch"  (click)="getSelectedBatch(bat.batch)" >
-                    <a> {{bat.batch}} </a>
-                </mat-option>
+                <mat-select placeholder="Batches">
+                    <mat-option *ngFor="let bat of batch" [value]="bat.batch" (click)="getSelectedBatch3(bat.batch)">
+                        <a> {{bat.batch}} </a>
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
-              
+            <br>
+            <button type="button" id="addAll" (click)="uploadData($event,password3)">Add All Students</button>
+
         </div>
-      </div>
-     
-        <button id="add" type="submit" >Add</button>
-        <button id="clear" type="button" (click)="username='';sname='';password='';batch1='';">Clear</button><br>
-    
-    </div>
-    
-    </form>
+    </mat-grid-tile>
+   
+    <mat-grid-tile colspan="20" rowspan="8">
+        <div class="container">
+            <h3>Enter all student usernames & names: </h3><br>
+            <gc-spread-sheets [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
+            </gc-spread-sheets>
 
-<lib-ngx-notification></lib-ngx-notification>
+            <br>
+            <label for="psw2"><b>Password : </b></label>
+            <input type="password" placeholder="Enter Password" name="psw2" required [(ngModel)]="password2"
+                id="password2" style="width:30%"><br>
 
+            <label for="batch2"><b>Batch : </b></label>
+            <!-- <input type="number" placeholder="Enter batch" name="batch2" required [(ngModel)]="batch2" id="batch2"><br> -->
+
+            <mat-form-field>
+                <mat-select placeholder="Batches">
+                    <mat-option *ngFor="let bat of batch" [value]="bat.batch" (click)="getSelectedBatch2(bat.batch)">
+                        <a> {{bat.batch}} </a>
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <button type="button" id="addAll" (click)="getData($event,password2)">Add All Students</button>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="rest" colspan="20" rowspan="6">
+        <form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+
+            <div class="container">
+                <h3>Enter student details : </h3><br>
+                <div class="row">
+                    <div class="column1">
+                        <label for="uname"><b id="username">Register No : </b></label><br>
+                        <label for="sname"><b id="sname">Name : </b></label><br>
+                        <label for="psw"><b>Password : </b></label><br>
+                        <label for="batch"><b>Batch : </b></label><br>
+                    </div>
+                    <div class="column2">
+                        <input type="text" placeholder="Enter Register No" name="uname" [(ngModel)]="username"><br>
+                        <input type="text" placeholder="Enter Name" name="sname" [(ngModel)]="sname"><br>
+                        <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password"
+                            id="password"><br>
+                        <!-- <input type="number" placeholder="Enter Batch" name="batch" [(ngModel)]="batch" ><br> -->
+
+                        <mat-form-field>
+                            <mat-select placeholder="Batches">
+                                <mat-option *ngFor="let bat of batch" [value]="bat.batch"
+                                    (click)="getSelectedBatch(bat.batch)">
+                                    <a> {{bat.batch}} </a>
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+
+                <button id="add" type="submit">Add</button>
+                <button id="clear" type="button"
+                    (click)="username='';sname='';password='';batch1='';">Clear</button><br>
+
+            </div>
+
+        </form>
+        <lib-ngx-notification></lib-ngx-notification>
+    </mat-grid-tile>
+</mat-grid-list>
