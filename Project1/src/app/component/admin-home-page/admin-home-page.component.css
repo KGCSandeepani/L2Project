@@ -1,7 +1,14 @@
 /* body {
     padding-top: 72px;
 } */
+body {
+  font-family: "Lato", sans-serif;
+  /* background-color: #f1f2f3; */
+}
 
+.mySlides {
+  display: none
+}
 .w3-top{
   position: fixed;
   z-index: 10;

@@ -1,217 +1,152 @@
-<!-- <mat-grid-list cols="6" rowHeight="100px">
-  <mat-grid-tile colspan="1" rowspan="4">
+<div class="w3-col m3">
+  dfdf
+</div>
 
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="4">
-    <div class="container">
-      <b>Change number of companies which student can choose </b><br>
-      <label for="company"><b>No of companies : </b></label>
-      <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
+<div class="w3-col m9" >
+    <br><br>
+  <div class="w3-row-padding">
+      <!-- <div class="w3-col m12" class="middle">
+          <div class=" w3-round w3-white">
+            <div class="w3-container w3-padding">
 
-      <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
-
-
-
-
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="4">
-    <div class="w3-row-padding w3-margin-bottom">
-      <div class="w3-quarter">
-        <div class="w3-container w3-blue w3-padding-16">
-          <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-          <div class="w3-right">
-            <h3> {{num}} </h3>
-          </div>
-          <div class="w3-clear"></div>
-          <h4>No of companies</h4>
-        </div>
-      </div>
-    </div>
-
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="4">
-
-  </mat-grid-tile>
-
-
-  <mat-grid-tile colspan="1" rowspan="5">
-
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="5">
-      <div class="container">
-          <b>Insert new Batch Details </b><br>
-      
-          <label for="batch"><b>Batch : </b></label>
-          <input type="number" placeholder="Enter Batch" name="batch" required [(ngModel)]="batch" id="batch"><br>
-      
-          <label for="startDate"><b>Start Date : </b></label>
-          <input type="date" placeholder="Enter start date" name="startDate" required [(ngModel)]="startDate" id="startDate"><br>
-      
-          <label for="endDate"><b>End Date : </b></label>
-          <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate" id="endDate"><br>
-      
-          <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
-      
-          
-      
-        </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="5">
-      <div class="w3-row-padding w3-margin-bottom" >
-          <div class="w3-quarter">
-            <div class="w3-container w3-orange w3-text-white w3-padding-16">
-              <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-              <div class="w3-right">
-                <h3> {{ batches[0].batch }} </h3>
-              </div>
-              <div class="w3-clear"></div>
-              <h4>Last Batch</h4>
+              <b>Change number of companies allowable for students to select </b><br>
+              
             </div>
           </div>
+        </div> -->
+    <!-- <div class="w3-col m12" class="middle">
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container w3-padding">
+            <b>Batch details </b><br>
+          <b>Change number of companies which student can choose </b><br>
+          <label for="company"><b>No of companies : </b></label>
+          <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount"
+            id="amount">
+          <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
+          
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="5">
-        
-      </mat-grid-tile>
+      </div>
+    </div> -->
+    <div class="w3-col m12" class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
+          <b> <h3>Batch Details </h3> </b><hr>
+         <label for="batch">Batch : </label><br>
+          <input type="number" placeholder="Enter Batch" name="batch" required [(ngModel)]="batch" id="batch"><br>
+          <p>Last Batch is  {{ batches[0].batch }} </p>
 
-<mat-grid-tile colspan="1" rowspan="3">
-        
-  </mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="3">
-      <div class="container">
-          <b> Change enable to edit details in Student/ disable to view CV to Company </b><br>
+          <label for="startDate">Start Date : </label><br>
+          <input type="date" placeholder="Enter start date" name="startDate" required [(ngModel)]="startDate"
+            id="startDate"><br>
+          <!-- <a>&nbsp;&nbsp;&nbsp;&nbsp;</a> -->
+          <label for="endDate">End Date : </label><br>
+          <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate"
+            id="endDate"><br>
+            <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
+
+            <br><br>
+            <p>Change number of companies allowable for students to select </p>
+          <label for="company">No of companies : </label><br>
+          <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount"
+            id="amount"><br>
+          <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
+          <p>No of companies : </p>
+           {{num}} 
+        </div>
+      </div>
+    </div><br>
+    <div class="w3-col m12" class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
+          <b> <h3>Change visibility of CV for Companies</h3> </b><hr>
           <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
           <mat-radio-group>
-            <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable
+            <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton">
+              Enable
             </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false">
+            <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')"
+              [checked]="selectedbutton==false">
               Disable </mat-radio-button>
-          </mat-radio-group>
-          <br>
-      
+          </mat-radio-group><br>
         </div>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="1" rowspan="3">
-        
-      </mat-grid-tile>
-      <mat-grid-tile colspan="1" rowspan="3">
-        
-        </mat-grid-tile>
-</mat-grid-list> -->
+      </div>
+    </div><br>
+    <div class="w3-col m12"class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
+          <b><h3>Reset admin password </h3></b><hr>
+          <label for="password">New password</label><br>
+          <input type="password" placeholder="Enter password" name="password" required [(ngModel)]="password"
+            id="password"><br>
 
+          <label for="password1">Confirm New password</label><br>
+          <input type="password" placeholder="Reenter password" name="password1" required [(ngModel)]="password1"
+            id="password1"><br>
 
-<!-- <div class="main">
+          <button type="button" id="add" (click)="changePassword(password,password1)"
+            (click)="password='';password1='';">Change</button>
 
-  <div class="container">
-    <h2>Change number of companies which student can choose </h2><br>
-    <label for="company"><b>No of companies : </b></label>
-    <input type="number" placeholder="Enter No of companies" name="amount" required [(ngModel)]="amount" id="amount"><br>
-
-    <button type="button" id="add" (click)="changeCompany(amount)">Change</button>
-
-
-    <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
-      <div class="w3-quarter">
-       
+        </div> 
+      </div>
+    </div><br>
+    <div class="w3-col m12" class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
           
-         
-          <h4>No of companies</h4> <h3> {{num}} </h3>
-       
+          <b><h3>Reset student password</h3></b><hr>
+            <label for="stuRegNo"> Student Registration Number</label><br>
+            <input type="text" placeholder="Enter student Reg. No." name="stu" required [(ngModel)]="stu" id="stu"><br>
+            
+            <label for="passwords"> New password </label><br>
+            <input type="password" placeholder="Enter password" name="passwords" required [(ngModel)]="passwords"
+              id="passwords"><br>
+
+            <button type="button" id="add" (click)="changePasswordStudent(stu,passwords)"
+              (click)="stu='';passwords='';">Change</button><br>
+
+        </div>
+      </div>
+    </div><br>
+    <div class="w3-col m12" class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
+          <b><h3>Reset company password</h3></b><hr>
+          <label for="CompUName"> Company Username </label><br>
+          <input type="text" placeholder="Enter Username" name="cuname" required [(ngModel)]="cuname" id="cuname"><br>
+          
+          <label for="passwords"> New password </label><br>
+          <input type="password" placeholder="Enter password" name="passwordc" required [(ngModel)]="passwordc"
+            id="passwordc"><br>
+
+          <button type="button" id="add" (click)="changePasswordCompany(cuname,passwordc)"
+            (click)="cuname='';passwordc='';">Change</button>
+
+        </div>
+      </div>
+    </div><br>
+    <div class="w3-col m12" class="middle">
+      <div class=" w3-round w3-white">
+        <div class="w3-container w3-padding">
+            
+          <b><h3>Reset messages</h3></b><hr>
+          <p>Once you delete all the messages, there is no going back. Please be certain. </p>
+          <button id="add" type="button" (click)="resetAllMessages()">Reset</button>
+          <br>
+          <label for="Caution: All messages will be deleted"><b> Caution: All messages will be deleted </b></label>
+          <br>
+        </div>
+      </div>
+      <br>
     </div>
   </div>
 </div>
 
-<div class="container">
-    <h2>Insert new Batch Details </h2><br>
 
-    <label for="batch"><b>Batch : </b></label>
-    <input type="number" placeholder="Enter Batch" name="batch" required [(ngModel)]="batch" id="batch"><br>
-
-    <label for="startDate"><b>Start Date : </b></label>
-    <input type="date" placeholder="Enter start date" name="startDate" required [(ngModel)]="startDate" id="startDate"><br>
-
-    <label for="endDate"><b>End Date : </b></label>
-    <input type="date" placeholder="Enter end date" name="endDate" required [(ngModel)]="endDate" id="endDate"><br>
-
-    <button type="button" id="add" (click)="insertBatch(batch, startDate, endDate)">Insert</button>
-
-    <div class="w3-row-padding w3-margin-bottom" style="margin-left:300px;margin-top:43px;">
-      <div class="w3-quarter">
-        
-          <div class="w3-right">
-            <h3> {{ batches[0].batch }} </h3><h4>Last Batch</h4>
-          </div>
-         
-      </div>
-    </div>
-
-  </div>
-  
-    <div class="container">
-      <h2> Change enable to edit details in Student/ disable to view CV to Company </h2><br>
-      <label for="enability"><b>Enability : &nbsp;&nbsp;</b></label>
-      <mat-radio-group>
-          <mat-radio-button name="enability" value="en" (change)="onUserChange('en')" [checked]="selectedbutton"> Enable </mat-radio-button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <mat-radio-button name="enability" value="dis" (change)="onUserChange('dis')" [checked]="selectedbutton==false"> Disable </mat-radio-button>
-        </mat-radio-group>
-        <br>
-     
-  
-    </div>
-  
-    
-
-
-  <div class="container">
-    <h2>Change Admin password </h2><br>
-    <label for="password"><b>New password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : </b></label>
-    <input type="password" placeholder="Enter password" name="password" required [(ngModel)]="password" id="password"><br>
-
-    <label for="password1"><b>Confirm New password : </b></label>
-    <input type="password" placeholder="Reenter password" name="password1" required [(ngModel)]="password1" id="password1"><br>
-
-    <button type="button" id="add" (click)="changePassword(password,password1)" (click)="password='';password1='';" >Change</button>
-
-  </div>
-
-  
-
-  <div class="container">
-    <h2>Change Student password </h2><br>
-    <label for="stuRegNo"><b> Student Reg. No.  : </b></label>
-    <input type="text" placeholder="Enter student Reg. No." name="stu" required [(ngModel)]="stu" id="stu"><br>
-
-    <label for="passwords"><b> New password : </b></label>
-    <input type="password" placeholder="Enter password" name="passwords" required [(ngModel)]="passwords" id="passwords"><br>
-
-    <button type="button" id="add" (click)="changePasswordStudent(stu,passwords)" (click)="stu='';passwords='';" >Change</button>
-  
-
-  </div>
-
-  <div class="container">
-    <h2>Change Company password </h2><br>
-    <label for="CompUName"><b> Comapy Username  : </b></label>
-    <input type="text" placeholder="Enter Username" name="cuname" required [(ngModel)]="cuname" id="cuname"><br>
-
-    <label for="passwords"><b> New password : </b></label>
-    <input type="password" placeholder="Enter password" name="passwordc" required [(ngModel)]="passwordc" id="passwordc"><br>
-
-    <button type="button" id="add" (click)="changePasswordCompany(cuname,passwordc)" (click)="cuname='';passwordc='';" >Change</button>
-    
-
-  </div>
-
-  <lib-ngx-notification></lib-ngx-notification>
- -->
- 
-
- <!--Page content-->
-<div class="w3-main"  >
-<mat-grid-list cols="6" rowHeight="70px" >
-<!------------------------->
-  <mat-grid-tile colspan="1" rowspan="4">
+<!--Page content-->
+<div class="w3-main">
+  <mat-grid-list cols="6" rowHeight="70px">
+    <!------------------------->
+    <!-- <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile>
   <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile>
@@ -230,12 +165,12 @@
       <h4>No of companies</h4>
       <h3> {{num}} </h3>
     </div>
-  </mat-grid-tile>
+  </mat-grid-tile> -->
 
-  <!------------------------->
+    <!------------------------->
 
 
-  <mat-grid-tile colspan="2" rowspan="4">
+    <!-- <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -262,13 +197,13 @@
         <h3> {{ batches[0].batch }} </h3>
       </div>
     </div>
-  </mat-grid-tile>
-<!------------------------->
-  <!-- <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile> -->
+    <!------------------------->
+    <!-- <mat-grid-tile colspan="1" rowspan="4">
   </mat-grid-tile> -->
 
 
-  <mat-grid-tile colspan="2" rowspan="2">
+    <!-- <mat-grid-tile colspan="2" rowspan="2">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="2">
@@ -285,13 +220,13 @@
   </mat-grid-tile>
 
   <mat-grid-tile colspan="1" rowspan="2">
-  </mat-grid-tile>
-<!------------------------->
-  <!-- <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile> -->
+    <!------------------------->
+    <!-- <mat-grid-tile colspan="1" rowspan="4">
     </mat-grid-tile>      
   -->
 
-  <mat-grid-tile colspan="2" rowspan="4">
+    <!-- <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -309,12 +244,12 @@
   </mat-grid-tile>
 
   <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
-<!------------------------->
-  <!-- <mat-grid-tile colspan="1" rowspan="4">
+  </mat-grid-tile> -->
+    <!------------------------->
+    <!-- <mat-grid-tile colspan="1" rowspan="4">
     </mat-grid-tile> -->
 
-  <mat-grid-tile colspan="2" rowspan="4">
+    <!-- <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -331,10 +266,10 @@
   </mat-grid-tile>
 
   <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
-<!------------------------->
-  
-  <mat-grid-tile colspan="2" rowspan="4">
+  </mat-grid-tile> -->
+    <!------------------------->
+
+    <!-- <mat-grid-tile colspan="2" rowspan="4">
   </mat-grid-tile>
 
   <mat-grid-tile colspan="3" rowspan="4">
@@ -352,9 +287,9 @@
   </mat-grid-tile>
 
   <mat-grid-tile colspan="1" rowspan="4">
-  </mat-grid-tile>
-<!------------------------->
-  <mat-grid-tile colspan="2" rowspan="4">
+  </mat-grid-tile> -->
+    <!------------------------->
+    <!-- <mat-grid-tile colspan="2" rowspan="4">
     </mat-grid-tile>
   
   <mat-grid-tile colspan="3" rowspan="4">
@@ -368,8 +303,8 @@
   
     </mat-grid-tile>
   <mat-grid-tile colspan="1" rowspan="4">
-          </mat-grid-tile>
-  <lib-ngx-notification></lib-ngx-notification>
+          </mat-grid-tile> -->
+    <lib-ngx-notification></lib-ngx-notification>
 
-</mat-grid-list>
+  </mat-grid-list>
 </div>

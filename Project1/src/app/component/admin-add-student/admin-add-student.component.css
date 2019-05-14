@@ -3,26 +3,29 @@ form {
     
     width: 98%;
     background-color: rgb(255, 255, 255);
-    padding: 10px 20px; 
-    text-align: center;
+    /* padding: 10px 20px;  */
+    /* text-align: center; */
 }
-.container {
-    border: 1px solid rgb(68, 0, 255);
-    border-radius: 5px;
+/* .container {
+    
     padding: 2vw ;
     margin-left: 10px;
-}
+} */
 
 /* Full-width inputs */
 input[type=text], input[type=password], input[type=number] {
     width: 60%;
-    padding: 12px 20px;
-    margin: 15px 0;
-    display: inline-block;
+    padding: 10px 15px;
+
+    /* margin: 15px 0; */
+    /* display: inline-block; */
     border: 1px solid #ccc;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+
 }
+
 
 /* Create two equal columns that floats next to each other */
 /* .column1 {    
@@ -37,9 +40,9 @@ input[type=text], input[type=password], input[type=number] {
      
 } */
 
-label{
+/* label{
     padding: 24px 10px;
-}
+} */
 
 /* Clear floats after the columns */
 .row:after {

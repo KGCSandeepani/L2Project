@@ -6,16 +6,22 @@
 .container {
     /* padding: 1vw; */
     border: 1px solid rgb(17, 17, 17);
-    border-radius: 5px;
+    border-radius: 3px;
     /* margin-top: 2vw; */
     text-align: left;
 }
-
-
+.middle{
+    margin-bottom: 10px;
+    /* margin-right: 100px; */
+}
+.w3-row-padding{
+    margin-right: 30%;
+}
 input[type=text], input[type=password] {
-    width: 60%;
-    padding: 5px 10px;
-    margin: 2px 0;
+    width: 80%;
+    padding: 10px 15px;
+    /* margin: 5px 0; */
+    margin-bottom: 15px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -23,28 +29,30 @@ input[type=text], input[type=password] {
 }
 
 input[type=number], input[type=date] {
-    width: 30%;
-    padding: 5px 10px;
-    margin: 2px 0;
+    width: 80%;
+    padding: 10px 15px;
+    /* margin: 5px 0; */
+    margin-bottom: 15px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 8px;
 }
 
-label{
+/* label{
     padding: 24px 10px;
-}
+} */
 
 #add, #addAll {
     background-color: rgb(52, 51, 70);
     color: white;
     padding: 10px 20px;
-    margin: 15px 0;
+    margin: 5px 0;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
     width: 20%;
+    min-width: 100px;
     
 }
 

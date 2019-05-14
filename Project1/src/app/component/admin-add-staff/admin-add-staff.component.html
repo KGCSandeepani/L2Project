@@ -1,4 +1,51 @@
-<form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+<div class="form">
+  <form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
+      <br>
+    <div class="w3-col m12" class="middle">
+      <div class="  w3-round w3-white">
+        <div class="w3-container w3-padding">
+
+          <!-- <div class="container"> -->
+          <!-- <div class="row"> -->
+          <!-- <div class="column1">  -->
+              <br>
+            
+          <label for="name" class=" left">Name with initials : </label><br>
+          <input type="text" placeholder="Enter Name" name="uname" required ngModel><br>
+          <label for="uname">Username </label><br>
+          <input type="text" placeholder="Enter Username" name="name" required ngModel><br>
+
+          <label for="psw">Password </label><br>
+          <input type="password" placeholder="Enter Password" name="psw" required ngModel><br>
+
+          <label for="email">Email</label><br>
+          <input type="text" placeholder="Enter Email" name="email" required ngModel><br>
+
+          <label for="contactno">Contact No </label><br>
+          <input type="number" placeholder="Enter Contact No" name="contactno" required ngModel><br>
+
+          <!-- </div> -->
+          <!-- <div class="column2"> -->
+
+          <!-- </div> -->
+          <!-- </div> -->
+
+
+
+          <button id="add" type="submit">Add</button>
+          <button id="clear" type="button">Clear</button><br>
+
+          <!-- </div> -->
+          <lib-ngx-notification></lib-ngx-notification>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+<!-- <form (ngSubmit)=" onSubmit(formone)" #formone="ngForm">
   
 
     <div class="container">
@@ -26,4 +73,4 @@
     
     </div>
     <lib-ngx-notification></lib-ngx-notification>
-    </form>
+    </form> -->
