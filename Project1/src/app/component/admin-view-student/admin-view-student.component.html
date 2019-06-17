@@ -28,65 +28,65 @@
 <!--Page content-->
 
 <!-- <div class="w3-main" style="  min-height: 500px"> -->
-  <!-- <div class="col-md-3">
+<!-- <div class="col-md-3">
     <p>dsd</p>
   </div> -->
-  <div class="w3-col m12" class="middle">
-    <div class=" w3-round w3-white">
-      <div class="w3-container w3-padding">
 
-        <div class="col-md-9" style="float:right;">
-          <div class="card">
-            <div class="card-header card-header-primary">
-              <h4 class="card-title ">Student Details</h4>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table">
-                  <thead class=" text-primary">
+<div class=" w3-round w3-white">
+  <div class="w3-container w3-padding">
 
-                    <th> Student ID </th>
-                    <th> Student Name </th>
-                    <th> Batch </th>
-                    <th> Selected or Not </th>
-                    <th> Student confirmed company</th>
-                    <th> Selected Company </th>
+    <div class="col-md-9" >
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title ">Student Details</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
 
-                    <th></th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let student of students">
-                      <td><a routerLink="../adminViewFullStudent" routerLinkActive="active"
-                          (click)="getData(student.name)" (click)="getDataCom(student.name)">{{student.name}}</a></td>
-                      <td><a>{{student.username}}</a></td>
-                      <td><a>{{student.batch}}</a></td>
-                      <td *ngIf="student.availability; else elseBlock"> Not Selected </td>
-                      <div *ngIf="student.availability; else elseBlock2">
-                        <div *ngFor="let com of comInternship">
-                          <td *ngIf="student.name==com.name && com.companyConfirmation!=true; "> {{com.organization}}
-                          </td>
-                        </div>
-                      </div>
-                      <div *ngIf="!student.availability; else elseBlock2">
-                        <div *ngFor="let com of comInternship">
-                          <td *ngIf="student.name==com.name"> {{com.organization}} </td>
-                        </div>
-                      </div>
-                      <td>
-                        <button mat-button (click)="openConfirmationDialog(student.name)">
-                          <mat-icon color="warn">delete</mat-icon>
-                        </button>
+                <th> Student ID </th>
+                <th> Student Name </th>
+                <th> Batch </th>
+                <th> Selected or Not </th>
+                <th> Student confirmed company</th>
+                <th> Selected Company </th>
+
+                <th></th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let student of students">
+                  <td><a routerLink="../adminViewFullStudent" routerLinkActive="active" (click)="getData(student.name)"
+                      (click)="getDataCom(student.name)">{{student.name}}</a></td>
+                  <td><a>{{student.username}}</a></td>
+                  <td><a>{{student.batch}}</a></td>
+                  <td *ngIf="student.availability; else elseBlock"> Not Selected </td>
+                  <div *ngIf="student.availability; else elseBlock2">
+                    <div *ngFor="let com of comInternship">
+                      <td *ngIf="student.name==com.name && com.companyConfirmation!=true; "> {{com.organization}}
                       </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+                    </div>
+                  </div>
+                  <div *ngIf="!student.availability; else elseBlock2">
+                    <div *ngFor="let com of comInternship">
+                      <td *ngIf="student.name==com.name"> {{com.organization}} </td>
+                    </div>
+                  </div>
+                  <td>
+                    <button mat-button (click)="openConfirmationDialog(student.name)">
+                      <mat-icon color="warn">delete</mat-icon>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
 
 <!-- </div> -->
 
