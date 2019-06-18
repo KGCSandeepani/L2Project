@@ -1,36 +1,31 @@
-<p></p>
+<div class="container">
+  <mat-grid-list cols="6" rowHeight="100px">
+    <mat-grid-tile class="forspace" colspan="6" rowspan="1">
+    </mat-grid-tile>
+    <!-- <mat-grid-tile class="title" colspan="1" rowspan="4">
+    </mat-grid-tile> -->
 
-
-
-<mat-grid-list cols="6" rowHeight="100px">
-    
-      <mat-grid-tile class="title" colspan="1" rowspan="4">
-      </mat-grid-tile>
-        
-      <mat-grid-tile class="chart" colspan="4" rowspan="4">
-          <!-- <div class="card shadow">
+    <mat-grid-tile class="chart" colspan="4" rowspan="4">
+      <!-- <div class="card shadow">
               <div class="card-body chart-wrapper">
                 <div class="chart-wrapper-inner" > -->
-                    <fusioncharts
-                      width="80%" 
-                      height="400"
-                      type="column3d"
-                      [dataSource]=datasource
-                      (initialized)="initialized($event)">
-                    </fusioncharts> 
-                  <!-- <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
+      <fusioncharts width="80%" height="400" type="column3d" [dataSource]=datasource
+        (initialized)="initialized($event)">
+      </fusioncharts>
+      <!-- <p style="padding:10px; background: #efefef" [innerHTML]="initMessage || message"></p>
                 </div>
               </div>
             </div> -->
-      </mat-grid-tile>
-        
-      <mat-grid-tile class="title" colspan="1" rowspan="4">
-          <div class="w3-quarter">              
-              <div class="w3-right">
-               <h4>Last Batch</h4>
-               <h3> &nbsp;&nbsp;&nbsp;&nbsp;{{ max-1 }} </h3>
-              </div>              
-            </div>
-          <!-- <h5>current batch in internship<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{max}}</h5> -->
-      </mat-grid-tile>
-</mat-grid-list>    
+    </mat-grid-tile>
+
+    <mat-grid-tile class="title" colspan="1" rowspan="4">
+      <div class="w3-quarter">
+        <div class="w3-right">
+          <h6>Last Batch</h6>
+          <h5> &nbsp;&nbsp;&nbsp;&nbsp;{{ max-1 }} </h5>
+        </div>
+      </div>
+      <!-- <h5>current batch in internship<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{max}}</h5> -->
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
