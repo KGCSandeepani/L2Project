@@ -64,7 +64,7 @@
   .topnav .icon {
     display: none;
   }
-  @media screen and (max-width: 800px) {
+  /* @media screen and (max-width: 800px) {
     .topnav a:not(:first-child) {display: none;}
     .topnav a.icon {
       float: right;
@@ -84,8 +84,17 @@
       display: block;
       text-align: left;
     }
+  } */
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
   }
-
   .badge {
     position: fixed;
     top:0%;

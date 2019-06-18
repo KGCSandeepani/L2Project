@@ -5,119 +5,95 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      font-family: "Raleway", sans-serif
-    }
-  </style>
+
   <mat-grid-list cols="12" rowHeight="70px">
 
     <!-- <mat-grid-tile colspan="12" rowspan="1"> -->
-      <div class="topnav w3-bar w3-black w3-card" id="myTopnav">
+    <div class="topnav w3-bar w3-black w3-card" id="myTopnav">
 
-        <a>IMS@FIT</a>
-        <!-- <a routerLink="./home" routerLinkActive="active">Home</a> -->
-        <!-- <span class="badge" *ngIf="count > 0">{{count}}</span> -->
-        <a routerLink="./home" routerLinkActive="active" (click)="clearCount()"> HOME</a>
+      <a>IMS@FIT</a>
+      <!-- <a routerLink="./home" routerLinkActive="active">Home</a> -->
+      <!-- <span class="badge" *ngIf="count > 0">{{count}}</span> -->
+      <a routerLink="./home" routerLinkActive="active" (click)="clearCount()"> HOME</a>
 
-        <a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()"> REQUESTED LIST</a>
-        <!-- <a routerLink="./confirmedStudentlist" routerLinkActive="active" (click)="clearCount()"> 
-          <span
-            class="bagdeCount" *ngIf="bagdeCount > 0">{{bagdeCount}}</span>CONFIRMED LIST</a>
-        <a routerLink="./selectedStudentDetail" routerLinkActive="active">SELECTED LIST</a>
-        <a routerLink="./feedback" routerLinkActive="active">FEEDBACK</a>
-
-        <a routerLink="./companyAnalysis" routerLinkActive="active">ANALYSIS</a>
-        <a routerLink="./companySetting" routerLinkActive="active">SETTING</a> -->
-
-        <div class="topnav-right">
-          <span style="color: white;">
-            <mat-icon color="white">account_circle</mat-icon> {{ loger }}
-          </span>
-
-          <button mat-raised-button style="background-color:white" (click)="logout()">
-            <mat-icon color="black">settings_power</mat-icon> Logout
-          </button>
+      <a routerLink="./studentlist" routerLinkActive="active" (click)="clearCount()"> REQUESTED LIST</a>
 
 
-        </div>
+      <div class="topnav-right">
+        <span style="color: white;">
+          <mat-icon color="white">account_circle</mat-icon> {{ loger }}
+        </span>
 
-        <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <button mat-raised-button style="background-color:white" (click)="logout()">
+          <mat-icon color="black">settings_power</mat-icon> Logout
+        </button>
+
+
+      </div>
+
+      <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
               <i class="fa fa-bars"></i>
             </a> -->
-      </div>
+    </div>
     <!-- </mat-grid-tile> -->
-    
+
     <!-- <mat-grid-tile colspan="2" rowspan="1" style="background-color: darkmagenta"> -->
-        
-        <nav class="w3-sidebar w3-collapse w3-animate-left " style="margin-top:50px;z-index:3;width:300px; background-color: #F8F8F8;"
-        id="mySidebar"><br>
-        <div class="w3-container w3-row ">
-          <div class="w3-col s4">
-            <img src="https://ptetutorials.com/images/user-profile.png" class="w3-circle w3-margin-right"
-              style="width:50px">
-            <!-- <img mat-card-image src="src/assets/favicon3.jpg" alt="FIT" align="middle" >  -->
-          </div>
-          <div class="w3-col s8 w3-bar">
-            <span>Welcome, <strong>{{ loger }}</strong></span><br>
-            <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button"><i
-                class="fa fa-envelope"></i></a>
-            <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button"><i
-                class="fa fa-user"></i></a>
-            <a routerLink="./adminSetting" routerLinkActive="active" class="w3-bar-item w3-button"><i
-                class="fa fa-cog"></i></a>
-          </div>
+
+    <nav class="w3-sidebar w3-collapse w3-animate-left "
+      style="margin-top:50px;z-index:3;width:200px; background-color: #F8F8F8;" id="mySidebar"><br>
+      <div class="w3-container w3-row ">
+        <div class="w3-col s4">
+          <img src="https://ptetutorials.com/images/user-profile.png" class="w3-circle w3-margin-right"
+            style="width:50px">
+          <!-- <img mat-card-image src="src/assets/favicon3.jpg" alt="FIT" align="middle" >  -->
         </div>
-        <hr>
-        <div class="w3-container ">
-          <h5>Dashboard</h5>
+        <div class="w3-col s8 w3-bar">
+          <span>Welcome, <strong>{{ loger }}</strong></span><br>
+          <a routerLink="./chat-room" routerLinkActive="active" class="w3-bar-item w3-button"><i
+              class="fa fa-envelope"></i></a>
+          <a routerLink="./adminAddUser" routerLinkActive="active" class="w3-bar-item w3-button"><i
+              class="fa fa-user"></i></a>
+          <a routerLink="./adminSetting" routerLinkActive="active" class="w3-bar-item w3-button"><i
+              class="fa fa-cog"></i></a>
         </div>
-        <div class="w3-bar-block ">
-          <a class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
-            onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-          <a routerLink="./home" routerLinkActive="active" class="w3-bar-item w3-button w3-padding "><i
-              class="fa fa-bank fa-fw"></i>  Overiew </a>
-          <a routerLink="./studentlist" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
-              class="fa fa-cog fa-fw"></i> Request list </a>
-          <a routerLink="./confirmedStudentlist" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
-              class="fa fa-users fa-fw"></i>  Confirmed List</a>
-          <a routerLink="./selectedStudentDetail" routerLinkActive="active"
-            class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Selected student List </a>
+      </div>
+      <hr>
+      <div class="w3-container ">
+        <h5>Dashboard</h5>
+      </div>
+      <div class="w3-bar-block ">
+        <a class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()"
+          title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+        <a routerLink="./home" routerLinkActive="active" class="w3-bar-item w3-button w3-padding "><i
+            class="fa fa-bank fa-fw"></i>  Overiew </a>
+        <a routerLink="./studentlist" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-cog fa-fw"></i> Request list </a>
+        <a routerLink="./confirmedStudentlist" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-users fa-fw"></i>  Confirmed List</a>
+        <a routerLink="./selectedStudentDetail" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-eye fa-fw"></i>  Selected student List </a>
 
-          <a routerLink="./companyAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
-              class="fa fa-bell fa-fw"></i>  Analysis </a>
-          <a routerLink="./companySetting" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
-              class="fa fa-cog fa-fw"></i>  Settings </a>
-          <a routerLink="./feedback" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
-              class="fa fa-cog fa-fw"></i> Feedback </a>
+        <a routerLink="./companyAnalysis" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-bell fa-fw"></i>  Analysis </a>
+        <a routerLink="./companySetting" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-cog fa-fw"></i>  Settings </a>
+        <a routerLink="./feedback" routerLinkActive="active" class="w3-bar-item w3-button w3-padding"><i
+            class="fa fa-cog fa-fw"></i> Feedback </a>
 
 
-
-          <!--<a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Recently selected students</a>
-           <a  class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Recent feedback</a>
-            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-           <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-           <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-           <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br> -->
-        </div>
-      </nav>
-       <!-- Overlay effect when opening sidebar on small screens -->
-       <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
-       title="close side menu" id="myOverlay"></div>
+      </div>
+    </nav>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+      title="close side menu" id="myOverlay"></div>
     <!-- </mat-grid-tile> -->
     <!-- <mat-grid-tile colspan="10" rowspan="10" >
        
       </mat-grid-tile> -->
-  
-   
-    
-    
+
+
+
+
   </mat-grid-list>
 
   <router-outlet></router-outlet>
