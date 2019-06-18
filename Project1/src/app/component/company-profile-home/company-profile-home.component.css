@@ -12,6 +12,16 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
     border-radius: 8px;
 }
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
 
 label{
     padding: 24px 10px;

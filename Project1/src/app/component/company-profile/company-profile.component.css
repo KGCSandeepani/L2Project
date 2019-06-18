@@ -11,6 +11,10 @@
   .topnav-right {
     float: right;
   }
+  .container{
+    margin-left: 250px;
+    
+  }
 
   /*li {
     float: left;
