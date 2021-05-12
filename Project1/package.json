@@ -46,7 +46,7 @@
     "ng2-charts": "^1.6.0",
     "ngx-notification": "^1.0.5",
     "node-mailer": "^0.1.1",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26",
