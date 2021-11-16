@@ -6,7 +6,7 @@
   "author": "Christoph Gysin <christoph.gysin@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.359.0",
+    "aws-sdk": "^2.814.0",
     "dynamodb": "^1.1.2",
     "serverless-dynamodb-local": "^0.2.33",
     "uuid": "^2.0.3"
